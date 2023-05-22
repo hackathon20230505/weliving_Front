@@ -1,7 +1,14 @@
-import "./App.css";
+import { HashRouter as Router } from "react-router-dom";
+import AppRouter from "./AppRouter";
 
 function App() {
-  return <>well-dying 프론트엔드</>;
+  return (
+    <div className="App">
+      <Router>
+        <AppRouter />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
