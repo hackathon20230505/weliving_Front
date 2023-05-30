@@ -17,6 +17,9 @@ const Intro: FunctionComponent<IntroProps> = () => {
         <SignUpButton>가입하기</SignUpButton>
       </LogInSignUpContainer>
     </IntroContainer>
+    <IntroWrapper>
+      <Header />
+    </IntroWrapper>
   );
 };
 
