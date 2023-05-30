@@ -21,6 +21,11 @@ a {
   color: initial;
 }
 
+input {
+  background-color: inherit;
+  border: none;  
+}
+
 #root {
   /* style token */
   --main-color: #db0fdb;
