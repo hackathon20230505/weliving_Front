@@ -1,29 +1,37 @@
 import { FunctionComponent } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Header from "../components/Intro/Header";
 type IntroProps = {};
 
 const Intro: FunctionComponent<IntroProps> = () => {
+  const navigate = useNavigate();
+  const onClickLogInButtonHandler = () => {
+    navigate("/logIn");
+  };
   return (
-    <IntroContainer>
-      <IntroContentContainer>
-        <IntroMainContent>
-          이곳은 <br />
-          이승과 저승의 경계입니다.
-        </IntroMainContent>
-        <IntroSubContent>아래의 방명록을 작성해주세요.</IntroSubContent>
-      </IntroContentContainer>
-      <LogInSignUpContainer>
-        <LogInButton>로그인</LogInButton>
-        <SignUpButton>가입하기</SignUpButton>
-      </LogInSignUpContainer>
-    </IntroContainer>
     <IntroWrapper>
       <Header />
+      <IntroContainer>
+        <IntroContentContainer>
+          <IntroMainContent>
+            이곳은 <br />
+            이승과 저승의 경계입니다.
+          </IntroMainContent>
+          <IntroSubContent>아래의 방명록을 작성해주세요.</IntroSubContent>
+        </IntroContentContainer>
+        <LogInSignUpContainer>
+          <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
+          <SignUpButton>가입하기</SignUpButton>
+        </LogInSignUpContainer>
+      </IntroContainer>
     </IntroWrapper>
   );
 };
 
 export default Intro;
+
+const IntroWrapper = styled.div``;
 
 const IntroContainer = styled.div`
   width: 100%;
