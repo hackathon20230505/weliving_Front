@@ -22,6 +22,13 @@ const Intro: FunctionComponent<IntroProps> = () => {
         </IntroContentContainer>
         <LogInSignUpContainer>
           <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
+          <KakaoLogInButton>
+            <KaKaoIconImg
+              src="https://welldie.com/img/kakao-icon.svg"
+              alt="카카오 아이콘"
+            />
+            카카오로 로그인
+          </KakaoLogInButton>
           <SignUpButton>가입하기</SignUpButton>
         </LogInSignUpContainer>
       </IntroContainer>
@@ -84,6 +91,28 @@ const LogInButton = styled.button`
   border-radius: 4px;
 
   font-weight: 700;
+`;
+
+const KakaoLogInButton = styled.button`
+  width: 100%;
+  height: 56px;
+
+  margin-bottom: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #feeb00;
+  border-radius: 4px;
+
+  color: #111111;
+  font-weight: 700;
+`;
+
+const KaKaoIconImg = styled.img`
+  color: #111111;
+  margin-right: 8px;
 `;
 
 const SignUpButton = styled.button`
