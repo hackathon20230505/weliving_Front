@@ -14,7 +14,6 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const currValue = event.target.value;
-    console.log(currValue);
 
     if (currValue === null) return;
 
