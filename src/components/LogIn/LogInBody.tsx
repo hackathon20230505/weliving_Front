@@ -7,14 +7,12 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
   const [userEmail, setUserEmail] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
 
-  const [isValidUserEmail, setIsValidUserEmail] = useState<boolean>(false);
-  const [isValidUserPassword, setIsValidUserPassword] =
-    useState<boolean>(false);
+  const [isValidUserEmail, setIsValidUserEmail] = useState<boolean>(true);
+  const [isValidUserPassword, setIsValidUserPassword] = useState<boolean>(true);
 
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const currValue = event.target.value;
-    console.log(currValue);
 
     if (currValue === null) return;
 
