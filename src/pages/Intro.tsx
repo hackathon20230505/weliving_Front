@@ -46,7 +46,7 @@ const IntroContainer = styled.div`
 
   color: var(--white);
 
-  background-image: url("public/Intro-background-img.png");
+  background-image: url("https://www.welldie.com/img/Intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
