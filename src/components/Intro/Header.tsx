@@ -5,7 +5,10 @@ type HeaderProps = {};
 const Header: FunctionComponent<HeaderProps> = () => {
   return (
     <HeaderContainer>
-      <HeaderImg src="public/Well-Dying.svg" alt="well dying" />
+      <HeaderImg
+        src="https://www.welldie.com/img/well-dying.svg"
+        alt="well dying"
+      />
     </HeaderContainer>
   );
 };
