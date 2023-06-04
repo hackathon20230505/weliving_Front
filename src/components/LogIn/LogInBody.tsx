@@ -1,6 +1,8 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { onSignIn } from "../../apis/users/signin/signIn";
+import axios, { AxiosError } from "axios";
 type LogInBodyProps = {};
 
 const LogInBody: FunctionComponent<LogInBodyProps> = () => {
@@ -9,6 +11,8 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
 
   const [isValidUserEmail, setIsValidUserEmail] = useState<boolean>(true);
   const [isValidUserPassword, setIsValidUserPassword] = useState<boolean>(true);
+
+  const navigate = useNavigate();
 
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +57,25 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
     return passwordRegex.test(password);
   };
 
+  const onClickLogInButtonHandler = async () => {
+    try {
+      const loginProps = {
+        username: userEmail,
+        password: userPassword,
+      };
+
+      await onSignIn(loginProps);
+      alert("로그인되었습니다.");
+      navigate("/");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const axiosError = error as AxiosError;
+        console.log(axiosError);
+        alert("아이디/비밀번호가 유효하지 않습니다.");
+      }
+    }
+  };
+
   return (
     <LogInBodyContainer>
       <LogInInputGroupContainer>
@@ -85,7 +108,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
           </NotValidText>
         )}
       </LogInInputGroupContainer>
-      <LogInButton>로그인</LogInButton>
+      <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
       <FindPWContainer>
         <FindPWDescription>비밀번호를 잊으셨나요?</FindPWDescription>
         <Link to="">비밀번호 찾기 {">"}</Link>
