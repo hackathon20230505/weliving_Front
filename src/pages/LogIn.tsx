@@ -15,7 +15,7 @@ const LogIn: FunctionComponent<LogInProps> = () => {
 
 export default LogIn;
 
-const LogInContainer = styled.div`
+const LogInContainer = styled.main`
   width: 90%;
   margin: 0 auto;
 `;

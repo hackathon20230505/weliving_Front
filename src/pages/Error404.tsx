@@ -31,7 +31,7 @@ const Error404: FunctionComponent<Error404Props> = () => {
 
 export default Error404;
 
-const Error404Container = styled.div`
+const Error404Container = styled.main`
   width: 90%;
   margin: 0 auto;
 `;

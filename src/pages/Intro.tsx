@@ -9,6 +9,10 @@ const Intro: FunctionComponent<IntroProps> = () => {
   const onClickLogInButtonHandler = () => {
     navigate("/logIn");
   };
+
+  const onClickSignUpButtonHandler = () => {
+    navigate("/signUp");
+  };
   return (
     <IntroWrapper>
       <Header />
@@ -24,12 +28,14 @@ const Intro: FunctionComponent<IntroProps> = () => {
           <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
           <KakaoLogInButton>
             <KaKaoIconImg
-              src="https://welldie.com/img/kakao-icon.svg"
+              src="https://wliv.kr/img/kakao-icon.svg"
               alt="카카오 아이콘"
             />
             카카오로 로그인
           </KakaoLogInButton>
-          <SignUpButton>가입하기</SignUpButton>
+          <SignUpButton onClick={onClickSignUpButtonHandler}>
+            가입하기
+          </SignUpButton>
         </LogInSignUpContainer>
       </IntroContainer>
     </IntroWrapper>
@@ -38,7 +44,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
 
 export default Intro;
 
-const IntroWrapper = styled.div``;
+const IntroWrapper = styled.main``;
 
 const IntroContainer = styled.div`
   width: 100%;
@@ -46,7 +52,7 @@ const IntroContainer = styled.div`
 
   color: var(--white);
 
-  background-image: url("https://www.welldie.com/img/Intro-background-img.png");
+  background-image: url("https://wliv.kr/img/intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
