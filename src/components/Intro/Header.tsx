@@ -6,7 +6,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
   return (
     <HeaderContainer>
       <HeaderImg
-        src="https://www.welldie.com/img/well-dying.svg"
+        src="https://wliv.kr/img/well-dying-typography.svg"
         alt="well dying"
       />
     </HeaderContainer>
