@@ -44,7 +44,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
 
 export default Intro;
 
-const IntroWrapper = styled.div``;
+const IntroWrapper = styled.main``;
 
 const IntroContainer = styled.div`
   width: 100%;
