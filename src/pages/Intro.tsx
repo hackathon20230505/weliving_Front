@@ -9,6 +9,10 @@ const Intro: FunctionComponent<IntroProps> = () => {
   const onClickLogInButtonHandler = () => {
     navigate("/logIn");
   };
+
+  const onClickSignUpButtonHandler = () => {
+    navigate("/signUp");
+  };
   return (
     <IntroWrapper>
       <Header />
@@ -29,7 +33,9 @@ const Intro: FunctionComponent<IntroProps> = () => {
             />
             카카오로 로그인
           </KakaoLogInButton>
-          <SignUpButton>가입하기</SignUpButton>
+          <SignUpButton onClick={onClickSignUpButtonHandler}>
+            가입하기
+          </SignUpButton>
         </LogInSignUpContainer>
       </IntroContainer>
     </IntroWrapper>
