@@ -3,6 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { onSignIn } from "../../apis/users/signin/signIn";
 import axios, { AxiosError } from "axios";
+import {
+  isValidUserEmailFunc,
+  isValidUserPasswordFunc,
+} from "../../utils/isValid/isValidUserData";
 type LogInBodyProps = {};
 
 const LogInBody: FunctionComponent<LogInBodyProps> = () => {
@@ -42,19 +46,6 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
     } else {
       setIsValidUserPassword(false);
     }
-  };
-
-  /** user email 데이터 유효성 검사 */
-  const isValidUserEmailFunc = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  /** user password 데이터 유효성 검사 */
-  const isValidUserPasswordFunc = (password: string) => {
-    const passwordRegex =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-    return passwordRegex.test(password);
   };
 
   const onClickLogInButtonHandler = async () => {
