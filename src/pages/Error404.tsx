@@ -12,7 +12,7 @@ const Error404: FunctionComponent<Error404Props> = () => {
   return (
     <Error404Container>
       <EmptyGrayBoxContainer>
-        <EmptyGrayBox />
+        <img src="https://wliv.kr/img/error-404-img.svg" alt="404 에러" />
       </EmptyGrayBoxContainer>
       <Error404ContentContainer>
         <Error404title>404</Error404title>
@@ -33,7 +33,7 @@ export default Error404;
 
 const Error404Container = styled.main`
   width: 90%;
-  margin: 0 auto;
+  margin: 50px auto 0;
 `;
 
 const EmptyGrayBoxContainer = styled.div`
@@ -43,12 +43,6 @@ const EmptyGrayBoxContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const EmptyGrayBox = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: #d9d9d9;
 `;
 
 const Error404ContentContainer = styled.div`

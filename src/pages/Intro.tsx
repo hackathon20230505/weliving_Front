@@ -44,18 +44,18 @@ const Intro: FunctionComponent<IntroProps> = () => {
 
 export default Intro;
 
-const IntroWrapper = styled.main``;
-
-const IntroContainer = styled.div`
+const IntroWrapper = styled.main`
   width: 100%;
   height: 100vh;
-
-  color: var(--white);
 
   background-image: url("https://wliv.kr/img/intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+const IntroContainer = styled.div`
+  color: var(--white);
 `;
 
 const IntroContentContainer = styled.div`
@@ -81,7 +81,7 @@ const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
   bottom: 74px;
-  width: 90%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;

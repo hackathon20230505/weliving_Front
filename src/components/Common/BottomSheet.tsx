@@ -1,7 +1,7 @@
 import { FunctionComponent, useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 
-type ModalProps = {
+type BottomSheetProps = {
   setIsOpen: any;
   closable: boolean;
   completable: boolean;
@@ -9,20 +9,20 @@ type ModalProps = {
   children: any;
 };
 
-const Modal: FunctionComponent<ModalProps> = ({
+const BottomSheet: FunctionComponent<BottomSheetProps> = ({
   setIsOpen,
   closable,
   completable,
   visible,
   children,
 }) => {
-  const ModalRef = useRef<HTMLDivElement>(null);
+  const BottomSheetRef = useRef<HTMLDivElement>(null);
   /** moodal 밖을 클릭하면 visible false  */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        ModalRef.current &&
-        !ModalRef.current.contains(event.target as Node)
+        BottomSheetRef.current &&
+        !BottomSheetRef.current.contains(event.target as Node)
       ) {
         // 클릭된 요소가 DropDownRef의 자식 요소가 아닌 경우
         setIsOpen(false);
@@ -36,7 +36,7 @@ const Modal: FunctionComponent<ModalProps> = ({
       // document.removeEventListener를 호출하여 이벤트 핸들러를 제거
       document.addEventListener("mousedown", handleClickOutside);
     };
-  }, [ModalRef]);
+  }, [BottomSheetRef]);
 
   /** 모달 뒤의 스크롤 동작 X  */
   /**
@@ -74,9 +74,9 @@ const Modal: FunctionComponent<ModalProps> = ({
   }, []);
 
   return (
-    <ModalContainer>
-      <ModalOverlay visible={visible} />
-      <ModalWrapper
+    <BottomSheetContainer>
+      <BottomSheetOverlay visible={visible} />
+      <BottomSheetWrapper
         visible={visible}
         /**
          * 모달은 어떤 트리거를 통해 화면에 그려지기 때문에
@@ -85,7 +85,7 @@ const Modal: FunctionComponent<ModalProps> = ({
          */
         tabIndex={-1}
       >
-        <ModalInner ref={ModalRef}>
+        <BottomSheetInner ref={BottomSheetRef}>
           {closable && (
             <CloseIconButton onClick={onClickCloseIconHandler}>
               <CloseIcon src="https://wliv.kr/img/x-icon.svg" alt="닫기 버튼" />
@@ -99,27 +99,27 @@ const Modal: FunctionComponent<ModalProps> = ({
               </CompleteButton>
             </CompleteButtonContainer>
           )}
-        </ModalInner>
-      </ModalWrapper>
-    </ModalContainer>
+        </BottomSheetInner>
+      </BottomSheetWrapper>
+    </BottomSheetContainer>
   );
 };
 
-export default Modal;
+export default BottomSheet;
 
-Modal.defaultProps = {
+BottomSheet.defaultProps = {
   closable: true,
   completable: true,
   visible: false,
 };
 
-const ModalContainer = styled.div``;
+const BottomSheetContainer = styled.div``;
 
-interface IModalOverlayTypes {
+interface IBottomSheetOverlayTypes {
   visible: boolean;
 }
 
-const ModalOverlay = styled.div<IModalOverlayTypes>`
+const BottomSheetOverlay = styled.div<IBottomSheetOverlayTypes>`
   box-sizing: border-box;
   display: ${(props) => (props.visible ? "block" : "none")};
   position: absolute;
@@ -131,11 +131,11 @@ const ModalOverlay = styled.div<IModalOverlayTypes>`
   z-index: 999;
 `;
 
-interface IModalWrapperTypes {
+interface IBottomSheetWrapperTypes {
   visible: boolean;
 }
 
-const ModalWrapper = styled.div<IModalWrapperTypes>`
+const BottomSheetWrapper = styled.div<IBottomSheetWrapperTypes>`
   box-sizing: border-box;
   display: ${(props) => (props.visible ? "block" : "none")};
   position: fixed;
@@ -151,7 +151,7 @@ const ModalWrapper = styled.div<IModalWrapperTypes>`
   margin: 0 auto;
 `;
 
-const ModalInner = styled.div`
+const BottomSheetInner = styled.div`
   position: absolute;
   bottom: 0;
   width: -webkit-fill-available;

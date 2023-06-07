@@ -2,25 +2,14 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 type CheckBoxProps = {
   isChecked: boolean;
-  setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsChecked?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const CheckBox: FunctionComponent<CheckBoxProps> = ({
-  isChecked,
-  setIsChecked,
-}) => {
-  const onCheckboxClickHandler = () => {
-    setIsChecked((prev) => !prev);
-  };
-
+const CheckBox: FunctionComponent<CheckBoxProps> = ({ isChecked }) => {
   return (
     <>
       <CheckboxInput id="checkbox" type="checkbox" />
-      <CheckboxLabel
-        onClick={onCheckboxClickHandler}
-        htmlFor="checkbox"
-        isChecked={isChecked}
-      ></CheckboxLabel>
+      <CheckboxLabel htmlFor="checkbox" isChecked={isChecked}></CheckboxLabel>
     </>
   );
 };
@@ -28,7 +17,7 @@ const CheckBox: FunctionComponent<CheckBoxProps> = ({
 export default CheckBox;
 
 const CheckboxInput = styled.input`
-  visibility: hidden;
+  display: none;
 `;
 
 interface CheckboxLabel {
@@ -36,6 +25,7 @@ interface CheckboxLabel {
 }
 
 const CheckboxLabel = styled.label<CheckboxLabel>`
+  display: inline-block;
   width: 20px;
   height: 20px;
 

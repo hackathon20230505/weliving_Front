@@ -1,31 +1,41 @@
 import { FunctionComponent, useState } from "react";
 import styled, { css } from "styled-components";
+import { isValidUserBirthFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
 import { useRecoilState } from "recoil";
 import {
-  isCheckedState,
   IIsCheckedStateTypes,
-} from "./atoms/TermsOfServiceAtoms";
-import { onSignup } from "../../apis/users/signup";
-import { IUserInfoStateTypes, UserInfoState } from "./atoms/UserInfoAtoms";
-import PrivacyPolicyModalComponent from "./PrivacyPolicyModalComponent";
-import TermsOfServiceModalComponent from "./TermsOfServiceModalComponent";
-type SignUpAgreeModalContentProps = {};
+  isCheckedState,
+} from "../SignUp/atoms/TermsOfServiceAtoms";
+import TermsOfServiceModalComponent from "../SignUp/TermsOfServiceModalComponent";
+import PrivacyPolicyModalComponent from "../SignUp/PrivacyPolicyModalComponent";
+type KakaoSignUpBodyProps = {};
 
-const SignUpAgreeModalContent: FunctionComponent<
-  SignUpAgreeModalContentProps
-> = () => {
+const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
+  const [userBirth, setUserBirth] = useState<string>("");
+  const [isValidUserBirth, setIsValidUserBirth] = useState<boolean>(false);
+
+  const [, setIsModalOpen] = useState(false);
+  const [openModalType, setOpenModalType] = useState(-1);
+
+  const onChangeUserBirthHandler = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { value } = event.target;
+    setUserBirth(value);
+
+    if (isValidUserBirthFunc(value) === true) {
+      setIsValidUserBirth(true);
+    } else {
+      setIsValidUserBirth(false);
+    }
+  };
+
   /** 전체 동의 */
   const [isChecked, setIsChecked] =
     useRecoilState<IIsCheckedStateTypes>(isCheckedState);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [openModalType, setOpenModalType] = useState(-1);
-
   const { isAllChecked } = isChecked;
-
-  /** 사용자 데이터 */
-  const [userInfo] = useRecoilState<IUserInfoStateTypes>(UserInfoState);
 
   const onClickIsAllCheckedHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -100,20 +110,6 @@ const SignUpAgreeModalContent: FunctionComponent<
     });
   };
 
-  const onClickSignUpAgreeButtonHandler = () => {
-    const { userEmail, userPassword, userBirth } = userInfo;
-
-    const signupProps = {
-      email: userEmail,
-      password: userPassword,
-      birth: userBirth,
-    };
-
-    const result = onSignup(signupProps);
-
-    console.log(result);
-  };
-
   const onClickViewTexts = (type: "term" | "privacy") => {
     if (type == "term") {
       setIsModalOpen(true);
@@ -126,13 +122,22 @@ const SignUpAgreeModalContent: FunctionComponent<
     }
   };
 
-  return (
-    <>
-      <SignUpAgreeModalContentContainer isModalOpen={isModalOpen}>
-        <SignUpAgreeModalContentTitle>
-          웰리빙을 쓰려면 동의가 필요해요.
-        </SignUpAgreeModalContentTitle>
+  const onClickNextButtonHandler = () => {};
 
+  return (
+    <KakaoSignUpBodyContainer>
+      <SignUpLabelInputContainer>
+        <SignUpLabel htmlFor="userBirth">생년월일</SignUpLabel>
+        <SignUpInput
+          id="userBirth"
+          type="text"
+          placeholder="YYMMDD"
+          maxLength={6}
+          value={userBirth}
+          onChange={onChangeUserBirthHandler}
+        />
+      </SignUpLabelInputContainer>
+      <SignUpAgreeModalContentContainer>
         <SignUpAgreeCheckGroupContainer>
           <CheckBoxGroupContainer>
             <IsCheckedContainer onClick={onClickIsAllCheckedHandler}>
@@ -174,43 +179,90 @@ const SignUpAgreeModalContent: FunctionComponent<
             보기
           </SignUpAgreeViewText>
         </SignUpAgreeCheckGroupContainer>
+        <CommonModalWrapper>
+          <PrivacyPolicyModalWrapper openModalType={openModalType}>
+            <PrivacyPolicyModalComponent bottomMargin={446} />
+          </PrivacyPolicyModalWrapper>
 
-        <SignUpAgreeButton onClick={onClickSignUpAgreeButtonHandler}>
-          동의
-        </SignUpAgreeButton>
+          <TermsModalWrapper openModalType={openModalType}>
+            <TermsOfServiceModalComponent bottomMargin={446} />
+          </TermsModalWrapper>
+        </CommonModalWrapper>
       </SignUpAgreeModalContentContainer>
-      <CommonModalWrapper>
-        <PrivacyPolicyModalWrapper openModalType={openModalType}>
-          <PrivacyPolicyModalComponent bottomMargin={0} />
-        </PrivacyPolicyModalWrapper>
-
-        <TermsModalWrapper openModalType={openModalType}>
-          <TermsOfServiceModalComponent bottomMargin={0} />
-        </TermsModalWrapper>
-      </CommonModalWrapper>
-    </>
+      <NextButton
+        isValid={
+          isValidUserBirth &&
+          isChecked.isCollectPersonalInfoChecked &&
+          isChecked.isTermsAndConditionsChecked
+        }
+        disabled={
+          !(
+            isValidUserBirth &&
+            isChecked.isCollectPersonalInfoChecked &&
+            isChecked.isTermsAndConditionsChecked
+          )
+            ? true
+            : false
+        }
+        onClick={onClickNextButtonHandler}
+      >
+        로그인 하기
+      </NextButton>
+    </KakaoSignUpBodyContainer>
   );
 };
 
-export default SignUpAgreeModalContent;
+export default KakaoSignUpBody;
 
-interface ISignUpAgreeModalContentContainerProps {
-  isModalOpen: boolean;
-}
+const KakaoSignUpBodyContainer = styled.main``;
 
-const SignUpAgreeModalContentContainer = styled.div<ISignUpAgreeModalContentContainerProps>`
-  ${({ isModalOpen }) =>
-    isModalOpen
-      ? "min-height: 100vh; opacity: 0;"
-      : "min-height: 0vh; opacity: 1;"};
-  transition: min-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+const SignUpLabelInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 24px;
 `;
 
-const SignUpAgreeModalContentTitle = styled.p`
-  margin: 20px 0;
+const SignUpLabel = styled.label`
+  font-size: 14px;
+  font-weight: 700;
+`;
+
+const SignUpInput = styled.input`
+  padding: 13px 12px 14px 12px;
+
+  border-bottom: 1px solid var(--strong-purple-800);
+  border-radius: 0px;
+
+  ::placeholder {
+    color: var(--gray-purple);
+  }
+`;
+
+interface INextButtonTypes {
+  isValid: boolean;
+}
+
+const NextButton = styled.button<INextButtonTypes>`
+  width: 100%;
+  height: 56px;
+
+  background-color: ${({ isValid }) =>
+    isValid ? "var(--main-color)" : "var(--dull-pink-900)"};
+  border-radius: 4px;
 
   font-weight: 700;
-  font-size: 18px;
+  color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
+
+  position: absolute;
+  width: 90%;
+  bottom: 34px;
+`;
+
+const SignUpAgreeModalContentContainer = styled.div`
+  min-height: 0vh;
+  opacity: 1;
+  transition: min-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `;
 
 const SignUpAgreeCheckGroupContainer = styled.div`
@@ -242,18 +294,6 @@ const SignUpAgreeViewText = styled.span`
   }
 `;
 
-const SignUpAgreeButton = styled.button`
-  width: 100%;
-  height: 56px;
-
-  margin-bottom: 12px;
-
-  background-color: var(--main-color);
-  border-radius: 4px;
-
-  font-weight: 700;
-`;
-
 const HorizonDivider = styled.hr`
   color: var(--dark-pink-700);
   border: 1px solid var(--dark-pink-700);
@@ -261,19 +301,22 @@ const HorizonDivider = styled.hr`
 
 const IsCheckedContainer = styled.div``;
 
-interface IModalWrapperProps {
-  openModalType: number;
-}
-
 const modalWrapperCommon = css`
   max-height: 0vh;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out;
 `;
 
 const CommonModalWrapper = styled.div`
   background-color: white;
+  border-radius: 1rem;
+  max-height: calc(100vh - 446px);
+  overflow: hidden;
 `;
+
+interface IModalWrapperProps {
+  openModalType: number;
+}
 
 const TermsModalWrapper = styled.div<IModalWrapperProps>`
   ${modalWrapperCommon}
