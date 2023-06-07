@@ -6,6 +6,8 @@ import {
   isValidUserPasswordConfirmFunc,
   isValidUserPasswordFunc,
 } from "../../utils/isValid/isValidUserData";
+import Modal from "../Common/Modal";
+import SignUpAgreeModalContent from "./SignUpAgreeModalContent";
 type SignUpBodyProps = {};
 
 const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
@@ -22,6 +24,9 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
   const [isValidUserPasswordConfirm, setIsValidUserPasswordConfirm] =
     useState<boolean>(false);
   const [isValidUserBirth, setIsValidUserBirth] = useState<boolean>(false);
+
+  /** modal  */
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -81,6 +86,10 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
     } else {
       setIsValidUserBirth(false);
     }
+  };
+
+  const onClickNextButtonHandler = () => {
+    setIsOpen(true);
   };
 
   return (
@@ -154,9 +163,17 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
             ? true
             : false
         }
+        onClick={onClickNextButtonHandler}
       >
         다음
       </NextButton>
+      <Modal
+        setIsOpen={setIsOpen}
+        closable={true}
+        completable={false}
+        visible={isOpen}
+        children={<SignUpAgreeModalContent />}
+      />
     </SignUpBodyContainer>
   );
 };
