@@ -1,7 +1,7 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { onSignIn } from "../../apis/users/signin/signIn";
+import { onSignIn } from "../../apis/users/signIn";
 import axios, { AxiosError } from "axios";
 import {
   isValidUserEmailFunc,
@@ -74,7 +74,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         <LogInInput
           id="userEmail"
           type="text"
-          placeholder="예) pmr7348.navaer.com"
+          placeholder="예) pmr7348.naver.com"
           isValidUserEmail={isValidUserEmail}
           value={userEmail}
           onChange={onChangeUserEmailHandler}
@@ -102,7 +102,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
       <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
       <FindPWContainer>
         <FindPWDescription>비밀번호를 잊으셨나요?</FindPWDescription>
-        <Link to="">비밀번호 찾기 {">"}</Link>
+        <Link to="/findpw/1">비밀번호 찾기 {">"}</Link>
       </FindPWContainer>
     </LogInBodyContainer>
   );

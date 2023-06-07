@@ -1,4 +1,4 @@
-import { ChangeEvent, FunctionComponent, useState } from "react";
+import { ChangeEvent, FunctionComponent } from "react";
 import styled from "styled-components";
 import {
   isValidUserBirthFunc,
@@ -6,40 +6,45 @@ import {
   isValidUserPasswordConfirmFunc,
   isValidUserPasswordFunc,
 } from "../../utils/isValid/isValidUserData";
-import Modal from "../Common/Modal";
+import Modal from "../Common/BottomSheet";
 import SignUpAgreeModalContent from "./SignUpAgreeModalContent";
+import { useRecoilState } from "recoil";
+import { isOpenBottomSheetState } from "./atoms/IsOpenBottomSheet";
+import {
+  IIsValidUserInfoStateTypes,
+  IUserInfoStateTypes,
+  UserInfoState,
+  isValidUserInfoState,
+} from "./atoms/UserInfoAtoms";
 type SignUpBodyProps = {};
 
 const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
   /** 사용자 데이터 */
-  const [userEmail, setUserEmail] = useState<string>("");
-  const [userPassword, setUserPassword] = useState<string>("");
-  const [userPasswordConfirm, setUserPasswordConfirm] = useState<string>("");
-  const [userBirth, setUserBirth] = useState<string>("");
+  const [userInfo, setUserInfo] =
+    useRecoilState<IUserInfoStateTypes>(UserInfoState);
 
   /** 사용자 데이터 유효 여부 */
-  const [isValidUserEmail, setIsValidUserEmail] = useState<boolean>(false);
-  const [isValidUserPassword, setIsValidUserPassword] =
-    useState<boolean>(false);
-  const [isValidUserPasswordConfirm, setIsValidUserPasswordConfirm] =
-    useState<boolean>(false);
-  const [isValidUserBirth, setIsValidUserBirth] = useState<boolean>(false);
+  const [isValidUserInfo, setIsValidUserInfo] =
+    useRecoilState<IIsValidUserInfoStateTypes>(isValidUserInfoState);
 
   /** modal  */
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useRecoilState<boolean>(isOpenBottomSheetState);
 
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const currValue = event.target.value;
+    const { value } = event.target;
 
-    if (currValue === null) return;
+    if (value === null) return;
 
-    setUserEmail(currValue);
+    setUserInfo({
+      ...userInfo,
+      userEmail: value,
+    });
 
-    if (isValidUserEmailFunc(currValue) === true) {
-      setIsValidUserEmail(true);
+    if (isValidUserEmailFunc(value) === true) {
+      setIsValidUserInfo({ ...isValidUserInfo, isValidUserEmail: true });
     } else {
-      setIsValidUserEmail(false);
+      setIsValidUserInfo({ ...isValidUserInfo, isValidUserEmail: false });
     }
   };
 
@@ -47,14 +52,18 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
   const onChangeUserPasswordHandler = (
     event: ChangeEvent<HTMLInputElement>,
   ) => {
-    const currValue = event.target.value;
-    if (currValue === null) return;
-    setUserPassword(currValue);
+    const { value } = event.target;
+    if (value === null) return;
 
-    if (isValidUserPasswordFunc(currValue) === true) {
-      setIsValidUserPassword(true);
+    setUserInfo({
+      ...userInfo,
+      userPassword: value,
+    });
+
+    if (isValidUserPasswordFunc(value) === true) {
+      setIsValidUserInfo({ ...isValidUserInfo, isValidUserPassword: true });
     } else {
-      setIsValidUserPassword(false);
+      setIsValidUserInfo({ ...isValidUserInfo, isValidUserPassword: false });
     }
   };
 
@@ -62,29 +71,39 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
   const onChangeUserPasswordConfirmHandler = (
     event: ChangeEvent<HTMLInputElement>,
   ) => {
-    const currValue = event.target.value;
-    if (currValue === null) return;
-    setUserPasswordConfirm(currValue);
+    const { value } = event.target;
+    if (value === null) return;
+    setUserInfo({
+      ...userInfo,
+      userPasswordConfirm: value,
+    });
 
-    if (isValidUserPasswordConfirmFunc(userPassword, currValue) === true) {
-      setIsValidUserPasswordConfirm(true);
+    if (isValidUserPasswordConfirmFunc(userInfo.userPassword, value) === true) {
+      setIsValidUserInfo({
+        ...isValidUserInfo,
+        isValidUserPasswordConfirm: true,
+      });
     } else {
-      setIsValidUserPasswordConfirm(false);
+      setIsValidUserInfo({
+        ...isValidUserInfo,
+        isValidUserPasswordConfirm: false,
+      });
     }
   };
 
   /** user password input 값 설정 */
   const onChangeUserConfirmHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const currValue = event.target.value;
-    if (currValue === null) return;
-    setUserBirth(currValue);
+    const { value } = event.target;
+    if (value === null) return;
+    setUserInfo({
+      ...userInfo,
+      userBirth: value,
+    });
 
-    console.log(isValidUserBirthFunc(currValue) === true);
-
-    if (isValidUserBirthFunc(currValue) === true) {
-      setIsValidUserBirth(true);
+    if (isValidUserBirthFunc(value) === true) {
+      setIsValidUserInfo({ ...isValidUserInfo, isValidUserBirth: true });
     } else {
-      setIsValidUserBirth(false);
+      setIsValidUserInfo({ ...isValidUserInfo, isValidUserBirth: false });
     }
   };
 
@@ -102,13 +121,13 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
         <SignUpInput
           id="userEmail"
           type="text"
-          placeholder="예) pmr7348.navaer.com"
-          value={userEmail}
+          placeholder="예) pmr7348.naver.com"
+          value={userInfo.userEmail}
           onChange={onChangeUserEmailHandler}
         />
       </SignUpLabelInputContainer>
       {/* 이메일 유효할 시 비밀번호 input 렌더링 */}
-      {isValidUserEmail && (
+      {isValidUserInfo.isValidUserEmail && (
         <>
           <SignUpLabelInputContainer>
             <SignUpLabel htmlFor="userPassword">비밀번호</SignUpLabel>
@@ -116,7 +135,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
               id="userPassword"
               type="password"
               placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
-              value={userPassword}
+              value={userInfo.userPassword}
               onChange={onChangeUserPasswordHandler}
             />
           </SignUpLabelInputContainer>
@@ -124,15 +143,15 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
             <SignUpInput
               type="password"
               placeholder="비밀번호 재입력"
-              value={userPasswordConfirm}
+              value={userInfo.userPasswordConfirm}
               onChange={onChangeUserPasswordConfirmHandler}
             />
           </SignUpLabelInputContainer>
         </>
       )}
-      {isValidUserEmail &&
-        isValidUserPassword &&
-        isValidUserPasswordConfirm && (
+      {isValidUserInfo.isValidUserEmail &&
+        isValidUserInfo.isValidUserPassword &&
+        isValidUserInfo.isValidUserPasswordConfirm && (
           <SignUpLabelInputContainer>
             <SignUpLabel htmlFor="userBirth">생년월일</SignUpLabel>
             <SignUpInput
@@ -140,7 +159,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
               type="text"
               placeholder="YYMMDD"
               maxLength={6}
-              value={userBirth}
+              value={userInfo.userBirth}
               onChange={onChangeUserConfirmHandler}
             />
           </SignUpLabelInputContainer>
@@ -148,17 +167,17 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
 
       <NextButton
         isValid={
-          isValidUserEmail &&
-          isValidUserPassword &&
-          isValidUserPasswordConfirm &&
-          isValidUserBirth
+          isValidUserInfo.isValidUserEmail &&
+          isValidUserInfo.isValidUserPassword &&
+          isValidUserInfo.isValidUserPasswordConfirm &&
+          isValidUserInfo.isValidUserBirth
         }
         disabled={
           !(
-            isValidUserEmail &&
-            isValidUserPassword &&
-            isValidUserPasswordConfirm &&
-            isValidUserBirth
+            isValidUserInfo.isValidUserEmail &&
+            isValidUserInfo.isValidUserPassword &&
+            isValidUserInfo.isValidUserPasswordConfirm &&
+            isValidUserInfo.isValidUserBirth
           )
             ? true
             : false
