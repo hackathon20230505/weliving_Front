@@ -1,0 +1,46 @@
+name: Well-Dying
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+envs:
+  PORT: 22
+  USERNAME: hackathon
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code. # 레포지토리 체크아웃
+        uses: actions/checkout@master
+
+      - name: Cache node modules # node modules 캐싱
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
+      - name: Install Dependencies # 의존 파일 설치
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Checking File
+        run: ls -la
+
+      - name: Deploy File
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{env.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ env.SSH_PORT }}
+          source: "dist/*"
+          strip_components: 1
+          target: "/var/www/welldying_front/dist"
