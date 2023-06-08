@@ -34,6 +34,10 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
   const onClickSendButtonHandler = () => {
     setIsSended(true);
   };
+
+  const onClickValidButtonHandler = () => {
+    setIsActive(true);
+  };
   return (
     <CommonContentContainer xPadding="5%">
       <YourHelpTitleContainr>
@@ -67,7 +71,9 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
               maxLength={11}
               onChange={onChangeValidNumberHandler}
             />
-            <SendButton>인증번호 확인</SendButton>
+            <SendButton onClick={onClickValidButtonHandler}>
+              인증번호 확인
+            </SendButton>
           </PhoneInputContainer>
         )}
       </PhoneInputGroupContainer>

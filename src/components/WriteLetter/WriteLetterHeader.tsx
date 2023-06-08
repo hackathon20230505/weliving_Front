@@ -29,14 +29,6 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
 
 export default WriteLetterHeader;
 
-const WriteLetterHeaderContainer = styled.header`
-  height: 56px;
-  position: relative;
-
-  display: flex;
-  align-items: center;
-`;
-
 const GoBackButton = styled.button`
   position: absolute;
   left: 0px;

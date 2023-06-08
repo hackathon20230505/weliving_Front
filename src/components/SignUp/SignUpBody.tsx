@@ -1,5 +1,5 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import {
   isValidUserBirthFunc,
   isValidUserEmailFunc,
