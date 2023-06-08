@@ -2,8 +2,7 @@ name: Well-Dying
 on:
   push:
     branches:
-      - master
-      - develop
+      - main
 
 envs:
   PORT: 22
