@@ -21,7 +21,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   return (
     <HomeBodyContainer>
       <HomeLetterGroupContainer>
-        <HomeLetterTitle>유서</HomeLetterTitle>
+        <HomeLetterTitle>유서 배포 테스트</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
             <HomeLetterViewTitle>내 일지 보기</HomeLetterViewTitle>
