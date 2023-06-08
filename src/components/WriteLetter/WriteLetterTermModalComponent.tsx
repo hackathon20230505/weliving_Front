@@ -1,11 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 type WriterLetterTermComponentProps = {};
-import {
-  TPTitle,
-  TPSubTitle,
-  TPContent,
-} from "../SignUp/TermPrivacyComponents";
+import { TPTitle, TPContent } from "../SignUp/TermPrivacyComponents";
 
 const WriterLetterTermModalComponent: FunctionComponent<
   WriterLetterTermComponentProps

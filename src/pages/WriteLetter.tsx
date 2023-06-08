@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import styled from "styled-components";
 import WriteLetterHeader from "../components/WriteLetter/WriteLetterHeader";
 import WriteLetterBody from "../components/WriteLetter/WriteLetterBody";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
@@ -15,8 +14,3 @@ const WriteLetter: FunctionComponent<WriteLetterProps> = () => {
 };
 
 export default WriteLetter;
-
-const WriteLetterContainer = styled.div`
-  width: 90%;
-  margin: 0 auto;
-`;

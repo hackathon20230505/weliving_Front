@@ -11,7 +11,7 @@ const onRequest = async (
 
   // token
   console.log("token: " + axios.defaults.headers.common["Authorization"]);
-
+  console.log(token);
   logOnDev(`🚀 [API] ${method?.toUpperCase()} ${url} | Request`);
 
   return config;

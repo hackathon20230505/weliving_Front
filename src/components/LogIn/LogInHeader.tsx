@@ -23,16 +23,6 @@ const LogInHeader: FunctionComponent<LogInHeaderProps> = () => {
 
 export default LogInHeader;
 
-const LogInHeaderContainer = styled.header`
-  height: 56px;
-
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const GoBackButton = styled.button`
   position: absolute;
   left: 0px;
