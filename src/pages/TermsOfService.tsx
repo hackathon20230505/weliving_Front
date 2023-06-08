@@ -9,7 +9,7 @@ const PrivacyPolicy: FunctionComponent<PrivacyPolicyProps> = () => {
     <PrivacyPolicyContainer>
       <FullModal
         title={"이용약관"}
-        children={<TermsOfServiceModalComponent />}
+        children={<TermsOfServiceModalComponent bottomMargin={0} />}
       />
     </PrivacyPolicyContainer>
   );
