@@ -32,11 +32,6 @@ const Error404: FunctionComponent<Error404Props> = () => {
 
 export default Error404;
 
-const Error404Container = styled.main`
-  width: 100%;
-  padding: 0 5%;
-`;
-
 const EmptyGrayBoxContainer = styled.div`
   width: 100%;
   height: 300px;

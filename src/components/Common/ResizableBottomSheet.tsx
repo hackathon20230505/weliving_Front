@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface ResizableBottomSheetProps {
   children: React.ReactNode;
@@ -17,9 +17,7 @@ const ResizeableBottomSheet = ({
   manualFullSizeHeight,
   backgroundClickHandler,
   isShow,
-  setIsShow,
   isFullSize = false,
-  setIsFullSize = () => {},
 }: ResizableBottomSheetProps) => {
   const blockBubble = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();

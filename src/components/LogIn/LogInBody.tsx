@@ -8,14 +8,10 @@ import {
   isValidUserPasswordFunc,
 } from "../../utils/isValid/isValidUserData";
 import CommonContentContainer from "../Common/CommonContentContainer";
-import { accessTokenState } from "../../state/tokenState";
-import { useRecoilState } from "recoil";
-import { getRefreshToken } from "../../utils/interceptors/getRefreshToken";
 
 type LogInBodyProps = {};
 
 const LogInBody: FunctionComponent<LogInBodyProps> = () => {
-  const [tokenState, setTokenState] = useRecoilState(accessTokenState);
   const [userEmail, setUserEmail] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
 
@@ -126,10 +122,6 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
 };
 
 export default LogInBody;
-
-const LogInBodyContainer = styled.div`
-  margin-top: 40px;
-`;
 
 const LogInInputGroupContainer = styled.div`
   display: flex;
