@@ -1,21 +1,16 @@
 import { FunctionComponent } from "react";
-import styled from "styled-components";
 import ChangePWHeader from "../components/ChangePW/ChangePWHeader";
 import ChangePWBody from "../components/ChangePW/ChangePWBody";
+import PageContainer from "../components/Common/PageContainer";
 type ChangePWProps = {};
 
 const ChangePW: FunctionComponent<ChangePWProps> = () => {
   return (
-    <ChangePWContainer>
+    <PageContainer>
       <ChangePWHeader />
       <ChangePWBody />
-    </ChangePWContainer>
+    </PageContainer>
   );
 };
 
 export default ChangePW;
-
-const ChangePWContainer = styled.div`
-  width: 90%;
-  margin: 0 auto;
-`;

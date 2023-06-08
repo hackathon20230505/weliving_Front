@@ -48,7 +48,7 @@ const IntroWrapper = styled.main`
   width: 100%;
   height: 100vh;
 
-  background-image: url("https://wliv.kr/img/intro-background-img.png");
+  background-image: url("https://wliv.kr/img/Intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

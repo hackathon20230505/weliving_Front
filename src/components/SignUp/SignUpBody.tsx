@@ -1,21 +1,26 @@
-import { ChangeEvent, FunctionComponent } from "react";
-import styled from "styled-components";
+import { ChangeEvent, FunctionComponent, useState } from "react";
+import styled, { css, keyframes } from "styled-components";
 import {
   isValidUserBirthFunc,
   isValidUserEmailFunc,
   isValidUserPasswordConfirmFunc,
   isValidUserPasswordFunc,
 } from "../../utils/isValid/isValidUserData";
-import Modal from "../Common/BottomSheet";
-import SignUpAgreeModalContent from "./SignUpAgreeModalContent";
+import ResizableBottomSheet from "../Common/ResizableBottomSheet";
 import { useRecoilState } from "recoil";
-import { isOpenBottomSheetState } from "./atoms/IsOpenBottomSheet";
 import {
   IIsValidUserInfoStateTypes,
   IUserInfoStateTypes,
   UserInfoState,
   isValidUserInfoState,
 } from "./atoms/UserInfoAtoms";
+import CommonContentContainer from "../Common/CommonContentContainer";
+import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";
+import ResizableBottomSheetContent from "../Common/ResizableBottomSheetContent";
+import SignUpAgreeModalContent from "./SignUpAgreeModalContent";
+import TermsOfServiceModalComponent from "./TermsOfServiceModalComponent";
+import PrivacyPolicyModalComponent from "./PrivacyPolicyModalComponent";
+import BottomSheetTitle from "../Common/BottomSheetTitle";
 type SignUpBodyProps = {};
 
 const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
@@ -28,7 +33,31 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
     useRecoilState<IIsValidUserInfoStateTypes>(isValidUserInfoState);
 
   /** modal  */
-  const [isOpen, setIsOpen] = useRecoilState<boolean>(isOpenBottomSheetState);
+  // const [isOpen, setIsOpen] = useRecoilState<boolean>(isOpenBottomSheetState);
+
+  /* Bottom Sheet Manage */
+  const [isShow, setIsShow] = useState<boolean>(false);
+  const [isFullSize, setIsFullSize] = useState<boolean>(false);
+
+  // 0 = 기본
+  // 1 = 이용약관
+  // 2 = 개인정보처리방침
+  const [pageType, setPageType] = useState<0 | 1 | 2>(0);
+
+  const closeHandler = () => {
+    if (pageType === 0) {
+      // 기본
+      setIsShow(false);
+    } else if (pageType === 1) {
+      // 이용약관
+      setPageType(0);
+      setIsFullSize(false);
+    } else if (pageType === 2) {
+      // 개인정보처리방침
+      setPageType(0);
+      setIsFullSize(false);
+    }
+  };
 
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -108,100 +137,140 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
   };
 
   const onClickNextButtonHandler = () => {
-    setIsOpen(true);
+    setIsFullSize(false);
+    setIsShow(true);
   };
 
   return (
-    <SignUpBodyContainer>
-      <SignUpTitle>
-        회원가입에 사용할 <br /> 이메일을 입력해주세요
-      </SignUpTitle>
-      <SignUpLabelInputContainer>
-        <SignUpLabel htmlFor="userEmail">이메일</SignUpLabel>
-        <SignUpInput
-          id="userEmail"
-          type="text"
-          placeholder="예) pmr7348.naver.com"
-          value={userInfo.userEmail}
-          onChange={onChangeUserEmailHandler}
-        />
-      </SignUpLabelInputContainer>
-      {/* 이메일 유효할 시 비밀번호 input 렌더링 */}
-      {isValidUserInfo.isValidUserEmail && (
-        <>
-          <SignUpLabelInputContainer>
-            <SignUpLabel htmlFor="userPassword">비밀번호</SignUpLabel>
-            <SignUpInput
-              id="userPassword"
-              type="password"
-              placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
-              value={userInfo.userPassword}
-              onChange={onChangeUserPasswordHandler}
-            />
-          </SignUpLabelInputContainer>
-          <SignUpLabelInputContainer>
-            <SignUpInput
-              type="password"
-              placeholder="비밀번호 재입력"
-              value={userInfo.userPasswordConfirm}
-              onChange={onChangeUserPasswordConfirmHandler}
-            />
-          </SignUpLabelInputContainer>
-        </>
-      )}
-      {isValidUserInfo.isValidUserEmail &&
-        isValidUserInfo.isValidUserPassword &&
-        isValidUserInfo.isValidUserPasswordConfirm && (
-          <SignUpLabelInputContainer>
-            <SignUpLabel htmlFor="userBirth">생년월일</SignUpLabel>
-            <SignUpInput
-              id="userBirth"
-              type="text"
-              placeholder="YYMMDD"
-              maxLength={6}
-              value={userInfo.userBirth}
-              onChange={onChangeUserConfirmHandler}
-            />
-          </SignUpLabelInputContainer>
+    <>
+      <CommonContentContainer xPadding="5%">
+        <SignUpTitle>
+          회원가입에 사용할 <br /> 이메일을 입력해주세요
+        </SignUpTitle>
+        <SignUpLabelInputContainer>
+          <SignUpLabel htmlFor="userEmail">이메일</SignUpLabel>
+          <SignUpInput
+            id="userEmail"
+            type="text"
+            placeholder="예) pmr7348.naver.com"
+            value={userInfo.userEmail}
+            onChange={onChangeUserEmailHandler}
+          />
+        </SignUpLabelInputContainer>
+        {/* 이메일 유효할 시 비밀번호 input 렌더링 */}
+        {isValidUserInfo.isValidUserEmail && (
+          <>
+            <SignUpLabelInputContainer>
+              <SignUpLabel htmlFor="userPassword">비밀번호</SignUpLabel>
+              <SignUpInput
+                id="userPassword"
+                type="password"
+                placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
+                value={userInfo.userPassword}
+                onChange={onChangeUserPasswordHandler}
+              />
+            </SignUpLabelInputContainer>
+            <SignUpLabelInputContainer>
+              <SignUpInput
+                type="password"
+                placeholder="비밀번호 재입력"
+                value={userInfo.userPasswordConfirm}
+                onChange={onChangeUserPasswordConfirmHandler}
+              />
+            </SignUpLabelInputContainer>
+          </>
         )}
-
-      <NextButton
-        isValid={
-          isValidUserInfo.isValidUserEmail &&
+        {isValidUserInfo.isValidUserEmail &&
           isValidUserInfo.isValidUserPassword &&
-          isValidUserInfo.isValidUserPasswordConfirm &&
-          isValidUserInfo.isValidUserBirth
-        }
-        disabled={
-          !(
+          isValidUserInfo.isValidUserPasswordConfirm && (
+            <SignUpLabelInputContainer>
+              <SignUpLabel htmlFor="userBirth">생년월일</SignUpLabel>
+              <SignUpInput
+                id="userBirth"
+                type="text"
+                placeholder="YYMMDD"
+                maxLength={6}
+                value={userInfo.userBirth}
+                onChange={onChangeUserConfirmHandler}
+              />
+            </SignUpLabelInputContainer>
+          )}
+
+        <NextButton
+          isValid={
             isValidUserInfo.isValidUserEmail &&
             isValidUserInfo.isValidUserPassword &&
             isValidUserInfo.isValidUserPasswordConfirm &&
             isValidUserInfo.isValidUserBirth
-          )
-            ? true
-            : false
-        }
-        onClick={onClickNextButtonHandler}
-      >
-        다음
-      </NextButton>
-      <Modal
+          }
+          disabled={
+            !(
+              isValidUserInfo.isValidUserEmail &&
+              isValidUserInfo.isValidUserPassword &&
+              isValidUserInfo.isValidUserPasswordConfirm &&
+              isValidUserInfo.isValidUserBirth
+            )
+              ? true
+              : false
+          }
+          onClick={onClickNextButtonHandler}
+        >
+          다음
+        </NextButton>
+        {/* <Modal
         setIsOpen={setIsOpen}
         closable={true}
         completable={false}
         visible={isOpen}
         children={<SignUpAgreeModalContent />}
-      />
-    </SignUpBodyContainer>
+      /> */}
+      </CommonContentContainer>
+      <ResizableBottomSheet
+        isShow={isShow}
+        isFullSize={isFullSize}
+        setIsShow={setIsShow}
+        setIsFullSize={setIsFullSize}
+      >
+        <ResizableBottomSheetHeader
+          align="right"
+          closable={true}
+          closeHandler={closeHandler}
+        >
+          {pageType === 1 && <BottomSheetTitle>이용약관</BottomSheetTitle>}
+          {pageType === 2 && (
+            <BottomSheetTitle>개인정보 처리방침</BottomSheetTitle>
+          )}
+        </ResizableBottomSheetHeader>
+        <ResizableBottomSheetContent borderRadius="1rem">
+          {pageType === 0 && (
+            <SignUpAgreeModalContent
+              termsViewHandler={() => {
+                setPageType(1);
+                setIsFullSize(true);
+              }}
+              policyViewHandler={() => {
+                setPageType(2);
+                setIsFullSize(true);
+              }}
+            />
+          )}
+          {pageType === 1 && (
+            <TextWrapper pageType={pageType}>
+              <TermsOfServiceModalComponent />
+            </TextWrapper>
+          )}
+          {pageType === 2 && (
+            <TextWrapper pageType={pageType}>
+              <PrivacyPolicyModalComponent />
+            </TextWrapper>
+          )}
+        </ResizableBottomSheetContent>
+      </ResizableBottomSheet>
+    </>
   );
 };
 
 export default SignUpBody;
-
-const SignUpBodyContainer = styled.div`
-  width: 100%;
-`;
 
 const SignUpTitle = styled.h1`
   margin: 24px 0;
@@ -251,4 +320,24 @@ const NextButton = styled.button<INextButtonTypes>`
   position: absolute;
   width: 90%;
   bottom: 34px;
+`;
+
+interface TextWrapperProps {
+  pageType: 0 | 1 | 2;
+}
+
+const slideUp = keyframes`
+  from {
+    height: 0vh;
+    opacity: 0;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+`;
+
+const TextWrapper = styled.div<TextWrapperProps>`
+  background-color: white;
+  animation: ${slideUp} 0.3s forwards;
 `;

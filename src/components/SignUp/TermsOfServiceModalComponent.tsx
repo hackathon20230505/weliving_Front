@@ -1,15 +1,13 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-type TermsOfServiceModalComponentProps = {
-  bottomMargin: number;
-};
+type TermsOfServiceModalComponentProps = {};
 import { TPTitle, TPSubTitle, TPContent } from "./TermPrivacyComponents";
 
 const TermsOfServiceModalComponent: FunctionComponent<
   TermsOfServiceModalComponentProps
-> = ({ bottomMargin = 56 }) => {
+> = () => {
   return (
-    <TermsOfServiceModalComponentContainer bottomMargin={bottomMargin}>
+    <TermsOfServiceModalComponentContainer>
       <TPTitle>[제1장 총칙]</TPTitle>
       <TPSubTitle>제1조 (목적)</TPSubTitle>
       <TPContent>
@@ -639,13 +637,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
 
 export default TermsOfServiceModalComponent;
 
-interface ITermsOfServiceModalComponentProps {
-  bottomMargin: number;
-}
-
-const TermsOfServiceModalComponentContainer = styled.div<ITermsOfServiceModalComponentProps>`
+const TermsOfServiceModalComponentContainer = styled.div`
   color: black;
   padding: 20px;
-  height: calc(100vh - ${({ bottomMargin }) => bottomMargin}px);
-  overflow: auto;
 `;

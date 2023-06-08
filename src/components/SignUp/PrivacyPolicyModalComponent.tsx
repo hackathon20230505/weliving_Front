@@ -1,15 +1,13 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-type PrivacyPolicyModalComponentProps = {
-  bottomMargin: number;
-};
+type PrivacyPolicyModalComponentProps = {};
 import { TPTitle, TPSubTitle, TPContent } from "./TermPrivacyComponents";
 
 const PrivacyPolicyModalComponent: FunctionComponent<
   PrivacyPolicyModalComponentProps
-> = ({ bottomMargin = 56 }) => {
+> = () => {
   return (
-    <PrivacyPolicyModalComponentContainer bottomMargin={bottomMargin}>
+    <PrivacyPolicyModalComponentContainer>
       <TPTitle>1조 (총칙)</TPTitle>
       <TPSubTitle>가. 목적</TPSubTitle>
       <TPContent>
@@ -672,13 +670,7 @@ const PrivacyPolicyModalComponent: FunctionComponent<
 
 export default PrivacyPolicyModalComponent;
 
-interface IPrivacyPolicyModalComponentContainerProps {
-  bottomMargin: number;
-}
-
-const PrivacyPolicyModalComponentContainer = styled.div<IPrivacyPolicyModalComponentContainerProps>`
+const PrivacyPolicyModalComponentContainer = styled.div`
   color: black;
   padding: 20px;
-  height: calc(100vh - ${({ bottomMargin }) => bottomMargin}px);
-  overflow: auto;
 `;

@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #160118;
+  background-color: pink;
 }
 
 button {
@@ -73,4 +73,12 @@ textarea {
   }
 
   background-color: var(--black-900);
+}
+
+.swiper-pagination-bullets {
+  transform: translateY(60%);
+}
+
+.swiper-pagination-bullet {
+  background-color: white;
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { isValidPostState } from "./atoms/isValidPostAtom";
+import CommonHeaderContainer from "../Common/CommonHeaderContainer";
 type WriteLetterHeaderProps = {};
 
 const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
@@ -14,7 +15,7 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
   };
 
   return (
-    <WriteLetterHeaderContainer>
+    <CommonHeaderContainer height="56px" xMargin="5%">
       <GoBackButton onClick={onClickGoBackButtonHandler}>
         <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
       </GoBackButton>
@@ -22,7 +23,7 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
         <SaveButton isValidPost={isValidPost}>저장</SaveButton>
         <SubmitButton isValidPost={isValidPost}>등록</SubmitButton>
       </PostButtonGropContainer>
-    </WriteLetterHeaderContainer>
+    </CommonHeaderContainer>
   );
 };
 

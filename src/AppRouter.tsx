@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import axios from "axios";
 import Home from "./pages/Home";
 import Intro from "./pages/Intro";
 import LogIn from "./pages/LogIn";
@@ -16,10 +15,13 @@ import ChangeUserInfo from "./pages/ChangeUserInfo";
 import ViewMyLetter from "./pages/ViewMyLetter";
 import ViewOtherLetter from "./pages/ViewOtherLetter";
 import WriteLetter from "./pages/WriteLetter";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "./state/tokenState";
+import AfterWrite from "./pages/AfterWrite";
 type AppRouterProps = {};
 
 const AppRouter: FunctionComponent<AppRouterProps> = () => {
-  const token = axios.defaults.headers.common["Authorization"];
+  const [token] = useRecoilState(accessTokenState);
 
   return (
     <AppRouterContainer>
@@ -28,7 +30,7 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         <Route path="*" element={<Error404 />} />
 
         {/* access token이 있을 시 Home 화면, 없을 시 Intro 화면 표시 */}
-        <Route path="/" element={!token ? <Home /> : <Intro />} />
+        <Route path="/" element={token ? <Home /> : <Intro />} />
 
         {/* 로그인 페이지 */}
         <Route path="/logIn" element={<LogIn />} />
@@ -62,6 +64,9 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
 
         {/* 유서 작성 페이지 */}
         <Route path="/writeletter" element={<WriteLetter />} />
+
+        {/* 유서 작성 이후 페이지 */}
+        <Route path="/afterwrite/:id" element={<AfterWrite />} />
       </Routes>
     </AppRouterContainer>
   );

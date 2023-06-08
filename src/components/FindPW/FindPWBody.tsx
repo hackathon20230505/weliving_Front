@@ -2,6 +2,7 @@ import { ChangeEvent, FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import { isValidUserEmailFunc } from "../../utils/isValid/isValidUserData";
 import { useNavigate, useParams } from "react-router-dom";
+import CommonContentContainer from "../Common/CommonContentContainer";
 type FindPWBodyProps = {};
 
 const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
@@ -35,7 +36,7 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
   };
 
   return (
-    <FindPWBodyContainer>
+    <CommonContentContainer xPadding="5%">
       {id === "1" && (
         <>
           <FindPWBodyDescription>
@@ -78,13 +79,11 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
           </GoBackButton>
         </>
       )}
-    </FindPWBodyContainer>
+    </CommonContentContainer>
   );
 };
 
 export default FindPWBody;
-
-const FindPWBodyContainer = styled.div``;
 
 const FindPWBodyDescription = styled.p`
   margin: 40px 0 20px 0;
