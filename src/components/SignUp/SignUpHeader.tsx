@@ -21,14 +21,6 @@ const SignUpHeader: FunctionComponent<SignUpHeaderProps> = () => {
 
 export default SignUpHeader;
 
-const SignUpHeaderContainer = styled.header`
-  height: 56px;
-  position: relative;
-
-  display: flex;
-  align-items: center;
-`;
-
 const GoBackButton = styled.button`
   position: absolute;
   left: 0px;

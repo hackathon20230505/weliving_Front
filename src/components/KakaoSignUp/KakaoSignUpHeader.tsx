@@ -23,17 +23,6 @@ const KakaoSignUpHeader: FunctionComponent<KakaoSignUpHeaderProps> = () => {
 
 export default KakaoSignUpHeader;
 
-const KakaoSignUpHeaderContainer = styled.header`
-  width: 100%;
-  height: 56px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-`;
-
 const GoBackButton = styled.button`
   position: absolute;
   left: 0px;

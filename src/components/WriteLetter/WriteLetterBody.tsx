@@ -5,7 +5,6 @@ import ResizeableBottomSheet from "../Common/ResizableBottomSheet";
 import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";
 import BottomSheetTitle from "../Common/BottomSheetTitle";
 import ResizableBottomSheetContent from "../Common/ResizableBottomSheetContent";
-import { animated, useSpring } from "@react-spring/web";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 type WriteLetterBodyProps = {};
@@ -15,9 +14,8 @@ import "swiper/css/pagination";
 import WriterLetterTermModalComponent from "./WriteLetterTermModalComponent";
 
 const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
-  const [isWritingHelpOpen, setIsWritingHelpOpen] = useState<boolean>(true);
   const [isShow, setIsShow] = useState<boolean>(true);
-  const [isFullSize, setIsFullSize] = useState<boolean>(false);
+  const [, setIsFullSize] = useState<boolean>(false);
 
   const [isShowTerm, setIsShowTerm] = useState<boolean>(false);
   const [isFullSizeTerm, setIsFullSizeTerm] = useState<boolean>(true);
@@ -138,8 +136,6 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
 };
 
 export default WriteLetterBody;
-
-const WriteLetterBodyContainer = styled.main``;
 
 const WriteLetterTitleInput = styled.input`
   width: 100%;

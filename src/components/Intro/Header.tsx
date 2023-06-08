@@ -16,12 +16,4 @@ const Header: FunctionComponent<HeaderProps> = () => {
 
 export default Header;
 
-const HeaderContainer = styled.header`
-  width: 100%;
-  padding: 13px 0;
-
-  display: flex;
-  justify-content: center;
-`;
-
 const HeaderImg = styled.img``;
