@@ -42,4 +42,4 @@ jobs:
           port: ${{ env.SSH_PORT }}
           source: "dist/*"
           strip_components: 1
-          target: "/var/www/welldying_front/dist"
+          target: "/var/www/weliving_Front/dist"
