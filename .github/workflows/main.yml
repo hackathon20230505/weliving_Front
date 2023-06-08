@@ -5,8 +5,8 @@ on:
       - main
 
 env:
-  PORT: 22
-  USERNAME: hackathon
+  SSH_PORT: 22
+  SSH_USERNAME: hackathon
 
 jobs:
   build:
@@ -37,8 +37,8 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: ${{env.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
+          username: ${{env.SSH_USERNAME }}
           port: ${{ env.SSH_PORT }}
           source: "dist/*"
           strip_components: 1
