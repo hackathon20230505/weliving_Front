@@ -4,7 +4,7 @@ on:
     branches:
       - main
 
-envs:
+env:
   PORT: 22
   USERNAME: hackathon
 
