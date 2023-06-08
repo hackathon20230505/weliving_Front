@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 type BackgroundStarProps = {};
 
 // 투명도 조절 키프레임

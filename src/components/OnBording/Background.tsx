@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 type BackgroundStarProps = {};
 
 // 투명도 조절 키프레임
@@ -14,11 +14,6 @@ const cloudKeyFrame1 = keyframes`
 
 const cloudKeyFrame2 = keyframes`
 `;
-
-const cloudKeyFrame3 = keyframes`
-`;
-
-//
 
 const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
   return (
@@ -323,9 +318,4 @@ const ImageCloud1 = styled.img`
 const ImageCloud2 = styled.img`
   position: absolute;
   animation: ${cloudKeyFrame2} 95s ease-in;
-`;
-
-const ImageCloud3 = styled.img`
-  position: absolute;
-  animation: ${cloudKeyFrame3} 85s ease-in;
 `;
