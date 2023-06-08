@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import CommonContentContainer from "../Common/CommonContentContainer";
 type HomeBodyProps = {};
 
 const HomeBody: FunctionComponent<HomeBodyProps> = () => {
@@ -19,7 +20,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   };
 
   return (
-    <HomeBodyContainer>
+    <CommonContentContainer xPadding="5%">
       <HomeLetterGroupContainer>
         <HomeLetterTitle>유서</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
@@ -41,7 +42,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
           <GoIcon src="https://wliv.kr/img/arrow-right-icon.svg" />
         </HomeSettingButton>
       </HomeSettingContainer>
-    </HomeBodyContainer>
+    </CommonContentContainer>
   );
 };
 

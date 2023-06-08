@@ -9,7 +9,7 @@ const TermsOfService: FunctionComponent<TermsOfServiceProps> = () => {
     <TermsOfServiceContainer>
       <FullModal
         title={"개인정보 처리방침"}
-        children={<PrivacyPolicyModalComponent bottomMargin={0} />}
+        children={<PrivacyPolicyModalComponent />}
       />
     </TermsOfServiceContainer>
   );

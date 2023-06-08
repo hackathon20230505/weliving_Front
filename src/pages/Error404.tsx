@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PageContainer from "../components/Common/PageContainer";
 type Error404Props = {};
 
 const Error404: FunctionComponent<Error404Props> = () => {
@@ -10,7 +11,7 @@ const Error404: FunctionComponent<Error404Props> = () => {
     navigate("/");
   };
   return (
-    <Error404Container>
+    <PageContainer>
       <EmptyGrayBoxContainer>
         <img src="https://wliv.kr/img/error-404-img.svg" alt="404 에러" />
       </EmptyGrayBoxContainer>
@@ -25,15 +26,15 @@ const Error404: FunctionComponent<Error404Props> = () => {
           홈으로 가기
         </GoToHomeButton>
       </GoToHomeButtonContainer>
-    </Error404Container>
+    </PageContainer>
   );
 };
 
 export default Error404;
 
 const Error404Container = styled.main`
-  width: 90%;
-  margin: 50px auto 0;
+  width: 100%;
+  padding: 0 5%;
 `;
 
 const EmptyGrayBoxContainer = styled.div`

@@ -1,5 +1,5 @@
-import { FunctionComponent, useState } from "react";
-import styled, { css } from "styled-components";
+import { FunctionComponent } from "react";
+import styled from "styled-components";
 import CheckBox from "../Common/CheckBox";
 import { useRecoilState } from "recoil";
 import {
@@ -8,24 +8,28 @@ import {
 } from "./atoms/TermsOfServiceAtoms";
 import { onSignup } from "../../apis/users/signup";
 import { IUserInfoStateTypes, UserInfoState } from "./atoms/UserInfoAtoms";
-import PrivacyPolicyModalComponent from "./PrivacyPolicyModalComponent";
-import TermsOfServiceModalComponent from "./TermsOfServiceModalComponent";
-type SignUpAgreeModalContentProps = {};
+import { useNavigate } from "react-router-dom";
+import { onSignIn } from "../../apis/users/signIn";
+import { accessTokenState } from "../../state/tokenState";
+
+type SignUpAgreeModalContentProps = {
+  policyViewHandler?: () => void;
+  termsViewHandler?: () => void;
+};
 
 const SignUpAgreeModalContent: FunctionComponent<
   SignUpAgreeModalContentProps
-> = () => {
+> = ({ policyViewHandler = undefined, termsViewHandler = undefined }) => {
   /** 전체 동의 */
   const [isChecked, setIsChecked] =
     useRecoilState<IIsCheckedStateTypes>(isCheckedState);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [openModalType, setOpenModalType] = useState(-1);
 
   const { isAllChecked } = isChecked;
 
   /** 사용자 데이터 */
   const [userInfo] = useRecoilState<IUserInfoStateTypes>(UserInfoState);
+  const [, setTokenState] = useRecoilState(accessTokenState);
+  const navigate = useNavigate();
 
   const onClickIsAllCheckedHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -100,35 +104,45 @@ const SignUpAgreeModalContent: FunctionComponent<
     });
   };
 
-  const onClickSignUpAgreeButtonHandler = () => {
-    const { userEmail, userPassword, userBirth } = userInfo;
+  const onClickSignUpAgreeButtonHandler = async () => {
+    try {
+      const { userEmail, userPassword, userBirth } = userInfo;
 
-    const signupProps = {
-      email: userEmail,
-      password: userPassword,
-      birth: userBirth,
-    };
+      const signupProps = {
+        email: userEmail,
+        password: userPassword,
+        birth: userBirth,
+      };
 
-    const result = onSignup(signupProps);
+      const loginProps = {
+        username: userEmail,
+        password: userPassword,
+      };
 
-    console.log(result);
-  };
+      const result = await onSignup(signupProps);
 
-  const onClickViewTexts = (type: "term" | "privacy") => {
-    if (type == "term") {
-      setIsModalOpen(true);
-      setOpenModalType(0);
-      console.log("term");
-    } else {
-      setIsModalOpen(true);
-      setOpenModalType(1);
-      console.log("privacy");
-    }
+      console.log(result?.data);
+
+      if (result?.data.ok) {
+        const response = await onSignIn(loginProps);
+
+        setTokenState(response?.data?.accessToken);
+
+        alert("로그인되었습니다.");
+        navigate("/");
+      }
+    } catch (error) {}
+
+    // if (!result.ok) {
+    //   Promise.reject(new Error("cannot signUp"));
+    //   alert("회원가입을 완료할 수 없습니다.");
+    //   navigate("/");
+    // }
   };
 
   return (
     <>
-      <SignUpAgreeModalContentContainer isModalOpen={isModalOpen}>
+      <SignUpAgreeModalContentContainer>
         <SignUpAgreeModalContentTitle>
           웰리빙을 쓰려면 동의가 필요해요.
         </SignUpAgreeModalContentTitle>
@@ -155,7 +169,7 @@ const SignUpAgreeModalContent: FunctionComponent<
               (필수) 개인정보 처리방침에 동의
             </SignUpAgreeCheckText>
           </CheckBoxGroupContainer>
-          <SignUpAgreeViewText onClick={() => onClickViewTexts("privacy")}>
+          <SignUpAgreeViewText onClick={policyViewHandler}>
             보기
           </SignUpAgreeViewText>
         </SignUpAgreeCheckGroupContainer>
@@ -170,41 +184,25 @@ const SignUpAgreeModalContent: FunctionComponent<
 
             <SignUpAgreeCheckText>(필수) 이용약관에 동의</SignUpAgreeCheckText>
           </CheckBoxGroupContainer>
-          <SignUpAgreeViewText onClick={() => onClickViewTexts("term")}>
+          <SignUpAgreeViewText onClick={termsViewHandler}>
             보기
           </SignUpAgreeViewText>
         </SignUpAgreeCheckGroupContainer>
 
-        <SignUpAgreeButton onClick={onClickSignUpAgreeButtonHandler}>
+        <SignUpAgreeButton
+          tabIndex={-1}
+          onClick={onClickSignUpAgreeButtonHandler}
+        >
           동의
         </SignUpAgreeButton>
       </SignUpAgreeModalContentContainer>
-      <CommonModalWrapper>
-        <PrivacyPolicyModalWrapper openModalType={openModalType}>
-          <PrivacyPolicyModalComponent bottomMargin={0} />
-        </PrivacyPolicyModalWrapper>
-
-        <TermsModalWrapper openModalType={openModalType}>
-          <TermsOfServiceModalComponent bottomMargin={0} />
-        </TermsModalWrapper>
-      </CommonModalWrapper>
     </>
   );
 };
 
 export default SignUpAgreeModalContent;
 
-interface ISignUpAgreeModalContentContainerProps {
-  isModalOpen: boolean;
-}
-
-const SignUpAgreeModalContentContainer = styled.div<ISignUpAgreeModalContentContainerProps>`
-  ${({ isModalOpen }) =>
-    isModalOpen
-      ? "min-height: 100vh; opacity: 0;"
-      : "min-height: 0vh; opacity: 1;"};
-  transition: min-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-`;
+const SignUpAgreeModalContentContainer = styled.div``;
 
 const SignUpAgreeModalContentTitle = styled.p`
   margin: 20px 0;
@@ -260,33 +258,3 @@ const HorizonDivider = styled.hr`
 `;
 
 const IsCheckedContainer = styled.div``;
-
-interface IModalWrapperProps {
-  openModalType: number;
-}
-
-const modalWrapperCommon = css`
-  max-height: 0vh;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-`;
-
-const CommonModalWrapper = styled.div`
-  background-color: white;
-`;
-
-const TermsModalWrapper = styled.div<IModalWrapperProps>`
-  ${modalWrapperCommon}
-  ${({ openModalType }) =>
-    openModalType == 0
-      ? "max-height: 100vh; opacity: 1;"
-      : "max-height: 0vh; opacity: 0;"}
-`;
-
-const PrivacyPolicyModalWrapper = styled.div<IModalWrapperProps>`
-  ${modalWrapperCommon}
-  ${({ openModalType }) =>
-    openModalType == 1
-      ? "max-height: 100vh; opacity: 1;"
-      : "max-height: 0vh; opacity: 0;"};
-`;

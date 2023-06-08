@@ -1,6 +1,7 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
+import CommonContentContainer from "../Common/CommonContentContainer";
 type ChangePWBodyProps = {};
 
 const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
@@ -45,7 +46,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
   const onClickNextButtonHandler = () => {};
 
   return (
-    <ChangePWBodyContainer>
+    <CommonContentContainer xPadding="5%">
       <LogInInputGroupContainer>
         <LogInInputLabel htmlFor="userPassword">비밀번호</LogInInputLabel>
         <LogInInput
@@ -85,13 +86,11 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
       >
         변경하기
       </NextButton>
-    </ChangePWBodyContainer>
+    </CommonContentContainer>
   );
 };
 
 export default ChangePWBody;
-
-const ChangePWBodyContainer = styled.div``;
 
 const LogInInputGroupContainer = styled.div`
   display: flex;

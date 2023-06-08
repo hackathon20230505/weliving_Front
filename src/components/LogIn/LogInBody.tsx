@@ -7,9 +7,15 @@ import {
   isValidUserEmailFunc,
   isValidUserPasswordFunc,
 } from "../../utils/isValid/isValidUserData";
+import CommonContentContainer from "../Common/CommonContentContainer";
+import { accessTokenState } from "../../state/tokenState";
+import { useRecoilState } from "recoil";
+import { getRefreshToken } from "../../utils/interceptors/getRefreshToken";
+
 type LogInBodyProps = {};
 
 const LogInBody: FunctionComponent<LogInBodyProps> = () => {
+  const [tokenState, setTokenState] = useRecoilState(accessTokenState);
   const [userEmail, setUserEmail] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
 
@@ -49,26 +55,37 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
   };
 
   const onClickLogInButtonHandler = async () => {
+    console.log("hello");
     try {
       const loginProps = {
         username: userEmail,
         password: userPassword,
       };
 
-      await onSignIn(loginProps);
-      alert("로그인되었습니다.");
-      navigate("/");
+      const result = await onSignIn(loginProps);
+
+      console.log(`result`, result);
+
+      // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
+
+      // setTokenState(result?.data?.accessToken);
+
+      if (result) {
+        alert("로그인되었습니다.");
+        navigate("/");
+      }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError;
         console.log(axiosError);
-        alert("아이디/비밀번호가 유효하지 않습니다.");
       }
     }
   };
 
+  console.log(`axios`, axios.defaults.headers.common["Authorization"]);
+
   return (
-    <LogInBodyContainer>
+    <CommonContentContainer xPadding="5%">
       <LogInInputGroupContainer>
         <LogInInputLabel htmlFor="userEmail">이메일</LogInInputLabel>
         <LogInInput
@@ -104,7 +121,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         <FindPWDescription>비밀번호를 잊으셨나요?</FindPWDescription>
         <Link to="/findpw/1">비밀번호 찾기 {">"}</Link>
       </FindPWContainer>
-    </LogInBodyContainer>
+    </CommonContentContainer>
   );
 };
 

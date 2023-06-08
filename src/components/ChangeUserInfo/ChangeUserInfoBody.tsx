@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
+import CommonContentContainer from "../Common/CommonContentContainer";
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
@@ -81,7 +82,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   const onClickNextButtonHandler = () => {};
 
   return (
-    <ChangeUserInfoBodyContainer>
+    <CommonContentContainer xPadding="5%">
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userEmail">이메일</SignUpLabel>
         <SignUpInput
@@ -152,13 +153,11 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
       >
         다음
       </NextButton>
-    </ChangeUserInfoBodyContainer>
+    </CommonContentContainer>
   );
 };
 
 export default ChangeUserInfoBody;
-
-const ChangeUserInfoBodyContainer = styled.main``;
 
 const SignUpLabelInputContainer = styled.div`
   display: flex;

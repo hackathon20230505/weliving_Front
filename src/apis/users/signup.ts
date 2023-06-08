@@ -8,11 +8,13 @@ interface ISignUpTypes {
 
 export const onSignup = async ({ email, password, birth }: ISignUpTypes) => {
   try {
-    const { data } = await axios.post("/api/users/signup/", {
+    const data = await axios.post(`/api/users/signup/`, {
       email: email,
       password: password,
       birth: birth,
     });
+
+    console.log(`onsignUp`, data);
 
     return data;
   } catch (error) {

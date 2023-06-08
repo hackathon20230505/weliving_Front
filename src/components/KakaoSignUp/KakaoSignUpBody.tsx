@@ -9,6 +9,7 @@ import {
 } from "../SignUp/atoms/TermsOfServiceAtoms";
 import TermsOfServiceModalComponent from "../SignUp/TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "../SignUp/PrivacyPolicyModalComponent";
+import CommonContentContainer from "../Common/CommonContentContainer";
 type KakaoSignUpBodyProps = {};
 
 const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
@@ -125,7 +126,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
   const onClickNextButtonHandler = () => {};
 
   return (
-    <KakaoSignUpBodyContainer>
+    <CommonContentContainer xPadding="5%">
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userBirth">생년월일</SignUpLabel>
         <SignUpInput
@@ -181,11 +182,11 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
         </SignUpAgreeCheckGroupContainer>
         <CommonModalWrapper>
           <PrivacyPolicyModalWrapper openModalType={openModalType}>
-            <PrivacyPolicyModalComponent bottomMargin={446} />
+            <PrivacyPolicyModalComponent />
           </PrivacyPolicyModalWrapper>
 
           <TermsModalWrapper openModalType={openModalType}>
-            <TermsOfServiceModalComponent bottomMargin={446} />
+            <TermsOfServiceModalComponent />
           </TermsModalWrapper>
         </CommonModalWrapper>
       </SignUpAgreeModalContentContainer>
@@ -208,13 +209,11 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
       >
         로그인 하기
       </NextButton>
-    </KakaoSignUpBodyContainer>
+    </CommonContentContainer>
   );
 };
 
 export default KakaoSignUpBody;
-
-const KakaoSignUpBodyContainer = styled.main``;
 
 const SignUpLabelInputContainer = styled.div`
   display: flex;
