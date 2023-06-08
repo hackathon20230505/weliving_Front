@@ -9,16 +9,25 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   const onClickSettingButtonHandler = () => {
     navigate("/changeuserinfo");
   };
+
+  const onClickViewMyLetterButtonHandler = () => {
+    navigate("/viewmyletter");
+  };
+
+  const onClickViewOtherLetterButtonHandler = () => {
+    navigate("/viewotherletter");
+  };
+
   return (
     <HomeBodyContainer>
       <HomeLetterGroupContainer>
         <HomeLetterTitle>유서</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
-          <HomeLetterViewButton>
+          <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
             <HomeLetterViewTitle>내 일지 보기</HomeLetterViewTitle>
             <HomeLetterViewImg src="../../src/my-letter-img.svg" />
           </HomeLetterViewButton>
-          <HomeLetterViewButton>
+          <HomeLetterViewButton onClick={onClickViewOtherLetterButtonHandler}>
             <HomeLetterViewTitle>다른 일지 보기</HomeLetterViewTitle>
             <HomeLetterViewImg src="../../src/other-letter-img.svg" />
           </HomeLetterViewButton>
