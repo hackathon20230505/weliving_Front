@@ -33,6 +33,15 @@ input {
   outline: none;
 }
 
+textarea {
+  background-color: inherit;
+  border: none;
+
+  width: 100%;
+
+  outline: none;
+}
+
 #root {
   /* style token */
   --main-color: #db0fdb;

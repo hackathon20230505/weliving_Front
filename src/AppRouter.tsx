@@ -13,6 +13,9 @@ import FindPW from "./pages/FindPW";
 import KakaoSignUp from "./pages/KakaoSignUp";
 import ChangePW from "./pages/ChangePW";
 import ChangeUserInfo from "./pages/ChangeUserInfo";
+import ViewMyLetter from "./pages/ViewMyLetter";
+import ViewOtherLetter from "./pages/ViewOtherLetter";
+import WriteLetter from "./pages/WriteLetter";
 type AppRouterProps = {};
 
 const AppRouter: FunctionComponent<AppRouterProps> = () => {
@@ -25,7 +28,7 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         <Route path="*" element={<Error404 />} />
 
         {/* access token이 있을 시 Home 화면, 없을 시 Intro 화면 표시 */}
-        <Route path="/" element={token ? <Home /> : <Intro />} />
+        <Route path="/" element={!token ? <Home /> : <Intro />} />
 
         {/* 로그인 페이지 */}
         <Route path="/logIn" element={<LogIn />} />
@@ -50,6 +53,15 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
 
         {/* 회원 정보 변경 페이지 */}
         <Route path="/changeuserinfo" element={<ChangeUserInfo />} />
+
+        {/* 내 일지 보기 페이지 */}
+        <Route path="/viewmyletter" element={<ViewMyLetter />} />
+
+        {/* 다른 일지 보기 페이지 */}
+        <Route path="/viewotherletter" element={<ViewOtherLetter />} />
+
+        {/* 유서 작성 페이지 */}
+        <Route path="/writeletter" element={<WriteLetter />} />
       </Routes>
     </AppRouterContainer>
   );
