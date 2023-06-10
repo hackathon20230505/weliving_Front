@@ -39,7 +39,7 @@ export default function ViewOtherLetterPost() {
   return (
     <PageContainer>
       <LetterHeader showButtons={true} />
-      <CommonContentContainer xPadding={"5%"}>
+      <CommonContentContainer xPadding={"5%"} h={"fit-content"}>
         <LetterPostContainer>
           <LetterPostDateText>{data?.[0].created_at}</LetterPostDateText>
           <LetterPostTitle>{data?.[0].title}</LetterPostTitle>
@@ -47,7 +47,7 @@ export default function ViewOtherLetterPost() {
         </LetterPostContainer>
       </CommonContentContainer>
 
-      <CommonContentContainer>
+      <CommonContentContainer h={"fit-content"}>
         {/* 유서 목차 가기 */}
         <GoToOtherLetterButtonContainer>
           <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
