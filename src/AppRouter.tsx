@@ -85,7 +85,7 @@ const AppRouter: FunctionComponent = () => {
         <Route path="/viewotherletter" element={<ViewOtherLetter />} />
 
         {/* 다른 일지 보기 상세 페이지 */}
-        <Route path="/viewotherletterpost" element={<ViewOtherLetterPost />} />
+        <Route path="/viewotherletter/:id" element={<ViewOtherLetterPost />} />
 
         {/* 유서 작성 페이지 */}
         <Route path="/writeletter" element={<WriteLetter />} />
