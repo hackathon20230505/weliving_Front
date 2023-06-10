@@ -81,5 +81,4 @@ export default AppRouter;
 
 const AppRouterContainer = styled.div`
   height: 100%;
-  overflow: auto;
 `;
