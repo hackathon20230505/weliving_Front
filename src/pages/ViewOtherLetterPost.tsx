@@ -27,7 +27,13 @@ export default function ViewOtherLetterPost() {
 
   if (isError) return <div>Error</div>;
 
-  if (isFetching) return <LoadingComponent />;
+  if (isFetching)
+    return (
+      <>
+        <LetterHeader />
+        <LoadingComponent />
+      </>
+    );
 
   return (
     <PageContainer>
