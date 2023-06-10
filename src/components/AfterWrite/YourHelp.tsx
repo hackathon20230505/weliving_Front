@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import TheMoon from "./TheMoon";
 import { useNavigate } from "react-router-dom";
 import CheckBox from "../Common/CheckBox";
+import { sendMessage } from "../../apis/users/sendMessage";
 type YourHelpProps = {};
 
 const YourHelp: FunctionComponent<YourHelpProps> = () => {
@@ -35,6 +36,8 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
     }
 
     setIsSended(true);
+
+    const result = sendMessage(phoneInput);
   };
 
   const verifyAuthNumber = () => {
