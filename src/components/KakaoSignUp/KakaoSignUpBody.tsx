@@ -124,7 +124,8 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
     }
   };
 
-  const onClickNextButtonHandler = () => {};
+  // TODO: 카카오 로그인 Next 버튼 구현
+  // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
@@ -204,7 +205,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
             isChecked.isTermsAndConditionsChecked
           )
         }
-        onClick={onClickNextButtonHandler}
+        // onClick={onClickNextButtonHandler}
       >
         로그인 하기
       </NextButton>
