@@ -85,15 +85,24 @@ const LetterHeader = ({
         />
         <CopyShareText>공유하기</CopyShareText>
         <CopyURLContainer>
-          <CopyURLButton onClick={copyURL}>
-            <img src={"https://wliv.kr/img/kakao-icon2.svg"} />
-          </CopyURLButton>
-          <CopyURLButton onClick={copyURL}>
-            <img src={"https://wliv.kr/img/insta-icon.svg"} />
-          </CopyURLButton>
-          <CopyURLButton onClick={copyURL}>
-            <img src={"https://wliv.kr/img/link-icon.svg"} />
-          </CopyURLButton>
+          <CopyURLButtonBox>
+            <CopyURLButton onClick={copyURL}>
+              <img src={"https://wliv.kr/img/kakao-icon2.svg"} />
+            </CopyURLButton>
+            <p>카카오</p>
+          </CopyURLButtonBox>
+          <CopyURLButtonBox>
+            <CopyURLButton onClick={copyURL}>
+              <img src={"https://wliv.kr/img/insta-icon.svg"} />
+            </CopyURLButton>
+            <p>인스타그램</p>
+          </CopyURLButtonBox>
+          <CopyURLButtonBox>
+            <CopyURLButton onClick={copyURL}>
+              <img src={"https://wliv.kr/img/link-icon.svg"} />
+            </CopyURLButton>
+            <p>URL</p>
+          </CopyURLButtonBox>
         </CopyURLContainer>
       </ResizeableBottomSheet>
       {isSelf && (
@@ -142,6 +151,20 @@ const GoBackButton = styled.button`
 const ButtonGroupContainer = styled.div`
   position: absolute;
   right: 0;
+`;
+
+const CopyURLButtonBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    margin-top: 8px;
+  }
 `;
 
 const ShareButton = styled.button`
