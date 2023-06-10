@@ -8,20 +8,23 @@ const createMyLetter = async ({
 }: IMyLetterPostTypes) => {
   const token = localStorage.getItem("accessToken");
 
-  const {
-    data: { data },
-  } = await axios.post("/api/life/letter/create/", {
-    data: {
-      title: title,
-      content: content,
-      isShare: isShare,
+  const res = await axios.post(
+    "/api/life/letter/create/",
+    {
+      data: {
+        title: title,
+        content: content,
+        isShare: isShare,
+      },
     },
-    headers: {
-      Authorization: `Bearer ${token}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     },
-  });
+  );
 
-  return data;
+  return res;
 };
 
 export { createMyLetter };
