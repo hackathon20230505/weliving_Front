@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import BackgroundStar from "../components/OnBording/Background";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
-import Typewriter from "react-ts-typewriter";
+// import Typewriter from "react-ts-typewriter";
 
 type WillFirstProps = {};
 

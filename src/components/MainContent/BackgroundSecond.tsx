@@ -21,17 +21,17 @@ const KeyFrameSection2_2 = keyframes`
 const KeyFrameSection2_3 = keyframes`
 `;
 
-const KeyFrameSection3_0 = keyframes`
-`;
+// const KeyFrameSection3_0 = keyframes`
+// `;
 
-const KeyFrameSection3_1 = keyframes`
-`;
+// const KeyFrameSection3_1 = keyframes`
+// `;
 
-const KeyFrameSection3_2 = keyframes`
-`;
+// const KeyFrameSection3_2 = keyframes`
+// `;
 
-const KeyFrameSection3_3 = keyframes`
-`;
+// const KeyFrameSection3_3 = keyframes`
+// `;
 
 //
 
