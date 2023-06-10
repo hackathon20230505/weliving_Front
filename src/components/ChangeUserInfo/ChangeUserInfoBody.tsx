@@ -80,7 +80,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     setIsAlarmAgreed((prev) => !prev);
   };
 
-  const onClickNextButtonHandler = () => {};
+  // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
@@ -146,7 +146,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
       <NextButton
         isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}
         disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}
-        onClick={onClickNextButtonHandler}
+        // onClick={onClickNextButtonHandler}
       >
         다음
       </NextButton>
