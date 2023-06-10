@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const getMyLetter = async (token: string) => {
+const getMyLetter = async () => {
+  const token = localStorage.getItem("accessToken");
   const {
     data: { data },
   } = await axios.get("/api/life/letter/show/", {

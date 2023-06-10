@@ -23,7 +23,7 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
 
   const { data, isError, isFetching } = useQuery({
     queryKey: ["getMyLetter"],
-    queryFn: () => getMyLetter(token),
+    queryFn: () => getMyLetter(),
     staleTime: 10,
   });
 

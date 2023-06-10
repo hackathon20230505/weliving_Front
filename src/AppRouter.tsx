@@ -32,6 +32,21 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         {/* 404 에러 화면 */}
         <Route path="*" element={<Error404 />} />
 
+        {/* ------- OnBoarding Pages ------- */}
+        {/* OnBordding */}
+        <Route path="/onbording" element={<OnBording />} />
+
+        {/* MainContentFirst */}
+        <Route path="/maincontentfirst" element={<MainContentFirst />} />
+
+        {/* MainContentSecond */}
+        <Route path="/maincontentsecond" element={<MainContentSecond />} />
+
+        {/* MainContentCard */}
+        <Route path="/maincontentcard" element={<MainContentCard />} />
+
+        {/* ------------------------------- */}
+
         {/* access token이 있을 시 Home 화면, 없을 시 Intro 화면 표시 */}
         <Route path="/" element={token !== null ? <Home /> : <Intro />} />
 
@@ -40,9 +55,6 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
 
         {/* 회원가입 페이지 */}
         <Route path="/signUp" element={<SignUp />} />
-
-        {/* 카카오톡 oauth 처리 페이지 */}
-        {/* <Route path="/login/oauth" element={<Kakaooauth /> */}
 
         {/* 카카오톡 회원가입 페이지 */}
         <Route path="/kakaosignup" element={<KakaoSignUp />} />
@@ -72,7 +84,7 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         <Route path="/writeletter" element={<WriteLetter />} />
 
         {/* 유서 수정 페이지 */}
-        <Route path="/modifyletter/:id" element={<ModifyLetter />} />
+        <Route path="/modifyletter" element={<ModifyLetter />} />
 
         {/* 유서 작성 이후 페이지 */}
         <Route path="/afterwrite/:id" element={<AfterWrite />} />

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IMyLetterPostTypes } from "../../../components/WriteLetter/atoms/myLetterAtoms";
 
-const createMyLetter = async ({
+const modifyMyLetter = async ({
   title,
   content,
   isShare,
@@ -25,4 +25,4 @@ const createMyLetter = async ({
   return res;
 };
 
-export { createMyLetter };
+export { modifyMyLetter };

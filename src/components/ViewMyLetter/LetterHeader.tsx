@@ -79,7 +79,13 @@ const LetterHeader = ({ isSelf = false }: LetterHeaderProps) => {
             closeHandler={() => setIsOpenMore(false)}
             align="right"
           />
-          더보기
+          <button
+            onClick={() => {
+              navigate("/modifyletter");
+            }}
+          >
+            수정하기
+          </button>
         </ResizeableBottomSheet>
       )}
     </>
