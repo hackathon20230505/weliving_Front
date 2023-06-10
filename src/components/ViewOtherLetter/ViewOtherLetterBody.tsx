@@ -16,7 +16,7 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
   const token: string = localStorage.getItem("accessToken") as string;
   const [categoryFilterArray] = useRecoilState(FilterState);
 
-  const birth = categoryFilterArray.filter((e) => e.isActive === true)[0].birth;
+  const birth = categoryFilterArray.filter((e) => e.isActive)[0].birth;
 
   const { data, isError, isFetching } = useQuery({
     queryKey: [`getOtherLetterList/${birth}`],
