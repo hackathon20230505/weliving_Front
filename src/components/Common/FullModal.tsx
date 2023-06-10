@@ -7,12 +7,14 @@ type FullModalProps = {
 };
 
 const FullModal: FunctionComponent<FullModalProps> = ({ title, children }) => {
-  const onClickCloseIconHandler = () => {};
+  // const onClickCloseIconHandler = () => {};
+
   return (
     <FullModalContainer>
       <FullModalHeader>
         <FullModalHeaderTitle>{title}</FullModalHeaderTitle>
-        <CloseIconButton onClick={onClickCloseIconHandler}>
+        {/*<CloseIconButton onClick={onClickCloseIconHandler}>*/}
+        <CloseIconButton>
           <CloseIcon src="https://wliv.kr/img/x-icon.svg" alt="닫기 버튼" />
         </CloseIconButton>
       </FullModalHeader>
