@@ -31,7 +31,7 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
 
   useEffect(() => {
     if (!isFetching) setDisplayItem(data?.letter);
-  }, [isFetching]);
+  }, [data?.letter, isFetching]);
 
   if (isError) return <div>Error</div>;
 
