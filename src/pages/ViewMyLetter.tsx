@@ -6,9 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getMyLetter } from "../apis/life/letter/getMyLetter.ts";
 import { modifyIsShare } from "../apis/life/letter/modifyIsShare.ts";
 
-type ViewMyLetterProps = {};
+// type ViewMyLetterProps = {};
 
-const ViewMyLetter: FunctionComponent<ViewMyLetterProps> = () => {
+const ViewMyLetter: FunctionComponent = () => {
   const { data, isFetching } = useQuery({
     queryKey: ["getMyLetter"],
     queryFn: () => getMyLetter(),
@@ -18,7 +18,6 @@ const ViewMyLetter: FunctionComponent<ViewMyLetterProps> = () => {
 
   useEffect(() => {
     setIsShare(data?.[0].isShare);
-    console.log("isshare: ", data?.[0].isShare);
   }, [data, isFetching]);
 
   const isShareToggleHandler = () => {

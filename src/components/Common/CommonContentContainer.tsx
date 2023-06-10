@@ -11,7 +11,7 @@ const CommonContentContainer = ({
   yPadding = undefined,
   xMargin = undefined,
   yMargin = undefined,
-  h = undefined,
+  h = "calc(100% - 56px)",
   topSpacing = "40px",
 }: CommonContentContainerProps) => {
   return (

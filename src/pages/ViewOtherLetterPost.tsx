@@ -2,29 +2,55 @@ import LetterHeader from "../components/ViewMyLetter/LetterHeader.tsx";
 import CommonContentContainer from "../components/Common/CommonContentContainer.tsx";
 import styled from "styled-components";
 import PageContainer from "../components/Common/PageContainer.tsx";
+import { useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+import { getOtherLetter } from "../apis/life/letter/getOtherLetter.ts";
+import LoadingComponent from "../components/Common/LoadingComponent.tsx";
+import { useNavigate } from "react-router-dom";
+import FailComponent from "../components/Common/FailComponent.tsx";
 
 export default function ViewOtherLetterPost() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const onClickGoToOtherLetterClickHandler = () => {
+    navigate("/viewotherletter");
+  };
+
+  const { data, isError, isFetching } = useQuery({
+    queryKey: [`getOtherLetterList`, id],
+    queryFn: () => getOtherLetter(id),
+  });
+
+  if (!isFetching && data?.length === 0) {
+    window.location.href = "/404";
+  }
+
+  if (isError) return <FailComponent />;
+
+  if (isFetching)
+    return (
+      <>
+        <LetterHeader />
+        <LoadingComponent />
+      </>
+    );
+
   return (
     <PageContainer>
       <LetterHeader />
       <CommonContentContainer xPadding={"5%"}>
         <LetterPostContainer>
-          <LetterPostDateText>2023.05.24</LetterPostDateText>
-          <LetterPostTitle>메인 타이틀은 몇 글자까지인가?</LetterPostTitle>
-          <LetterPostContent>
-            시험이 다가오면서 점점 '내가 지금 하고 있는 공부 방법이 맞을까'
-            불안감 때문에 슬럼프에 빠지는 수험생분들이 많을 거라 생각됩니다.
-            이럴 때일수록 흔들리지 않고 합격을 향한 방향을 제대로 잡고 평소 하던
-            대로 나아가야 하지 않을까요? [출처] 공무원 수험서 리뷰! 공단기 교재
-            선재국어 나침판|작성자 공부서점
-          </LetterPostContent>
+          <LetterPostDateText>{data?.[0].created_at}</LetterPostDateText>
+          <LetterPostTitle>{data?.[0].title}</LetterPostTitle>
+          <LetterPostContent>{data?.[0].content}</LetterPostContent>
         </LetterPostContainer>
       </CommonContentContainer>
 
       <CommonContentContainer>
         {/* 유서 목차 가기 */}
         <GoToOtherLetterButtonContainer>
-          <GoToOtherLetterButton>
+          <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
             <GoToOtherLetterText>유서 목차 보러가기</GoToOtherLetterText>
             <GoToIcon src="https://wliv.kr/img/arrow-right-icon.svg" />
           </GoToOtherLetterButton>
@@ -56,6 +82,7 @@ const LetterPostContent = styled.p`
   font-weight: 400;
   font-size: 16px;
   color: var(--white);
+  white-space: pre-line;
 `;
 
 const GoToOtherLetterButton = styled.button`

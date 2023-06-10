@@ -62,8 +62,8 @@ const BottomSheetWrapper = styled.div<IsShowProps>`
 const BottomSheetBackCurtain = styled.div<IsShowProps>`
   top: 0;
   left: 0;
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 60%);
   display: ${({ isShow }) => (isShow ? "block" : "none")};

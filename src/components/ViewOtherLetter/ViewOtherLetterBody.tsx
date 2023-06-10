@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getOtherLetterList } from "../../apis/life/letter/getOtherLetterList";
 import { useRecoilState } from "recoil";
@@ -6,27 +6,71 @@ import { FilterState } from "./atoms/FilterAtom";
 import styled from "styled-components";
 import { getTimeDifference } from "../../utils/getTimeDifference";
 import CommonContentContainer from "../Common/CommonContentContainer.tsx";
+import { useNavigate } from "react-router-dom";
+import FailComponent from "../Common/FailComponent.tsx";
+import LoadingComponent from "../Common/LoadingComponent.tsx";
 
 type ViewOtherLetterBodyProps = {};
 
 const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
-  const content =
-    "dlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskl";
+  const navigate = useNavigate();
+  const content = "클릭 하면 상세페이지로 이동합니다";
   const token: string = localStorage.getItem("accessToken") as string;
   const [categoryFilterArray] = useRecoilState(FilterState);
-
-  const birth = categoryFilterArray.filter((e) => e.isActive === true)[0].birth;
+  const birth = categoryFilterArray.filter((e) => e.isActive)[0].birth;
+  const [displayItem, setDisplayItem] = useState<
+    {
+      createdAt: string;
+      letter_id: number;
+      title: string;
+    }[]
+  >([]);
 
   const { data, isError, isFetching } = useQuery({
     queryKey: [`getOtherLetterList/${birth}`],
     queryFn: () => getOtherLetterList(token, birth),
   });
 
-  console.log(data);
+  useEffect(() => {
+    if (!isFetching) setDisplayItem(data?.letter);
+  }, [data?.letter, isFetching]);
 
-  if (isError) return <div>Error</div>;
+  if (data === undefined && isFetching)
+    return <LoadingComponent top={"100px"} />;
 
-  if (isFetching) return <div>Loading</div>;
+  if (isError) return <FailComponent top={"100px"} />;
+
+  const PostContainerClickHandler = (id) => {
+    navigate(`/viewotherletter/${id}`);
+  };
+
+  // const LetterPostSkeleton = () => {
+  //   const len = Math.floor(Math.random() * 4) + 2;
+  //   return (
+  //     <CommonContentContainer
+  //       xPadding="5%"
+  //       yPadding={"1rem"}
+  //       topSpacing={"0"}
+  //       h={"calc(100% - 100px)"}
+  //     >
+  //       {new Array(len).fill(0).map((_, i) => (
+  //         <LetterPostContainer key={i} style={{ opacity: 0.5 }}>
+  //           <LetterPostTitle>
+  //             <SkeletonBox w="30%" h="17px" />
+  //           </LetterPostTitle>
+  //           <LetterPostContent>
+  //             <SkeletonBox w="60%" h="12px" />
+  //           </LetterPostContent>
+  //           <LetterPostDate>
+  //             <SkeletonBox w="40%" h="12px" />
+  //           </LetterPostDate>
+  //         </LetterPostContainer>
+  //       ))}
+  //     </CommonContentContainer>
+  //   );
+  // };
+
+  // if (isFetching) return <LetterPostSkeleton />;
 
   return (
     <CommonContentContainer
@@ -36,8 +80,11 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
       h={"calc(100% - 100px)"}
     >
       <CustomContentContainer>
-        {data.letter.map(({ letter_id, title, createdAt }) => (
-          <LetterPostContainer key={letter_id}>
+        {displayItem?.map(({ letter_id, title, createdAt }) => (
+          <LetterPostContainer
+            key={letter_id}
+            onClick={() => PostContainerClickHandler(letter_id)}
+          >
             <LetterPostTitle>{title}</LetterPostTitle>
             <LetterPostContent>{content}</LetterPostContent>
             <LetterPostDate>{getTimeDifference(createdAt)}</LetterPostDate>
@@ -73,17 +120,44 @@ const LetterPostTitle = styled.p`
 `;
 
 const LetterPostContent = styled.p`
-  color: #505050;
+  color: #8f8f8f;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 12px;
 
   word-break: break-all;
 
-  margin: 4px 0 8px;
+  margin: 8px 0 8px;
 `;
 
 const LetterPostDate = styled.p`
   font-weight: 400;
   font-size: 12px;
+  line-height: 12px;
   color: #999;
 `;
+
+// interface SkeletonBoxProps {
+//   w: string;
+//   h: string;
+// }
+//
+// const SkeletonBoxAnimation = keyframes`
+//   0% {
+//     opacity: 1;
+//   }
+//   50% {
+//     opacity: 0.5;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// `;
+
+// const SkeletonBox = styled.div<SkeletonBoxProps>`
+//   width: ${(props) => props.w};
+//   height: ${(props) => props.h};
+//   background-color: rgba(114, 114, 114, 0.28);
+//   border-radius: 4px;
+//   animation: ${SkeletonBoxAnimation} 3s infinite ease-in-out;
+// `;

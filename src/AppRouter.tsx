@@ -25,9 +25,9 @@ import ViewOtherLetterPost from "./pages/ViewOtherLetterPost.tsx";
 import { GetAnswerGPT } from "./pages/GetAnswerGPT.tsx";
 import VerifyPhoneNumber from "./pages/VerifyPhoneNumber.tsx";
 
-type AppRouterProps = {};
+// type AppRouterProps = {};
 
-const AppRouter: FunctionComponent<AppRouterProps> = () => {
+const AppRouter: FunctionComponent = () => {
   const token = localStorage.getItem("accessToken");
 
   return (
@@ -84,6 +84,9 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         {/* 다른 일지 보기 페이지 */}
         <Route path="/viewotherletter" element={<ViewOtherLetter />} />
 
+        {/* 다른 일지 보기 상세 페이지 */}
+        <Route path="/viewotherletter/:id" element={<ViewOtherLetterPost />} />
+
         {/* 유서 작성 페이지 */}
         <Route path="/writeletter" element={<WriteLetter />} />
 
@@ -97,8 +100,6 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         <Route path="/getanswergpt" element={<GetAnswerGPT />} />
 
         <Route path="/yourhelp" element={<VerifyPhoneNumber />} />
-
-        <Route path="/viewotherletterpost" element={<ViewOtherLetterPost />} />
       </Routes>
     </AppRouterContainer>
   );

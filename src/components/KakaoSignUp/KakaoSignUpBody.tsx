@@ -128,7 +128,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
   // const onClickNextButtonHandler = () => {};
 
   return (
-    <CommonContentContainer xPadding="5%">
+    <CommonContentContainer xPadding="5%" h={"calc(100% - 56px)"}>
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userBirth">생년월일</SignUpLabel>
         <SignUpInput
