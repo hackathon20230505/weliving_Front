@@ -44,7 +44,7 @@ const ViewMyLetterBody: FunctionComponent<ViewMyLetterBodyProps> = ({
 
   return (
     <>
-      <CommonContentContainer xPadding="5%">
+      <CommonContentContainer xPadding="5%" h={"fit-content"}>
         {/* 카테고리 */}
         <CategoryGroupContainer>
           <CategoryButton

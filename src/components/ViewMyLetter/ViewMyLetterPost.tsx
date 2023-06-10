@@ -38,7 +38,7 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = ({
 
   return (
     <>
-      <CommonContentContainer xPadding="5%">
+      <CommonContentContainer xPadding="5%" h={"fit-content"}>
         {/* 게시글 */}
         <LetterPostContainer>
           <LetterPostDateText>
@@ -49,7 +49,7 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = ({
         </LetterPostContainer>
       </CommonContentContainer>
 
-      <CommonContentContainer>
+      <CommonContentContainer h={"fit-content"}>
         {/* 유서 목차 가기 */}
         <GoToOtherLetterButtonContainer>
           <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
