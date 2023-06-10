@@ -16,7 +16,10 @@ import ViewMyLetter from "./pages/ViewMyLetter";
 import ViewOtherLetter from "./pages/ViewOtherLetter";
 import WriteLetter from "./pages/WriteLetter";
 import AfterWrite from "./pages/AfterWrite";
-import ModifyLetter from "./pages/ModifyLetter";
+import OnBording from "./pages/OnBording";
+import MainContentFirst from "./pages/MainContentFirst";
+import MainContentSecond from "./pages/MainContentSecond";
+import MainContentCard from "./pages/MainContentCard";
 type AppRouterProps = {};
 
 const AppRouter: FunctionComponent<AppRouterProps> = () => {
