@@ -17,6 +17,7 @@ import ViewOtherLetter from "./pages/ViewOtherLetter";
 import WriteLetter from "./pages/WriteLetter";
 import AfterWrite from "./pages/AfterWrite";
 import ModifyLetter from "./pages/ModifyLetter";
+
 type AppRouterProps = {};
 
 const AppRouter: FunctionComponent<AppRouterProps> = () => {
@@ -68,7 +69,7 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         <Route path="/writeletter" element={<WriteLetter />} />
 
         {/* 유서 수정 페이지 */}
-        <Route path="/modifyletter" element={<ModifyLetter />} />
+        <Route path="/modifyletter/:id" element={<ModifyLetter />} />
 
         {/* 유서 작성 이후 페이지 */}
         <Route path="/afterwrite/:id" element={<AfterWrite />} />
