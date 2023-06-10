@@ -154,7 +154,7 @@ const NotValidText = styled.p`
 // id : 2
 const FindPWBigTitle = styled.p`
   margin-top: 40px;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 24px;
 `;
 
