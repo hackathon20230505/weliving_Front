@@ -12,8 +12,7 @@ type ViewOtherLetterBodyProps = {};
 
 const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
   const navigate = useNavigate();
-  const content =
-    "dlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskl";
+  const content = "클릭 하면 상세페이지로 이동합니다";
   const token: string = localStorage.getItem("accessToken") as string;
   const [categoryFilterArray] = useRecoilState(FilterState);
 
@@ -80,13 +79,13 @@ const LetterPostTitle = styled.p`
 `;
 
 const LetterPostContent = styled.p`
-  color: #505050;
+  color: #8f8f8f;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
 
   word-break: break-all;
 
-  margin: 4px 0 8px;
+  margin: 8px 0 8px;
 `;
 
 const LetterPostDate = styled.p`
