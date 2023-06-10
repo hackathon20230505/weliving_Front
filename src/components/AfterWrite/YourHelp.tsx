@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 import CheckBox from "../Common/CheckBox";
 import { sendMessage } from "../../apis/users/sendMessage";
 import { verifyMessage } from "../../apis/users/verifyMessage";
-type YourHelpProps = {};
 
-const YourHelp: FunctionComponent<YourHelpProps> = () => {
+// type YourHelpProps = {};
+
+const YourHelp: FunctionComponent = () => {
   /** 인증번호 발송 눌렀을 때 */
   const [isSended, setIsSended] = useState<boolean>(false);
 
@@ -67,9 +68,9 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
 
   return (
     <CommonContentContainer
-      marginTop="0px"
+      topSpacing="0px"
       yPadding="2rem"
-      height="100%"
+      h="100%"
       xPadding="5%"
     >
       <YourHelpContainer>

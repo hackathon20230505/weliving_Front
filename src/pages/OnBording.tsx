@@ -5,9 +5,9 @@ import BackgroundStar from "../components/OnBording/Background";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
 
-type WillFirstProps = {};
+// type WillFirstProps = {};
 
-const WillFirst: FunctionComponent<WillFirstProps> = () => {
+const WillFirst: FunctionComponent = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
 

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import styled, { keyframes, css } from "styled-components";
-type BackgroundStarProps = {};
+import styled, { keyframes } from "styled-components";
+// type BackgroundStarProps = {};
 
 // 투명도 조절 키프레임
 const starKeyFrame = keyframes`
@@ -15,7 +15,7 @@ const cloudKeyFrame1 = keyframes`
 const cloudKeyFrame2 = keyframes`
 `;
 
-const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
+const BackgroundStar: FunctionComponent = () => {
   return (
     <BackgroundStarContainer>
       <ImageCloud1

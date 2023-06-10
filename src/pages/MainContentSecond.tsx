@@ -4,9 +4,9 @@ import MainContentSecondWordFirst from "../components/MainContent/MainContentSec
 import MainContentSecondWordSecond from "../components/MainContent/MainContentSecondWordSecond";
 import BackgroundSecond from "../components/MainContent/BackgroundSecond";
 
-type MainContentFirstProps = {};
+// type MainContentFirstProps = {};
 
-const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
+const MainContentFirst: FunctionComponent = () => {
   // const navigate = useNavigate();
   const [sectionStep, setSectionStep] = useState(0);
 
