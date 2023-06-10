@@ -1,6 +1,4 @@
-import { useRecoilState } from "recoil";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
-import { isOpenMoreState, isOpenShareState } from "./atoms/isOpenBottomSeet";
 import { useNavigate } from "react-router-dom";
 import ResizeableBottomSheet from "../Common/ResizableBottomSheet";
 import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";

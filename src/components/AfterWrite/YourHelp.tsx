@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import styled, { css } from "styled-components";
 import TheMoon from "./TheMoon";

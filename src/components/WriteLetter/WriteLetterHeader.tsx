@@ -13,8 +13,6 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
   const [isValidPost] = useRecoilState(isValidPostState);
   const [myLetterPost] = useRecoilState(myLetterState);
 
-  const token = localStorage.getItem("accessToken");
-
   const onClickGoBackButtonHandler = () => {
     navigate("/");
   };

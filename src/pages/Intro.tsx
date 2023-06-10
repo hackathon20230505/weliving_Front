@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Intro/Header";
@@ -7,7 +7,7 @@ type IntroProps = {};
 const Intro: FunctionComponent<IntroProps> = () => {
   const navigate = useNavigate();
 
-  const { Kakao } = window;
+  // const { Kakao } = window;
 
   const onClickLogInButtonHandler = () => {
     navigate("/logIn");
