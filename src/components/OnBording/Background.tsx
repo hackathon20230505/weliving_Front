@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 type BackgroundStarProps = {};
 
 // 투명도 조절 키프레임
 const starKeyFrame = keyframes`
   0% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 1; }
   100% { opacity: 1; }
 `;
 
@@ -28,176 +28,15 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       />
       {/* 별 시작 */}
       <ImageStar1
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://wliv.kr/img/onbording/onbording-back-0.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "119px",
+          height: "120px",
           top: "60px",
-          left: "9%",
-        }}
-      />
-      <ImageStar2
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
-        style={{
-          width: "26px",
-          height: "26px",
-          top: "40px",
-          left: "20%",
-        }}
-      />
-      <ImageStar3
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
-        style={{
-          width: "12px",
-          height: "12px",
-          top: "90px",
-          left: "26%",
-        }}
-      />
-      <ImageStar4
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "35px",
-          left: "35%",
-        }}
-      />
-      <ImageStar5
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "80px",
-          left: "35%",
-        }}
-      />
-      <ImageStar6
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "125px",
-          left: "30%",
-        }}
-      />
-      <ImageStar7
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "110px",
-          left: "42%",
-        }}
-      />
-      <ImageStar8
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "60px",
-          left: "46%",
-        }}
-      />
-      <ImageStar9
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
-        style={{
-          width: "9px",
-          height: "11px",
-          top: "40px",
-          left: "55%",
-        }}
-      />
-      <ImageStar10
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
-        style={{
-          width: "12px",
-          height: "12px",
-          top: "70px",
-          left: "60%",
-        }}
-      />
-      <ImageStar11
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "90px",
-          left: "54%",
-        }}
-      />
-      <ImageStar12
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
-        style={{
-          width: "13px",
-          height: "13px",
-          top: "125px",
-          left: "60%",
-        }}
-      />
-      <ImageStar13
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "45px",
-          left: "70%",
-        }}
-      />
-      <ImageStar14
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
-        style={{
-          width: "22px",
-          height: "22px",
-          top: "55px",
-          left: "80%",
-        }}
-      />
-      <ImageStar15
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
-        style={{
-          width: "14px",
-          height: "14px",
-          top: "90px",
           left: "69%",
         }}
       />
-      <ImageStar16
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
-        style={{
-          width: "12px",
-          height: "12px",
-          top: "85px",
-          left: "88%",
-        }}
-      />
-      <ImageStar17
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
-        style={{
-          width: "12px",
-          height: "12px",
-          top: "100px",
-          left: "80%",
-        }}
-      />
-      <ImageStar18
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
-        style={{
-          width: "14px",
-          height: "14px",
-          top: "130px",
-          left: "88%",
-        }}
-      />
-      <ImageStar19
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
-        style={{
-          width: "27px",
-          height: "27px",
-          top: "125px",
-          left: "70%",
-        }}
-      />
+
       {/* 별 끝 */}
     </BackgroundStarContainer>
   );
