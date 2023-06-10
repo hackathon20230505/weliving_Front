@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Intro/Header";
@@ -6,6 +6,9 @@ type IntroProps = {};
 
 const Intro: FunctionComponent<IntroProps> = () => {
   const navigate = useNavigate();
+
+  const { Kakao } = window;
+
   const onClickLogInButtonHandler = () => {
     navigate("/logIn");
   };
@@ -13,6 +16,16 @@ const Intro: FunctionComponent<IntroProps> = () => {
   const onClickSignUpButtonHandler = () => {
     navigate("/signUp");
   };
+
+  const onClickKakaoLogInButtonHandler = () => {
+    const kakaoApiKey = import.meta.env.VITE_KAKAO_CLIENT_ID;
+    const baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
+    const redirectUri = `${baseUrl}/kakaosignup`;
+    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoApiKey}&redirect_uri=${redirectUri}&response_type=code&scope=account_email`;
+
+    window.location.href = kakaoUrl;
+  };
+
   return (
     <IntroWrapper>
       <Header />
@@ -26,7 +39,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
         </IntroContentContainer>
         <LogInSignUpContainer>
           <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
-          <KakaoLogInButton>
+          <KakaoLogInButton onClick={onClickKakaoLogInButtonHandler}>
             <KaKaoIconImg
               src="https://wliv.kr/img/kakao-icon.svg"
               alt="카카오 아이콘"
@@ -46,7 +59,7 @@ export default Intro;
 
 const IntroWrapper = styled.main`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   background-image: url("https://wliv.kr/img/Intro-background-img.png");
   background-position: center center;

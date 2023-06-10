@@ -1,24 +1,30 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 import CommonContentContainer from "../Common/CommonContentContainer";
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../state/tokenState";
 import { getMyMemoryCard } from "../../apis/life/memory/getMyMemoryCard";
 import styled from "styled-components";
+import { useQuery } from "@tanstack/react-query";
 type ViewMyMemoryCardProps = {};
 
 const ViewMyMemoryCard: FunctionComponent<ViewMyMemoryCardProps> = () => {
-  const [token] = useRecoilState(accessTokenState);
-  const dummydata = ["추억1", "추억2", "추억3"];
+  const { data, isError, isFetching } = useQuery({
+    queryKey: ["getMyMemoryCard"],
+    queryFn: () =>
+      getMyMemoryCard(localStorage.getItem("accessToken") as string),
+    staleTime: 5000,
+  });
 
-  useEffect(() => {
-    const result = getMyMemoryCard(token);
-    console.log(result);
-  }, []);
+  if (isFetching) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error</span>;
+  }
 
   return (
     <>
       <CommonContentContainer xPadding="5%">
-        {dummydata.map((e, i) => {
+        {data.map((e, i) => {
           return (
             <MemoryCardContainer key={i}>
               <MemoryCardNumber>

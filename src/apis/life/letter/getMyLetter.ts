@@ -1,13 +1,15 @@
 import axios from "axios";
 
-const getMyLetter = (userId: string) => {
-  const res = axios.get("/life/letter/show", {
-    params: {
-      user_id: userId,
+const getMyLetter = async (token: string) => {
+  const {
+    data: { data },
+  } = await axios.get("/api/life/letter/show/", {
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
   });
 
-  console.log(res);
+  return data;
 };
 
 export { getMyLetter };

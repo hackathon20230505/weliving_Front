@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://www.wliv.kr/img/favicon.ico"
+    />
     <!-- Pretendard Font -->
     <link
       rel="stylesheet"
@@ -10,8 +14,21 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
     />
+    <!-- Kakao SDK -->
+    <script
+      src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+      integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해야 합니다.
+      Kakao.init("<%= VITE_KAKAO_CLIENT_ID %>");
+
+      // SDK 초기화 여부를 판단합니다.
+      console.log(Kakao.isInitialized());
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>웰리빙-심리 헬스케어</title>
   </head>
   <body>
     <div id="root"></div>

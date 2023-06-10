@@ -9,6 +9,8 @@ const PageContainer = ({ children }: PageContainerProps) => {
 };
 
 // styled-component
-const PageContainerFragment = styled.main``;
+const PageContainerFragment = styled.main`
+  height: 100%;
+`;
 
 export default PageContainer;

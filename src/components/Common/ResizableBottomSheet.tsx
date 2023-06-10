@@ -54,7 +54,7 @@ const BottomSheetWrapper = styled.div<IsShowProps>`
   transform: ${({ isShow }) =>
     isShow ? "translateY(0%)" : "translateY(100%)"};
   transition: transform 0.3s;
-  max-height: 100vh;
+  max-height: 100%;
   overflow: hidden;
 `;
 
@@ -62,7 +62,7 @@ const BottomSheetBackCurtain = styled.div<IsShowProps>`
   top: 0;
   left: 0;
   position: absolute;
-  width: 100vh;
+  width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 60%);
   display: ${({ isShow }) => (isShow ? "block" : "none")};

@@ -59,6 +59,7 @@ const HomeLetterTitle = styled.p`
 `;
 
 const HomeLetterViewGroupContainer = styled.div`
+  gap: 1rem;
   display: flex;
   justify-content: space-between;
 `;

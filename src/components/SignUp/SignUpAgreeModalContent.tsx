@@ -10,7 +10,6 @@ import { onSignup } from "../../apis/users/signup";
 import { IUserInfoStateTypes, UserInfoState } from "./atoms/UserInfoAtoms";
 import { useNavigate } from "react-router-dom";
 import { onSignIn } from "../../apis/users/signIn";
-import { accessTokenState } from "../../state/tokenState";
 
 type SignUpAgreeModalContentProps = {
   policyViewHandler?: () => void;
@@ -28,7 +27,6 @@ const SignUpAgreeModalContent: FunctionComponent<
 
   /** 사용자 데이터 */
   const [userInfo] = useRecoilState<IUserInfoStateTypes>(UserInfoState);
-  const [, setTokenState] = useRecoilState(accessTokenState);
   const navigate = useNavigate();
 
   const onClickIsAllCheckedHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -121,12 +119,10 @@ const SignUpAgreeModalContent: FunctionComponent<
 
       const result = await onSignup(signupProps);
 
-      console.log(result?.data);
-
       if (result?.data.ok) {
         const response = await onSignIn(loginProps);
 
-        setTokenState(response?.data?.accessToken);
+        localStorage.setItem("accessToken", response?.data?.accessToken);
 
         alert("로그인되었습니다.");
         navigate("/");

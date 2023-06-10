@@ -15,13 +15,12 @@ import ChangeUserInfo from "./pages/ChangeUserInfo";
 import ViewMyLetter from "./pages/ViewMyLetter";
 import ViewOtherLetter from "./pages/ViewOtherLetter";
 import WriteLetter from "./pages/WriteLetter";
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "./state/tokenState";
 import AfterWrite from "./pages/AfterWrite";
+import ModifyLetter from "./pages/ModifyLetter";
 type AppRouterProps = {};
 
 const AppRouter: FunctionComponent<AppRouterProps> = () => {
-  const [token] = useRecoilState(accessTokenState);
+  const token = localStorage.getItem("accessToken");
 
   return (
     <AppRouterContainer>
@@ -30,13 +29,16 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         <Route path="*" element={<Error404 />} />
 
         {/* access token이 있을 시 Home 화면, 없을 시 Intro 화면 표시 */}
-        <Route path="/" element={token ? <Home /> : <Intro />} />
+        <Route path="/" element={token !== null ? <Home /> : <Intro />} />
 
         {/* 로그인 페이지 */}
         <Route path="/logIn" element={<LogIn />} />
 
         {/* 회원가입 페이지 */}
         <Route path="/signUp" element={<SignUp />} />
+
+        {/* 카카오톡 oauth 처리 페이지 */}
+        {/* <Route path="/login/oauth" element={<Kakaooauth /> */}
 
         {/* 카카오톡 회원가입 페이지 */}
         <Route path="/kakaosignup" element={<KakaoSignUp />} />
@@ -65,6 +67,9 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
         {/* 유서 작성 페이지 */}
         <Route path="/writeletter" element={<WriteLetter />} />
 
+        {/* 유서 수정 페이지 */}
+        <Route path="/modifyletter" element={<ModifyLetter />} />
+
         {/* 유서 작성 이후 페이지 */}
         <Route path="/afterwrite/:id" element={<AfterWrite />} />
       </Routes>
@@ -74,4 +79,7 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
 
 export default AppRouter;
 
-const AppRouterContainer = styled.div``;
+const AppRouterContainer = styled.div`
+  height: 100%;
+  overflow: auto;
+`;

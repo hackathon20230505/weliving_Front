@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PageContainer from "../components/Common/PageContainer";
+import CommonContentContainer from "../components/Common/CommonContentContainer";
 type Error404Props = {};
 
 const Error404: FunctionComponent<Error404Props> = () => {
@@ -12,20 +13,22 @@ const Error404: FunctionComponent<Error404Props> = () => {
   };
   return (
     <PageContainer>
-      <EmptyGrayBoxContainer>
-        <img src="https://wliv.kr/img/error-404-img.svg" alt="404 에러" />
-      </EmptyGrayBoxContainer>
-      <Error404ContentContainer>
-        <Error404title>404</Error404title>
-        <Error404description>
-          요청하신 페이지를 찾을 수 없습니다.
-        </Error404description>
-      </Error404ContentContainer>
-      <GoToHomeButtonContainer>
-        <GoToHomeButton onClick={onClickGoToHomeButtonHandler}>
-          홈으로 가기
-        </GoToHomeButton>
-      </GoToHomeButtonContainer>
+      <CommonContentContainer xPadding="5%">
+        <EmptyGrayBoxContainer>
+          <img src="https://wliv.kr/img/error-404-img.svg" alt="404 에러" />
+        </EmptyGrayBoxContainer>
+        <Error404ContentContainer>
+          <Error404title>404</Error404title>
+          <Error404description>
+            요청하신 페이지를 찾을 수 없습니다.
+          </Error404description>
+        </Error404ContentContainer>
+        <GoToHomeButtonContainer>
+          <GoToHomeButton onClick={onClickGoToHomeButtonHandler}>
+            홈으로 가기
+          </GoToHomeButton>
+        </GoToHomeButtonContainer>
+      </CommonContentContainer>
     </PageContainer>
   );
 };

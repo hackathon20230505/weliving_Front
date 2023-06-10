@@ -4,14 +4,32 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { isValidPostState } from "./atoms/isValidPostAtom";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
+import { createMyLetter } from "../../apis/life/letter/createMyLetter";
+import { myLetterState } from "./atoms/myLetterAtoms";
 type WriteLetterHeaderProps = {};
 
 const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
   const navigate = useNavigate();
   const [isValidPost] = useRecoilState(isValidPostState);
+  const [myLetterPost] = useRecoilState(myLetterState);
+
+  const token = localStorage.getItem("accessToken");
 
   const onClickGoBackButtonHandler = () => {
     navigate("/");
+  };
+
+  const onClickSubmitButtonHandler = async () => {
+    const result = createMyLetter(myLetterPost);
+    console.log("result", result);
+    // const response = await fetch("https://wliv.kr/api/life/letter/create/", {
+    //   method: "POST",
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    //   body: JSON.stringify(myLetterPost), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
+    // });
+    // return response.json();
   };
 
   return (
@@ -20,8 +38,12 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
         <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
       </GoBackButton>
       <PostButtonGropContainer>
-        <SaveButton isValidPost={isValidPost}>저장</SaveButton>
-        <SubmitButton isValidPost={isValidPost}>등록</SubmitButton>
+        <SubmitButton
+          isValidPost={isValidPost}
+          onClick={onClickSubmitButtonHandler}
+        >
+          등록
+        </SubmitButton>
       </PostButtonGropContainer>
     </CommonHeaderContainer>
   );
@@ -38,7 +60,7 @@ const PostButtonGropContainer = styled.div`
   position: absolute;
   right: 0px;
 
-  width: 122px;
+  width: fit-content;
   display: flex;
   justify-content: space-between;
 `;
@@ -46,23 +68,6 @@ const PostButtonGropContainer = styled.div`
 interface IButtonTypes {
   isValidPost: boolean;
 }
-
-const SaveButton = styled.button<IButtonTypes>`
-  width: 57px;
-  height: 32px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border: ${({ isValidPost }) =>
-    isValidPost ? "1px solid var(--main-color)" : "1px solid #5B2950"};
-  border-radius: 4px;
-
-  font-weight: 700;
-  font-size: 14px;
-  color: ${({ isValidPost }) => (isValidPost ? "var(--white)" : "#867388")};
-`;
 
 const SubmitButton = styled.button<IButtonTypes>`
   width: 57px;

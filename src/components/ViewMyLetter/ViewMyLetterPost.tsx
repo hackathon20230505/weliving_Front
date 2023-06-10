@@ -2,10 +2,15 @@ import { FunctionComponent } from "react";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+import { getMyLetter } from "../../apis/life/letter/getMyLetter";
+import { useRecoilState } from "recoil";
 type ViewMyLetterPostProps = {};
 
 const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("accessToken") as string;
+
   const dummydata = {
     title: "메인 타이틀은 몇 글자까지인가?",
     content: `시험이 다가오면서 점점 '내가 지금 하고 있는 공부 방법이 맞을까' 불안감 때문에 슬럼프에 빠지는 수험생분들이 많을 거라 생각됩니다. 이럴 때일수록 흔들리지 않고 합격을 향한 방향을 제대로 잡고 평소 하던 대로 나아가야 하지 않을까요?
@@ -17,6 +22,21 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
     navigate("/viewotherletter");
   };
 
+  const { data, isError, isFetching } = useQuery({
+    queryKey: ["getMyLetter"],
+    queryFn: () => getMyLetter(token),
+    staleTime: 10,
+  });
+
+  if (isFetching) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error</span>;
+  }
+
+  console.log(data);
   return (
     <>
       <CommonContentContainer xPadding="5%">

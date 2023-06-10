@@ -309,7 +309,7 @@ const modalWrapperCommon = css`
 const CommonModalWrapper = styled.div`
   background-color: white;
   border-radius: 1rem;
-  max-height: calc(100vh - 446px);
+  max-height: calc(100% - 446px);
   overflow: hidden;
 `;
 
@@ -321,7 +321,7 @@ const TermsModalWrapper = styled.div<IModalWrapperProps>`
   ${modalWrapperCommon}
   ${({ openModalType }) =>
     openModalType == 0
-      ? "max-height: 100vh; opacity: 1;"
+      ? "max-height: 100%; opacity: 1;"
       : "max-height: 0vh; opacity: 0;"}
 `;
 
@@ -329,6 +329,6 @@ const PrivacyPolicyModalWrapper = styled.div<IModalWrapperProps>`
   ${modalWrapperCommon}
   ${({ openModalType }) =>
     openModalType == 1
-      ? "max-height: 100vh; opacity: 1;"
+      ? "max-height: 100%; opacity: 1;"
       : "max-height: 0vh; opacity: 0;"};
 `;
