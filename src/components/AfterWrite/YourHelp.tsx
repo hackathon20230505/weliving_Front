@@ -37,7 +37,7 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
 
     setIsSended(true);
 
-    const result = sendMessage(phoneInput);
+    // const result = sendMessage(phoneInput);
   };
 
   const verifyAuthNumber = () => {
