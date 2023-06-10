@@ -5,6 +5,7 @@ import PageContainer from "../components/Common/PageContainer.tsx";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getOtherLetter } from "../apis/life/letter/getOtherLetter.ts";
+import LoadingComponent from "../components/Common/LoadingComponent.tsx";
 
 export default function ViewOtherLetterPost() {
   const { id } = useParams();
@@ -14,9 +15,13 @@ export default function ViewOtherLetterPost() {
     queryFn: () => getOtherLetter(id),
   });
 
+  if (!isFetching && data?.length === 0) {
+    window.location.href = "/404";
+  }
+
   if (isError) return <div>Error</div>;
 
-  if (isFetching) return <div>Loading</div>;
+  if (isFetching) return <LoadingComponent />;
 
   return (
     <PageContainer>

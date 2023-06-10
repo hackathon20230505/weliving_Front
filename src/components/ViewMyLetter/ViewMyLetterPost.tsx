@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getMyLetter } from "../../apis/life/letter/getMyLetter";
 import { getTimeDifference } from "../../utils/getTimeDifference.ts";
+import LoadingComponent from "../Common/LoadingComponent.tsx";
 
 type ViewMyLetterPostProps = {};
 
@@ -15,10 +16,14 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
     navigate("/viewotherletter");
   };
 
-  const { data } = useQuery({
+  const { data, isFetching, isError } = useQuery({
     queryKey: ["getMyLetter"],
     queryFn: () => getMyLetter(),
   });
+
+  if (isFetching) return <LoadingComponent />;
+
+  if (isError) return <span>Error</span>;
 
   return (
     <>

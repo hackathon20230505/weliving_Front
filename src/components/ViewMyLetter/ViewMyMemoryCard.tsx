@@ -3,6 +3,8 @@ import CommonContentContainer from "../Common/CommonContentContainer";
 import { getMyMemoryCard } from "../../apis/life/memory/getMyMemoryCard";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
+import LoadingComponent from "../Common/LoadingComponent.tsx";
+
 type ViewMyMemoryCardProps = {};
 
 const ViewMyMemoryCard: FunctionComponent<ViewMyMemoryCardProps> = () => {
@@ -14,7 +16,7 @@ const ViewMyMemoryCard: FunctionComponent<ViewMyMemoryCardProps> = () => {
   });
 
   if (isFetching) {
-    return <span>Loading...</span>;
+    return <LoadingComponent />;
   }
 
   if (isError) {
