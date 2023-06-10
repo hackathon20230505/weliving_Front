@@ -9,6 +9,7 @@ import { generateResponse } from "../../apis/life/letter/generateResponse.ts";
 import { myLetterState } from "../WriteLetter/atoms/myLetterAtoms.ts";
 import { useRecoilState } from "recoil";
 import Loading from "./Loading.tsx";
+import FailComponent from "../Common/FailComponent.tsx";
 
 type AnswerGPTProps = {};
 
@@ -36,7 +37,7 @@ const AnswerGPT: FunctionComponent<AnswerGPTProps> = () => {
 
   if (isFetching) return <Loading />;
 
-  if (isError) return <span>Error</span>;
+  if (isError) return <FailComponent />;
 
   console.log(data);
 

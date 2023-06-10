@@ -2,9 +2,13 @@ import Lottie from "lottie-react";
 import Loading from "../../assets/lottie/Loading.json";
 import styled from "styled-components";
 
-const LoadingComponent = () => {
+interface LoadingComponentProps {
+  top?: string;
+}
+
+const LoadingComponent = ({ top = "56px" }: LoadingComponentProps) => {
   return (
-    <LoadingComponentContainer>
+    <LoadingComponentContainer topSize={top}>
       <LoadingIcon>
         <Lottie animationData={Loading} loop={true} />
       </LoadingIcon>
@@ -12,12 +16,15 @@ const LoadingComponent = () => {
   );
 };
 
-const LoadingComponentContainer = styled.div`
+interface LoadingComponentContainerProps {
+  topSize: string;
+}
+const LoadingComponentContainer = styled.div<LoadingComponentContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 56px;
+  top: ${({ topSize }) => topSize};
   left: 0;
   z-index: 1000;
   width: 100vw;

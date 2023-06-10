@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import FailIconSVG from "../../assets/svgs/fail.svg";
 
-const FailComponent = () => {
+interface FailComponentProps {
+  top?: string;
+}
+
+const FailComponent = ({ top = "56px" }: FailComponentProps) => {
   return (
-    <FailComponentContainer>
+    <FailComponentContainer topSize={top}>
       <FailIcon>
         <img src={FailIconSVG} alt="실패 아이콘" />
       </FailIcon>
@@ -12,13 +16,17 @@ const FailComponent = () => {
   );
 };
 
-const FailComponentContainer = styled.div`
+interface FailComponentContainerProps {
+  topSize: string;
+}
+
+const FailComponentContainer = styled.div<FailComponentContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 56px;
+  top: ${({ topSize }) => topSize};
   left: 0;
   z-index: 1000;
   width: 100vw;

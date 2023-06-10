@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getOtherLetter } from "../apis/life/letter/getOtherLetter.ts";
 import LoadingComponent from "../components/Common/LoadingComponent.tsx";
 import { useNavigate } from "react-router-dom";
+import FailComponent from "../components/Common/FailComponent.tsx";
 
 export default function ViewOtherLetterPost() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export default function ViewOtherLetterPost() {
     window.location.href = "/404";
   }
 
-  if (isError) return <div>Error</div>;
+  if (isError) return <FailComponent />;
 
   if (isFetching)
     return (

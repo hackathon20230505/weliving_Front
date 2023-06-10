@@ -7,6 +7,8 @@ import styled from "styled-components";
 import { getTimeDifference } from "../../utils/getTimeDifference";
 import CommonContentContainer from "../Common/CommonContentContainer.tsx";
 import { useNavigate } from "react-router-dom";
+import FailComponent from "../Common/FailComponent.tsx";
+import LoadingComponent from "../Common/LoadingComponent.tsx";
 
 type ViewOtherLetterBodyProps = {};
 
@@ -33,7 +35,10 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
     if (!isFetching) setDisplayItem(data?.letter);
   }, [data?.letter, isFetching]);
 
-  if (isError) return <div>Error</div>;
+  if (data === undefined && isFetching)
+    return <LoadingComponent top={"100px"} />;
+
+  if (isError) return <FailComponent top={"100px"} />;
 
   const PostContainerClickHandler = (id) => {
     navigate(`/viewotherletter/${id}`);
