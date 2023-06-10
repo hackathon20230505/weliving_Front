@@ -80,6 +80,14 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     setIsAlarmAgreed((prev) => !prev);
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("kakaoAccessToken");
+    localStorage.removeItem("kakaoRefreshToken");
+    window.location.href = "/";
+  };
+
   // const onClickNextButtonHandler = () => {};
 
   return (
@@ -143,6 +151,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
         <CheckBox isChecked={isAlarmAgreed} />
         <SignUpCheckBoxText>문자 알림 동의</SignUpCheckBoxText>
       </SignUpCheckBoxContainer>
+      <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
       <NextButton
         isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}
         disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}
@@ -224,4 +233,14 @@ const SignUpCheckBoxContainer = styled.div`
 
 const SignUpCheckBoxText = styled.p`
   margin-left: 8px;
+`;
+
+const LogoutButton = styled.div`
+  margin-top: 1.5rem;
+  border: 1px solid #ff4e78;
+  background-color: #ff4e78;
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 4px;
+  color: white;
 `;
