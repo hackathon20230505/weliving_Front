@@ -5,6 +5,7 @@ import TheMoon from "./TheMoon";
 import { useNavigate } from "react-router-dom";
 import CheckBox from "../Common/CheckBox";
 import { sendMessage } from "../../apis/users/sendMessage";
+import { verifyMessage } from "../../apis/users/verifyMessage";
 type YourHelpProps = {};
 
 const YourHelp: FunctionComponent<YourHelpProps> = () => {
@@ -14,6 +15,7 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
   /** 버튼 활성화 */
   const [isActive, setIsActive] = useState<boolean>(false);
   const [phoneInput, setPhoneInput] = useState<string>("");
+  const [verifyInput, setVerifyInput] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -43,11 +45,20 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
 
   const verifyAuthNumber = () => {
     setIsActive(true);
+    const result = verifyMessage(phoneInput, verifyInput);
+    console.log(result);
   };
 
   const phoneInputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const phone = phoneConverter(e.target.value);
     setPhoneInput(phone);
+  };
+
+  const onChangeVerifyInputHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { value } = e.target;
+    setVerifyInput(value);
   };
 
   const buttonHandler = () => {
@@ -91,7 +102,12 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
           {isSended && (
             <YourHelpInputForm>
               <YourHelpInputBox>
-                <YourHelpInput type="number" placeholder="인증번호 입력" />
+                <YourHelpInput
+                  onChange={onChangeVerifyInputHandler}
+                  value={verifyInput}
+                  type="number"
+                  placeholder="인증번호 입력"
+                />
               </YourHelpInputBox>
               {isActive ? (
                 <YourHelpInputButtonFinish>인증완료</YourHelpInputButtonFinish>

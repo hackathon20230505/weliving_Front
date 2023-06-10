@@ -25,7 +25,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
     const { value } = event.target;
     setUserBirth(value);
 
-    if (isValidUserBirthFunc(value) === true) {
+    if (isValidUserBirthFunc(value)) {
       setIsValidUserBirth(true);
     } else {
       setIsValidUserBirth(false);
@@ -202,8 +202,6 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
             isChecked.isCollectPersonalInfoChecked &&
             isChecked.isTermsAndConditionsChecked
           )
-            ? true
-            : false
         }
         onClick={onClickNextButtonHandler}
       >
