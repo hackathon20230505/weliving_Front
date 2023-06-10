@@ -9,12 +9,14 @@ interface LetterHeaderProps {
   isSelf?: boolean;
   isShareToggleHandler?: () => void;
   isShare?: number;
+  showButtons?: boolean;
 }
 
 const LetterHeader = ({
   isSelf = false,
   isShareToggleHandler,
   isShare = 0,
+  showButtons = false,
 }: LetterHeaderProps) => {
   const [isOpenShare, setIsOpenShare] = useState<boolean>(false);
   const [isOpenMore, setIsOpenMore] = useState<boolean>(false);
@@ -58,100 +60,113 @@ const LetterHeader = ({
         <GoBackButton onClick={onClickGoBackButtonHandler}>
           <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
         </GoBackButton>
-        <ButtonGroupContainer>
-          <ShareButton onClick={onClickShareButtonHandler}>
-            <img src="https://wliv.kr/img/share-icon.svg" alt="공유하기" />
-          </ShareButton>
-          {isSelf && (
-            <MoreButton onClick={onClickMoreButtonHandler}>
-              <img src="https://wliv.kr/img/more-icon.svg" alt="더 많은 기능" />
-            </MoreButton>
-          )}
-        </ButtonGroupContainer>
+        {showButtons && (
+          <ButtonGroupContainer>
+            <ShareButton onClick={onClickShareButtonHandler}>
+              <img src="https://wliv.kr/img/share-icon.svg" alt="공유하기" />
+            </ShareButton>
+            {isSelf && (
+              <MoreButton onClick={onClickMoreButtonHandler}>
+                <img
+                  src="https://wliv.kr/img/more-icon.svg"
+                  alt="더 많은 기능"
+                />
+              </MoreButton>
+            )}
+          </ButtonGroupContainer>
+        )}
       </CommonHeaderContainer>
-
-      <ResizeableBottomSheet
-        isShow={isOpenShare}
-        setIsShow={setIsOpenShare}
-        isFullSize={true}
-        setIsFullSize={setIsFullOpenShare}
-        backgroundClickHandler={backgroundClickHandler}
-        manualFullSizeHeight={"30%"}
-      >
-        <ResizableBottomSheetHeader
-          closable={true}
-          closeHandler={() => setIsOpenShare(false)}
-          align="right"
-        />
-        <CopyShareText>공유하기</CopyShareText>
-        <CopyURLContainer>
-          <CopyURLButtonBox>
-            <CopyURLButton onClick={copyURL}>
-              <img
-                src={"https://wliv.kr/img/kakao-icon2.svg"}
-                alt={"카카오 로고"}
-              />
-            </CopyURLButton>
-            <p>카카오</p>
-          </CopyURLButtonBox>
-          <CopyURLButtonBox>
-            <CopyURLButton onClick={copyURL}>
-              <img
-                src={"https://wliv.kr/img/insta-icon.svg"}
-                alt={"인스타그램 로고"}
-              />
-            </CopyURLButton>
-            <p>인스타그램</p>
-          </CopyURLButtonBox>
-          <CopyURLButtonBox>
-            <CopyURLButton onClick={copyURL}>
-              <img
-                src={"https://wliv.kr/img/link-icon.svg"}
-                alt={"링크연결 아이콘"}
-              />
-            </CopyURLButton>
-            <p>URL</p>
-          </CopyURLButtonBox>
-        </CopyURLContainer>
-      </ResizeableBottomSheet>
-      {isSelf && (
-        <ResizeableBottomSheet
-          isShow={isOpenMore}
-          setIsShow={setIsOpenMore}
-          isFullSize={true}
-          setIsFullSize={setIsFullOpenMore}
-          backgroundClickHandler={backgroundClickHandler}
-          manualFullSizeHeight={"30%"}
-        >
-          <ResizableBottomSheetHeader
-            closable={true}
-            closeHandler={() => setIsOpenMore(false)}
-            align="right"
-          />
-          <ETCButton
-            onClick={() => {
-              navigate("/modifyletter");
-            }}
+      {showButtons && (
+        <>
+          <ResizeableBottomSheet
+            isShow={isOpenShare}
+            setIsShow={setIsOpenShare}
+            isFullSize={true}
+            setIsFullSize={setIsFullOpenShare}
+            backgroundClickHandler={backgroundClickHandler}
+            manualFullSizeHeight={"30%"}
           >
-            수정하기
-            <img src="https://wliv.kr/img/write-icon.svg" alt={"펜 아이콘"} />
-          </ETCButton>
-          <ETCButton onClick={isShareToggleHandler}>
-            <p>유서 공개여부</p>
-            <IsOpenToggleGroup>
-              <IsOpenToggleItem isActive={isShare === 1}>공개</IsOpenToggleItem>
-              <IsOpenToggleItem isActive={isShare === 0}>
-                비공개
-              </IsOpenToggleItem>
-            </IsOpenToggleGroup>
-          </ETCButton>
-        </ResizeableBottomSheet>
+            <ResizableBottomSheetHeader
+              closable={true}
+              closeHandler={() => setIsOpenShare(false)}
+              align="right"
+            />
+            <CopyShareText>공유하기</CopyShareText>
+            <CopyURLContainer>
+              <CopyURLButtonBox>
+                <CopyURLButton onClick={copyURL}>
+                  <img
+                    src={"https://wliv.kr/img/kakao-icon2.svg"}
+                    alt={"카카오 로고"}
+                  />
+                </CopyURLButton>
+                <p>카카오</p>
+              </CopyURLButtonBox>
+              <CopyURLButtonBox>
+                <CopyURLButton onClick={copyURL}>
+                  <img
+                    src={"https://wliv.kr/img/insta-icon.svg"}
+                    alt={"인스타그램 로고"}
+                  />
+                </CopyURLButton>
+                <p>인스타그램</p>
+              </CopyURLButtonBox>
+              <CopyURLButtonBox>
+                <CopyURLButton onClick={copyURL}>
+                  <img
+                    src={"https://wliv.kr/img/link-icon.svg"}
+                    alt={"링크연결 아이콘"}
+                  />
+                </CopyURLButton>
+                <p>URL</p>
+              </CopyURLButtonBox>
+            </CopyURLContainer>
+          </ResizeableBottomSheet>
+          {isSelf && (
+            <ResizeableBottomSheet
+              isShow={isOpenMore}
+              setIsShow={setIsOpenMore}
+              isFullSize={true}
+              setIsFullSize={setIsFullOpenMore}
+              backgroundClickHandler={backgroundClickHandler}
+              manualFullSizeHeight={"30%"}
+            >
+              <ResizableBottomSheetHeader
+                closable={true}
+                closeHandler={() => setIsOpenMore(false)}
+                align="right"
+              />
+              <ETCButton
+                onClick={() => {
+                  navigate("/modifyletter");
+                }}
+              >
+                수정하기
+                <img
+                  src="https://wliv.kr/img/write-icon.svg"
+                  alt={"펜 아이콘"}
+                />
+              </ETCButton>
+              <ETCButton onClick={isShareToggleHandler}>
+                <p>유서 공개여부</p>
+                <IsOpenToggleGroup>
+                  <IsOpenToggleItem isActive={isShare === 1}>
+                    공개
+                  </IsOpenToggleItem>
+                  <IsOpenToggleItem isActive={isShare === 0}>
+                    비공개
+                  </IsOpenToggleItem>
+                </IsOpenToggleGroup>
+              </ETCButton>
+            </ResizeableBottomSheet>
+          )}
+          {toastList.map((i) => (
+            <HintToast key={i.id} isShareOpen={isOpenShare}>
+              <HintToastText>링크가 복사되었습니다.</HintToastText>
+            </HintToast>
+          ))}
+        </>
       )}
-      {toastList.map((i) => (
-        <HintToast key={i.id} isShareOpen={isOpenShare}>
-          <HintToastText>링크가 복사되었습니다.</HintToastText>
-        </HintToast>
-      ))}
     </>
   );
 };

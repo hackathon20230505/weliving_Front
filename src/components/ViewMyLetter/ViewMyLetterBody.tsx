@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import {
@@ -8,23 +8,38 @@ import {
 import { useRecoilState } from "recoil";
 import ViewMyLetterPost from "./ViewMyLetterPost";
 import ViewMyMemoryCard from "./ViewMyMemoryCard";
-type ViewMyLetterBodyProps = {};
 
-const ViewMyLetterBody: FunctionComponent<ViewMyLetterBodyProps> = () => {
+type ViewMyLetterBodyProps = {
+  setShowButton?: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const ViewMyLetterBody: FunctionComponent<ViewMyLetterBodyProps> = ({
+  setShowButton = undefined,
+}: ViewMyLetterBodyProps) => {
   const [isActiveLetter, setIsActiveLetter] =
     useRecoilState<boolean>(isActiveLetterState);
   const [isActiveMemoryCard, setIsActiveMemoryCard] = useRecoilState<boolean>(
     isActiveMemoryCardState,
   );
 
+  const [, setIsLetterPostFinished] = useState<boolean>(false);
+
+  const setIsLetterPostOverwrite = (b: boolean) => {
+    setIsLetterPostFinished(b);
+
+    setShowButton && setShowButton(b);
+  };
+
   const onClickLetterButtonHandler = () => {
     setIsActiveLetter(true);
     setIsActiveMemoryCard(false);
+    setIsLetterPostOverwrite(false);
   };
 
   const onClickMemoryCardButtonHandler = () => {
     setIsActiveLetter(false);
     setIsActiveMemoryCard(true);
+    setIsLetterPostOverwrite(false);
   };
 
   return (
@@ -46,7 +61,9 @@ const ViewMyLetterBody: FunctionComponent<ViewMyLetterBodyProps> = () => {
           </CategoryButton>
         </CategoryGroupContainer>
       </CommonContentContainer>
-      {isActiveLetter && <ViewMyLetterPost />}
+      {isActiveLetter && (
+        <ViewMyLetterPost setIsLetterPostOverwrite={setIsLetterPostOverwrite} />
+      )}
       {isActiveMemoryCard && <ViewMyMemoryCard />}
     </>
   );

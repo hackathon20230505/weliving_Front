@@ -31,14 +31,14 @@ export default function ViewOtherLetterPost() {
   if (isFetching)
     return (
       <>
-        <LetterHeader />
+        <LetterHeader showButtons={false} />
         <LoadingComponent />
       </>
     );
 
   return (
     <PageContainer>
-      <LetterHeader />
+      <LetterHeader showButtons={true} />
       <CommonContentContainer xPadding={"5%"}>
         <LetterPostContainer>
           <LetterPostDateText>{data?.[0].created_at}</LetterPostDateText>
