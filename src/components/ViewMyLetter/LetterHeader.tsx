@@ -119,17 +119,23 @@ const LetterHeader = ({
             closeHandler={() => setIsOpenMore(false)}
             align="right"
           />
-          <button
+          <ETCButton
             onClick={() => {
               navigate("/modifyletter");
             }}
           >
             수정하기
-          </button>
-          <button onClick={isShareToggleHandler}>
-            유서 공개여부
-            {isShare ? "공개" : "비공개"}
-          </button>
+            <img src="https://wliv.kr/img/write-icon.svg" />
+          </ETCButton>
+          <ETCButton onClick={isShareToggleHandler}>
+            <p>유서 공개여부</p>
+            <IsOpenToggleGroup>
+              <IsOpenToggleItem isActive={isShare === 1}>공개</IsOpenToggleItem>
+              <IsOpenToggleItem isActive={isShare === 0}>
+                비공개
+              </IsOpenToggleItem>
+            </IsOpenToggleGroup>
+          </ETCButton>
         </ResizeableBottomSheet>
       )}
       {toastList.map((i) => (
@@ -142,6 +148,37 @@ const LetterHeader = ({
 };
 
 export default LetterHeader;
+
+const ETCButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+`;
+
+const IsOpenToggleGroup = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  background-color: #534356;
+  border-radius: 4px;
+`;
+
+interface IsOpenToggleItemProps {
+  isActive: boolean;
+}
+
+const IsOpenToggleItem = styled.div<IsOpenToggleItemProps>`
+  width: 100%;
+  font-size: 12px;
+  padding: 6px;
+  color: ${({ isActive }) => (isActive ? "#FFFFFF" : "#867388")};
+  background-color: ${({ isActive }) => (isActive ? "#DB0FDB" : "#534356")};
+  border-radius: 4px;
+`;
 
 const GoBackButton = styled.button`
   position: absolute;
