@@ -56,9 +56,7 @@ const MainContentFirst: FunctionComponent = () => {
             className={isPlaying ? "" : "BackgroundMusicCancel"}
             onClick={toggleMusic}
           >
-            {isPlaying === false && (
-              <BackgroundMusicCancel></BackgroundMusicCancel>
-            )}
+            {!isPlaying && <BackgroundMusicCancel></BackgroundMusicCancel>}
 
             <BackgroundMusicIcon></BackgroundMusicIcon>
             <BackgroundMusicText>배경 bgm</BackgroundMusicText>
