@@ -87,19 +87,28 @@ const LetterHeader = ({
         <CopyURLContainer>
           <CopyURLButtonBox>
             <CopyURLButton onClick={copyURL}>
-              <img src={"https://wliv.kr/img/kakao-icon2.svg"} />
+              <img
+                src={"https://wliv.kr/img/kakao-icon2.svg"}
+                alt={"카카오 로고"}
+              />
             </CopyURLButton>
             <p>카카오</p>
           </CopyURLButtonBox>
           <CopyURLButtonBox>
             <CopyURLButton onClick={copyURL}>
-              <img src={"https://wliv.kr/img/insta-icon.svg"} />
+              <img
+                src={"https://wliv.kr/img/insta-icon.svg"}
+                alt={"인스타그램 로고"}
+              />
             </CopyURLButton>
             <p>인스타그램</p>
           </CopyURLButtonBox>
           <CopyURLButtonBox>
             <CopyURLButton onClick={copyURL}>
-              <img src={"https://wliv.kr/img/link-icon.svg"} />
+              <img
+                src={"https://wliv.kr/img/link-icon.svg"}
+                alt={"링크연결 아이콘"}
+              />
             </CopyURLButton>
             <p>URL</p>
           </CopyURLButtonBox>
@@ -125,7 +134,7 @@ const LetterHeader = ({
             }}
           >
             수정하기
-            <img src="https://wliv.kr/img/write-icon.svg" />
+            <img src="https://wliv.kr/img/write-icon.svg" alt={"펜 아이콘"} />
           </ETCButton>
           <ETCButton onClick={isShareToggleHandler}>
             <p>유서 공개여부</p>
@@ -182,7 +191,7 @@ const IsOpenToggleItem = styled.div<IsOpenToggleItemProps>`
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  left: 0;
 `;
 
 const ButtonGroupContainer = styled.div`

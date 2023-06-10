@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
+
 type SignUpHeaderProps = {};
 
 const SignUpHeader: FunctionComponent<SignUpHeaderProps> = () => {
@@ -23,5 +24,5 @@ export default SignUpHeader;
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  left: 0;
 `;

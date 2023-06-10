@@ -1,11 +1,12 @@
 import { FunctionComponent } from "react";
-import CommonContentContainer from "../Common/CommonContentContainer";
 import { useQuery } from "@tanstack/react-query";
 import { getOtherLetterList } from "../../apis/life/letter/getOtherLetterList";
 import { useRecoilState } from "recoil";
 import { FilterState } from "./atoms/FilterAtom";
 import styled from "styled-components";
 import { getTimeDifference } from "../../utils/getTimeDifference";
+import CommonContentContainer from "../Common/CommonContentContainer.tsx";
+
 type ViewOtherLetterBodyProps = {};
 
 const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
@@ -28,19 +29,32 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
   if (isFetching) return <div>Loading</div>;
 
   return (
-    <CommonContentContainer xPadding="5%">
-      {data.letter.map(({ letter_id, title, createdAt }) => (
-        <LetterPostContainer key={letter_id}>
-          <LetterPostTitle>{title}</LetterPostTitle>
-          <LetterPostContent>{content}</LetterPostContent>
-          <LetterPostDate>{getTimeDifference(createdAt)}</LetterPostDate>
-        </LetterPostContainer>
-      ))}
+    <CommonContentContainer
+      xPadding="5%"
+      yPadding={"1rem"}
+      topSpacing={"0"}
+      h={"calc(100% - 100px)"}
+    >
+      <CustomContentContainer>
+        {data.letter.map(({ letter_id, title, createdAt }) => (
+          <LetterPostContainer key={letter_id}>
+            <LetterPostTitle>{title}</LetterPostTitle>
+            <LetterPostContent>{content}</LetterPostContent>
+            <LetterPostDate>{getTimeDifference(createdAt)}</LetterPostDate>
+          </LetterPostContainer>
+        ))}
+      </CustomContentContainer>
     </CommonContentContainer>
   );
 };
 
 export default ViewOtherLetterBody;
+
+const CustomContentContainer = styled.div`
+  height: 100%;
+  overflow: auto;
+  border-radius: 4px;
+`;
 
 const LetterPostContainer = styled.div`
   padding: 20px;

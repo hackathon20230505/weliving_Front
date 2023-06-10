@@ -10,6 +10,7 @@ import {
 import TermsOfServiceModalComponent from "../SignUp/TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "../SignUp/PrivacyPolicyModalComponent";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type KakaoSignUpBodyProps = {};
 
 const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
@@ -123,7 +124,8 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
     }
   };
 
-  const onClickNextButtonHandler = () => {};
+  // TODO: 카카오 로그인 Next 버튼 구현
+  // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
@@ -203,7 +205,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
             isChecked.isTermsAndConditionsChecked
           )
         }
-        onClick={onClickNextButtonHandler}
+        // onClick={onClickNextButtonHandler}
       >
         로그인 하기
       </NextButton>
@@ -229,7 +231,7 @@ const SignUpInput = styled.input`
   padding: 13px 12px 14px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);
@@ -241,7 +243,7 @@ interface INextButtonTypes {
 }
 
 const NextButton = styled.button<INextButtonTypes>`
-  width: 100%;
+  width: 90%;
   height: 56px;
 
   background-color: ${({ isValid }) =>
@@ -252,12 +254,11 @@ const NextButton = styled.button<INextButtonTypes>`
   color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
 
   position: absolute;
-  width: 90%;
   bottom: 34px;
 `;
 
 const SignUpAgreeModalContentContainer = styled.div`
-  min-height: 0vh;
+  min-height: 0;
   opacity: 1;
   transition: min-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `;
@@ -299,7 +300,7 @@ const HorizonDivider = styled.hr`
 const IsCheckedContainer = styled.div``;
 
 const modalWrapperCommon = css`
-  max-height: 0vh;
+  max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out;
 `;
@@ -320,7 +321,7 @@ const TermsModalWrapper = styled.div<IModalWrapperProps>`
   ${({ openModalType }) =>
     openModalType == 0
       ? "max-height: 100%; opacity: 1;"
-      : "max-height: 0vh; opacity: 0;"}
+      : "max-height: 0; opacity: 0;"}
 `;
 
 const PrivacyPolicyModalWrapper = styled.div<IModalWrapperProps>`
@@ -328,5 +329,5 @@ const PrivacyPolicyModalWrapper = styled.div<IModalWrapperProps>`
   ${({ openModalType }) =>
     openModalType == 1
       ? "max-height: 100%; opacity: 1;"
-      : "max-height: 0vh; opacity: 0;"};
+      : "max-height: 0; opacity: 0;"};
 `;

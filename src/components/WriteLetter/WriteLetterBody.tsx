@@ -7,14 +7,14 @@ import BottomSheetTitle from "../Common/BottomSheetTitle";
 import ResizableBottomSheetContent from "../Common/ResizableBottomSheetContent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-type WriteLetterBodyProps = {};
-
 import "swiper/css";
 import "swiper/css/pagination";
 import WriterLetterTermModalComponent from "./WriteLetterTermModalComponent";
 import { useRecoilState } from "recoil";
 import { isValidPostState } from "./atoms/isValidPostAtom";
 import { myLetterState } from "./atoms/myLetterAtoms";
+
+type WriteLetterBodyProps = {};
 
 const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
   const [isShow, setIsShow] = useState<boolean>(true);
@@ -46,7 +46,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
     if (myLetterPost.title !== "" && myLetterPost.content !== "") {
       setIsValidPost(true);
     }
-  }, [myLetterPost]);
+  }, [myLetterPost, setIsValidPost]);
 
   const onChangeLetterTitleHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -118,10 +118,14 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
           closeHandler={closeHandler}
           closeIconOverwrap={
             isDisplayContent ? (
-              <img src="https://wliv.kr/img/arrow-bottom-icon.svg" />
+              <img
+                src="https://wliv.kr/img/arrow-bottom-icon.svg"
+                alt="화살표 아래 방향 아이콘"
+              />
             ) : (
               <img
                 src="https://wliv.kr/img/arrow-bottom-icon.svg"
+                alt="뒤집힌 화살표 아래 방향 아이콘"
                 style={{
                   transform: "rotate(180deg)",
                 }}
@@ -242,7 +246,7 @@ interface BottomSheetContentWrapperProps {
 const BottomSheetContentWrapper = styled.div<BottomSheetContentWrapperProps>`
   position: relative;
   height: 100%;
-  max-height: ${(props) => (props.isDisplayContent ? "450px" : "0px")};
+  max-height: ${(props) => (props.isDisplayContent ? "450px" : "0")};
   overflow: hidden;
   transition: max-height 0.15s linear;
 `;

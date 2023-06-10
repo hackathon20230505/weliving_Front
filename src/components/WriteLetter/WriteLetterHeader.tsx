@@ -45,12 +45,12 @@ export default WriteLetterHeader;
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  left: 0;
 `;
 
 const PostButtonGropContainer = styled.div`
   position: absolute;
-  right: 0px;
+  right: 0;
 
   width: fit-content;
   display: flex;

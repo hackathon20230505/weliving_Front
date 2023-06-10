@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import CommonContentContainer from "../components/Common/CommonContentContainer";
 import ModifyLetterBody from "../components/ModifyLetter/ModifyLetterBody";
 import ModifyLetterHeader from "../components/ModifyLetter/ModifyLetterHeader";
 import { getMyLetter } from "../apis/life/letter/getMyLetter";
 import { modifyMyLetter } from "../apis/life/letter/modifyMyLetter.ts";
 import { useNavigate } from "react-router-dom";
+import PageContainer from "../components/Common/PageContainer.tsx";
 
 const ModifyLetter = () => {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ const ModifyLetter = () => {
   }, []);
 
   return (
-    <CommonContentContainer marginTop="0">
+    <PageContainer>
       <ModifyLetterHeader
         isActive={isActive}
         letterHeaderClickHandler={letterHeaderClickHandler}
@@ -65,7 +65,7 @@ const ModifyLetter = () => {
         setMyLetterPost={setMyLetterPost}
         setIsActive={setIsActive}
       />
-    </CommonContentContainer>
+    </PageContainer>
   );
 };
 

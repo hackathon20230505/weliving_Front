@@ -7,7 +7,7 @@ interface ResizableBottomSheetContentProps {
 
 const ResizableBottomSheetContent = ({
   children,
-  borderRadius = "0px",
+  borderRadius = "0",
 }: ResizableBottomSheetContentProps) => {
   return (
     <ResizableBottomSheetContentFragment borderRadius={borderRadius}>

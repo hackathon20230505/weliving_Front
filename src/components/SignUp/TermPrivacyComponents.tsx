@@ -8,7 +8,7 @@ export const TPTitle = styled.h1`
   margin-top: 36px;
 
   &:first-child {
-    margin-top: 0px;
+    margin-top: 0;
   }
 
   color: #111111;

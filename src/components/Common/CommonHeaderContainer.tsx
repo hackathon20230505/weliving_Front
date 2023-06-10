@@ -36,6 +36,7 @@ interface CommonHeaderContainerFragmentProps {
 
 const CommonContainerFragment = styled.header<CommonHeaderContainerFragmentProps>`
   ${(props) => (props.height ? `height: ${props.height};` : "")}
+  ${(props) => (props.height ? `min-height: ${props.height};` : "")}
 
   ${(props) =>
     props.yPadding && props.xPadding

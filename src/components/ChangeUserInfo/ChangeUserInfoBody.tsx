@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
@@ -41,7 +42,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   ) => {
     const { value } = event.target;
     setUserNewPassword(value);
-    if (isValidUserPasswordFunc(value) === true) {
+    if (isValidUserPasswordFunc(value)) {
       setIsValidUserNewPassword(true);
     } else {
       setIsValidUserNewPassword(false);
@@ -79,7 +80,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     setIsAlarmAgreed((prev) => !prev);
   };
 
-  const onClickNextButtonHandler = () => {};
+  // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
@@ -144,12 +145,8 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
       </SignUpCheckBoxContainer>
       <NextButton
         isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}
-        disabled={
-          !(isValidUserNewPassword && isValidUserNewPasswordConfirm)
-            ? true
-            : false
-        }
-        onClick={onClickNextButtonHandler}
+        disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}
+        // onClick={onClickNextButtonHandler}
       >
         다음
       </NextButton>
@@ -177,7 +174,7 @@ const SignUpInput = styled.input`
   padding: 13px 12px 14px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);
@@ -200,7 +197,7 @@ interface INextButtonTypes {
 }
 
 const NextButton = styled.button<INextButtonTypes>`
-  width: 100%;
+  width: 90%;
   height: 56px;
 
   background-color: ${({ isValid }) =>
@@ -211,7 +208,6 @@ const NextButton = styled.button<INextButtonTypes>`
   color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
 
   position: absolute;
-  width: 90%;
   bottom: 34px;
 `;
 

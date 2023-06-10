@@ -1,10 +1,11 @@
 import LetterHeader from "../components/ViewMyLetter/LetterHeader.tsx";
 import CommonContentContainer from "../components/Common/CommonContentContainer.tsx";
 import styled from "styled-components";
+import PageContainer from "../components/Common/PageContainer.tsx";
 
 export default function ViewOtherLetterPost() {
   return (
-    <>
+    <PageContainer>
       <LetterHeader />
       <CommonContentContainer xPadding={"5%"}>
         <LetterPostContainer>
@@ -29,7 +30,7 @@ export default function ViewOtherLetterPost() {
           </GoToOtherLetterButton>
         </GoToOtherLetterButtonContainer>
       </CommonContentContainer>
-    </>
+    </PageContainer>
   );
 }
 

@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
+
 type ChangeUserInfoHeaderProps = {};
 
 const ChangeUserInfoHeader: FunctionComponent<
@@ -27,7 +28,7 @@ export default ChangeUserInfoHeader;
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  left: 0;
 `;
 
 const FindPWTitle = styled.h1`
