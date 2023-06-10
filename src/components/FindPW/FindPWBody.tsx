@@ -21,7 +21,7 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
 
     setUserEmail(currValue);
 
-    if (isValidUserEmailFunc(currValue) === true) {
+    if (isValidUserEmailFunc(currValue)) {
       setIsValidUserEmail(true);
     } else {
       setIsValidUserEmail(false);
@@ -53,13 +53,13 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
               value={userEmail}
               onChange={onChangeUserEmailHandler}
             />
-            {isValidUserEmail === false && (
+            {!isValidUserEmail && (
               <NotValidText>이메일 주소를 확인하세요.</NotValidText>
             )}
           </FindPWInputGroupContainer>
           <FindPWButton
             isValid={isValidUserEmail}
-            disabled={!isValidUserEmail ? true : false}
+            disabled={!isValidUserEmail}
             onClick={onClickNextButtonHandler}
           >
             다음

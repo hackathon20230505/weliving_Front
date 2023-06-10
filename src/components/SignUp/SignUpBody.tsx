@@ -71,7 +71,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userEmail: value,
     });
 
-    if (isValidUserEmailFunc(value) === true) {
+    if (isValidUserEmailFunc(value)) {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserEmail: true });
     } else {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserEmail: false });
@@ -90,7 +90,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userPassword: value,
     });
 
-    if (isValidUserPasswordFunc(value) === true) {
+    if (isValidUserPasswordFunc(value)) {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserPassword: true });
     } else {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserPassword: false });
@@ -108,7 +108,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userPasswordConfirm: value,
     });
 
-    if (isValidUserPasswordConfirmFunc(userInfo.userPassword, value) === true) {
+    if (isValidUserPasswordConfirmFunc(userInfo.userPassword, value)) {
       setIsValidUserInfo({
         ...isValidUserInfo,
         isValidUserPasswordConfirm: true,
@@ -130,7 +130,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userBirth: value,
     });
 
-    if (isValidUserBirthFunc(value) === true) {
+    if (isValidUserBirthFunc(value)) {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserBirth: true });
     } else {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserBirth: false });
@@ -211,8 +211,6 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
               isValidUserInfo.isValidUserPasswordConfirm &&
               isValidUserInfo.isValidUserBirth
             )
-              ? true
-              : false
           }
           onClick={onClickNextButtonHandler}
         >

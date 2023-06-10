@@ -42,7 +42,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   ) => {
     const { value } = event.target;
     setUserNewPassword(value);
-    if (isValidUserPasswordFunc(value) === true) {
+    if (isValidUserPasswordFunc(value)) {
       setIsValidUserNewPassword(true);
     } else {
       setIsValidUserNewPassword(false);
@@ -145,11 +145,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
       </SignUpCheckBoxContainer>
       <NextButton
         isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}
-        disabled={
-          !(isValidUserNewPassword && isValidUserNewPasswordConfirm)
-            ? true
-            : false
-        }
+        disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}
         onClick={onClickNextButtonHandler}
       >
         다음

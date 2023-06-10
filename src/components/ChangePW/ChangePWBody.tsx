@@ -22,7 +22,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
     if (currValue === null) return;
     setUserPassword(currValue);
 
-    if (isValidUserPasswordFunc(currValue) === true) {
+    if (isValidUserPasswordFunc(currValue)) {
       setIsValidUserPassword(true);
     } else {
       setIsValidUserPassword(false);
@@ -58,7 +58,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
           value={userPassword}
           onChange={onChangeUserPasswordHandler}
         />
-        {isValidUserPassword === false && (
+        {!isValidUserPassword && (
           <NotValidText>
             비밀번호를 최소 8자 이상, 특수문자 1개를 포함해주세요.
           </NotValidText>
@@ -74,15 +74,13 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
           value={userPasswordConfirm}
           onChange={onChangeUserPasswordConfirmHandler}
         />
-        {isValiduserPasswordConfirm === false && (
+        {!isValiduserPasswordConfirm && (
           <NotValidText>비밀번호가 일치하지 않아요.</NotValidText>
         )}
       </LogInInputGroupContainer>
       <NextButton
         isValid={isValidUserPassword && isValiduserPasswordConfirm}
-        disabled={
-          !(isValidUserPassword && isValiduserPasswordConfirm) ? true : false
-        }
+        disabled={!(isValidUserPassword && isValiduserPasswordConfirm)}
         onClick={onClickNextButtonHandler}
       >
         변경하기

@@ -26,7 +26,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
 
     setUserEmail(currValue);
 
-    if (isValidUserEmailFunc(currValue) === true) {
+    if (isValidUserEmailFunc(currValue)) {
       setIsValidUserEmail(true);
     } else {
       setIsValidUserEmail(false);
@@ -41,7 +41,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
     if (currValue === null) return;
     setUserPassword(currValue);
 
-    if (isValidUserPasswordFunc(currValue) === true) {
+    if (isValidUserPasswordFunc(currValue)) {
       setIsValidUserPassword(true);
     } else {
       setIsValidUserPassword(false);
@@ -114,7 +114,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
             value={userEmail}
             onChange={onChangeUserEmailHandler}
           />
-          {isValidUserEmail === false && (
+          {!isValidUserEmail && (
             <NotValidText>이메일 주소를 확인하세요.</NotValidText>
           )}
         </LogInInputGroupContainer>
@@ -128,7 +128,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
             value={userPassword}
             onChange={onChangeUserPasswordHandler}
           />
-          {isValidUserPassword === false && (
+          {!isValidUserPassword && (
             <NotValidText>
               계정이 존재하지 않거나 비밀번호가 옳바르지 않습니다.
             </NotValidText>

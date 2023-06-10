@@ -23,7 +23,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
   const [isModalClickSecond, setIsModalClickSecond] = useState(0);
 
   useEffect(() => {
-    if (isModalClick === true) {
+    if (isModalClick) {
       const timeout0 = setTimeout(() => {
         setCurrentStep(1);
       }, 8000);

@@ -41,7 +41,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
   const [isModalClickSecond, setIsModalClickSecond] = useState(0);
 
   useEffect(() => {
-    if (isModalClick === true) {
+    if (isModalClick) {
       const timeout0 = setTimeout(() => {
         setCurrentStep(1);
       }, 8000);
@@ -134,9 +134,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
               className={isPlaying ? "" : "BackgroundMusicCancel"}
               onClick={toggleMusic}
             >
-              {isPlaying === false && (
-                <BackgroundMusicCancel></BackgroundMusicCancel>
-              )}
+              {!isPlaying && <BackgroundMusicCancel></BackgroundMusicCancel>}
 
               <BackgroundMusicIcon></BackgroundMusicIcon>
               <BackgroundMusicText>배경 bgm</BackgroundMusicText>
