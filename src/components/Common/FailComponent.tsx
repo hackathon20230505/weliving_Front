@@ -27,9 +27,10 @@ const FailComponentContainer = styled.div<FailComponentContainerProps>`
   align-items: center;
   position: fixed;
   top: ${({ topSize }) => topSize};
-  left: 0;
-  z-index: 1000;
-  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: min(100vw, 414px);
   height: calc(100% - 56px);
   background: var(--black-900);
 `;
@@ -43,7 +44,7 @@ const FailIcon = styled.div`
   align-items: center;
   border-radius: 50%;
   background: rgba(148, 148, 148, 0.11);
-  padding: 2rem;
+  padding: 1.2rem;
 
   & > img {
     width: 100%;

@@ -18,6 +18,7 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
   const token: string = localStorage.getItem("accessToken") as string;
   const [categoryFilterArray] = useRecoilState(FilterState);
   const birth = categoryFilterArray.filter((e) => e.isActive)[0].birth;
+  const [firstLoad, setFirstLoad] = useState<boolean>(true);
   const [displayItem, setDisplayItem] = useState<
     {
       createdAt: string;
@@ -33,10 +34,10 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
 
   useEffect(() => {
     if (!isFetching) setDisplayItem(data?.letter);
+    setFirstLoad(false);
   }, [data?.letter, isFetching]);
 
-  if (data === undefined && isFetching)
-    return <LoadingComponent top={"100px"} />;
+  if (firstLoad && isFetching) return <LoadingComponent top={"100px"} />;
 
   if (isError) return <FailComponent top={"100px"} />;
 

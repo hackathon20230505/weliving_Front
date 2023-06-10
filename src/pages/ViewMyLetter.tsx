@@ -16,6 +16,8 @@ const ViewMyLetter: FunctionComponent = () => {
 
   const [isShare, setIsShare] = useState<number>(0);
 
+  const [showButtons, setShowButtons] = useState<boolean>(false);
+
   useEffect(() => {
     setIsShare(data?.[0].isShare);
   }, [data, isFetching]);
@@ -39,8 +41,9 @@ const ViewMyLetter: FunctionComponent = () => {
         isSelf={true}
         isShareToggleHandler={isShareToggleHandler}
         isShare={isShare}
+        showButtons={showButtons}
       />
-      <ViewMyLetterBody />
+      <ViewMyLetterBody setShowButton={setShowButtons} />
     </PageContainer>
   );
 };

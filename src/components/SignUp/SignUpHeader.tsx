@@ -24,5 +24,6 @@ export default SignUpHeader;
 
 const GoBackButton = styled.button`
   position: absolute;
+  padding: 4px 1rem 4px 0;
   left: 0;
 `;

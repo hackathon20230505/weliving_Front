@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
@@ -8,9 +8,13 @@ import { getTimeDifference } from "../../utils/getTimeDifference.ts";
 import LoadingComponent from "../Common/LoadingComponent.tsx";
 import FailComponent from "../Common/FailComponent.tsx";
 
-type ViewMyLetterPostProps = {};
+type ViewMyLetterPostProps = {
+  setIsLetterPostOverwrite: (isLetterPostOverwrite: boolean) => void;
+};
 
-const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
+const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = ({
+  setIsLetterPostOverwrite,
+}: ViewMyLetterPostProps) => {
   const navigate = useNavigate();
 
   const onClickGoToOtherLetterClickHandler = () => {
@@ -21,6 +25,12 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
     queryKey: ["getMyLetter"],
     queryFn: () => getMyLetter(),
   });
+
+  useEffect(() => {
+    if (data.length > 0) {
+      setIsLetterPostOverwrite(true);
+    }
+  }, [data, setIsLetterPostOverwrite]);
 
   if (isFetching) return <LoadingComponent />;
 
