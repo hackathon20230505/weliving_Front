@@ -44,7 +44,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
     }
   };
 
-  const onClickNextButtonHandler = () => {};
+  // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
@@ -81,7 +81,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
       <NextButton
         isValid={isValidUserPassword && isValiduserPasswordConfirm}
         disabled={!(isValidUserPassword && isValiduserPasswordConfirm)}
-        onClick={onClickNextButtonHandler}
+        // onClick={onClickNextButtonHandler}
       >
         변경하기
       </NextButton>
