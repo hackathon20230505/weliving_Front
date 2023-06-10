@@ -4,6 +4,12 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 import TheMoon from "./TheMoon";
 import SpeechBubbleContent from "./SpeechBubbleContent";
+import { useQuery } from "@tanstack/react-query";
+import { generateResponse } from "../../apis/life/letter/generateResponse.ts";
+import { myLetterState } from "../WriteLetter/atoms/myLetterAtoms.ts";
+import { useRecoilState } from "recoil";
+import Loading from "./Loading.tsx";
+
 type AnswerGPTProps = {};
 
 const AnswerGPT: FunctionComponent<AnswerGPTProps> = () => {
@@ -18,6 +24,21 @@ const AnswerGPT: FunctionComponent<AnswerGPTProps> = () => {
     그저 이 세상에 존재하는 것만으로, 당신은 이미 그들에게 큰 가치를 지닌 존재입니다.
     우리와 함께 세상을 다시 바라보며, 삶의 아름다움과 영광을 찾아 나아갈 수 있도록 합시다.
   `;
+
+  const [myLetter] = useRecoilState(myLetterState);
+
+  console.log(myLetter);
+
+  const { data, isFetching, isError } = useQuery(["generateResponse"], () =>
+    generateResponse(myLetter.content),
+  );
+
+  if (isFetching) return <Loading />;
+
+  if (isError) return <span>Error</span>;
+
+  console.log(data);
+
   return (
     <CommonContentContainer xPadding="5%">
       <TheMoon />
@@ -54,7 +75,7 @@ const SpeechBubbleContainer = styled.div`
     border-style: solid;
     border-color: #fff0ff transparent;
     border-width: 0 14px 20px;
-    top: -20px;
+    top: -19px;
     left: 21px;
     margin-left: -14px;
   }

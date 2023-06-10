@@ -3,8 +3,11 @@ import CommonContentContainer from "../components/Common/CommonContentContainer"
 import ModifyLetterBody from "../components/ModifyLetter/ModifyLetterBody";
 import ModifyLetterHeader from "../components/ModifyLetter/ModifyLetterHeader";
 import { getMyLetter } from "../apis/life/letter/getMyLetter";
+import { modifyMyLetter } from "../apis/life/letter/modifyMyLetter.ts";
+import { useNavigate } from "react-router-dom";
 
 const ModifyLetter = () => {
+  const navigate = useNavigate();
   const [myLetterPost, setMyLetterPost] = useState({
     title: "",
     content: "",
@@ -14,6 +17,20 @@ const ModifyLetter = () => {
     title: "",
     content: "",
   });
+
+  const letterHeaderClickHandler = () => {
+    (async () => {
+      await modifyMyLetter({
+        title: myLetterPost.title,
+        content: myLetterPost.content,
+      });
+
+      setOriginalLetterPost(myLetterPost);
+      setIsActive(false);
+
+      navigate("/viewmyletter");
+    })();
+  };
 
   const [isActive, setIsActive] = useState(false);
 
@@ -38,7 +55,10 @@ const ModifyLetter = () => {
 
   return (
     <CommonContentContainer marginTop="0">
-      <ModifyLetterHeader isActive={isActive} />
+      <ModifyLetterHeader
+        isActive={isActive}
+        letterHeaderClickHandler={letterHeaderClickHandler}
+      />
       <ModifyLetterBody
         myLetterPost={myLetterPost}
         originalLetterPost={originalLetterPost}

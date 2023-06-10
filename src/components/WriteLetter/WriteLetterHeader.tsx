@@ -6,6 +6,7 @@ import { isValidPostState } from "./atoms/isValidPostAtom";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
 import { createMyLetter } from "../../apis/life/letter/createMyLetter";
 import { myLetterState } from "./atoms/myLetterAtoms";
+
 type WriteLetterHeaderProps = {};
 
 const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
@@ -20,14 +21,7 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
   const onClickSubmitButtonHandler = async () => {
     const result = createMyLetter(myLetterPost);
     console.log("result", result);
-    // const response = await fetch("https://wliv.kr/api/life/letter/create/", {
-    //   method: "POST",
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    //   body: JSON.stringify(myLetterPost), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
-    // });
-    // return response.json();
+    navigate("/getanswergpt");
   };
 
   return (

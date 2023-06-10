@@ -1,17 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
-import { useState } from "react";
 import styled from "styled-components";
 
 interface IModifyLetterHeaderProps {
   isActive: boolean;
+  letterHeaderClickHandler?: () => void;
 }
 
-const ModifyLetterHeader = ({ isActive }: IModifyLetterHeaderProps) => {
+const ModifyLetterHeader = ({
+  isActive,
+  letterHeaderClickHandler,
+}: IModifyLetterHeaderProps) => {
   const navigate = useNavigate();
-
-  const [isValidPost] = useState<boolean>(false);
-  const [myLetterPost] = useState<boolean>(false);
 
   const onClickGoBackButtonHandler = () => {
     // navigate(-1);
@@ -22,7 +22,9 @@ const ModifyLetterHeader = ({ isActive }: IModifyLetterHeaderProps) => {
   const onClickSubmitButtonHandler = async () => {
     // const result = createMyLetter(myLetterPost);
     if (isActive) {
-      console.log("result");
+      if (letterHeaderClickHandler) {
+        letterHeaderClickHandler();
+      }
     }
   };
 

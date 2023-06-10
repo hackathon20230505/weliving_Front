@@ -21,6 +21,9 @@ import MainContentFirst from "./pages/MainContentFirst";
 import MainContentSecond from "./pages/MainContentSecond";
 import MainContentCard from "./pages/MainContentCard";
 import ModifyLetter from "./pages/ModifyLetter";
+import ViewOtherLetterPost from "./pages/ViewOtherLetterPost.tsx";
+import { GetAnswerGPT } from "./pages/GetAnswerGPT.tsx";
+
 type AppRouterProps = {};
 
 const AppRouter: FunctionComponent<AppRouterProps> = () => {
@@ -88,6 +91,11 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
 
         {/* 유서 작성 이후 페이지 */}
         <Route path="/afterwrite/:id" element={<AfterWrite />} />
+
+        {/* GPT page */}
+        <Route path="/getanswergpt" element={<GetAnswerGPT />} />
+
+        <Route path="/viewotherletterpost" element={<ViewOtherLetterPost />} />
       </Routes>
     </AppRouterContainer>
   );

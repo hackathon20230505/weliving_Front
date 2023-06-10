@@ -1,19 +1,12 @@
 import axios from "axios";
 
-const modifyMyLetter = async ({
-  title,
-  content,
-}: {
-  title: string;
-  content: string;
-}) => {
+const modifyIsShare = async ({ isShare }: { isShare: number }) => {
   const token = localStorage.getItem("accessToken");
 
   const res = await axios.post(
-    "/api/life/letter/modify-content",
+    "/api/life/letter/modify-isShare",
     {
-      title: title,
-      content: content,
+      isShare: isShare,
     },
     {
       headers: {
@@ -25,4 +18,4 @@ const modifyMyLetter = async ({
   return res;
 };
 
-export { modifyMyLetter };
+export { modifyIsShare };

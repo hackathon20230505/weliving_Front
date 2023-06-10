@@ -1,19 +1,19 @@
 import axios from "axios";
-import { IMyLetterPostTypes } from "../../../components/WriteLetter/atoms/myLetterAtoms";
 
-const createMyLetter = async ({
+const modifyMyLetter = async ({
   title,
   content,
-  isShare,
-}: IMyLetterPostTypes) => {
+}: {
+  title: string;
+  content: string;
+}) => {
   const token = localStorage.getItem("accessToken");
 
   const res = await axios.post(
-    "/api/life/letter/create/",
+    "/api/life/letter/modify-content",
     {
       title: title,
       content: content,
-      isShare: isShare,
     },
     {
       headers: {
@@ -25,4 +25,4 @@ const createMyLetter = async ({
   return res;
 };
 
-export { createMyLetter };
+export { modifyMyLetter };

@@ -4,46 +4,32 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getMyLetter } from "../../apis/life/letter/getMyLetter";
+import { getTimeDifference } from "../../utils/getTimeDifference.ts";
+
 type ViewMyLetterPostProps = {};
 
 const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("accessToken") as string;
-
-  const dummydata = {
-    title: "메인 타이틀은 몇 글자까지인가?",
-    content: `시험이 다가오면서 점점 '내가 지금 하고 있는 공부 방법이 맞을까' 불안감 때문에 슬럼프에 빠지는 수험생분들이 많을 거라 생각됩니다. 이럴 때일수록 흔들리지 않고 합격을 향한 방향을 제대로 잡고 평소 하던 대로 나아가야 하지 않을까요?
-        [출처] 공무원 수험서 리뷰! 공단기 교재 선재국어 나침판|작성자 공부서점`,
-    createdAt: "2023.05.24",
-  };
 
   const onClickGoToOtherLetterClickHandler = () => {
     navigate("/viewotherletter");
   };
 
-  const { data, isError, isFetching } = useQuery({
+  const { data } = useQuery({
     queryKey: ["getMyLetter"],
     queryFn: () => getMyLetter(),
-    staleTime: 10,
   });
 
-  if (isFetching) {
-    return <span>Loading...</span>;
-  }
-
-  if (isError) {
-    return <span>Error</span>;
-  }
-
-  console.log(data);
   return (
     <>
       <CommonContentContainer xPadding="5%">
         {/* 게시글 */}
         <LetterPostContainer>
-          <LetterPostDateText>{dummydata.createdAt}</LetterPostDateText>
-          <LetterPostTitle>{dummydata.title}</LetterPostTitle>
-          <LetterPostContent>{dummydata.content}</LetterPostContent>
+          <LetterPostDateText>
+            {data && getTimeDifference(data?.[0].createdAt)}
+          </LetterPostDateText>
+          <LetterPostTitle>{data?.[0].title}</LetterPostTitle>
+          <LetterPostContent>{data?.[0].content}</LetterPostContent>
         </LetterPostContainer>
       </CommonContentContainer>
 
@@ -82,7 +68,7 @@ const LetterPostTitle = styled.h2`
 
 const LetterPostContent = styled.p`
   font-weight: 400;
-  font-size: 16p x;
+  font-size: 16px;
   color: var(--white);
 `;
 

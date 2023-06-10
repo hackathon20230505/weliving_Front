@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
-import { useEffect, useState } from "react";
-import { getMyLetter } from "../../apis/life/letter/getMyLetter";
 
 interface MyLetterPost {
   title: string;
@@ -104,25 +102,6 @@ const WriteLetterConteintInput = styled.textarea`
 `;
 
 const RulesOfUseGropContainer = styled.div``;
-
-const ViewRulesOfUseGroupContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const ViewRulesOfUseButton = styled.button`
-  width: 120px;
-  height: 24px;
-
-  font-weight: 700;
-  font-size: 12px;
-  color: #999999;
-
-  background-color: #352638;
-  border-radius: 200px;
-
-  margin: 11px 0;
-`;
 
 const RulesOfUseGroupDescription = styled.p`
   font-weight: 700;
