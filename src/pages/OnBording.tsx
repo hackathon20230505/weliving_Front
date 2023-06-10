@@ -61,7 +61,7 @@ const WillFirst: FunctionComponent = () => {
         <WillFirstContainer>
           <ImageMoon
             src="https://wliv.kr/img/onbording/moon.svg"
-            style={{ top: "90px", left: "0px" }}
+            style={{ top: "90px", left: "0" }}
           />
           <BackgroundStar />
 
@@ -170,7 +170,7 @@ const WillFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 0px;
+  padding: 0 0;
   position: absolute;
   bottom: 74px;
   width: 90%;

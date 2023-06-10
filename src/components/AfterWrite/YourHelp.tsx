@@ -68,7 +68,7 @@ const YourHelp: FunctionComponent = () => {
 
   return (
     <CommonContentContainer
-      topSpacing="0px"
+      topSpacing="0"
       yPadding="2rem"
       h="100%"
       xPadding="5%"

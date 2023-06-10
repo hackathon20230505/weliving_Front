@@ -10,9 +10,9 @@ import ResizableBottomSheet from "../Common/ResizableBottomSheet";
 import { useRecoilState } from "recoil";
 import {
   IIsValidUserInfoStateTypes,
+  isValidUserInfoState,
   IUserInfoStateTypes,
   UserInfoState,
-  isValidUserInfoState,
 } from "./atoms/UserInfoAtoms";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";
@@ -21,6 +21,7 @@ import SignUpAgreeModalContent from "./SignUpAgreeModalContent";
 import TermsOfServiceModalComponent from "./TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "./PrivacyPolicyModalComponent";
 import BottomSheetTitle from "../Common/BottomSheetTitle";
+
 type SignUpBodyProps = {};
 
 const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
@@ -295,7 +296,7 @@ const SignUpInput = styled.input`
   padding: 13px 12px 14px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);
@@ -328,7 +329,7 @@ interface TextWrapperProps {
 
 const slideUp = keyframes`
   from {
-    height: 0vh;
+    height: 0;
     opacity: 0;
   }
   to {

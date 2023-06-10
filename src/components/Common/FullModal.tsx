@@ -36,7 +36,7 @@ const FullModalHeader = styled.div`
   align-items: center;
 
   background-color: var(--dark-pink-800);
-  border-radius: 24px 24px 0px 0px;
+  border-radius: 24px 24px 0 0;
 `;
 
 const FullModalHeaderTitle = styled.p`

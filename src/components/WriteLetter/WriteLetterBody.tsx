@@ -7,14 +7,14 @@ import BottomSheetTitle from "../Common/BottomSheetTitle";
 import ResizableBottomSheetContent from "../Common/ResizableBottomSheetContent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-type WriteLetterBodyProps = {};
-
 import "swiper/css";
 import "swiper/css/pagination";
 import WriterLetterTermModalComponent from "./WriteLetterTermModalComponent";
 import { useRecoilState } from "recoil";
 import { isValidPostState } from "./atoms/isValidPostAtom";
 import { myLetterState } from "./atoms/myLetterAtoms";
+
+type WriteLetterBodyProps = {};
 
 const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
   const [isShow, setIsShow] = useState<boolean>(true);
@@ -242,7 +242,7 @@ interface BottomSheetContentWrapperProps {
 const BottomSheetContentWrapper = styled.div<BottomSheetContentWrapperProps>`
   position: relative;
   height: 100%;
-  max-height: ${(props) => (props.isDisplayContent ? "450px" : "0px")};
+  max-height: ${(props) => (props.isDisplayContent ? "450px" : "0")};
   overflow: hidden;
   transition: max-height 0.15s linear;
 `;

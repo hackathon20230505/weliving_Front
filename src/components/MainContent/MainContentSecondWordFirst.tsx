@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "react-ts-typewriter";
@@ -182,7 +182,7 @@ const MainContentFirstMainContent = styled.p`
 const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 90%;
 
   display: flex;

@@ -2,6 +2,7 @@ import { ChangeEvent, FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type ChangePWBodyProps = {};
 
 const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
@@ -118,7 +119,7 @@ const LogInInput = styled.input<ILogInInputTypes>`
       : isValidUserPassword
       ? "1px solid var(--strong-purple-800)"
       : "1px solid #F31919"};
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);

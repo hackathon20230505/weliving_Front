@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
@@ -177,7 +178,7 @@ const SignUpInput = styled.input`
   padding: 13px 12px 14px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);

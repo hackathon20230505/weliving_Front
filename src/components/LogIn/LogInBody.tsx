@@ -174,7 +174,7 @@ const LogInInput = styled.input<ILogInInputTypes>`
       : isValidUserPassword
       ? "1px solid var(--strong-purple-800)"
       : "1px solid #F31919"};
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);

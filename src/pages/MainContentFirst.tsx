@@ -285,7 +285,7 @@ const MainContentFirstMainContent = styled.p`
 const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 90%;
 
   display: flex;
@@ -407,7 +407,7 @@ const OptionsContainer = styled.span`
 const CloseButton = styled.span`
   width: 100%;
   height: 48px;
-  bottom: 0px;
+  bottom: 0;
   text-align: center;
   line-height: 47px;
   display: block;

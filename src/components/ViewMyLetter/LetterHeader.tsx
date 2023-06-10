@@ -182,7 +182,7 @@ const IsOpenToggleItem = styled.div<IsOpenToggleItemProps>`
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  left: 0;
 `;
 
 const ButtonGroupContainer = styled.div`
