@@ -16,4 +16,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
 
 export default Header;
 
-const HeaderImg = styled.img``;
+const HeaderImg = styled.img`
+  width: 102px;
+  height: 30px;
+`;

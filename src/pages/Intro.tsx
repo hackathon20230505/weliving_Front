@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Intro/Header";
+import LoginBackground from "../components/Intro/IntroBackground";
 type IntroProps = {};
 
 const Intro: FunctionComponent<IntroProps> = () => {
@@ -31,11 +32,8 @@ const Intro: FunctionComponent<IntroProps> = () => {
       <Header />
       <IntroContainer>
         <IntroContentContainer>
-          <IntroMainContent>
-            이곳은 <br />
-            이승과 저승의 경계입니다.
-          </IntroMainContent>
-          <IntroSubContent>아래의 방명록을 작성해주세요.</IntroSubContent>
+          <LoginBackground></LoginBackground>
+          <IntroMainContent></IntroMainContent>
         </IntroContentContainer>
         <LogInSignUpContainer>
           <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
@@ -61,7 +59,7 @@ const IntroWrapper = styled.main`
   width: 100%;
   height: 100%;
 
-  background-image: url("https://wliv.kr/img/Intro-background-img.png");
+  // background-image: url("https://wliv.kr/img/Intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -77,13 +75,7 @@ const IntroContentContainer = styled.div`
   top: 20%;
 `;
 
-const IntroMainContent = styled.p`
-  margin-bottom: 6px;
-
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 36px;
-`;
+const IntroMainContent = styled.p``;
 
 const IntroSubContent = styled.p`
   color: var(--light-gray);
