@@ -27,7 +27,7 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = ({
   });
 
   useEffect(() => {
-    if (data.length > 0) {
+    if (data?.length > 0) {
       setIsLetterPostOverwrite(true);
     }
   }, [data, setIsLetterPostOverwrite]);
