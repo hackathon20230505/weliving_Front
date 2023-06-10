@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMyLetter } from "../../apis/life/letter/getMyLetter";
 import { getTimeDifference } from "../../utils/getTimeDifference.ts";
 import LoadingComponent from "../Common/LoadingComponent.tsx";
+import FailComponent from "../Common/FailComponent.tsx";
 
 type ViewMyLetterPostProps = {};
 
@@ -23,7 +24,7 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
 
   if (isFetching) return <LoadingComponent />;
 
-  if (isError) return <span>Error</span>;
+  if (isError) return <FailComponent />;
 
   return (
     <>
