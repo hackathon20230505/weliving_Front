@@ -49,7 +49,9 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
 
 export default HomeBody;
 
-const HomeLetterGroupContainer = styled.div``;
+const HomeLetterGroupContainer = styled.div`
+  margin-bottom: 2rem;
+`;
 
 const HomeLetterTitle = styled.p`
   font-weight: 400;
