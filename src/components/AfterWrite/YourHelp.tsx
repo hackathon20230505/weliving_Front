@@ -32,7 +32,7 @@ const YourHelp: FunctionComponent = () => {
   };
 
   const sendAuthNumber = () => {
-    const phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+    const phoneRegex = /^01([016789])-?([0-9]{3,4})-?([0-9]{4})$/;
     if (!phoneRegex.test(phoneInput)) {
       alert("휴대전화 번호를 정확히 입력해주세요.");
       return;
