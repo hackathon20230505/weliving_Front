@@ -1,20 +1,33 @@
 import axios from "axios";
 
+interface IOtherLetter {
+  title: string;
+  content: string;
+  created_at: string;
+}
+
+interface IOtherLetterResponse {
+  ok: boolean;
+  data: IOtherLetter[];
+}
+
 const getOtherLetter = async (letter_id?: string) => {
   if (!letter_id) {
     return undefined;
   }
 
-  const { data } = await axios.get(`/api/life/letter/othershow`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  const {
+    data: { data },
+  } = await axios.get<IOtherLetterResponse>(
+    `/api/life/letter/othershow/${letter_id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     },
-    params: {
-      letter_id: letter_id,
-    },
-  });
+  );
 
   return data;
 };
 
-export { getOtherLetter };
+export { getOtherLetter, type IOtherLetter };

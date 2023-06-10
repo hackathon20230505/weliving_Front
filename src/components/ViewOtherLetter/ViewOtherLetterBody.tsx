@@ -6,10 +6,12 @@ import { FilterState } from "./atoms/FilterAtom";
 import styled from "styled-components";
 import { getTimeDifference } from "../../utils/getTimeDifference";
 import CommonContentContainer from "../Common/CommonContentContainer.tsx";
+import { useNavigate } from "react-router-dom";
 
 type ViewOtherLetterBodyProps = {};
 
 const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
+  const navigate = useNavigate();
   const content =
     "dlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskldlfkjdsldskl";
   const token: string = localStorage.getItem("accessToken") as string;
@@ -22,7 +24,9 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
     queryFn: () => getOtherLetterList(token, birth),
   });
 
-  console.log(data);
+  const PostContainerClickHandler = (id) => {
+    navigate(`/viewotherletter/${id}`);
+  };
 
   if (isError) return <div>Error</div>;
 
@@ -37,7 +41,10 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
     >
       <CustomContentContainer>
         {data.letter.map(({ letter_id, title, createdAt }) => (
-          <LetterPostContainer key={letter_id}>
+          <LetterPostContainer
+            key={letter_id}
+            onClick={() => PostContainerClickHandler(letter_id)}
+          >
             <LetterPostTitle>{title}</LetterPostTitle>
             <LetterPostContent>{content}</LetterPostContent>
             <LetterPostDate>{getTimeDifference(createdAt)}</LetterPostDate>
