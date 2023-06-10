@@ -248,16 +248,16 @@ interface ButtonGroupButtonProps {
 const ButtonGroupButtonOutline = styled.button<ButtonGroupButtonProps>`
   border: 1px solid ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
   color: ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
-  ${ButtonGroupButton}
   border-radius: 0.5rem;
+  ${ButtonGroupButton};
 `;
 
 const ButtonGroupButtonFiiled = styled.button<ButtonGroupButtonProps>`
   color: ${({ isActive }) => (isActive ? "#ffffff" : "#ffffff50")};
   background-color: ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
-  ${ButtonGroupButton}
   border: none;
   border-radius: 0.5rem;
+  ${ButtonGroupButton};
 `;
 
 export default YourHelp;
