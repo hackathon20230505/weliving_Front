@@ -17,11 +17,11 @@ const LoadingComponentContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: 56px;
   left: 0;
   z-index: 1000;
   width: 100vw;
-  height: 100%;
+  height: calc(100% - 56px);
   background: var(--black-900);
 `;
 

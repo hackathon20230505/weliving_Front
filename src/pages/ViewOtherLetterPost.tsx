@@ -6,9 +6,15 @@ import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getOtherLetter } from "../apis/life/letter/getOtherLetter.ts";
 import LoadingComponent from "../components/Common/LoadingComponent.tsx";
+import { useNavigate } from "react-router-dom";
 
 export default function ViewOtherLetterPost() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const onClickGoToOtherLetterClickHandler = () => {
+    navigate("/viewotherletter");
+  };
 
   const { data, isError, isFetching } = useQuery({
     queryKey: [`getOtherLetterList`, id],
@@ -37,7 +43,7 @@ export default function ViewOtherLetterPost() {
       <CommonContentContainer>
         {/* 유서 목차 가기 */}
         <GoToOtherLetterButtonContainer>
-          <GoToOtherLetterButton>
+          <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
             <GoToOtherLetterText>유서 목차 보러가기</GoToOtherLetterText>
             <GoToIcon src="https://wliv.kr/img/arrow-right-icon.svg" />
           </GoToOtherLetterButton>
