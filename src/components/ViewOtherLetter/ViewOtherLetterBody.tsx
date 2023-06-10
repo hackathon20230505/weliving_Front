@@ -111,7 +111,7 @@ const LetterPostContainer = styled.div`
 
   margin-bottom: 16px;
 
-  overflow: scroll;
+  overflow: hidden;
 `;
 
 const LetterPostTitle = styled.p`
