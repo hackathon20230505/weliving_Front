@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { FilterState } from "./atoms/FilterAtom";
+
 type ViewOtherLetterFilterProps = {};
 
 const ViewOtherLetterFilter: FunctionComponent<
@@ -53,6 +54,8 @@ export default ViewOtherLetterFilter;
 const ViewOtherLetterFilterWrapper = styled.div`
   padding: 0 5%;
   overflow: auto;
+  height: 44px;
+  min-height: 44px;
 `;
 
 const ViewOtherLetterFilterContainer = styled.div`
