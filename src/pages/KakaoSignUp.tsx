@@ -5,11 +5,11 @@ import PageContainer from "../components/Common/PageContainer";
 import axios from "axios";
 type KakaoSignUpProps = {};
 
-const { Kakao } = window;
+// const { Kakao } = window;
 
 const KakaoSignUp: FunctionComponent<KakaoSignUpProps> = () => {
-  const [kakaoAccessToken, setKakakoAccessToken] = useState<string>("");
-  const [kakaoRefreshToken, setKakaoRefreshToken] = useState<string>("");
+  const [, setKakakoAccessToken] = useState<string>("");
+  const [, setKakaoRefreshToken] = useState<string>("");
 
   useEffect(() => {
     let params = new URL(document.location.toString()).searchParams;

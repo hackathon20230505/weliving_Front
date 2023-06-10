@@ -37,6 +37,7 @@ const onResponse = async (response: AxiosResponse): Promise<AxiosResponse> => {
     try {
       // refresh 토큰 재요청
       const refreshResponse = await requestRefreshToken();
+      console.log(refreshResponse);
       // 재요청이 성공하면 새로운 토큰으로 원래 요청을 재시도
       const newResponse = await axios.request(response.config);
       return newResponse;

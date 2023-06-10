@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getMyLetter } from "../../apis/life/letter/getMyLetter";
-import { useRecoilState } from "recoil";
 type ViewMyLetterPostProps = {};
 
 const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {

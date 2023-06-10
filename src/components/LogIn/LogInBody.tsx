@@ -1,5 +1,5 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { onSignIn } from "../../apis/users/signIn";
 import axios, { AxiosError } from "axios";
@@ -17,8 +17,6 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
 
   const [isValidUserEmail, setIsValidUserEmail] = useState<boolean>(true);
   const [isValidUserPassword, setIsValidUserPassword] = useState<boolean>(true);
-
-  const navigate = useNavigate();
 
   /** user email input 값 설정 */
   const onChangeUserEmailHandler = (event: ChangeEvent<HTMLInputElement>) => {
