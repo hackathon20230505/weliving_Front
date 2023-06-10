@@ -308,7 +308,7 @@ interface INextButtonTypes {
 }
 
 const NextButton = styled.button<INextButtonTypes>`
-  width: 100%;
+  width: 90%;
   height: 56px;
 
   background-color: ${({ isValid }) =>
@@ -319,7 +319,6 @@ const NextButton = styled.button<INextButtonTypes>`
   color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
 
   position: absolute;
-  width: 90%;
   bottom: 34px;
 `;
 
