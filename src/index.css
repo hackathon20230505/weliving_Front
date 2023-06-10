@@ -90,3 +90,7 @@ textarea {
 .swiper-pagination-bullet {
   background-color: white;
 }
+
+button img {
+  display: block;
+}

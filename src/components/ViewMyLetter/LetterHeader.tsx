@@ -197,6 +197,7 @@ const GoBackButton = styled.button`
 
 const ButtonGroupContainer = styled.div`
   position: absolute;
+  display: flex;
   right: 0;
 `;
 
@@ -215,13 +216,22 @@ const CopyURLButtonBox = styled.div`
 `;
 
 const ShareButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
+  padding: 8px;
 `;
 
 const MoreButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
+  padding: 8px;
+  margin-left: 1rem;
 `;
 
 const CopyShareText = styled.p`

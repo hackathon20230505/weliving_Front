@@ -25,9 +25,10 @@ const LoadingComponentContainer = styled.div<LoadingComponentContainerProps>`
   align-items: center;
   position: fixed;
   top: ${({ topSize }) => topSize};
-  left: 0;
-  z-index: 1000;
-  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: min(100vw, 414px);
   height: calc(100% - 56px);
   background: var(--black-900);
 `;
