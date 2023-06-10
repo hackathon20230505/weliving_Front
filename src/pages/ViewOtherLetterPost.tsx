@@ -31,7 +31,7 @@ export default function ViewOtherLetterPost() {
   if (isFetching)
     return (
       <>
-        <LetterHeader showButtons={false} />
+        <LetterHeader showButtons={false} backUrl={"/viewotherletter"} />
         <LoadingComponent />
       </>
     );

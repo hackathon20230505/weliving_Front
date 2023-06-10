@@ -10,6 +10,7 @@ interface LetterHeaderProps {
   isShareToggleHandler?: () => void;
   isShare?: number;
   showButtons?: boolean;
+  backUrl?: string;
 }
 
 const LetterHeader = ({
@@ -17,6 +18,7 @@ const LetterHeader = ({
   isShareToggleHandler,
   isShare = 0,
   showButtons = false,
+  backUrl = "/",
 }: LetterHeaderProps) => {
   const [isOpenShare, setIsOpenShare] = useState<boolean>(false);
   const [isOpenMore, setIsOpenMore] = useState<boolean>(false);
@@ -26,7 +28,7 @@ const LetterHeader = ({
   const navigate = useNavigate();
 
   const onClickGoBackButtonHandler = () => {
-    navigate("/");
+    navigate(backUrl);
   };
 
   const onClickShareButtonHandler = () => {
