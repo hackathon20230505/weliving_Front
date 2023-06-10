@@ -46,7 +46,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
     if (myLetterPost.title !== "" && myLetterPost.content !== "") {
       setIsValidPost(true);
     }
-  }, [myLetterPost]);
+  }, [myLetterPost, setIsValidPost]);
 
   const onChangeLetterTitleHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
