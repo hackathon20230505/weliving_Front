@@ -3,13 +3,11 @@ import axios from "axios";
 const generateResponse = async (userLetter: string) => {
   const token = localStorage.getItem("accessToken");
   const {
-    data: { data },
+    data: { response },
   } = await axios.post(
     "/api/life/letter/generate-response/",
     {
-      data: {
-        userLetter: userLetter,
-      },
+      userLetter: userLetter,
     },
     {
       headers: {
@@ -18,7 +16,7 @@ const generateResponse = async (userLetter: string) => {
     },
   );
 
-  return data;
+  return response;
 };
 
 export { generateResponse };

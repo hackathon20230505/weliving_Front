@@ -23,6 +23,7 @@ import MainContentCard from "./pages/MainContentCard";
 import ModifyLetter from "./pages/ModifyLetter";
 import ViewOtherLetterPost from "./pages/ViewOtherLetterPost.tsx";
 import { GetAnswerGPT } from "./pages/GetAnswerGPT.tsx";
+import VerifyPhoneNumber from "./pages/VerifyPhoneNumber.tsx";
 
 type AppRouterProps = {};
 
@@ -94,6 +95,8 @@ const AppRouter: FunctionComponent<AppRouterProps> = () => {
 
         {/* GPT page */}
         <Route path="/getanswergpt" element={<GetAnswerGPT />} />
+
+        <Route path="/yourhelp" element={<VerifyPhoneNumber />} />
 
         <Route path="/viewotherletterpost" element={<ViewOtherLetterPost />} />
       </Routes>
