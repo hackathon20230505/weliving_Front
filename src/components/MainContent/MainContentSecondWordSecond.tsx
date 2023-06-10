@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "react-ts-typewriter";
 
@@ -14,16 +13,16 @@ interface MainContentSecondWordFirstProps {
 const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
   incrementSectionStep,
 }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
 
   // 모달창 클릭시
 
-  const [isModalClick, setIsModalClick] = useState(false);
-  const [isModalClickSecond, setIsModalClickSecond] = useState(0);
+  const [isModalClick] = useState(false);
+  const [, setIsModalClickSecond] = useState(0);
 
   useEffect(() => {
-    if (isModalClick === true) {
+    if (isModalClick) {
       const timeout0 = setTimeout(() => {
         setCurrentStep(1);
       }, 8000);
@@ -205,6 +204,6 @@ const LogInButton = styled.button`
   }
 `;
 
-const OptionsContainer = styled.span`
-  padding-bottom: 24px;
-`;
+// const OptionsContainer = styled.span`
+//   padding-bottom: 24px;
+// `;
