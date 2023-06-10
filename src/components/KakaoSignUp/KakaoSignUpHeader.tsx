@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
 
-type KakaoSignUpHeaderProps = {};
-
-const KakaoSignUpHeader: FunctionComponent<KakaoSignUpHeaderProps> = () => {
+const KakaoSignUpHeader: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const onClickGoBackButtonHandler = () => {
-    navigate("/logIn");
+    navigate("/");
   };
 
   return (
