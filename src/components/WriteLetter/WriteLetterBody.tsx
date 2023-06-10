@@ -118,10 +118,14 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
           closeHandler={closeHandler}
           closeIconOverwrap={
             isDisplayContent ? (
-              <img src="https://wliv.kr/img/arrow-bottom-icon.svg" />
+              <img
+                src="https://wliv.kr/img/arrow-bottom-icon.svg"
+                alt="화살표 아래 방향 아이콘"
+              />
             ) : (
               <img
                 src="https://wliv.kr/img/arrow-bottom-icon.svg"
+                alt="뒤집힌 화살표 아래 방향 아이콘"
                 style={{
                   transform: "rotate(180deg)",
                 }}
