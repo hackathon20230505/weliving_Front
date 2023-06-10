@@ -18,7 +18,6 @@ const ViewMyLetter: FunctionComponent<ViewMyLetterProps> = () => {
 
   useEffect(() => {
     setIsShare(data?.[0].isShare);
-    console.log("isshare: ", data?.[0].isShare);
   }, [data, isFetching]);
 
   const isShareToggleHandler = () => {
