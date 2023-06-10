@@ -199,7 +199,7 @@ const WriteLetterTitleInput = styled.input`
 `;
 
 const WriteLetterConteintInput = styled.textarea`
-  height: calc(100vh - 330px);
+  height: calc(60vh - 330px);
 
   &::placeholder {
     color: #867388;

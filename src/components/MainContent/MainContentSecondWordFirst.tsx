@@ -52,7 +52,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 2) {
       const timeout3 = setTimeout(() => {
         setCurrentStep(3);
-      }, 4000);
+      }, 3000);
 
       return () => clearTimeout(timeout3);
     }
@@ -62,7 +62,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 3) {
       const timeout4 = setTimeout(() => {
         setCurrentStep(4);
-      }, 4500);
+      }, 500);
 
       return () => clearTimeout(timeout4);
     }
@@ -72,7 +72,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 4) {
       const timeout4 = setTimeout(() => {
         setCurrentStep(5);
-      }, 4000);
+      }, 2500);
 
       return () => clearTimeout(timeout4);
     }
@@ -83,6 +83,57 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
   return (
     <BackgroundStarContainer>
       {/* 배경 출력 */}
+
+      <FireContainer>
+        <FireLeft>
+          <div className="main-fire" />
+          <div className="particle-fire" />
+        </FireLeft>
+        <FireCenter>
+          <div className="main-fire" />
+          <div className="particle-fire" />
+        </FireCenter>
+        <FireRight>
+          <div className="main-fire" />
+          <div className="particle-fire" />
+        </FireRight>
+        <FireBottom>
+          <div className="main-fire" />
+        </FireBottom>
+        <ImageFire
+          src="https://wliv.kr/img/onbording/section2-3.svg"
+          style={{
+            width: "112px",
+            height: "121px",
+            bottom: "-25px ",
+            left: "-27px",
+            opacity: "100%",
+            zIndex: "-1",
+          }}
+        />
+      </FireContainer>
+
+      <ImageTent
+        src="https://wliv.kr/img/onbording/section2-1.svg"
+        style={{
+          width: "276px",
+          height: "164px",
+          bottom: "20%",
+          left: "20px",
+          opacity: "100%",
+        }}
+      />
+      <ImageChair
+        src="https://wliv.kr/img/onbording/section2-2.svg"
+        style={{
+          width: "110px",
+          height: "79px",
+          bottom: "14%",
+          left: "23%",
+          opacity: "100%",
+        }}
+      />
+
       {/* 문자 첫 출력 */}
       <MainContentFirstContentContainer>
         {currentStep >= 1 && (
@@ -100,7 +151,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
           <MainContentFirstMainContent
             className={currentStep === 2 ? "active" : ""}
             style={{
-              opacity: currentStep === 2 ? 1 : 0.5,
+              opacity: currentStep >= 2 ? 1 : 0.5,
               transition: "opacity 800ms, visibility 800ms",
             }}
           >
@@ -145,7 +196,7 @@ export default MainContentSecondWordFirst;
 const BackgroundStarContainer = styled.div``;
 
 const MainContentFirstContentContainer = styled.div`
-  padding: 0 27px;
+  padding: 0 5px;
   position: absolute;
   top: 180px;
 `;
@@ -180,7 +231,7 @@ const MainContentFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 20px;
+  padding: 0 0px;
   position: absolute;
   bottom: 0px;
   width: 90%;
@@ -208,3 +259,208 @@ const LogInButton = styled.button`
 // const OptionsContainer = styled.span`
 //   padding-bottom: 24px;
 // `;
+
+// 바닥
+
+const KeyFrameSection2_1 = keyframes`
+`;
+
+const KeyFrameSection2_2 = keyframes`
+`;
+
+const KeyFrameSection2_3 = keyframes`
+`;
+
+const ImageTent = styled.img`
+  position: absolute;
+  animation: ${fadeAnimation} 1200ms ease-in-out;
+`;
+
+const ImageChair = styled.img`
+  position: absolute;
+  animation: ${fadeAnimation} 1200ms ease-in-out;
+`;
+
+const ImageFire = styled.img`
+  position: absolute;
+  animation: ${fadeAnimation} 1200ms ease-in-out;
+`;
+
+// 불 효과
+
+const scaleUpDown = keyframes`
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50%,
+  90% {
+    transform: scaleY(1.1);
+  }
+  75% {
+    transform: scaleY(0.95);
+  }
+  80% {
+    transform: scaleX(0.95);
+  }
+`;
+
+const shake = keyframes`
+  0%,
+  100% {
+    transform: skewX(0) scale(1);
+  }
+  50% {
+    transform: skewX(5deg) scale(0.9);
+  }
+`;
+
+const particleUp = keyframes`
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -100%;
+    transform: scale(0.5);
+  }
+`;
+
+const glow = keyframes`
+  0%,
+  100% {
+    background-color: #FFA500;
+  }
+  50% {
+    background-color: #DAA520;
+  }
+`;
+
+const FireContainer = styled.div`
+  position: absolute;
+  top: calc(80% - 50px);
+  left: calc(73% - 50px);
+  width: 65px;
+  height: 70px;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 15;
+`;
+
+const FireCenter = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: ${scaleUpDown} 3s ease-out infinite both;
+
+  .main-fire {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+      farthest-corner at 10px 0,
+      #d43300 0%,
+      #ef5a00 95%
+    );
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 60% 40%;
+    filter: drop-shadow(0 0 10px #d43322);
+  }
+
+  .particle-fire {
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    background-color: #ef5a00;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #d43322);
+    animation: ${particleUp} 2s ease-out infinite both;
+  }
+`;
+
+const FireRight = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  animation: ${shake} 2s ease-out infinite both;
+
+  .main-fire {
+    position: absolute;
+    top: 15%;
+    right: -10%;
+    width: 80%;
+    height: 80%;
+    background-color: #ef5a00;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 60% 40%;
+    filter: drop-shadow(0 0 10px #d43322);
+  }
+
+  .particle-fire {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #ef5a00;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #d43322);
+    animation: ${particleUp} 2s ease-out infinite both;
+  }
+`;
+
+const FireLeft = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: ${shake} 3s ease-out infinite both;
+
+  .main-fire {
+    position: absolute;
+    top: 15%;
+    left: -10%;
+    width: 80%;
+    height: 80%;
+    background-color: #ef5a00;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 60% 40%;
+    filter: drop-shadow(0 0 10px #d43322);
+  }
+
+  .particle-fire {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 10%;
+    height: 10%;
+    background-color: #ef5a00;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #d43322);
+    animation: ${particleUp} 3s infinite ease-out both;
+  }
+`;
+
+const FireBottom = styled.div`
+  .main-fire {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 75%;
+    height: 75%;
+    background-color: #ff7800;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 100% 40%;
+    filter: blur(10px);
+    animation: ${glow} 2s ease-out infinite both;
+  }
+`;
