@@ -38,7 +38,7 @@ export default function ViewOtherLetterPost() {
 
   return (
     <PageContainer>
-      <LetterHeader showButtons={true} />
+      <LetterHeader showButtons={true} backUrl={"/viewotherletter"} />
       <CommonContentContainer xPadding={"5%"} h={"fit-content"}>
         <LetterPostContainer>
           <LetterPostDateText>{data?.[0].created_at}</LetterPostDateText>
