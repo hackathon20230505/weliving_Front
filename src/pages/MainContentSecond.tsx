@@ -1,5 +1,4 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import MainContentSecondWordFirst from "../components/MainContent/MainContentSecondWordFirst";
 import MainContentSecondWordSecond from "../components/MainContent/MainContentSecondWordSecond";
@@ -8,7 +7,7 @@ import BackgroundSecond from "../components/MainContent/BackgroundSecond";
 type MainContentFirstProps = {};
 
 const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [sectionStep, setSectionStep] = useState(0);
 
   const incrementSectionStep = () => {
