@@ -238,7 +238,7 @@ const MainContentFirstWrapper = styled.div``;
 
 const MainContentFirstContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   color: var(--white);
 

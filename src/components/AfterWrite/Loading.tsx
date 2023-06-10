@@ -1,14 +1,18 @@
 import { FunctionComponent } from "react";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import styled from "styled-components";
+import TheMoon from "./TheMoon";
 type LoadingProps = {};
 
 const Loading: FunctionComponent<LoadingProps> = () => {
   return (
-    <CommonContentContainer>
+    <CommonContentContainer xPadding="5%">
       <LoadingContainer>
-        <p> 글을 읽고 있어요.</p>
-        <p> 잠시만 기다려주세요.</p>
+        <TheMoon />
+        <LoadingContent>
+          <p> 글을 읽고 있어요.</p>
+          <p> 잠시만 기다려주세요.</p>
+        </LoadingContent>
       </LoadingContainer>
     </CommonContentContainer>
   );
@@ -28,4 +32,9 @@ const LoadingContainer = styled.div`
     font-size: 20px;
     color: var(--white);
   }
+`;
+
+const LoadingContent = styled.div`
+  margin-top: 1.5rem;
+  text-align: center;
 `;

@@ -25,7 +25,7 @@ export default FullModal;
 
 const FullModalContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 const FullModalHeader = styled.div`
@@ -62,5 +62,5 @@ const CloseIcon = styled.img`
 
 const FullModalBody = styled.div`
   background-color: var(--white);
-  height: calc(100vh - 56px);
+  height: calc(100% - 56px);
 `;

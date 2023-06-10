@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import ResizeableBottomSheet from "../Common/ResizableBottomSheet";
@@ -12,6 +12,9 @@ type WriteLetterBodyProps = {};
 import "swiper/css";
 import "swiper/css/pagination";
 import WriterLetterTermModalComponent from "./WriteLetterTermModalComponent";
+import { useRecoilState } from "recoil";
+import { isValidPostState } from "./atoms/isValidPostAtom";
+import { myLetterState } from "./atoms/myLetterAtoms";
 
 const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
   const [isShow, setIsShow] = useState<boolean>(true);
@@ -22,12 +25,15 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
 
   const [isDisplayContent, setIsDisplayContent] = useState<boolean>(true);
 
+  const [, setIsValidPost] = useRecoilState(isValidPostState);
+
+  const [myLetterPost, setMyLetterPost] = useRecoilState(myLetterState);
+
   const backgroundClickHandler = () => {
     setIsShow(false);
   };
 
   const closeHandler = () => {
-    // setIsFullSize((s) => !s);
     setIsDisplayContent((s) => !s);
   };
 
@@ -35,13 +41,51 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
     setIsShowTerm(false);
   };
 
+  useEffect(() => {
+    /** 내용이 입력되면 등록 가능 */
+    if (myLetterPost.title !== "" && myLetterPost.content !== "") {
+      setIsValidPost(true);
+    }
+  }, [myLetterPost]);
+
+  const onChangeLetterTitleHandler = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { value } = event.target;
+    setMyLetterPost((prevstate) => {
+      return {
+        ...prevstate,
+        title: value,
+      };
+    });
+  };
+
+  const onChangeLetterContentHandler = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const { value } = event.target;
+    setMyLetterPost((prevstate) => {
+      return {
+        ...prevstate,
+        content: value,
+      };
+    });
+  };
+
   return (
     <>
       <CommonContentContainer xPadding="5%">
-        <WriteLetterTitleInput placeholder="제목" maxLength={150} />
+        <WriteLetterTitleInput
+          placeholder="제목"
+          maxLength={150}
+          value={myLetterPost.title}
+          onChange={onChangeLetterTitleHandler}
+        />
         <WriteLetterConteintInput
           placeholder="무슨 이야기를 나누고 싶으세요?"
           maxLength={1000}
+          value={myLetterPost.content}
+          onChange={onChangeLetterContentHandler}
         />
         <RulesOfUseGropContainer>
           <ViewRulesOfUseGroupContainer>

@@ -14,8 +14,6 @@ export const onSignup = async ({ email, password, birth }: ISignUpTypes) => {
       birth: birth,
     });
 
-    console.log(`onsignUp`, data);
-
     return data;
   } catch (error) {
     if (error instanceof Error) {

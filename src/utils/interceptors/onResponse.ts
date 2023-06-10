@@ -6,6 +6,7 @@ const requestRefreshToken = async (): Promise<AxiosResponse> => {
   // 예를 들어, axios를 사용하여 API를 호출하고 새로운 토큰을 받아올 수 있습니다.
   // 아래는 가상의 예시 코드입니다.
   const response = await axios.post("/api/users/refresh");
+  console.log("[requestRefreshToken] response", response);
   return response;
 };
 
@@ -17,7 +18,9 @@ const onResponse = async (response: AxiosResponse): Promise<AxiosResponse> => {
   // Set Loading End Here
   // Handle Response Data Here
   // Error Handling When Return Success with Error Code Here
-  logOnDev(`🚀 [API] ${method?.toUpperCase()} ${url} | Response ${status}`);
+  logOnDev(
+    `🚀 [API] [SUCCESS] ${method?.toUpperCase()} ${url} | Response ${status}`,
+  );
 
   if (
     !(
@@ -29,17 +32,11 @@ const onResponse = async (response: AxiosResponse): Promise<AxiosResponse> => {
     throw new Error();
   }
 
-  if (response.data.errors) {
-    throw new Error(response.data.errors);
-  }
-
   // 401 상태 코드인 경우 refresh 토큰 재요청 로직 수행
   if (status === 401) {
     try {
       // refresh 토큰 재요청
       const refreshResponse = await requestRefreshToken();
-
-      console.log(refreshResponse);
       // 재요청이 성공하면 새로운 토큰으로 원래 요청을 재시도
       const newResponse = await axios.request(response.config);
       return newResponse;
@@ -49,7 +46,9 @@ const onResponse = async (response: AxiosResponse): Promise<AxiosResponse> => {
     }
   }
 
-  console.log(response.data.data);
+  if (response.data.errors) {
+    throw new Error(response.data.errors);
+  }
 
   return response;
 };
