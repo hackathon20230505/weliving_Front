@@ -59,7 +59,7 @@ const CommonContentContainerFragment = styled.div<CommonContentContainerFragment
   ${(props) => (props.h ? `height: ${props.h};` : "")}
       
   padding-top: ${(props) => props.topSpacing};
-  overflow: hidden;
+  overflow: auto;
   position: relative;
 `;
 
