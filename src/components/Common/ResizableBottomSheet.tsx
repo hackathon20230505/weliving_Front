@@ -56,7 +56,7 @@ const BottomSheetWrapper = styled.div<IsShowProps>`
   transition: transform 0.3s;
   max-height: 100%;
   overflow: hidden;
-  z-index: 999;
+  z-index: 3;
 `;
 
 const BottomSheetBackCurtain = styled.div<IsShowProps>`
@@ -67,7 +67,7 @@ const BottomSheetBackCurtain = styled.div<IsShowProps>`
   height: 100%;
   background-color: rgba(0, 0, 0, 60%);
   display: ${({ isShow }) => (isShow ? "block" : "none")};
-  z-index: 998;
+  z-index: 2;
 `;
 
 interface BottomSheetContentWrapperProps {

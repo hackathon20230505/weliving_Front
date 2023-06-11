@@ -133,6 +133,7 @@ const AddInputButton = styled.button`
   margin-top: 16px;
   width: 100%;
   padding: 19px;
+  padding-left: 175px;
   font-size: 14px;
   border-radius: 4px;
   outline: none;

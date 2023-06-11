@@ -192,14 +192,6 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
 
 export default MainContentSecondWordFirst;
 
-const BackgroundStarContainer = styled.div``;
-
-const MainContentFirstContentContainer = styled.div`
-  padding: 0 5px;
-  position: absolute;
-  top: 180px;
-`;
-
 const fadeAnimation = keyframes`
   from {
     opacity: 0;
@@ -207,6 +199,14 @@ const fadeAnimation = keyframes`
   to {
     opacity: 1;
   }
+`;
+
+const BackgroundStarContainer = styled.div``;
+
+const MainContentFirstContentContainer = styled.div`
+  padding: 0 5px;
+  position: absolute;
+  top: 180px;
 `;
 
 const MainContentFirstMainContent = styled.p`
@@ -263,17 +263,17 @@ const LogInButton = styled.button`
 
 const ImageTent = styled.img`
   position: absolute;
-  animation: ${fadeAnimation} 1200ms ease-in-out;
+  animation: ${fadeAnimation} 4000ms ease-in-out;
 `;
 
 const ImageChair = styled.img`
   position: absolute;
-  animation: ${fadeAnimation} 1200ms ease-in-out;
+  animation: ${fadeAnimation} 4000ms ease-in-out;
 `;
 
 const ImageFire = styled.img`
   position: absolute;
-  animation: ${fadeAnimation} 1200ms ease-in-out;
+  animation: ${fadeAnimation} 4000ms ease-in-out;
 `;
 
 // 불 효과

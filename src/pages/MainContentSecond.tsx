@@ -109,6 +109,15 @@ const MainContentFirst: FunctionComponent = () => {
 
 export default MainContentFirst;
 
+const fadeOutAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 const MainContentFirstWrapper = styled.div``;
 
 const MainContentFirstContainer = styled.div`
@@ -123,15 +132,6 @@ const MainContentFirstContainer = styled.div`
 `;
 
 const TopContentContainer = styled.div``;
-
-const fadeOutAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
 
 const BackgroundMusic = styled.div`
   display: flex;

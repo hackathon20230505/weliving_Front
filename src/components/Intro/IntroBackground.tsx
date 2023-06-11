@@ -56,7 +56,15 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
 
 export default BackgroundStar;
 
-const BackgroundStarContainer = styled.div``;
+const moonKeyFrame = keyframes`
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+`;
+
+const BackgroundStarContainer = styled.div`
+  animation: ${moonKeyFrame} 1s ease-in;
+`;
 
 const ImageStar1 = styled.img``;
 
@@ -77,9 +85,9 @@ const IntroBackground4 = styled.img`
 `;
 
 const starKeyFrame = keyframes`
-  0% { opacity: 0.6; }
+  0% { opacity: 0.7; }
   50% { opacity: 0.4; }
-  100% { opacity: 0.6; }
+  100% { opacity: 0.7; }
 `;
 
 const IntroBackground5 = styled.img`

@@ -266,7 +266,7 @@ const firstKeyFrame = keyframes`
 `;
 
 const BackgroundStarContainer = styled.div`
-  animation: ${firstKeyFrame} 1s ease-in;
+  animation: ${firstKeyFrame} 4s ease-in;
 `;
 
 const ImageStar1 = styled.img`

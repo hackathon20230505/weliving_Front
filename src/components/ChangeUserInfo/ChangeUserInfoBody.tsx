@@ -154,7 +154,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
         <CheckBox isChecked={isAlarmAgreed} />
         <SignUpCheckBoxText>문자 알림 동의</SignUpCheckBoxText>
       </SignUpCheckBoxContainer>
-      <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
+
       {/*<NextButton*/}
       {/*  isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}*/}
       {/*  disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}*/}

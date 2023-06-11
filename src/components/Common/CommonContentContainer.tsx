@@ -53,7 +53,6 @@ const CommonContentContainerFragment = styled.div<CommonContentContainerFragment
   ${(props) => (props.h ? `height: ${props.h};` : "")}
       
   padding-top: ${(props) => props.topSpacing};
-  position: relative;
 
   overflow-x: ${(props) => props.customOverflowX};
   overflow-y: ${(props) => props.customOverflowY};
