@@ -75,6 +75,62 @@ const YourHelp: FunctionComponent = () => {
     >
       <YourHelpContainer>
         <YourHelpTopContainer>
+          <ImageCloud1
+            src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
+            style={{
+              width: "100%",
+              height: "100%",
+              top: "25px",
+              rotate: "30deg",
+              opacity: "60%",
+            }}
+          />
+          <ImageCloud1
+            src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
+            style={{
+              width: "100%",
+              height: "100%",
+              top: "-300px",
+              rotate: "30deg",
+            }}
+          />
+          <ImageCloud1
+            src="https://wliv.kr/img/onbording/star-7.svg"
+            style={{
+              width: "165px",
+              height: "43px",
+              bottom: "206px",
+              right: "-65px",
+            }}
+          />
+          <ImageCloud1
+            src="https://wliv.kr/img/onbording/star-7.svg"
+            style={{
+              width: "165px",
+              height: "43px",
+              bottom: "336px",
+              left: "-25px",
+            }}
+          />
+          <ImageCloud1
+            src="https://wliv.kr/img/onbording/star-7.svg"
+            style={{
+              width: "134px",
+              height: "34px",
+              bottom: "226px",
+              left: "60px",
+            }}
+          />
+          <ImageCloud1
+            src="https://wliv.kr/img/onbording/star-7.svg"
+            style={{
+              width: "265px",
+              height: "66px",
+              bottom: "296px",
+              right: "-65px",
+            }}
+          />
+
           <TheMoonContainer>
             <TheMoon />
           </TheMoonContainer>
@@ -131,7 +187,7 @@ const YourHelp: FunctionComponent = () => {
             안 받기
           </ButtonGroupButtonOutline>
           <ButtonGroupButtonFiiled onClick={buttonHandler} isActive={isActive}>
-            받기
+            연락받기
           </ButtonGroupButtonFiiled>
         </ButtonGroupContainer>
       </YourHelpContainer>
@@ -142,10 +198,14 @@ const YourHelp: FunctionComponent = () => {
 const CheckBoxContainer = styled.div`
   display: flex;
   align-items: center;
+  padding-top: 4px;
 `;
 
 const CheckBoxText = styled.span`
+  font-size: 14px;
+  font-weight: 300;
   margin-left: 8px;
+  margin-top: -2px;
 `;
 
 const YourHelpContainer = styled.div`
@@ -164,7 +224,7 @@ const TheMoonContainer = styled.div`
 const ButtonGroupContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 const ButtonGroupButton = css`
@@ -174,7 +234,7 @@ const ButtonGroupButton = css`
 `;
 
 const YourHelpTopContainer = styled.div`
-  padding-top: 3rem;
+  padding-top: 5rem;
 `;
 
 const YourHelpTopTitle = styled.div`
@@ -186,7 +246,7 @@ const YourHelpTopTitle = styled.div`
 `;
 
 const YourHelpTopDescription = styled.div`
-  margin-top: 0.75rem;
+  margin-top: 6px;
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
@@ -195,14 +255,14 @@ const YourHelpTopDescription = styled.div`
 `;
 
 const YoutHelpForm = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 40px;
 `;
 
 const YourHelpInputForm = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 `;
 
 const YourHelpInputBox = styled.div`
@@ -211,21 +271,22 @@ const YourHelpInputBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
 `;
 
 const YourHelpInput = styled.input`
   width: 100%;
+  font-weight: 300;
 `;
 
 const YourHelpInputButton = styled.button`
-  padding: 1rem;
+  padding: 0rem;
   white-space: nowrap;
   background-color: #f3bcf2;
   color: black;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
   min-width: 30%;
   font-weight: 500;
 `;
@@ -236,7 +297,7 @@ const YourHelpInputButtonFinish = styled.button`
   background-color: #db0fdb;
   color: white;
   border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.3rem;
   min-width: 30%;
   font-weight: 500;
 `;
@@ -248,7 +309,7 @@ interface ButtonGroupButtonProps {
 const ButtonGroupButtonOutline = styled.button<ButtonGroupButtonProps>`
   border: 1px solid ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
   color: ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   ${ButtonGroupButton};
 `;
 
@@ -256,8 +317,14 @@ const ButtonGroupButtonFiiled = styled.button<ButtonGroupButtonProps>`
   color: ${({ isActive }) => (isActive ? "#ffffff" : "#ffffff50")};
   background-color: ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   ${ButtonGroupButton};
+`;
+
+const ImageCloud1 = styled.img`
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
 `;
 
 export default YourHelp;

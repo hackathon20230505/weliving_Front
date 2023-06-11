@@ -4,12 +4,14 @@ import styled, { keyframes } from "styled-components";
 import BackgroundStar from "../components/OnBording/Background";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
+import { useCookies } from "react-cookie";
 
 // type WillFirstProps = {};
 
 const WillFirst: FunctionComponent = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+  const [, setCookie] = useCookies();
 
   useEffect(() => {
     const timeout1 = setTimeout(() => {
@@ -52,6 +54,13 @@ const WillFirst: FunctionComponent = () => {
   }, [currentStep]);
 
   const onClickLogInButtonHandler = () => {
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+
+    setCookie("skip_onboarding", "1", {
+      expires,
+    });
+
     navigate("/Intro");
   };
 

@@ -9,7 +9,7 @@ const CommonContentContainer = (props: CommonContentContainerProps) => {
   const { children, ...rest } = props;
 
   rest.h = rest.h || "calc(100% - 56px)";
-  rest.topSpacing = rest.topSpacing || "40px";
+  rest.topSpacing = rest.topSpacing || "0px";
   rest.customOverflowX = rest.customOverflowX || "hidden";
   rest.customOverflowY = rest.customOverflowY || "auto";
 

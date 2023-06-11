@@ -43,6 +43,25 @@ const AnswerGPT: FunctionComponent<AnswerGPTProps> = () => {
 
   return (
     <CommonContentContainer xPadding="5%">
+      <ImageCloud1
+        src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
+        style={{
+          width: "100%",
+          height: "100%",
+          top: "300px",
+          rotate: "150deg",
+          opacity: "60%",
+        }}
+      />
+      <ImageCloud1
+        src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
+        style={{
+          width: "100%",
+          height: "100%",
+          top: "-300px",
+          rotate: "30deg",
+        }}
+      />
       <TheMoon />
       <SpeechBubbleContainer>
         <SpeechBubbleContent text={data} />
@@ -97,4 +116,8 @@ const LogInButton = styled.button`
 
   position: absolute;
   bottom: 10px;
+`;
+
+const ImageCloud1 = styled.img`
+  position: absolute;
 `;

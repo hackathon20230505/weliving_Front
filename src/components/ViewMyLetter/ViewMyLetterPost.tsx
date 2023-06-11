@@ -85,6 +85,7 @@ const LetterPostTitle = styled.h2`
 const LetterPostContent = styled.p`
   font-weight: 400;
   font-size: 16px;
+  line-height: 150%;
   color: var(--white);
 `;
 

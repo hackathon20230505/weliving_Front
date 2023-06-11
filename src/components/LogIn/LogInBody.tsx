@@ -103,13 +103,14 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
 
   return (
     <CommonContentContainer xPadding="5%">
+      <PaddingTop></PaddingTop>
       <form onSubmit={onSubmitFormHandler}>
         <LogInInputGroupContainer>
           <LogInInputLabel htmlFor="userEmail">이메일</LogInInputLabel>
           <LogInInput
             id="userEmail"
             type="text"
-            placeholder="예) pmr7348.naver.com"
+            placeholder="예) example@wliv.kr"
             isValidUserEmail={isValidUserEmail}
             value={userEmail}
             onChange={onChangeUserEmailHandler}
@@ -148,6 +149,10 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
 
 export default LogInBody;
 
+const PaddingTop = styled.div`
+  padding-top: 40px;
+`;
+
 const LogInInputGroupContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -158,6 +163,7 @@ const LogInInputGroupContainer = styled.div`
 const LogInInputLabel = styled.label`
   font-size: 14px;
   font-weight: 700;
+  padding-bottom: 4px;
 `;
 
 interface ILogInInputTypes {
@@ -166,7 +172,9 @@ interface ILogInInputTypes {
 }
 
 const LogInInput = styled.input<ILogInInputTypes>`
-  padding: 13px 12px 14px 12px;
+  padding: 15px 12px 16px 12px;
+
+  font-size: 14px;
 
   border-bottom: ${({ isValidUserEmail, isValidUserPassword }) =>
     isValidUserEmail
@@ -179,6 +187,10 @@ const LogInInput = styled.input<ILogInInputTypes>`
   ::placeholder {
     color: var(--gray-purple);
   }
+  &.customMargin {
+    margin-top: -8px;
+  }
+  font-size: 14px;
 `;
 
 const LogInButton = styled.button`

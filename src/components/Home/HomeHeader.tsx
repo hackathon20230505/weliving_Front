@@ -25,9 +25,12 @@ const HomeHeader: FunctionComponent<HomeHeaderProps> = () => {
 export default HomeHeader;
 
 export const GoLogoutButton = styled.button`
-  font-size: 20px;
-  width: 18px;
-  height: 20px;
   position: absolute;
-  right: 30px;
+  right: 3px;
+
+  .img {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+  }
 `;

@@ -259,9 +259,9 @@ const CopyShareText = styled.p`
 
 const CopyURLContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: flex-start;
+  gap: 1.7rem;
+  margin-top: 2rem;
 `;
 
 const CopyURLButton = styled.button`

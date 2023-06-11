@@ -73,6 +73,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
           isValidUserPassword={isValidUserPassword}
           value={userPasswordConfirm}
           onChange={onChangeUserPasswordConfirmHandler}
+          className="customMargin"
         />
         {!isValiduserPasswordConfirm && (
           <NotValidText>비밀번호가 일치하지 않아요.</NotValidText>
@@ -121,6 +122,10 @@ const LogInInput = styled.input<ILogInInputTypes>`
 
   ::placeholder {
     color: var(--gray-purple);
+  }
+
+  &.customMargin {
+    margin-top: -8px;
   }
 `;
 

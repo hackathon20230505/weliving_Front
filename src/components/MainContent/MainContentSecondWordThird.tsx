@@ -127,10 +127,10 @@ const MainContentSecondWordFirst: React.FC<
           className={currentStep === 3 ? "active" : ""}
           src="https://wliv.kr/img/onbording/section3-3.svg"
           style={{
-            width: "276px",
-            height: "164px",
+            width: "149px",
+            height: "149px",
             bottom: "19%",
-            left: "60px",
+            left: "120px",
           }}
         />
       )}
