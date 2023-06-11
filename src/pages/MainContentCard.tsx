@@ -376,7 +376,9 @@ const ModalBackground = styled.div`
 const ModalContainer = styled.div`
   /* Your modal container styles go here */
   width: 350px;
-  height: 153px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   padding: 24px 20px;
   position: fixed;
@@ -409,8 +411,6 @@ const CloseButton = styled.span`
   text-align: center;
   line-height: 47px;
   display: block;
-
-  margin-top: 26px;
 
   background-color: var(--main-color);
   border-radius: 4px;
