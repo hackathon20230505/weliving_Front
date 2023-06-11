@@ -2,50 +2,20 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
-import ResizeableBottomSheet from "../Common/ResizableBottomSheet";
-import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";
-import BottomSheetTitle from "../Common/BottomSheetTitle";
-import ResizableBottomSheetContent from "../Common/ResizableBottomSheetContent";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-type WriteCardBodyProps = {};
-
 import "swiper/css";
 import "swiper/css/pagination";
-import WriterCardTermModalComponent from "./WriteCardTermModalComponent";
 import { useRecoilState } from "recoil";
 import { isValidPostStateCard } from "./atoms/isValidPostAtom";
 import { myCardState } from "./atoms/myCardAtoms";
 
+type WriteCardBodyProps = {};
+
 const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
   const navigate = useNavigate();
-  const [isShow, setIsShow] = useState<boolean>(true);
-  const [, setIsFullSize] = useState<boolean>(false);
-
-  const [isShowTerm, setIsShowTerm] = useState<boolean>(false);
-  const [isFullSizeTerm, setIsFullSizeTerm] = useState<boolean>(true);
-
-  const [isDisplayContent, setIsDisplayContent] = useState<boolean>(true);
 
   const [, setIsValidPost] = useRecoilState(isValidPostStateCard);
 
   const [myCardPost, setMyCardPost] = useRecoilState(myCardState);
-
-  const backgroundClickHandler = () => {
-    setIsShow(false);
-  };
-
-  const closeHandler = () => {
-    // setIsDisplayContent((s) => !s);
-    setIsShow(false);
-  };
-
-  const onClickSubmitButtonHandler = () => {
-    setIsShow(true);
-  };
-  const closeHandlerTerm = () => {
-    setIsShowTerm(false);
-  };
 
   useEffect(() => {
     /** 내용이 입력되면 등록 가능 */
@@ -81,7 +51,11 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
 
   return (
     <>
-      <CommonContentContainer xPadding="5%">
+      <CommonContentContainer
+        xPadding="5%"
+        h={"calc(100% - 56px)"}
+        topSpacing={"0"}
+      >
         <RulesOfUseGropContainer>
           <LogInSignUpContainer>
             <LogInButton onClick={onClickLogInButtonHandler}>다음</LogInButton>
@@ -113,66 +87,6 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
         </RulesOfUseGropContainer>
         <WritingHelpBottomSheet></WritingHelpBottomSheet>
       </CommonContentContainer>
-      <ResizeableBottomSheet
-        isShow={isShow}
-        isFullSize={isDisplayContent}
-        setIsShow={setIsShow}
-        setIsFullSize={setIsFullSize}
-        manualFullSizeHeight="500px"
-        backgroundClickHandler={backgroundClickHandler}
-      >
-        <ResizableBottomSheetHeader
-          align="right"
-          closable={true}
-          closeHandler={closeHandler}
-          closeIconOverwrap={<img src="https://wliv.kr/img/x-icon.svg" />}
-        >
-          <BottomSheetTitle></BottomSheetTitle>
-        </ResizableBottomSheetHeader>
-        <ResizableBottomSheetContent>
-          <BottomSheetContentWrapper isDisplayContent={isDisplayContent}>
-            <CardBottomSheetTitle>
-              아래의 예를 기반으로 작성해보세요.
-            </CardBottomSheetTitle>
-            <SwiperWrapper pagination={true} loop={true} modules={[Pagination]}>
-              <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/card/card-help-2.png" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/card/card-help-5.png" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/card/card-help-4.png" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/card/card-help-3.png" />
-              </SwiperSlide>{" "}
-              <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/card/card-help-1.png" />
-              </SwiperSlide>
-            </SwiperWrapper>
-          </BottomSheetContentWrapper>
-        </ResizableBottomSheetContent>
-      </ResizeableBottomSheet>
-      <ResizeableBottomSheet
-        isShow={isShowTerm}
-        isFullSize={isFullSizeTerm}
-        setIsShow={setIsShowTerm}
-        setIsFullSize={setIsFullSizeTerm}
-      >
-        <ResizableBottomSheetHeader
-          align="right"
-          closable={true}
-          closeHandler={closeHandlerTerm}
-        >
-          <BottomSheetTitle>이용 규칙</BottomSheetTitle>
-        </ResizableBottomSheetHeader>
-        <ResizableBottomSheetContent borderRadius="1rem">
-          <TextWrapper>
-            <WriterCardTermModalComponent />
-          </TextWrapper>
-        </ResizableBottomSheetContent>
-      </ResizeableBottomSheet>
     </>
   );
 };
@@ -183,44 +97,12 @@ const RulesOfUseGropContainer = styled.div``;
 
 const WritingHelpBottomSheet = styled.div``;
 
-interface BottomSheetContentWrapperProps {
-  isDisplayContent: boolean;
-}
-
-const BottomSheetContentWrapper = styled.div<BottomSheetContentWrapperProps>`
-  position: relative;
-  height: 100%;
-  max-height: ${(props) => (props.isDisplayContent ? "450px" : "0px")};
-  overflow: hidden;
-  transition: max-height 0.15s linear;
-`;
-
-const CardBottomSheetTitle = styled.p`
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 150%;
-  margin-bottom: 6px;
-`;
-
-const SwiperImg = styled.img`
-  width: 100%;
-`;
-
-const SwiperWrapper = styled(Swiper)`
-  margin-top: 24px;
-  padding-bottom: 1rem;
-`;
-
-const TextWrapper = styled.div`
-  background-color: white;
-`;
-
 // 신규생성
 
 const LogInSignUpContainer = styled.div`
-  padding: 0px;
+  padding: 0;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 90%;
 
   display: flex;
@@ -276,7 +158,7 @@ const MemoriesContainer = styled.div`
   justify-content: space-between;
   font-size: 14px;
   color: #cbcbcb;
-  align-items: right;
+  align-items: flex-end;
 `;
 
 const MemoriesText = styled.div`
