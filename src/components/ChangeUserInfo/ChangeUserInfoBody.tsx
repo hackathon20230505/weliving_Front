@@ -21,10 +21,13 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   const [userPhone, setUserPhone] = useState<string>("");
 
   //   데이터 유효성 검사
-  const [isValidUserNewPassword, setIsValidUserNewPassword] =
-    useState<boolean>(false);
-  const [isValidUserNewPasswordConfirm, setIsValidUserNewPasswordConfirm] =
-    useState<boolean>(false);
+  // const [isValidUserNewPassword, setIsValidUserNewPassword] =
+  //   useState<boolean>(false);
+  // const [isValidUserNewPasswordConfirm, setIsValidUserNewPasswordConfirm] =
+  //   useState<boolean>(false);
+  //   데이터 유효성 검사
+  const [, setIsValidUserNewPassword] = useState<boolean>(false);
+  const [, setIsValidUserNewPasswordConfirm] = useState<boolean>(false);
 
   // 문자 알림 동의
   const [isAlarmAgreed, setIsAlarmAgreed] = useState<boolean>(false);
