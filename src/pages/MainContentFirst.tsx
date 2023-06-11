@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import BackgroundStar from "../components/MainContent/BackgroundFirst";
 import Typewriter from "react-ts-typewriter";
+import PageContainer from "../components/Common/PageContainer";
+import CommonContentContainer from "../components/Common/CommonContentContainer";
 
 type MainContentFirstProps = {};
 
@@ -98,7 +100,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
   // 스크립트 춢력
 
   const onClickLogInButtonHandler = () => {
-    navigate("/logIn");
+    navigate("/writecard");
   };
 
   const closeModal = () => {
@@ -108,125 +110,133 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
   };
 
   return (
-    <MainContentFirstWrapper>
-      <MainContentFirstContainer>
-        <TopContentContainer>
-          {isModalVisible && (
-            <ModalBackground>
-              <ModalContainer>
-                <ModalTitle>시작하기 전에</ModalTitle>
-                <OptionsContainer>
-                  <ModalContent>1. 불을 끄고 진행해보세요</ModalContent>
-                  <ModalContent>2. 음악이 흘러나올 수 있어요</ModalContent>
-                </OptionsContainer>
+    <PageContainer>
+      <CommonContentContainer xPadding="5%">
+        <MainContentFirstWrapper>
+          <MainContentFirstContainer>
+            <TopContentContainer>
+              {isModalVisible && (
+                <ModalBackground>
+                  <ModalContainer>
+                    <ModalTitle>시작하기 전에</ModalTitle>
+                    <OptionsContainer>
+                      <ModalContent>1. 음악이 자동 재생됩니다.</ModalContent>
+                      <ModalContent>
+                        2. 집중을 위해 불을 끄고 진행해보세요. <br />
+                        <br /> 조용한 공간에서는 이어폰을 사용해주세요.
+                      </ModalContent>
+                    </OptionsContainer>
+                    <CloseButton onClick={closeModal}>닫기</CloseButton>
+                  </ModalContainer>
+                </ModalBackground>
+              )}
 
-                <CloseButton onClick={closeModal}>닫기</CloseButton>
-              </ModalContainer>
-            </ModalBackground>
-          )}
+              {!isModalVisible && (
+                <BackgroundMusic
+                  style={{
+                    opacity: currentStep === 1 ? 1 : 1,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                  className={isPlaying ? "" : "BackgroundMusicCancel"}
+                  onClick={toggleMusic}
+                >
+                  {isPlaying === false && (
+                    <BackgroundMusicCancel></BackgroundMusicCancel>
+                  )}
 
-          {!isModalVisible && (
-            <BackgroundMusic
-              style={{
-                opacity: currentStep === 1 ? 1 : 1,
-                transition: "opacity 800ms, visibility 800ms",
-              }}
-              className={isPlaying ? "" : "BackgroundMusicCancel"}
-              onClick={toggleMusic}
-            >
-              {!isPlaying && <BackgroundMusicCancel></BackgroundMusicCancel>}
-
-              <BackgroundMusicIcon></BackgroundMusicIcon>
-              <BackgroundMusicText>배경 bgm</BackgroundMusicText>
-            </BackgroundMusic>
-          )}
-        </TopContentContainer>
-        {isModalClickSecond === 1 && (
-          <>
-            <ImageMoon
-              src="https://wliv.kr/img/onbording/moon.svg"
-              style={{ top: "90px", left: "5px" }}
-            />
-            <BackgroundStar />
-          </>
-        )}{" "}
-        {/* 배경 출력 */}
-        {/* 문자 첫 출력 */}
-        <MainContentFirstContentContainer>
-          {currentStep >= 1 && (
-            <MainContentFirstMainContent
-              className={currentStep === 1 ? "active" : ""}
-              style={{
-                opacity: currentStep === 1 ? 1 : 0.5,
-                transition: "opacity 800ms, visibility 800ms",
-              }}
-            >
-              이 곳은 당신의 내면과 <br></br> 소중한 추억들을 찾을 수 있는
-              공간이에요
-            </MainContentFirstMainContent>
-          )}
-          {currentStep >= 2 && (
-            <MainContentFirstMainContent
-              className={currentStep === 2 ? "active" : ""}
-              style={{
-                opacity: currentStep === 2 ? 1 : 0.5,
-                transition: "opacity 800ms, visibility 800ms",
-              }}
-            >
-              <Typewriter
-                text={`당신의 삶을 돌아보고 \n 그 속에서 찾아낸 아름다움을 \n 이 곳에 기록해주세요`}
-                cursor={false}
-                speed={65}
-              />
-            </MainContentFirstMainContent>
-          )}
-          {currentStep >= 3 && (
-            <MainContentFirstMainContent
-              className={currentStep === 3 ? "active" : ""}
-              style={{
-                opacity: currentStep === 3 ? 1 : 0.5,
-                transition: "opacity 800ms, visibility 800ms",
-              }}
-            >
-              <Typewriter
-                text={`추억, 사랑, 물건 \n 정이 깃든 모든 것들이 해당돼요`}
-                cursor={false}
-                speed={65}
-              />
-            </MainContentFirstMainContent>
-          )}
-          {currentStep >= 4 && (
-            <MainContentFirstMainContent
-              className={currentStep === 4 ? "active" : ""}
-              style={{
-                opacity: currentStep === 4 ? 1 : 1,
-                transition: "opacity 800ms, visibility 800ms",
-              }}
-            >
-              <Typewriter
-                text={`당신의 인생 안에서 \n 놓쳤던 소중한 순간들을 \n 발견할 수 있을거에요`}
-                cursor={false}
-                speed={65}
-              />
-            </MainContentFirstMainContent>
-          )}
-        </MainContentFirstContentContainer>
-        {currentStep >= 5 && (
-          <LogInSignUpContainer>
-            <LogInButton
-              className={currentStep === 5 ? "active" : ""}
-              style={{
-                opacity: currentStep === 3 ? 1 : 1,
-                transition: "opacity 800ms, visibility 800ms",
-              }}
-              onClick={onClickLogInButtonHandler}
-            >
-              다음
-            </LogInButton>
-          </LogInSignUpContainer>
-        )}
-      </MainContentFirstContainer>
-    </MainContentFirstWrapper>
+                  <BackgroundMusicIcon></BackgroundMusicIcon>
+                  <BackgroundMusicText>배경 bgm</BackgroundMusicText>
+                </BackgroundMusic>
+              )}
+            </TopContentContainer>
+            {isModalClickSecond === 1 && (
+              <>
+                <ImageMoon
+                  src="https://wliv.kr/img/onbording/moon.svg"
+                  style={{ top: "90px", left: "5px" }}
+                />
+                <BackgroundStar />
+              </>
+            )}{" "}
+            {/* 배경 출력 */}
+            {/* 문자 첫 출력 */}
+            <MainContentFirstContentContainer>
+              {currentStep >= 1 && (
+                <MainContentFirstMainContent
+                  className={currentStep === 1 ? "active" : ""}
+                  style={{
+                    opacity: currentStep === 1 ? 1 : 0.5,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                >
+                  이 곳은 당신의 내면과 <br></br> 소중한 추억들을 찾을 수 있는
+                  공간이에요.
+                </MainContentFirstMainContent>
+              )}
+              {currentStep >= 2 && (
+                <MainContentFirstMainContent
+                  className={currentStep === 2 ? "active" : ""}
+                  style={{
+                    opacity: currentStep === 2 ? 1 : 0.5,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                >
+                  <Typewriter
+                    text={`당신의 삶을 돌아보고 \n 그 속에서 찾아낸 아름다움을 \n 이 곳에 기록해주세요.`}
+                    cursor={false}
+                    speed={65}
+                  />
+                </MainContentFirstMainContent>
+              )}
+              {currentStep >= 3 && (
+                <MainContentFirstMainContent
+                  className={currentStep === 3 ? "active" : ""}
+                  style={{
+                    opacity: currentStep === 3 ? 1 : 0.5,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                >
+                  <Typewriter
+                    text={`추억, 사랑, 물건 \n 정이 깃든 모든 것들이 해당돼요.`}
+                    cursor={false}
+                    speed={65}
+                  />
+                </MainContentFirstMainContent>
+              )}
+              {currentStep >= 4 && (
+                <MainContentFirstMainContent
+                  className={currentStep === 4 ? "active" : ""}
+                  style={{
+                    opacity: currentStep === 4 ? 1 : 1,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                >
+                  <Typewriter
+                    text={`당신의 인생 안에서 \n 놓쳤던 소중한 순간들을 \n 발견할 수 있을거에요.`}
+                    cursor={false}
+                    speed={65}
+                  />
+                </MainContentFirstMainContent>
+              )}
+            </MainContentFirstContentContainer>
+            {currentStep >= 5 && (
+              <LogInSignUpContainer>
+                <LogInButton
+                  className={currentStep === 5 ? "active" : ""}
+                  style={{
+                    opacity: currentStep === 3 ? 1 : 1,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                  onClick={onClickLogInButtonHandler}
+                >
+                  다음
+                </LogInButton>
+              </LogInSignUpContainer>
+            )}
+          </MainContentFirstContainer>
+        </MainContentFirstWrapper>
+      </CommonContentContainer>
+    </PageContainer>
   );
 };
 
@@ -246,7 +256,7 @@ const MainContentFirstContainer = styled.div`
 `;
 
 const MainContentFirstContentContainer = styled.div`
-  padding: 0 27px;
+  padding: 0 5px 0 0px;
   position: absolute;
   top: 180px;
 `;
@@ -281,7 +291,7 @@ const MainContentFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 20px;
+  padding: 0px;
   position: absolute;
   bottom: 0;
   width: 90%;
@@ -346,7 +356,7 @@ const BackgroundMusicIcon = styled.div`
 const BackgroundMusicText = styled.div`
   font-size: 12px;
   position: absolute;
-  top: 7px;
+  top: 8px;
   left: 36px;
   color: #cbcbcb;
   ::before {
@@ -376,7 +386,7 @@ const ModalBackground = styled.div`
 const ModalContainer = styled.div`
   /* Your modal container styles go here */
   width: 350px;
-  height: 153px;
+  height: 223px;
   background-color: #fff;
   padding: 24px 20px;
   position: fixed;
@@ -410,7 +420,7 @@ const CloseButton = styled.span`
   line-height: 47px;
   display: block;
 
-  margin-top: 26px;
+  margin-top: 10px;
 
   background-color: var(--main-color);
   border-radius: 4px;

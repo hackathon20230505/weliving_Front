@@ -51,7 +51,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 2) {
       const timeout3 = setTimeout(() => {
         setCurrentStep(3);
-      }, 4000);
+      }, 3000);
 
       return () => clearTimeout(timeout3);
     }
@@ -61,7 +61,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 3) {
       const timeout4 = setTimeout(() => {
         setCurrentStep(4);
-      }, 4500);
+      }, 500);
 
       return () => clearTimeout(timeout4);
     }
@@ -71,7 +71,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 4) {
       const timeout4 = setTimeout(() => {
         setCurrentStep(5);
-      }, 4000);
+      }, 2500);
 
       return () => clearTimeout(timeout4);
     }
@@ -82,6 +82,35 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
   return (
     <BackgroundStarContainer>
       {/* 배경 출력 */}
+
+      <FireContainer>
+        <FireLeft>
+          <div className="main-fire" />
+          <div className="particle-fire" />
+        </FireLeft>
+        <FireCenter>
+          <div className="main-fire" />
+          <div className="particle-fire" />
+        </FireCenter>
+        <FireRight>
+          <div className="main-fire" />
+          <div className="particle-fire" />
+        </FireRight>
+        <FireBottom>
+          <div className="main-fire" />
+        </FireBottom>
+        <ImageFire
+          src="https://wliv.kr/img/onbording/section2-3.svg"
+          style={{
+            width: "168px",
+            height: "180px",
+            bottom: "-35px ",
+            left: "-30px",
+            opacity: "100%",
+            zIndex: "-1",
+          }}
+        />
+      </FireContainer>
       {/* 문자 첫 출력 */}
       <MainContentFirstContentContainer>
         {currentStep >= 1 && (
@@ -92,19 +121,19 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
               transition: "opacity 800ms, visibility 800ms",
             }}
           >
-            당신의 소중한 추억들을 <br></br> 들려주셔서 감사해용.
+            우리는 종종 <br></br> 자신을 부정적으로 바라볼 때가 있어요.
           </MainContentFirstMainContent>
         )}
         {currentStep >= 2 && (
           <MainContentFirstMainContent
             className={currentStep === 2 ? "active" : ""}
             style={{
-              opacity: currentStep === 2 ? 1 : 0.5,
+              opacity: currentStep >= 2 ? 1 : 0.5,
               transition: "opacity 800ms, visibility 800ms",
             }}
           >
             <Typewriter
-              text={`그대의 이야기를 더 듣고싶어요. \n 같이 앉아 이야기해볼까요?`}
+              text={`하지만 지금 이 순간 만큼은 \n 당신이 가장 소중한 존재에요.`}
               cursor={false}
               speed={65}
             />
@@ -131,7 +160,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
             }}
             onClick={incrementSectionStep}
           >
-            의자에 앉기
+            다음
           </LogInButton>
         </LogInSignUpContainer>
       )}
@@ -144,7 +173,7 @@ export default MainContentSecondWordFirst;
 const BackgroundStarContainer = styled.div``;
 
 const MainContentFirstContentContainer = styled.div`
-  padding: 0 27px;
+  padding: 0 5px;
   position: absolute;
   top: 180px;
 `;
@@ -179,7 +208,7 @@ const MainContentFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 20px;
+  padding: 0 0px;
   position: absolute;
   bottom: 0;
   width: 90%;
@@ -207,3 +236,190 @@ const LogInButton = styled.button`
 // const OptionsContainer = styled.span`
 //   padding-bottom: 24px;
 // `;
+
+// 불 효과
+
+const KeyFrameSection2_3 = keyframes`
+`;
+
+const ImageFire = styled.img`
+  position: absolute;
+  animation: ${KeyFrameSection2_3} 85s ease-in;
+`;
+
+const scaleUpDown = keyframes`
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50%,
+  90% {
+    transform: scaleY(1.1);
+  }
+  75% {
+    transform: scaleY(0.95);
+  }
+  80% {
+    transform: scaleX(0.95);
+  }
+`;
+
+const shake = keyframes`
+  0%,
+  100% {
+    transform: skewX(0) scale(1);
+  }
+  50% {
+    transform: skewX(5deg) scale(0.9);
+  }
+`;
+
+const particleUp = keyframes`
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -100%;
+    transform: scale(0.5);
+  }
+`;
+
+const glow = keyframes`
+  0%,
+  100% {
+    background-color: #FFA500;
+  }
+  50% {
+    background-color: #DAA520;
+  }
+`;
+
+const FireContainer = styled.div`
+  position: absolute;
+  top: calc(74% - 50px);
+  left: calc(48% - 50px);
+  width: 110px;
+  height: 125px;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 15;
+`;
+
+const FireCenter = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: ${scaleUpDown} 3s ease-out infinite both;
+
+  .main-fire {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+      farthest-corner at 10px 0,
+      #d43300 0%,
+      #ef5a00 95%
+    );
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 60% 40%;
+    filter: drop-shadow(0 0 10px #d43322);
+  }
+
+  .particle-fire {
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    background-color: #ef5a00;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #d43322);
+    animation: ${particleUp} 2s ease-out infinite both;
+  }
+`;
+
+const FireRight = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  animation: ${shake} 2s ease-out infinite both;
+
+  .main-fire {
+    position: absolute;
+    top: 15%;
+    right: 0%;
+    width: 80%;
+    height: 80%;
+    background-color: #ef5a00;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 60% 40%;
+    filter: drop-shadow(0 0 10px #d43322);
+  }
+
+  .particle-fire {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #ef5a00;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #d43322);
+    animation: ${particleUp} 2s ease-out infinite both;
+  }
+`;
+
+const FireLeft = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: ${shake} 3s ease-out infinite both;
+
+  .main-fire {
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    width: 80%;
+    height: 80%;
+    background-color: #ef5a00;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 60% 40%;
+    filter: drop-shadow(0 0 10px #d43322);
+  }
+
+  .particle-fire {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 10%;
+    height: 10%;
+    background-color: #ef5a00;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #d43322);
+    animation: ${particleUp} 3s infinite ease-out both;
+  }
+`;
+
+const FireBottom = styled.div`
+  .main-fire {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 75%;
+    height: 75%;
+    background-color: #ff7800;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 100% 40%;
+    filter: blur(10px);
+    animation: ${glow} 2s ease-out infinite both;
+  }
+`;
