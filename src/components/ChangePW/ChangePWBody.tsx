@@ -2,6 +2,7 @@ import { ChangeEvent, FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type ChangePWBodyProps = {};
 
 const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
@@ -21,7 +22,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
     if (currValue === null) return;
     setUserPassword(currValue);
 
-    if (isValidUserPasswordFunc(currValue) === true) {
+    if (isValidUserPasswordFunc(currValue)) {
       setIsValidUserPassword(true);
     } else {
       setIsValidUserPassword(false);
@@ -43,7 +44,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
     }
   };
 
-  const onClickNextButtonHandler = () => {};
+  // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
@@ -57,7 +58,7 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
           value={userPassword}
           onChange={onChangeUserPasswordHandler}
         />
-        {isValidUserPassword === false && (
+        {!isValidUserPassword && (
           <NotValidText>
             비밀번호를 최소 8자 이상, 특수문자 1개를 포함해주세요.
           </NotValidText>
@@ -73,16 +74,14 @@ const ChangePWBody: FunctionComponent<ChangePWBodyProps> = () => {
           value={userPasswordConfirm}
           onChange={onChangeUserPasswordConfirmHandler}
         />
-        {isValiduserPasswordConfirm === false && (
+        {!isValiduserPasswordConfirm && (
           <NotValidText>비밀번호가 일치하지 않아요.</NotValidText>
         )}
       </LogInInputGroupContainer>
       <NextButton
         isValid={isValidUserPassword && isValiduserPasswordConfirm}
-        disabled={
-          !(isValidUserPassword && isValiduserPasswordConfirm) ? true : false
-        }
-        onClick={onClickNextButtonHandler}
+        disabled={!(isValidUserPassword && isValiduserPasswordConfirm)}
+        // onClick={onClickNextButtonHandler}
       >
         변경하기
       </NextButton>
@@ -118,7 +117,7 @@ const LogInInput = styled.input<ILogInInputTypes>`
       : isValidUserPassword
       ? "1px solid var(--strong-purple-800)"
       : "1px solid #F31919"};
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);

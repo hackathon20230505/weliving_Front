@@ -4,6 +4,7 @@ import CommonHeaderContainer from "../Common/CommonHeaderContainer";
 import { useNavigate } from "react-router";
 import { useRecoilState } from "recoil";
 import { isOpenMoreState, isOpenShareState } from "./atoms/isOpenBottomSeet";
+
 type ViewMyLetterHeaderProps = {};
 
 const ViewMyLetterHeader: FunctionComponent<ViewMyLetterHeaderProps> = () => {
@@ -45,7 +46,8 @@ export default ViewMyLetterHeader;
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  padding: 4px 1rem 4px 0;
+  left: 0;
 `;
 
 const ButtonGroupContainer = styled.div`

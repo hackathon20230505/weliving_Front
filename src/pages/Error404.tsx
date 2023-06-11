@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
+
 type Error404Props = {};
 
 const Error404: FunctionComponent<Error404Props> = () => {
@@ -13,7 +14,7 @@ const Error404: FunctionComponent<Error404Props> = () => {
   };
   return (
     <PageContainer>
-      <CommonContentContainer xPadding="5%">
+      <CommonContentContainer h={"100%"} xPadding="5%">
         <EmptyGrayBoxContainer>
           <img src="https://wliv.kr/img/error-404-img.svg" alt="404 에러" />
         </EmptyGrayBoxContainer>

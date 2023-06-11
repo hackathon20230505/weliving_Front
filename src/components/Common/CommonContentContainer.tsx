@@ -11,8 +11,8 @@ const CommonContentContainer = ({
   yPadding = undefined,
   xMargin = undefined,
   yMargin = undefined,
-  height = undefined,
-  marginTop = "40px",
+  h = "calc(100% - 56px)",
+  topSpacing = "40px",
 }: CommonContentContainerProps) => {
   return (
     <CommonContentContainerFragment
@@ -20,8 +20,8 @@ const CommonContentContainer = ({
       yPadding={yPadding}
       xMargin={xMargin}
       yMargin={yMargin}
-      height={height}
-      marginTop={marginTop}
+      h={h}
+      topSpacing={topSpacing}
     >
       {children}
     </CommonContentContainerFragment>
@@ -33,8 +33,8 @@ interface CommonContentContainerFragmentProps {
   yPadding?: string;
   xMargin?: string;
   yMargin?: string;
-  height?: string;
-  marginTop?: string;
+  h?: string;
+  topSpacing?: string;
 }
 
 const CommonContentContainerFragment = styled.div<CommonContentContainerFragmentProps>`
@@ -56,9 +56,11 @@ const CommonContentContainerFragment = styled.div<CommonContentContainerFragment
       ? `margin: 0 ${props.xMargin};`
       : ""}
 
-  ${(props) => (props.height ? `height: ${props.height};` : "")}
+  ${(props) => (props.h ? `height: ${props.h};` : "")}
       
-  margin-top: ${(props) => props.marginTop};
+  padding-top: ${(props) => props.topSpacing};
+  overflow: hidden;
+  position: relative;
 `;
 
 export default CommonContentContainer;

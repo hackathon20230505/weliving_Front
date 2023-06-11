@@ -43,7 +43,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
   const [isModalClickSecond, setIsModalClickSecond] = useState(0);
 
   useEffect(() => {
-    if (isModalClick === true) {
+    if (isModalClick) {
       const timeout0 = setTimeout(() => {
         setCurrentStep(1);
       }, 8000);
@@ -126,7 +126,6 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                         <br /> 조용한 공간에서는 이어폰을 사용해주세요.
                       </ModalContent>
                     </OptionsContainer>
-
                     <CloseButton onClick={closeModal}>닫기</CloseButton>
                   </ModalContainer>
                 </ModalBackground>
@@ -294,7 +293,7 @@ const MainContentFirstMainContent = styled.p`
 const LogInSignUpContainer = styled.div`
   padding: 0px;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 90%;
 
   display: flex;
@@ -416,7 +415,7 @@ const OptionsContainer = styled.span`
 const CloseButton = styled.span`
   width: 100%;
   height: 48px;
-  bottom: 0px;
+  bottom: 0;
   text-align: center;
   line-height: 47px;
   display: block;

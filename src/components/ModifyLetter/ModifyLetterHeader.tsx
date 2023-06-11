@@ -49,12 +49,13 @@ export default ModifyLetterHeader;
 
 const GoBackButton = styled.button`
   position: absolute;
-  left: 0px;
+  padding: 4px 1rem 4px 0;
+  left: 0;
 `;
 
 const PostButtonGropContainer = styled.div`
   position: absolute;
-  right: 0px;
+  right: 0;
 
   width: fit-content;
   display: flex;

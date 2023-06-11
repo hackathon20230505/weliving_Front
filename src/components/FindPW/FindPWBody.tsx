@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { isValidUserEmailFunc } from "../../utils/isValid/isValidUserData";
 import { useNavigate, useParams } from "react-router-dom";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type FindPWBodyProps = {};
 
 const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
@@ -20,7 +21,7 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
 
     setUserEmail(currValue);
 
-    if (isValidUserEmailFunc(currValue) === true) {
+    if (isValidUserEmailFunc(currValue)) {
       setIsValidUserEmail(true);
     } else {
       setIsValidUserEmail(false);
@@ -52,13 +53,13 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
               value={userEmail}
               onChange={onChangeUserEmailHandler}
             />
-            {isValidUserEmail === false && (
+            {!isValidUserEmail && (
               <NotValidText>이메일 주소를 확인하세요.</NotValidText>
             )}
           </FindPWInputGroupContainer>
           <FindPWButton
             isValid={isValidUserEmail}
-            disabled={!isValidUserEmail ? true : false}
+            disabled={!isValidUserEmail}
             onClick={onClickNextButtonHandler}
           >
             다음
@@ -119,7 +120,7 @@ const FindPWInput = styled.input<IFindPWInputTypes>`
       : isValidUserPassword
       ? "1px solid var(--strong-purple-800)"
       : "1px solid #F31919"};
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);
@@ -153,19 +154,19 @@ const NotValidText = styled.p`
 // id : 2
 const FindPWBigTitle = styled.p`
   margin-top: 40px;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 24px;
 `;
 
 const FindPWDescription = styled.p`
-  margin: 8px 0px 12px 0px;
+  margin: 8px 0 12px 0;
   font-weight: 400;
   font-size: 12px;
   color: #999999;
 `;
 
 const FindPWUserEmailText = styled.p`
-  margin: 12px 0px 24px 0px;
+  margin: 12px 0 24px 0;
   font-weight: 700;
   font-size: 14px;
   color: var(--white);

@@ -4,11 +4,10 @@ import styled, { keyframes } from "styled-components";
 import BackgroundStar from "../components/OnBording/Background";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
-// import Typewriter from "react-ts-typewriter";
 
-type WillFirstProps = {};
+// type WillFirstProps = {};
 
-const WillFirst: FunctionComponent<WillFirstProps> = () => {
+const WillFirst: FunctionComponent = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -62,7 +61,7 @@ const WillFirst: FunctionComponent<WillFirstProps> = () => {
         <WillFirstContainer>
           <ImageMoon
             src="https://wliv.kr/img/onbording/moon.svg"
-            style={{ top: "90px", left: "0px" }}
+            style={{ top: "90px", left: "0" }}
           />
           <BackgroundStar />
 
@@ -171,7 +170,7 @@ const WillFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 0px;
+  padding: 0 0;
   position: absolute;
   bottom: 74px;
   width: 90%;

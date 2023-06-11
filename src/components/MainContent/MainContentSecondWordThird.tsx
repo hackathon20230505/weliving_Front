@@ -23,7 +23,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
   const [, setIsModalClickSecond] = useState(0);
 
   useEffect(() => {
-    if (isModalClick === true) {
+    if (isModalClick) {
       const timeout0 = setTimeout(() => {
         setCurrentStep(1);
       }, 8000);
@@ -240,7 +240,7 @@ const MainContentFirstMainContent = styled.p`
 const LogInSignUpContainer = styled.div`
   padding: 0 0px;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 90%;
 
   display: flex;

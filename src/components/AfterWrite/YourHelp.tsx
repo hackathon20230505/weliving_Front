@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 import CheckBox from "../Common/CheckBox";
 import { sendMessage } from "../../apis/users/sendMessage";
 import { verifyMessage } from "../../apis/users/verifyMessage";
-type YourHelpProps = {};
 
-const YourHelp: FunctionComponent<YourHelpProps> = () => {
+// type YourHelpProps = {};
+
+const YourHelp: FunctionComponent = () => {
   /** 인증번호 발송 눌렀을 때 */
   const [isSended, setIsSended] = useState<boolean>(false);
 
@@ -31,7 +32,7 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
   };
 
   const sendAuthNumber = () => {
-    const phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+    const phoneRegex = /^01([016789])-?([0-9]{3,4})-?([0-9]{4})$/;
     if (!phoneRegex.test(phoneInput)) {
       alert("휴대전화 번호를 정확히 입력해주세요.");
       return;
@@ -67,9 +68,9 @@ const YourHelp: FunctionComponent<YourHelpProps> = () => {
 
   return (
     <CommonContentContainer
-      marginTop="0px"
+      topSpacing="0"
       yPadding="2rem"
-      height="100%"
+      h="100%"
       xPadding="5%"
     >
       <YourHelpContainer>
@@ -247,16 +248,16 @@ interface ButtonGroupButtonProps {
 const ButtonGroupButtonOutline = styled.button<ButtonGroupButtonProps>`
   border: 1px solid ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
   color: ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
-  ${ButtonGroupButton}
   border-radius: 0.5rem;
+  ${ButtonGroupButton};
 `;
 
 const ButtonGroupButtonFiiled = styled.button<ButtonGroupButtonProps>`
   color: ${({ isActive }) => (isActive ? "#ffffff" : "#ffffff50")};
   background-color: ${({ isActive }) => (isActive ? "#db0fdb" : "#5b2950")};
-  ${ButtonGroupButton}
   border: none;
   border-radius: 0.5rem;
+  ${ButtonGroupButton};
 `;
 
 export default YourHelp;

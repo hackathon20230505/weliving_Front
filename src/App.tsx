@@ -13,7 +13,7 @@ setupInterceptors(axios);
 
 function App() {
   function setScreenSize() {
-    let vh = window.innerHeight * 0.01;
+    const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 
@@ -27,7 +27,13 @@ function App() {
   });
 
   // Create a client
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
     <RecoilRoot>

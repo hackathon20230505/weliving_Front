@@ -56,16 +56,18 @@ const BottomSheetWrapper = styled.div<IsShowProps>`
   transition: transform 0.3s;
   max-height: 100%;
   overflow: hidden;
+  z-index: 999;
 `;
 
 const BottomSheetBackCurtain = styled.div<IsShowProps>`
   top: 0;
   left: 0;
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 60%);
   display: ${({ isShow }) => (isShow ? "block" : "none")};
+  z-index: 998;
 `;
 
 interface BottomSheetContentWrapperProps {
@@ -79,7 +81,7 @@ const BottomSheetContentWrapper = styled.div<BottomSheetContentWrapperProps>`
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: #352638;

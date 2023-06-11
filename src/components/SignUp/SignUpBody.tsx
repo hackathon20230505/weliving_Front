@@ -10,9 +10,9 @@ import ResizableBottomSheet from "../Common/ResizableBottomSheet";
 import { useRecoilState } from "recoil";
 import {
   IIsValidUserInfoStateTypes,
+  isValidUserInfoState,
   IUserInfoStateTypes,
   UserInfoState,
-  isValidUserInfoState,
 } from "./atoms/UserInfoAtoms";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";
@@ -21,6 +21,7 @@ import SignUpAgreeModalContent from "./SignUpAgreeModalContent";
 import TermsOfServiceModalComponent from "./TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "./PrivacyPolicyModalComponent";
 import BottomSheetTitle from "../Common/BottomSheetTitle";
+
 type SignUpBodyProps = {};
 
 const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
@@ -70,7 +71,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userEmail: value,
     });
 
-    if (isValidUserEmailFunc(value) === true) {
+    if (isValidUserEmailFunc(value)) {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserEmail: true });
     } else {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserEmail: false });
@@ -89,7 +90,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userPassword: value,
     });
 
-    if (isValidUserPasswordFunc(value) === true) {
+    if (isValidUserPasswordFunc(value)) {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserPassword: true });
     } else {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserPassword: false });
@@ -107,7 +108,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userPasswordConfirm: value,
     });
 
-    if (isValidUserPasswordConfirmFunc(userInfo.userPassword, value) === true) {
+    if (isValidUserPasswordConfirmFunc(userInfo.userPassword, value)) {
       setIsValidUserInfo({
         ...isValidUserInfo,
         isValidUserPasswordConfirm: true,
@@ -129,7 +130,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
       userBirth: value,
     });
 
-    if (isValidUserBirthFunc(value) === true) {
+    if (isValidUserBirthFunc(value)) {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserBirth: true });
     } else {
       setIsValidUserInfo({ ...isValidUserInfo, isValidUserBirth: false });
@@ -210,8 +211,6 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
               isValidUserInfo.isValidUserPasswordConfirm &&
               isValidUserInfo.isValidUserBirth
             )
-              ? true
-              : false
           }
           onClick={onClickNextButtonHandler}
         >
@@ -295,7 +294,7 @@ const SignUpInput = styled.input`
   padding: 13px 12px 14px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
-  border-radius: 0px;
+  border-radius: 0;
 
   ::placeholder {
     color: var(--gray-purple);
@@ -307,7 +306,7 @@ interface INextButtonTypes {
 }
 
 const NextButton = styled.button<INextButtonTypes>`
-  width: 100%;
+  width: 90%;
   height: 56px;
 
   background-color: ${({ isValid }) =>
@@ -318,7 +317,6 @@ const NextButton = styled.button<INextButtonTypes>`
   color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
 
   position: absolute;
-  width: 90%;
   bottom: 34px;
 `;
 
@@ -328,7 +326,7 @@ interface TextWrapperProps {
 
 const slideUp = keyframes`
   from {
-    height: 0vh;
+    height: 0;
     opacity: 0;
   }
   to {

@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
+
 type HomeBodyProps = {};
 
 const HomeBody: FunctionComponent<HomeBodyProps> = () => {
@@ -20,7 +21,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   };
 
   return (
-    <CommonContentContainer xPadding="5%">
+    <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
       <HomeLetterGroupContainer>
         <HomeLetterTitle>유서</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
@@ -48,14 +49,15 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
 
 export default HomeBody;
 
-const HomeLetterGroupContainer = styled.div``;
+const HomeLetterGroupContainer = styled.div`
+  margin-bottom: 2rem;
+`;
 
 const HomeLetterTitle = styled.p`
   font-weight: 400;
   font-size: 20px;
   color: var(--white);
-
-  margin: 40px 0 12px 0;
+  margin-bottom: 16px;
 `;
 
 const HomeLetterViewGroupContainer = styled.div`

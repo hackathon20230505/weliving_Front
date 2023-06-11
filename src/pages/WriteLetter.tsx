@@ -1,15 +1,16 @@
 import { FunctionComponent } from "react";
 import WriteLetterHeader from "../components/WriteLetter/WriteLetterHeader";
 import WriteLetterBody from "../components/WriteLetter/WriteLetterBody";
-import CommonContentContainer from "../components/Common/CommonContentContainer";
+import PageContainer from "../components/Common/PageContainer.tsx";
+
 type WriteLetterProps = {};
 
 const WriteLetter: FunctionComponent<WriteLetterProps> = () => {
   return (
-    <CommonContentContainer>
+    <PageContainer>
       <WriteLetterHeader />
       <WriteLetterBody />
-    </CommonContentContainer>
+    </PageContainer>
   );
 };
 

@@ -1,5 +1,4 @@
 import { FunctionComponent, useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import MainContentSecondWordFirst from "../components/MainContent/MainContentSecondWordFirst";
 import MainContentSecondWordSecond from "../components/MainContent/MainContentSecondWordSecond";
@@ -8,9 +7,9 @@ import BackgroundSecond from "../components/MainContent/BackgroundSecond";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
 
-type MainContentFirstProps = {};
+// type MainContentFirstProps = {};
 
-const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
+const MainContentFirst: FunctionComponent = () => {
   const [sectionStep, setSectionStep] = useState(0);
 
   const incrementSectionStep = () => {
@@ -52,7 +51,6 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                 style={{ top: "90px", left: "5px" }}
               />
               <BackgroundSecond />
-
               <BackgroundMusic
                 style={{
                   opacity: sectionStep === 1 ? 1 : 1,

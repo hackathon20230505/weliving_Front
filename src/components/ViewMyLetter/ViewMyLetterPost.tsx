@@ -1,28 +1,44 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getMyLetter } from "../../apis/life/letter/getMyLetter";
 import { getTimeDifference } from "../../utils/getTimeDifference.ts";
+import LoadingComponent from "../Common/LoadingComponent.tsx";
+import FailComponent from "../Common/FailComponent.tsx";
 
-type ViewMyLetterPostProps = {};
+type ViewMyLetterPostProps = {
+  setIsLetterPostOverwrite: (isLetterPostOverwrite: boolean) => void;
+};
 
-const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
+const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = ({
+  setIsLetterPostOverwrite,
+}: ViewMyLetterPostProps) => {
   const navigate = useNavigate();
 
   const onClickGoToOtherLetterClickHandler = () => {
     navigate("/viewotherletter");
   };
 
-  const { data } = useQuery({
+  const { data, isFetching, isError } = useQuery({
     queryKey: ["getMyLetter"],
     queryFn: () => getMyLetter(),
   });
 
+  useEffect(() => {
+    if (data?.length > 0) {
+      setIsLetterPostOverwrite(true);
+    }
+  }, [data, setIsLetterPostOverwrite]);
+
+  if (isFetching) return <LoadingComponent />;
+
+  if (isError) return <FailComponent />;
+
   return (
     <>
-      <CommonContentContainer xPadding="5%">
+      <CommonContentContainer xPadding="5%" h={"fit-content"}>
         {/* 게시글 */}
         <LetterPostContainer>
           <LetterPostDateText>
@@ -33,7 +49,7 @@ const ViewMyLetterPost: FunctionComponent<ViewMyLetterPostProps> = () => {
         </LetterPostContainer>
       </CommonContentContainer>
 
-      <CommonContentContainer>
+      <CommonContentContainer h={"fit-content"}>
         {/* 유서 목차 가기 */}
         <GoToOtherLetterButtonContainer>
           <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
