@@ -261,15 +261,6 @@ const LogInButton = styled.button`
 
 // 바닥
 
-const KeyFrameSection2_1 = keyframes`
-`;
-
-const KeyFrameSection2_2 = keyframes`
-`;
-
-const KeyFrameSection2_3 = keyframes`
-`;
-
 const ImageTent = styled.img`
   position: absolute;
   animation: ${fadeAnimation} 1200ms ease-in-out;

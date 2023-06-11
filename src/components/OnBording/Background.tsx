@@ -71,8 +71,3 @@ const ImageCloud2 = styled.img`
   position: absolute;
   animation: ${cloudKeyFrame2} 95s ease-in;
 `;
-
-const ImageCloud3 = styled.img`
-  position: absolute;
-  animation: ${cloudKeyFrame2} 95s ease-in;
-`;

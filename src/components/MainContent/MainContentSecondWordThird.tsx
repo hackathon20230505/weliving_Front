@@ -11,9 +11,9 @@ interface MainContentSecondWordFirstProps {
 
 //
 
-const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
-  incrementSectionStep,
-}) => {
+const MainContentSecondWordFirst: React.FC<
+  MainContentSecondWordFirstProps
+> = ({}) => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -268,9 +268,6 @@ const LogInButton = styled.button`
 // `;
 
 // 배경
-
-const KeyFrameSection2_1 = keyframes`
-`;
 
 const ImageTent = styled.img`
   position: absolute;

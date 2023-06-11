@@ -4,12 +4,6 @@ type BackgroundStarProps = {};
 
 // 투명도 조절 키프레임
 
-const cloudKeyFrame1 = keyframes`
-`;
-
-const cloudKeyFrame2 = keyframes`
-`;
-
 const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
   return (
     <BackgroundStarContainer>
@@ -62,12 +56,6 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
 
 export default BackgroundStar;
 
-const firstKeyFrame = keyframes`
-  0% { opacity: 0; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-`;
-
 const BackgroundStarContainer = styled.div``;
 
 const ImageStar1 = styled.img``;
@@ -100,9 +88,5 @@ const IntroBackground5 = styled.img`
 `;
 
 const IntroContent0 = styled.img`
-  position: absolute;
-`;
-
-const IntroContent1 = styled.img`
   position: absolute;
 `;
