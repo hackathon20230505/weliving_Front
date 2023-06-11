@@ -133,7 +133,7 @@ const WillFirstContainer = styled.div`
 
 const WillFirstContentContainer = styled.div`
   position: absolute;
-  top: 20%;
+  top: 180px;
 `;
 
 // fade in out 효과
@@ -172,7 +172,7 @@ const WillFirstMainContent = styled.p`
 const LogInSignUpContainer = styled.div`
   padding: 0 0;
   position: absolute;
-  bottom: 74px;
+  bottom: 10px;
   width: 90%;
 
   display: flex;

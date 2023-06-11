@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
 
 type HomeBodyProps = {};
@@ -23,6 +23,38 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   return (
     <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
       <HomeLetterGroupContainer>
+        {/* 별 시작 */}
+
+        <ImageStar1
+          src="https://wliv.kr/img/onbording/section2-5.svg"
+          style={{
+            width: "120%",
+            height: "120%",
+            top: "-476px",
+            left: "-50%",
+            rotate: "160deg",
+          }}
+        />
+        <ImageStar1
+          src="https://wliv.kr/img/onbording/section2-5.svg"
+          style={{
+            width: "100%",
+            height: "100%",
+            bottom: "-176px",
+            right: "-50%",
+            rotate: "30deg",
+          }}
+        />
+        <ImageStar1
+          src="https://wliv.kr/img/onbording/section2-5.svg"
+          style={{
+            width: "100%",
+            height: "100%",
+            bottom: "-6px",
+            left: "-20%",
+            rotate: "30deg",
+          }}
+        />
         <HomeLetterTitle> 일지</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
@@ -48,6 +80,18 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
 };
 
 export default HomeBody;
+
+const starKeyFrame = keyframes`
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+`;
+
+const ImageStar1 = styled.img`
+  position: absolute;
+  animation: ${starKeyFrame} 3s ease-in;
+  zindex: -1;
+`;
 
 const HomeLetterGroupContainer = styled.div`
   margin-bottom: 2rem;

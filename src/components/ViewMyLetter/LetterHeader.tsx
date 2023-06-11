@@ -296,6 +296,7 @@ const HintToast = styled.div<HintToastProps>`
   width: 90%;
   bottom: ${(props) => (props.isShareOpen ? "calc(30% + 1rem)" : "1rem")};
   animation: ${HintToastFadeOut} 1.5s ease-in-out;
+  z-index: 99;
 `;
 
 const HintToastText = styled.p`
@@ -303,4 +304,5 @@ const HintToastText = styled.p`
   font-size: 14px;
   line-height: 140%;
   color: #121bf2;
+  z-index: 99;
 `;

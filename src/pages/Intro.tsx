@@ -80,7 +80,7 @@ const IntroMainContent = styled.p``;
 const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
-  bottom: 74px;
+  bottom: 10px;
   width: 100%;
 
   display: flex;
