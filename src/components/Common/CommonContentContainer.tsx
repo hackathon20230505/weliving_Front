@@ -60,6 +60,7 @@ const CommonContentContainerFragment = styled.div<CommonContentContainerFragment
       
   padding-top: ${(props) => props.topSpacing};
   overflow: auto;
+  overflow-x: hidden;
   position: relative;
 `;
 
