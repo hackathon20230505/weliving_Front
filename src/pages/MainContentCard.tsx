@@ -240,13 +240,14 @@ const MainContentFirstContainer = styled.div`
 
   color: var(--white);
 
+  padding: 0 5%;
+
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 `;
 
 const MainContentFirstContentContainer = styled.div`
-  padding: 0 27px;
   position: absolute;
   top: 180px;
 `;
@@ -281,7 +282,6 @@ const MainContentFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 20px;
   position: absolute;
   bottom: 0;
   width: 90%;
