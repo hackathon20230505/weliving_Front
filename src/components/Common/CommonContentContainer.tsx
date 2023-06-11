@@ -5,24 +5,16 @@ interface CommonContentContainerProps
   children: React.ReactNode;
 }
 
-const CommonContentContainer = ({
-  children,
-  xPadding = undefined,
-  yPadding = undefined,
-  xMargin = undefined,
-  yMargin = undefined,
-  h = "calc(100% - 56px)",
-  topSpacing = "40px",
-}: CommonContentContainerProps) => {
+const CommonContentContainer = (props: CommonContentContainerProps) => {
+  const { children, ...rest } = props;
+
+  rest.h = rest.h || "calc(100% - 56px)";
+  rest.topSpacing = rest.topSpacing || "40px";
+  rest.customOverflowX = rest.customOverflowX || "hidden";
+  rest.customOverflowY = rest.customOverflowY || "auto";
+
   return (
-    <CommonContentContainerFragment
-      xPadding={xPadding}
-      yPadding={yPadding}
-      xMargin={xMargin}
-      yMargin={yMargin}
-      h={h}
-      topSpacing={topSpacing}
-    >
+    <CommonContentContainerFragment {...rest}>
       {children}
     </CommonContentContainerFragment>
   );
@@ -35,6 +27,8 @@ interface CommonContentContainerFragmentProps {
   yMargin?: string;
   h?: string;
   topSpacing?: string;
+  customOverflowX?: string;
+  customOverflowY?: string;
 }
 
 const CommonContentContainerFragment = styled.div<CommonContentContainerFragmentProps>`
@@ -59,9 +53,10 @@ const CommonContentContainerFragment = styled.div<CommonContentContainerFragment
   ${(props) => (props.h ? `height: ${props.h};` : "")}
       
   padding-top: ${(props) => props.topSpacing};
-  overflow: auto;
-  overflow-x: hidden;
   position: relative;
+
+  overflow-x: ${(props) => props.customOverflowX};
+  overflow-y: ${(props) => props.customOverflowY};
 `;
 
 export default CommonContentContainer;

@@ -42,7 +42,12 @@ const MainContentFirst: FunctionComponent = () => {
 
   return (
     <PageContainer>
-      <CommonContentContainer xPadding="5%">
+      <CommonContentContainer
+        xPadding="5%"
+        h={"calc(100%)"}
+        customOverflowY={"hidden"}
+        customOverflowX={"hidden"}
+      >
         <MainContentFirstWrapper>
           <MainContentFirstContainer>
             <TopContentContainer>
