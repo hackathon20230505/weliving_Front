@@ -279,11 +279,6 @@ const ImageStar2 = styled.img`
   animation: ${starKeyFrame} 4s ease-in-out infinite;
 `;
 
-const ImageStar3 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 3s ease-in-out infinite;
-`;
-
 const ImageStar4 = styled.img`
   position: absolute;
   animation: ${starKeyFrame} 2s ease-in-out infinite;
@@ -299,24 +294,9 @@ const ImageStar6 = styled.img`
   animation: ${starKeyFrame} 5s ease-in-out infinite;
 `;
 
-const ImageStar7 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 6s ease-in-out infinite;
-`;
-
-const ImageStar8 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 4s ease-in-out infinite;
-`;
-
 const ImageStar9 = styled.img`
   position: absolute;
   animation: ${starKeyFrame} 7s ease-in-out infinite;
-`;
-
-const ImageStar10 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 4s ease-in-out infinite;
 `;
 
 const ImageStar11 = styled.img`
@@ -342,16 +322,6 @@ const ImageStar14 = styled.img`
 const ImageStar15 = styled.img`
   position: absolute;
   animation: ${starKeyFrame} 2s ease-in-out infinite;
-`;
-
-const ImageStar16 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 2s ease-in-out infinite;
-`;
-
-const ImageStar17 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 4s ease-in-out infinite;
 `;
 
 const ImageStar18 = styled.img`

@@ -1,28 +1,14 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useRecoilState } from "recoil";
-import { isValidPostStateCard } from "./atoms/isValidPostAtom";
-import { myCardState } from "./atoms/myCardAtoms";
 
 type WriteCardBodyProps = {};
 
 const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
   const navigate = useNavigate();
-
-  const [, setIsValidPost] = useRecoilState(isValidPostStateCard);
-
-  const [myCardPost, setMyCardPost] = useRecoilState(myCardState);
-
-  useEffect(() => {
-    /** 내용이 입력되면 등록 가능 */
-    if (myCardPost.title !== "" && myCardPost.content !== "") {
-      setIsValidPost(true);
-    }
-  }, [myCardPost]);
 
   // 카드 기능
 

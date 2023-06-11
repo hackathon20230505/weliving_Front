@@ -77,11 +77,6 @@ const IntroContentContainer = styled.div`
 
 const IntroMainContent = styled.p``;
 
-const IntroSubContent = styled.p`
-  color: var(--light-gray);
-  font-size: 14px;
-`;
-
 const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
