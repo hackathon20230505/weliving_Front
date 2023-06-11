@@ -89,13 +89,13 @@ const AppRouter: FunctionComponent = () => {
         {/* 다른 일지 보기 상세 페이지 */}
         <Route path="/viewotherletter/:id" element={<ViewOtherLetterPost />} />
 
-        {/* 유서 작성 페이지 */}
+        {/*  일지 작성 페이지 */}
         <Route path="/writeletter" element={<WriteLetter />} />
 
-        {/* 유서 수정 페이지 */}
+        {/*  일지 수정 페이지 */}
         <Route path="/modifyletter" element={<ModifyLetter />} />
 
-        {/* 유서 작성 이후 페이지 */}
+        {/*  일지 작성 이후 페이지 */}
         <Route path="/afterwrite/:id" element={<AfterWrite />} />
 
         {/* GPT page */}

@@ -31,14 +31,14 @@ export default function ViewOtherLetterPost() {
   if (isFetching)
     return (
       <>
-        <LetterHeader showButtons={false} />
+        <LetterHeader showButtons={false} backUrl={"/viewotherletter"} />
         <LoadingComponent />
       </>
     );
 
   return (
     <PageContainer>
-      <LetterHeader showButtons={true} />
+      <LetterHeader showButtons={true} backUrl={"/viewotherletter"} />
       <CommonContentContainer xPadding={"5%"} h={"fit-content"}>
         <LetterPostContainer>
           <LetterPostDateText>{data?.[0].created_at}</LetterPostDateText>
@@ -48,10 +48,10 @@ export default function ViewOtherLetterPost() {
       </CommonContentContainer>
 
       <CommonContentContainer h={"fit-content"}>
-        {/* 유서 목차 가기 */}
+        {/*  일지 목차 가기 */}
         <GoToOtherLetterButtonContainer>
           <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
-            <GoToOtherLetterText>유서 목차 보러가기</GoToOtherLetterText>
+            <GoToOtherLetterText> 일지 목차 보러가기</GoToOtherLetterText>
             <GoToIcon src="https://wliv.kr/img/arrow-right-icon.svg" />
           </GoToOtherLetterButton>
         </GoToOtherLetterButtonContainer>

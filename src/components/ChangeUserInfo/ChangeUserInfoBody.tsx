@@ -21,10 +21,13 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   const [userPhone, setUserPhone] = useState<string>("");
 
   //   데이터 유효성 검사
-  const [isValidUserNewPassword, setIsValidUserNewPassword] =
-    useState<boolean>(false);
-  const [isValidUserNewPasswordConfirm, setIsValidUserNewPasswordConfirm] =
-    useState<boolean>(false);
+  // const [isValidUserNewPassword, setIsValidUserNewPassword] =
+  //   useState<boolean>(false);
+  // const [isValidUserNewPasswordConfirm, setIsValidUserNewPasswordConfirm] =
+  //   useState<boolean>(false);
+  //   데이터 유효성 검사
+  const [, setIsValidUserNewPassword] = useState<boolean>(false);
+  const [, setIsValidUserNewPasswordConfirm] = useState<boolean>(false);
 
   // 문자 알림 동의
   const [isAlarmAgreed, setIsAlarmAgreed] = useState<boolean>(false);
@@ -152,13 +155,13 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
         <SignUpCheckBoxText>문자 알림 동의</SignUpCheckBoxText>
       </SignUpCheckBoxContainer>
       <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
-      <NextButton
-        isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}
-        disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}
-        // onClick={onClickNextButtonHandler}
-      >
-        다음
-      </NextButton>
+      {/*<NextButton*/}
+      {/*  isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}*/}
+      {/*  disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}*/}
+      {/*  // onClick={onClickNextButtonHandler}*/}
+      {/*>*/}
+      {/*  다음*/}
+      {/*</NextButton>*/}
     </CommonContentContainer>
   );
 };
@@ -201,24 +204,25 @@ const ChangeButton = styled.button`
   border-radius: 200px;
 `;
 
-interface INextButtonTypes {
-  isValid: boolean;
-}
+// interface INextButtonTypes {
+//   isValid: boolean;
+// }
 
-const NextButton = styled.button<INextButtonTypes>`
-  width: 90%;
-  height: 56px;
-
-  background-color: ${({ isValid }) =>
-    isValid ? "var(--main-color)" : "var(--dull-pink-900)"};
-  border-radius: 4px;
-
-  font-weight: 700;
-  color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
-
-  position: absolute;
-  bottom: 34px;
-`;
+// const NextButton = styled.button<INextButtonTypes>`
+//   width: 100%;
+//   margin-top: 4rem;
+//   margin-bottom: 2rem;
+//   height: 56px;
+//
+//   background-color: ${({ isValid }) =>
+//     isValid ? "var(--main-color)" : "var(--dull-pink-900)"};
+//   border-radius: 4px;
+//
+//   font-weight: 700;
+//   color: ${({ isValid }) => (isValid ? "var(--white)" : "var(--gray-purple)")};
+//
+//   bottom: 34px;
+// `;
 
 const BaseNumber = styled.p`
   position: absolute;
@@ -237,6 +241,7 @@ const SignUpCheckBoxText = styled.p`
 
 const LogoutButton = styled.div`
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
   border: 1px solid #ff4e78;
   background-color: #ff4e78;
   text-align: center;
