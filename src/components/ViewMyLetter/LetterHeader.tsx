@@ -150,7 +150,7 @@ const LetterHeader = ({
                 />
               </ETCButton>
               <ETCButton onClick={isShareToggleHandler}>
-                <p>유서 공개여부</p>
+                <p> 일지 공개여부</p>
                 <IsOpenToggleGroup>
                   <IsOpenToggleItem isActive={isShare === 1}>
                     공개

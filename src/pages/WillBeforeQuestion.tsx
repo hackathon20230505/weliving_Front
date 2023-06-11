@@ -1,12 +1,12 @@
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type WillBeforeQuestionProps = {};
 
 // 페이지 번호
 const PageNumber: FunctionComponent<{
-  pageNumber: number,
-  currentPage: number,
+  pageNumber: number;
+  currentPage: number;
 }> = ({ pageNumber, currentPage }) => {
   return (
     <div className={currentPage === pageNumber ? "active" : ""}>
@@ -32,7 +32,7 @@ const WillBeforeQuestion: FunctionComponent<WillBeforeQuestionProps> = () => {
     navigate("/home");
   };
 
-  // 유서 작성 페이지로 이동
+  //  일지 작성 페이지로 이동
   const handleGoNextPage = () => {
     navigate("/will-write");
   };
@@ -183,7 +183,7 @@ const WillBeforeQuestion: FunctionComponent<WillBeforeQuestionProps> = () => {
       )}
       {page === 5 && (
         <>
-          <div>유서 작성 전 마지막 질문입니다</div>
+          <div> 일지 작성 전 마지막 질문입니다</div>
           <div>마지막으로 만나고 싶은 사람은 누구인가요?</div>
           <input
             type="text"
@@ -208,9 +208,9 @@ const WillBeforeQuestion: FunctionComponent<WillBeforeQuestionProps> = () => {
             살면서 경제적으로 힘들 때도 있었고지금 가장 생각나는 친구가 있군요.
             <br />
             그대를 기억하겠습니다. <br />
-            같이 한번 유서를 작성해보도록 하죠."
+            같이 한번 일지를 작성해보도록 하죠."
           </div>
-          <button onClick={handleGoNextPage}>유서 작성하기</button>
+          <button onClick={handleGoNextPage}> 일지 작성하기</button>
         </>
       )}
       {page === 8 && (

@@ -23,7 +23,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   return (
     <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
       <HomeLetterGroupContainer>
-        <HomeLetterTitle>유서</HomeLetterTitle>
+        <HomeLetterTitle> 일지</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
             <HomeLetterViewTitle>내 일지 보기</HomeLetterViewTitle>
