@@ -37,6 +37,7 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
 
   return (
     <>
+      <PaddingHeader></PaddingHeader>
       <CommonContentContainer
         xPadding="5%"
         h={"calc(100% - 56px)"}
@@ -47,11 +48,11 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
             <LogInButton onClick={onClickLogInButtonHandler}>다음</LogInButton>
           </LogInSignUpContainer>
           <SignUpContainer>
-            당신의 추억을 담아주세요
+            <CardTitle>당신의 추억을 담아주세요</CardTitle>
             <CardSubHeaderContainer>
               <MemoriesContainer>
                 <MemoriesText>최대 6개까지 담을 수 있어요.</MemoriesText>
-                {`${cardInputs.length}/6`}
+                <MemoriesCount>{`${cardInputs.length}/6`}</MemoriesCount>
               </MemoriesContainer>
             </CardSubHeaderContainer>
             {cardInputs.map((input, index) => (
@@ -78,6 +79,20 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
 };
 
 export default WriteCardBody;
+
+const PaddingHeader = styled.div`
+  padding-top: 40px;
+`;
+
+const MemoriesCount = styled.div`
+  padding: 8px 0 8px;
+  font-size: 12px;
+`;
+
+const CardTitle = styled.div`
+  font-size: 18px;
+  padding-bottom: 6px;
+`;
 
 const RulesOfUseGropContainer = styled.div``;
 
@@ -133,7 +148,8 @@ const AddInputButton = styled.button`
   margin-top: 16px;
   width: 100%;
   padding: 19px;
-  padding-left: 175px;
+  display: flex;
+  justify-content: center;
   font-size: 14px;
   border-radius: 4px;
   outline: none;
