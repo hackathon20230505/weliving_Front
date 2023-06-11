@@ -14,7 +14,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
   // const { Kakao } = window;
 
   useEffect(() => {
-    if (cookies.skip_onboarding === "0") {
+    if (cookies.skip_onboarding === "0" || !cookies.skip_onboarding) {
       navigate("/OnBording");
     }
   }, []);

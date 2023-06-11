@@ -31,7 +31,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         src="https://wliv.kr/img/intro/intro-content-0.svg"
         style={{
           width: "100%",
-          height: "450px",
+          height: "400px",
           top: "0px",
           position: "inherit",
           margin: "0 auto",
