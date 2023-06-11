@@ -238,6 +238,7 @@ const SignUpCheckBoxText = styled.p`
 
 const LogoutButton = styled.div`
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
   border: 1px solid #ff4e78;
   background-color: #ff4e78;
   text-align: center;
