@@ -19,7 +19,7 @@ import AfterWrite from "./pages/AfterWrite";
 import OnBording from "./pages/OnBording";
 import MainContentFirst from "./pages/MainContentFirst";
 import MainContentSecond from "./pages/MainContentSecond";
-import MainContentCard from "./pages/MainContentCard";
+import WriteCard from "./pages/WriteCard.tsx";
 import ModifyLetter from "./pages/ModifyLetter";
 import ViewOtherLetterPost from "./pages/ViewOtherLetterPost.tsx";
 import { GetAnswerGPT } from "./pages/GetAnswerGPT.tsx";
@@ -47,12 +47,14 @@ const AppRouter: FunctionComponent = () => {
         <Route path="/maincontentsecond" element={<MainContentSecond />} />
 
         {/* MainContentCard */}
-        <Route path="/maincontentcard" element={<MainContentCard />} />
+        <Route path="/writecard" element={<WriteCard />} />
 
         {/* ------------------------------- */}
 
         {/* access token이 있을 시 Home 화면, 없을 시 Intro 화면 표시 */}
         <Route path="/" element={token !== null ? <Home /> : <Intro />} />
+
+        <Route path="/Intro" element={<Intro />} />
 
         {/* 로그인 페이지 */}
         <Route path="/logIn" element={<LogIn />} />

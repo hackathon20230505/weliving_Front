@@ -52,7 +52,7 @@ const WillFirst: FunctionComponent = () => {
   }, [currentStep]);
 
   const onClickLogInButtonHandler = () => {
-    navigate("/logIn");
+    navigate("/Intro");
   };
 
   return (

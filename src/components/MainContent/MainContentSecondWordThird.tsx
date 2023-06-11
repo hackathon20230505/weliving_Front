@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "react-ts-typewriter";
 
@@ -13,7 +14,7 @@ interface MainContentSecondWordFirstProps {
 const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
   incrementSectionStep,
 }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
 
   // 모달창 클릭시
@@ -41,7 +42,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
       const timeout2 = setTimeout(() => {
         setCurrentStep(2);
         setIsModalClickSecond(1);
-      }, 3500);
+      }, 4000);
 
       return () => clearTimeout(timeout2);
     }
@@ -51,7 +52,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 2) {
       const timeout3 = setTimeout(() => {
         setCurrentStep(3);
-      }, 4000);
+      }, 3500);
 
       return () => clearTimeout(timeout3);
     }
@@ -61,7 +62,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 3) {
       const timeout4 = setTimeout(() => {
         setCurrentStep(4);
-      }, 4500);
+      }, 3500);
 
       return () => clearTimeout(timeout4);
     }
@@ -71,17 +72,69 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (currentStep === 4) {
       const timeout4 = setTimeout(() => {
         setCurrentStep(5);
-      }, 4000);
+      }, 2500);
 
       return () => clearTimeout(timeout4);
     }
   }, [currentStep]);
+
+  const onClickLogInButtonHandler = () => {
+    navigate("/WriteLetter");
+  };
 
   // 스크립트 춢력
 
   return (
     <BackgroundStarContainer>
       {/* 배경 출력 */}
+      <ImageTent
+        src="https://wliv.kr/img/onbording/section3-0.svg"
+        style={{
+          width: "190px",
+          height: "19px",
+          bottom: "15%",
+          left: "26%",
+          opacity: "100%",
+        }}
+      />
+      {(currentStep === 1 || currentStep === 2) && (
+        <ImageTent
+          className={currentStep === 1 || currentStep === 2 ? "active" : ""}
+          src="https://wliv.kr/img/onbording/section3-4.svg"
+          style={{
+            width: "138px",
+            height: "149px",
+            bottom: "20%",
+            left: "32%",
+          }}
+        />
+      )}
+
+      {currentStep === 2 && (
+        <ImageTent
+          className={currentStep === 2 ? "active" : ""}
+          src="https://wliv.kr/img/onbording/section3-2.svg"
+          style={{
+            width: "80px",
+            height: "79px",
+            bottom: "25%",
+            left: "210px",
+          }}
+        />
+      )}
+      {currentStep >= 3 && (
+        <ImageTent
+          className={currentStep === 3 ? "active" : ""}
+          src="https://wliv.kr/img/onbording/section3-3.svg"
+          style={{
+            width: "276px",
+            height: "164px",
+            bottom: "19%",
+            left: "60px",
+          }}
+        />
+      )}
+
       {/* 문자 첫 출력 */}
       <MainContentFirstContentContainer>
         {currentStep >= 1 && (
@@ -92,7 +145,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
               transition: "opacity 800ms, visibility 800ms",
             }}
           >
-            당신의 소중한 추억들을 <br></br> 들려주셔서 감사해용.
+            당신의 마음을 챙길 수 있는<br></br> 글을 써보시겠어요?
           </MainContentFirstMainContent>
         )}
         {currentStep >= 2 && (
@@ -104,7 +157,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
             }}
           >
             <Typewriter
-              text={`그대의 이야기를 더 듣고싶어요. \n 같이 앉아 이야기해볼까요?`}
+              text={`스스로를 되돌아볼 수 있는 \n 마음챙김 훈련이에요.`}
               cursor={false}
               speed={65}
             />
@@ -115,10 +168,16 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
           <MainContentFirstMainContent
             className={currentStep === 3 ? "active" : ""}
             style={{
-              opacity: currentStep === 3 ? 1 : 1,
+              opacity: currentStep >= 3 ? 1 : 0.5,
               transition: "opacity 800ms, visibility 800ms",
             }}
-          ></MainContentFirstMainContent>
+          >
+            <Typewriter
+              text={`그 동안 쌓인 마음의 찌꺼기를 \n 덜어낼겁니다.`}
+              cursor={false}
+              speed={65}
+            />
+          </MainContentFirstMainContent>
         )}
       </MainContentFirstContentContainer>
       {currentStep >= 4 && (
@@ -129,9 +188,9 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
               opacity: currentStep === 4 ? 1 : 1,
               transition: "opacity 800ms, visibility 800ms",
             }}
-            onClick={incrementSectionStep}
+            onClick={onClickLogInButtonHandler}
           >
-            의자에 앉기
+            다음
           </LogInButton>
         </LogInSignUpContainer>
       )}
@@ -144,7 +203,7 @@ export default MainContentSecondWordFirst;
 const BackgroundStarContainer = styled.div``;
 
 const MainContentFirstContentContainer = styled.div`
-  padding: 0 27px;
+  padding: 0 5px;
   position: absolute;
   top: 180px;
 `;
@@ -179,7 +238,7 @@ const MainContentFirstMainContent = styled.p`
 `;
 
 const LogInSignUpContainer = styled.div`
-  padding: 0 20px;
+  padding: 0 0px;
   position: absolute;
   bottom: 0;
   width: 90%;
@@ -207,3 +266,15 @@ const LogInButton = styled.button`
 // const OptionsContainer = styled.span`
 //   padding-bottom: 24px;
 // `;
+
+// 배경
+
+const KeyFrameSection2_1 = keyframes`
+`;
+
+const ImageTent = styled.img`
+  position: absolute;
+  &.active {
+    animation: ${fadeAnimation} 1200ms ease-in-out;
+  }
+`;

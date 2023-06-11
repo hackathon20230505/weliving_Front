@@ -2,12 +2,14 @@ import { FunctionComponent, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import MainContentSecondWordFirst from "../components/MainContent/MainContentSecondWordFirst";
 import MainContentSecondWordSecond from "../components/MainContent/MainContentSecondWordSecond";
+import MainContentSecondWordThird from "../components/MainContent/MainContentSecondWordThird";
 import BackgroundSecond from "../components/MainContent/BackgroundSecond";
+import PageContainer from "../components/Common/PageContainer";
+import CommonContentContainer from "../components/Common/CommonContentContainer";
 
 // type MainContentFirstProps = {};
 
 const MainContentFirst: FunctionComponent = () => {
-  // const navigate = useNavigate();
   const [sectionStep, setSectionStep] = useState(0);
 
   const incrementSectionStep = () => {
@@ -39,50 +41,64 @@ const MainContentFirst: FunctionComponent = () => {
   };
 
   return (
-    <MainContentFirstWrapper>
-      <MainContentFirstContainer>
-        <TopContentContainer>
-          <ImageMoon
-            src="https://wliv.kr/img/onbording/moon.svg"
-            style={{ top: "90px", left: "5px" }}
-          />
-          <BackgroundSecond />
+    <PageContainer>
+      <CommonContentContainer xPadding="5%">
+        <MainContentFirstWrapper>
+          <MainContentFirstContainer>
+            <TopContentContainer>
+              <ImageMoon
+                src="https://wliv.kr/img/onbording/moon.svg"
+                style={{ top: "90px", left: "5px" }}
+              />
+              <BackgroundSecond />
+              <BackgroundMusic
+                style={{
+                  opacity: sectionStep === 1 ? 1 : 1,
+                  transition: "opacity 800ms, visibility 800ms",
+                }}
+                className={isPlaying ? "" : "BackgroundMusicCancel"}
+                onClick={toggleMusic}
+              >
+                {isPlaying === false && (
+                  <BackgroundMusicCancel></BackgroundMusicCancel>
+                )}
 
-          <BackgroundMusic
-            style={{
-              opacity: sectionStep === 1 ? 1 : 1,
-              transition: "opacity 800ms, visibility 800ms",
-            }}
-            className={isPlaying ? "" : "BackgroundMusicCancel"}
-            onClick={toggleMusic}
-          >
-            {!isPlaying && <BackgroundMusicCancel></BackgroundMusicCancel>}
+                <BackgroundMusicIcon></BackgroundMusicIcon>
+                <BackgroundMusicText>배경 bgm</BackgroundMusicText>
+              </BackgroundMusic>
+            </TopContentContainer>
 
-            <BackgroundMusicIcon></BackgroundMusicIcon>
-            <BackgroundMusicText>배경 bgm</BackgroundMusicText>
-          </BackgroundMusic>
-        </TopContentContainer>
-
-        {sectionStep === 0 && (
-          <>
-            {/* 첫번째 스탭 */}
-            <MainContentSecondWordFirst
-              incrementSectionStep={incrementSectionStep}
-            />
-            {/*  */}
-          </>
-        )}
-        {sectionStep === 1 && (
-          <>
-            {/* 두번째 스탭 */}
-            <MainContentSecondWordSecond
-              incrementSectionStep={incrementSectionStep}
-            />
-            {/*  */}
-          </>
-        )}
-      </MainContentFirstContainer>
-    </MainContentFirstWrapper>
+            {sectionStep === 0 && (
+              <>
+                {/* 첫번째 스탭 */}
+                <MainContentSecondWordFirst
+                  incrementSectionStep={incrementSectionStep}
+                />
+                {/*  */}
+              </>
+            )}
+            {sectionStep === 1 && (
+              <>
+                {/* 두번째 스탭 */}
+                <MainContentSecondWordSecond
+                  incrementSectionStep={incrementSectionStep}
+                />
+                {/*  */}
+              </>
+            )}
+            {sectionStep === 2 && (
+              <>
+                {/* 두번째 스탭 */}
+                <MainContentSecondWordThird
+                  incrementSectionStep={incrementSectionStep}
+                />
+                {/*  */}
+              </>
+            )}
+          </MainContentFirstContainer>
+        </MainContentFirstWrapper>
+      </CommonContentContainer>
+    </PageContainer>
   );
 };
 
@@ -141,8 +157,8 @@ const BackgroundMusicIcon = styled.div`
 const BackgroundMusicText = styled.div`
   font-size: 12px;
   position: absolute;
-  top: 7px;
-  left: 36px;
+  top: 9px;
+  left: 38px;
   color: #cbcbcb;
   ::before {
   }
