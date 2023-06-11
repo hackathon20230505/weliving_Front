@@ -24,6 +24,7 @@ import ModifyLetter from "./pages/ModifyLetter";
 import ViewOtherLetterPost from "./pages/ViewOtherLetterPost.tsx";
 import { GetAnswerGPT } from "./pages/GetAnswerGPT.tsx";
 import VerifyPhoneNumber from "./pages/VerifyPhoneNumber.tsx";
+import Settings from "./pages/Settings.tsx";
 
 // type AppRouterProps = {};
 
@@ -48,6 +49,9 @@ const AppRouter: FunctionComponent = () => {
 
         {/* MainContentCard */}
         <Route path="/writecard" element={<WriteCard />} />
+
+        {/* 새싹톤용 쿠키 초기화 페이지 */}
+        <Route path="/setting" element={<Settings />} />
 
         {/* ------------------------------- */}
 

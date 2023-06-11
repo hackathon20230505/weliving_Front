@@ -1,16 +1,33 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Intro/Header";
 import LoginBackground from "../components/Intro/IntroBackground";
+import { useCookies } from "react-cookie";
 type IntroProps = {};
 
 const Intro: FunctionComponent<IntroProps> = () => {
   const navigate = useNavigate();
+  const [, setCookie] = useCookies();
+  const [cookies, ,] = useCookies(["skip_onboarding"]);
 
   // const { Kakao } = window;
 
+  useEffect(() => {
+    if (cookies.skip_onboarding === "0") {
+      navigate("/OnBording");
+    }
+  }, []);
+
   const onClickLogInButtonHandler = () => {
+    // 쿠키 저장
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+
+    setCookie("skip_onboarding", "1", {
+      expires,
+    });
+    //
     navigate("/logIn");
   };
 
@@ -19,6 +36,14 @@ const Intro: FunctionComponent<IntroProps> = () => {
   };
 
   const onClickKakaoLogInButtonHandler = () => {
+    // 쿠키 저장
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+
+    setCookie("skip_onboarding", "1", {
+      expires,
+    });
+    // 쿠키 저장
     const kakaoApiKey = import.meta.env.VITE_KAKAO_CLIENT_ID;
     const baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
     const redirectUri = `${baseUrl}/kakaosignup`;
