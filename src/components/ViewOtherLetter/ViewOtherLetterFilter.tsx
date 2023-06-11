@@ -52,10 +52,10 @@ const ViewOtherLetterFilter: FunctionComponent<
 export default ViewOtherLetterFilter;
 
 const ViewOtherLetterFilterWrapper = styled.div`
-  padding: 0 5%;
+  padding: 8px 5% 0px;
   overflow: auto;
-  height: 44px;
-  min-height: 44px;
+  height: 68px;
+  min-height: 68px;
 `;
 
 const ViewOtherLetterFilterContainer = styled.div`
@@ -69,7 +69,7 @@ interface IFilterButtonTypes {
 const FilterButton = styled.button<IFilterButtonTypes>`
   height: 32px;
   padding: 5px 16px;
-
+  font-weight: 300;
   border: ${({ isActive }) => (isActive ? "none" : "1px solid #6C1573")};
   background-color: ${({ isActive }) =>
     isActive ? "var(--main-color)" : "inherit"};

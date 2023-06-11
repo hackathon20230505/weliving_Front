@@ -256,7 +256,7 @@ const MainContentFirstContainer = styled.div`
 `;
 
 const MainContentFirstContentContainer = styled.div`
-  padding: 0 5px 0 0px;
+  padding: 0 5px 0 7px;
   position: absolute;
   top: 180px;
 `;
@@ -356,8 +356,8 @@ const BackgroundMusicIcon = styled.div`
 const BackgroundMusicText = styled.div`
   font-size: 12px;
   position: absolute;
-  top: 8px;
-  left: 36px;
+  top: 9px;
+  left: 38px;
   color: #cbcbcb;
   ::before {
   }

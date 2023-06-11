@@ -106,7 +106,7 @@ const CustomContentContainer = styled.div`
 
 const LetterPostContainer = styled.div`
   padding: 20px;
-  background-color: #fff0ff;
+  background-color: #534356;
   border-radius: 4px;
 
   margin-bottom: 16px;
@@ -115,20 +115,19 @@ const LetterPostContainer = styled.div`
 `;
 
 const LetterPostTitle = styled.p`
-  color: #111;
+  color: #ffffff;
   font-weight: 700;
   font-size: 14px;
 `;
 
 const LetterPostContent = styled.p`
-  color: #8f8f8f;
+  color: #cbcbcb;
   font-weight: 400;
   font-size: 12px;
-  line-height: 12px;
-
+  line-height: 150%;
   word-break: break-all;
 
-  margin: 8px 0 8px;
+  margin: 4px 0 8px;
 `;
 
 const LetterPostDate = styled.p`

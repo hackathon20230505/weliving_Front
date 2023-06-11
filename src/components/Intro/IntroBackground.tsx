@@ -31,13 +31,12 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         src="https://wliv.kr/img/intro/intro-content-0.svg"
         style={{
           width: "100%",
-          height: "446px",
+          height: "450px",
           top: "0px",
           position: "inherit",
           margin: "0 auto",
         }}
       />
-
       {/* 별 시작 */}
       <ImageStar1
         src="https://wliv.kr/img/intro/intro-background-0-3.svg"

@@ -31,7 +31,6 @@
 }
 
 #root {
-
   margin: 0 auto;
 
   width: 100%;
@@ -42,7 +41,6 @@
 
   background-color: var(--black-900);
 }
-
 
 @media screen and (min-width: 414px) {
   #root {
@@ -93,4 +91,9 @@ textarea {
 
 button img {
   display: block;
+}
+
+/* ChangeUserInfoBody.tsx 경로 */
+.customMargin {
+  margin-top: -8px;
 }
