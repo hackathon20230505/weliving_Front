@@ -95,6 +95,7 @@ const WriteLetterTitleInput = styled.input`
 
 const WriteLetterConteintInput = styled.textarea`
   height: calc(60vh - 330px);
+  resize: vertical;
 
   &::placeholder {
     color: #867388;
