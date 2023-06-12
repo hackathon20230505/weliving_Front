@@ -177,6 +177,9 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
                 placeholder="비밀번호 재입력"
                 value={userInfo.userPasswordConfirm}
                 onChange={onChangeUserPasswordConfirmHandler}
+                style={{
+                  marginTop: "-8px",
+                }}
               />
             </SignUpLabelInputContainer>
           </>
@@ -276,6 +279,8 @@ const SignUpTitle = styled.h1`
 
   font-weight: 700;
   font-size: 24px;
+
+  line-height: 150%;
 `;
 
 const SignUpLabelInputContainer = styled.div`
@@ -288,10 +293,11 @@ const SignUpLabelInputContainer = styled.div`
 const SignUpLabel = styled.label`
   font-size: 14px;
   font-weight: 700;
+  padding-bottom: 5px;
 `;
 
 const SignUpInput = styled.input`
-  padding: 13px 12px 14px 12px;
+  padding: 15px 12px 16px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
   border-radius: 0;

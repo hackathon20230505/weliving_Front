@@ -64,6 +64,15 @@ const Intro: FunctionComponent<IntroProps> = () => {
           marginTop: "-56px",
         }}
       />
+      <IntroBackground5
+        src="https://wliv.kr/img/intro/intro-door-light.svg"
+        style={{
+          width: "100%",
+          height: "100%",
+          bottom: "0px",
+          marginTop: "-56px",
+        }}
+      />
       <IntroContainer>
         <IntroContentContainer>
           <LoginBackground></LoginBackground>
@@ -170,4 +179,16 @@ const SignUpButton = styled.button`
   border-radius: 4px;
 
   font-weight: 700;
+`;
+const starKeyFrame = keyframes`
+  0% { opacity: 0.7; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.7; }
+`;
+
+const IntroBackground5 = styled.img`
+  position: absolute;
+  animation: ${starKeyFrame} 3s ease-in-out infinite;
+  display: flex;
+  justify-content: space-around;
 `;
