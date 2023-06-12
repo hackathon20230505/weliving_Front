@@ -65,8 +65,7 @@ const BottomSheetBackCurtain = styled.div<IsShowProps>`
   position: fixed;
   width: 100vw;
   height: 100%;
-  pointer-events: none;
-  // background-color: rgba(17, 17, 17, 80%);
+  background-color: rgba(17, 17, 17, 80%);
   display: ${({ isShow }) => (isShow ? "block" : "none")};
   z-index: 2;
 `;

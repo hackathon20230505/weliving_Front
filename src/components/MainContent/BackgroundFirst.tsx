@@ -18,7 +18,7 @@ const cloudKeyFrame1 = keyframes`
 const cloudKeyFrame2 = keyframes`
     0% { right: -42px; }
     50% { right: -105px; }
-    100% { right: -225px; }
+    100% { right: -105px; }
 `;
 
 const cloudKeyFrame3 = keyframes`
@@ -54,8 +54,8 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       <ImageCloud3
         src="https://wliv.kr/img/onbording/star-7.svg"
         style={{
-          width: "134px",
-          height: "34px",
+          width: "6px",
+          height: "6px",
           bottom: "178px",
           left: "63px",
           opacity: "60%",
@@ -63,176 +63,267 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       />
       {/* 별 시작 */}
       <ImageStar1
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "2px",
+          height: "2px",
           top: "60px",
           left: "9%",
         }}
       />
       <ImageStar2
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-3.svg"
         style={{
-          width: "26px",
-          height: "26px",
+          width: "2px",
+          height: "2px",
           top: "40px",
           left: "20%",
         }}
       />
       <ImageStar3
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "12px",
-          height: "12px",
+          width: "4px",
+          height: "4px",
           top: "90px",
           left: "26%",
         }}
       />
       <ImageStar4
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "3px",
+          height: "3px",
           top: "35px",
           left: "35%",
         }}
       />
       <ImageStar5
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12x",
+          height: "12px",
           top: "80px",
           left: "35%",
         }}
       />
       <ImageStar6
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "3px",
+          height: "3px",
           top: "125px",
           left: "30%",
         }}
       />
       <ImageStar7
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
-          top: "110px",
+          width: "6px",
+          height: "6px",
+          top: "16px",
           left: "42%",
         }}
       />
       <ImageStar8
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "6px",
+          height: "6px",
           top: "60px",
           left: "46%",
         }}
       />
       <ImageStar9
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "9px",
-          height: "11px",
+          width: "15px",
+          height: "15px",
           top: "40px",
           left: "55%",
         }}
       />
       <ImageStar10
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "12px",
-          height: "12px",
+          width: "7px",
+          height: "7px",
           top: "70px",
           left: "60%",
         }}
       />
       <ImageStar11
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "3px",
+          height: "3px",
           top: "90px",
           left: "54%",
         }}
       />
       <ImageStar12
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "13px",
-          height: "13px",
+          width: "8px",
+          height: "8px",
           top: "125px",
           left: "60%",
         }}
       />
       <ImageStar13
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "3px",
+          height: "3px",
           top: "45px",
           left: "70%",
         }}
       />
       <ImageStar14
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "6px",
+          height: "6px",
           top: "55px",
           left: "80%",
         }}
       />
       <ImageStar15
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "14px",
-          height: "14px",
+          width: "3px",
+          height: "3px",
           top: "90px",
           left: "69%",
         }}
       />
       <ImageStar16
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "12px",
-          height: "12px",
+          width: "1px",
+          height: "1px",
           top: "85px",
           left: "88%",
         }}
       />
       <ImageStar17
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "12px",
-          height: "12px",
+          width: "9px",
+          height: "9px",
           top: "100px",
           left: "80%",
         }}
       />
       <ImageStar18
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-2.svg"
         style={{
-          width: "14px",
-          height: "14px",
+          width: "2px",
+          height: "2px",
           top: "130px",
           left: "88%",
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-3.svg"
         style={{
-          width: "27px",
-          height: "27px",
+          width: "2px",
+          height: "2px",
           top: "125px",
           left: "70%",
         }}
       />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-2.svg"
+        style={{
+          width: "2px",
+          height: "2px",
+          top: "145px",
+          left: "78%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-1.svg"
+        style={{
+          width: "12px",
+          height: "12px",
+          top: "105px",
+          left: "49%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-3.svg"
+        style={{
+          width: "3px",
+          height: "3px",
+          top: "125px",
+          left: "97%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-1.svg"
+        style={{
+          width: "7px",
+          height: "7px",
+          top: "165px",
+          left: "86%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-2.svg"
+        style={{
+          width: "2px",
+          height: "2px",
+          top: "185px",
+          left: "97%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-2.svg"
+        style={{
+          width: "2px",
+          height: "2px",
+          top: "70px",
+          left: "97%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-2.svg"
+        style={{
+          width: "1px",
+          height: "1px",
+          top: "100px",
+          left: "92%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-2.svg"
+        style={{
+          width: "2px",
+          height: "2px",
+          top: "240px",
+          left: "97%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-3.svg"
+        style={{
+          width: "1px",
+          height: "1px",
+          top: "190px",
+          left: "80%",
+        }}
+      />
+      <ImageStar19
+        src="https://wliv.kr/img/main/new-star-3.svg"
+        style={{
+          width: "2px",
+          height: "2px",
+          top: "210px",
+          left: "95%",
+        }}
+      />
+
       {/* 별 끝 */}
     </BackgroundStarContainer>
   );
@@ -342,7 +433,7 @@ const ImageStar18 = styled.img`
 
 const ImageStar19 = styled.img`
   position: absolute;
-  animation: ${starKeyFrame} 8s ease-in-out infinite;
+  animation: ${starKeyFrame} 6s ease-in-out infinite;
 `;
 
 const ImageCloud1 = styled.img`

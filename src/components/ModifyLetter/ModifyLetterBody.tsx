@@ -49,7 +49,7 @@ const ModifyLetterBody = ({
         onChange={onChangeLetter}
       />
       <WriteLetterConteintInput
-        placeholder="무슨 이야기를 나누고 싶으세요?"
+        placeholder="나를 사랑하는 누군가가 되어 글을 작성해보세요"
         maxLength={1000}
         name="content"
         value={myLetterPost.content}
