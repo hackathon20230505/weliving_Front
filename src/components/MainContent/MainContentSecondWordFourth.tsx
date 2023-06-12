@@ -22,11 +22,61 @@ const MainContentSecondWordFirst: React.FC<
   const [isModalClick] = useState(false);
   const [, setIsModalClickSecond] = useState(0);
 
+  useEffect(() => {
+    if (isModalClick) {
+      const timeout0 = setTimeout(() => {
+        setCurrentStep(1);
+      }, 8000);
+
+      setTimeout(() => {
+        setIsModalClickSecond(1);
+      }, 3000);
+      return () => clearTimeout(timeout0);
+    }
+  }, [isModalClick]);
+
   // 스크립트 춢력
 
-  const onClickNextButtonHandler = () => {
-    setCurrentStep(currentStep + 1);
-  };
+  useEffect(() => {
+    if (currentStep === 1) {
+      const timeout2 = setTimeout(() => {
+        setCurrentStep(2);
+        setIsModalClickSecond(1);
+      }, 4000);
+
+      return () => clearTimeout(timeout2);
+    }
+  }, [currentStep]);
+
+  useEffect(() => {
+    if (currentStep === 2) {
+      const timeout3 = setTimeout(() => {
+        setCurrentStep(3);
+      }, 3500);
+
+      return () => clearTimeout(timeout3);
+    }
+  }, [currentStep]);
+
+  useEffect(() => {
+    if (currentStep === 3) {
+      const timeout4 = setTimeout(() => {
+        setCurrentStep(4);
+      }, 3500);
+
+      return () => clearTimeout(timeout4);
+    }
+  }, [currentStep]);
+
+  useEffect(() => {
+    if (currentStep === 4) {
+      const timeout4 = setTimeout(() => {
+        setCurrentStep(5);
+      }, 2500);
+
+      return () => clearTimeout(timeout4);
+    }
+  }, [currentStep]);
 
   const onClickLogInButtonHandler = () => {
     navigate("/WriteLetter");
@@ -130,27 +180,20 @@ const MainContentSecondWordFirst: React.FC<
           </MainContentFirstMainContent>
         )}
       </MainContentFirstContentContainer>
-
-      <LogInSignUpContainer>
-        <LogInButton
-          className={currentStep === 4 ? "active" : ""}
-          style={{
-            opacity: currentStep === 4 ? 1 : 1,
-            transition: "opacity 800ms, visibility 800ms",
-          }}
-          onClick={() => {
-            if (currentStep === 1) {
-              onClickNextButtonHandler();
-            } else if (currentStep === 2) {
-              onClickNextButtonHandler();
-            } else if (currentStep === 3) {
-              onClickLogInButtonHandler();
-            }
-          }}
-        >
-          다음
-        </LogInButton>
-      </LogInSignUpContainer>
+      {currentStep >= 4 && (
+        <LogInSignUpContainer>
+          <LogInButton
+            className={currentStep === 4 ? "active" : ""}
+            style={{
+              opacity: currentStep === 4 ? 1 : 1,
+              transition: "opacity 800ms, visibility 800ms",
+            }}
+            onClick={onClickLogInButtonHandler}
+          >
+            다음
+          </LogInButton>
+        </LogInSignUpContainer>
+      )}
     </BackgroundStarContainer>
   );
 };

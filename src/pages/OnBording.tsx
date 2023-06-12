@@ -4,12 +4,14 @@ import styled, { keyframes } from "styled-components";
 import BackgroundStar from "../components/OnBording/Background";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
+import { useCookies } from "react-cookie";
 
 // type WillFirstProps = {};
 
 const WillFirst: FunctionComponent = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+  const [, setCookie] = useCookies();
 
   useEffect(() => {
     const timeout1 = setTimeout(() => {
@@ -52,6 +54,13 @@ const WillFirst: FunctionComponent = () => {
   }, [currentStep]);
 
   const onClickLogInButtonHandler = () => {
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+
+    setCookie("skip_onboarding", "1", {
+      expires,
+    });
+
     navigate("/Intro");
   };
 
@@ -133,7 +142,7 @@ const WillFirstContainer = styled.div`
 
 const WillFirstContentContainer = styled.div`
   position: absolute;
-  top: 20%;
+  top: 180px;
 `;
 
 // fade in out 효과
@@ -172,7 +181,7 @@ const WillFirstMainContent = styled.p`
 const LogInSignUpContainer = styled.div`
   padding: 0 0;
   position: absolute;
-  bottom: 74px;
+  bottom: 10px;
   width: 90%;
 
   display: flex;

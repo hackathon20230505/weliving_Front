@@ -23,6 +23,8 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
   return (
     <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
       <HomeLetterGroupContainer>
+        {/* 별 시작 */}
+
         <HomeLetterTitle> 일지</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
@@ -61,7 +63,7 @@ const HomeLetterTitle = styled.p`
 `;
 
 const HomeLetterViewGroupContainer = styled.div`
-  gap: 1rem;
+  gap: 0rem;
   display: flex;
   justify-content: space-between;
 `;

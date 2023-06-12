@@ -83,24 +83,25 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     setIsAlarmAgreed((prev) => !prev);
   };
 
-  const logoutHandler = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
-    localStorage.removeItem("kakaoAccessToken");
-    localStorage.removeItem("kakaoRefreshToken");
-    window.location.href = "/";
-  };
+  // const logoutHandler = () => {
+  //   localStorage.removeItem("accessToken");
+  //   localStorage.removeItem("refreshToken");
+  //   localStorage.removeItem("kakaoAccessToken");
+  //   localStorage.removeItem("kakaoRefreshToken");
+  //   window.location.href = "/";
+  // };
 
   // const onClickNextButtonHandler = () => {};
 
   return (
     <CommonContentContainer xPadding="5%">
+      <PaddingTop></PaddingTop>
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userEmail">이메일</SignUpLabel>
         <SignUpInput
           id="userEmail"
           type="text"
-          placeholder="예) pmr7348.naver.com"
+          placeholder="예) example@wliv.kr"
           value={userInfo.email}
           readOnly
         />
@@ -134,6 +135,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
           placeholder="새로운 비밀번호 재입력"
           value={userNewPasswordConfirm}
           onChange={onChangeUserNewPasswordConfirmHandler}
+          className="customMargin"
         />
       </SignUpLabelInputContainer>
       <SignUpLabelInputContainer>
@@ -154,7 +156,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
         <CheckBox isChecked={isAlarmAgreed} />
         <SignUpCheckBoxText>문자 알림 동의</SignUpCheckBoxText>
       </SignUpCheckBoxContainer>
-      <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
+      {/* <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton> */}
       {/*<NextButton*/}
       {/*  isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}*/}
       {/*  disabled={!(isValidUserNewPassword && isValidUserNewPasswordConfirm)}*/}
@@ -168,11 +170,15 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
 
 export default ChangeUserInfoBody;
 
+const PaddingTop = styled.div`
+  padding-top: 40px;
+`;
+
 const SignUpLabelInputContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin-top: 24px;
+  margin-bottom: 24px;
 
   position: relative;
 `;
@@ -180,24 +186,31 @@ const SignUpLabelInputContainer = styled.div`
 const SignUpLabel = styled.label`
   font-size: 14px;
   font-weight: 700;
+  margin-bottom: 4px;
+
+  &.customMargin {
+    margin-top: -8px;
+  }
 `;
 
 const SignUpInput = styled.input`
-  padding: 13px 12px 14px 12px;
+  padding: 15px 12px 16px 12px;
 
   border-bottom: 1px solid var(--strong-purple-800);
   border-radius: 0;
+  font-size: 14px;
 
   ::placeholder {
     color: var(--gray-purple);
   }
+  font-size: 14px;
 `;
 
 const ChangeButton = styled.button`
   position: absolute;
   right: 0;
   bottom: 10px;
-
+  font-size: 14px;
   width: 49px;
   height: 32px;
   border: 1px solid var(--white);
@@ -226,8 +239,10 @@ const ChangeButton = styled.button`
 
 const BaseNumber = styled.p`
   position: absolute;
+  font-size: 14px;
+  color: #867388;
   left: 12px;
-  bottom: 14px;
+  bottom: 17px;
 `;
 
 const SignUpCheckBoxContainer = styled.div`
@@ -237,15 +252,17 @@ const SignUpCheckBoxContainer = styled.div`
 
 const SignUpCheckBoxText = styled.p`
   margin-left: 8px;
+  font-size: 14px;
+  padding-top: 1px;
 `;
 
-const LogoutButton = styled.div`
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  border: 1px solid #ff4e78;
-  background-color: #ff4e78;
-  text-align: center;
-  padding: 0.75rem;
-  border-radius: 4px;
-  color: white;
-`;
+// const LogoutButton = styled.div`
+//   margin-top: 3.5rem;
+//   margin-bottom: 2rem;
+//   border: 1px solid #ff4e78;
+//   background-color: #db0fdb;
+//   text-align: center;
+//   padding: 0.75rem;
+//   border-radius: 4px;
+//   color: white;
+// `;

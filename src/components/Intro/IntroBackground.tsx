@@ -9,7 +9,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
     <BackgroundStarContainer>
       <IntroBackground1
         src="https://wliv.kr/img/intro/intro-background-0-1.svg"
-        style={{ top: "-60px", right: "-90px", opacity: "100%" }}
+        style={{ top: "-60px", right: "-340px", opacity: "100%" }}
       />
       <IntroBackground2
         src="https://wliv.kr/img/intro/intro-background-0-2.svg"
@@ -17,7 +17,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       />
       <IntroBackground3
         src="https://wliv.kr/img/intro/intro-background-0-3.svg"
-        style={{ top: "390px", right: "-66px", opacity: "100%" }}
+        style={{ top: "390px", right: "-300px", opacity: "100%" }}
       />
       <IntroBackground4
         src="https://wliv.kr/img/intro/intro-background-0-4.svg"
@@ -26,16 +26,6 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       <IntroBackground5
         src="https://wliv.kr/img/intro/intro-background-0-5.svg"
         style={{ top: "-75px", left: "10%", zIndex: "3" }}
-      />
-      <IntroContent0
-        src="https://wliv.kr/img/intro/intro-content-0.svg"
-        style={{
-          width: "100%",
-          height: "446px",
-          top: "0px",
-          position: "inherit",
-          margin: "0 auto",
-        }}
       />
 
       {/* 별 시작 */}
@@ -56,7 +46,15 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
 
 export default BackgroundStar;
 
-const BackgroundStarContainer = styled.div``;
+const moonKeyFrame = keyframes`
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+`;
+
+const BackgroundStarContainer = styled.div`
+  animation: ${moonKeyFrame} 1s ease-in;
+`;
 
 const ImageStar1 = styled.img``;
 
@@ -77,16 +75,14 @@ const IntroBackground4 = styled.img`
 `;
 
 const starKeyFrame = keyframes`
-  0% { opacity: 0.6; }
+  0% { opacity: 0.7; }
   50% { opacity: 0.4; }
-  100% { opacity: 0.6; }
+  100% { opacity: 0.7; }
 `;
 
 const IntroBackground5 = styled.img`
   position: absolute;
   animation: ${starKeyFrame} 3s ease-in-out infinite;
-`;
-
-const IntroContent0 = styled.img`
-  position: absolute;
+  display: flex;
+  justify-content: space-around;
 `;

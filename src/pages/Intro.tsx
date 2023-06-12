@@ -1,16 +1,33 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Header from "../components/Intro/Header";
 import LoginBackground from "../components/Intro/IntroBackground";
+import { useCookies } from "react-cookie";
 type IntroProps = {};
 
 const Intro: FunctionComponent<IntroProps> = () => {
   const navigate = useNavigate();
+  const [, setCookie] = useCookies();
+  const [cookies, ,] = useCookies(["skip_onboarding"]);
 
   // const { Kakao } = window;
 
+  useEffect(() => {
+    if (cookies.skip_onboarding === "0" || !cookies.skip_onboarding) {
+      navigate("/OnBording");
+    }
+  }, []);
+
   const onClickLogInButtonHandler = () => {
+    // 쿠키 저장
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+
+    setCookie("skip_onboarding", "1", {
+      expires,
+    });
+    //
     navigate("/logIn");
   };
 
@@ -19,6 +36,14 @@ const Intro: FunctionComponent<IntroProps> = () => {
   };
 
   const onClickKakaoLogInButtonHandler = () => {
+    // 쿠키 저장
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+
+    setCookie("skip_onboarding", "1", {
+      expires,
+    });
+    // 쿠키 저장
     const kakaoApiKey = import.meta.env.VITE_KAKAO_CLIENT_ID;
     const baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
     const redirectUri = `${baseUrl}/kakaosignup`;
@@ -30,6 +55,15 @@ const Intro: FunctionComponent<IntroProps> = () => {
   return (
     <IntroWrapper>
       <Header />
+      <IntroContent0
+        src="https://wliv.kr/img/intro/intro-door.svg"
+        style={{
+          width: "100%",
+          height: "100%",
+          bottom: "0px",
+          marginTop: "-56px",
+        }}
+      />
       <IntroContainer>
         <IntroContentContainer>
           <LoginBackground></LoginBackground>
@@ -55,11 +89,20 @@ const Intro: FunctionComponent<IntroProps> = () => {
 
 export default Intro;
 
+const moonKeyFrame = keyframes`
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+`;
+
+const IntroContent0 = styled.img`
+  animation: ${moonKeyFrame} 1s ease-in;
+`;
+
 const IntroWrapper = styled.main`
   width: 100%;
   height: 100%;
 
-  // background-image: url("https://wliv.kr/img/Intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -80,7 +123,7 @@ const IntroMainContent = styled.p``;
 const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
-  bottom: 74px;
+  bottom: 10px;
   width: 100%;
 
   display: flex;

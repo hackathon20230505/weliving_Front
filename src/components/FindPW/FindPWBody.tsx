@@ -48,7 +48,7 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
             <FindPWInput
               id="userEmail"
               type="text"
-              placeholder="예) pmr7348.naver.com"
+              placeholder="예) example@wliv.kr"
               isValidUserEmail={isValidUserEmail}
               value={userEmail}
               onChange={onChangeUserEmailHandler}
@@ -87,7 +87,7 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
 export default FindPWBody;
 
 const FindPWBodyDescription = styled.p`
-  margin: 40px 0 20px 0;
+  margin: 40px 0 24px 0;
 
   font-weight: 400;
   font-size: 12px;
@@ -104,6 +104,7 @@ const FindPWInputGroupContainer = styled.div`
 const FindPWInputLabel = styled.label`
   font-size: 14px;
   font-weight: 700;
+  padding-bottom: 4px;
 `;
 
 interface IFindPWInputTypes {
@@ -125,6 +126,7 @@ const FindPWInput = styled.input<IFindPWInputTypes>`
   ::placeholder {
     color: var(--gray-purple);
   }
+  font-size: 14px;
 `;
 
 interface INextButtonTypes {
