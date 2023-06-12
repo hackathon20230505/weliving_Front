@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Header from "../components/Intro/Header";
 import LoginBackground from "../components/Intro/IntroBackground";
 import { useCookies } from "react-cookie";
@@ -55,6 +55,15 @@ const Intro: FunctionComponent<IntroProps> = () => {
   return (
     <IntroWrapper>
       <Header />
+      <IntroContent0
+        src="https://wliv.kr/img/intro/intro-door.svg"
+        style={{
+          width: "100%",
+          height: "100%",
+          bottom: "0px",
+          marginTop: "-56px",
+        }}
+      />
       <IntroContainer>
         <IntroContentContainer>
           <LoginBackground></LoginBackground>
@@ -80,11 +89,20 @@ const Intro: FunctionComponent<IntroProps> = () => {
 
 export default Intro;
 
+const moonKeyFrame = keyframes`
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+`;
+
+const IntroContent0 = styled.img`
+  animation: ${moonKeyFrame} 1s ease-in;
+`;
+
 const IntroWrapper = styled.main`
   width: 100%;
   height: 100%;
 
-  // background-image: url("https://wliv.kr/img/Intro-background-img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
