@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "react-ts-typewriter";
@@ -18,9 +18,6 @@ const MainContentSecondWordFirst: React.FC<
   const [currentStep, setCurrentStep] = useState(1);
 
   // 모달창 클릭시
-
-  const [isModalClick] = useState(false);
-  const [, setIsModalClickSecond] = useState(0);
 
   // 스크립트 춢력
 

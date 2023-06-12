@@ -22,7 +22,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
   const [isShowTerm, setIsShowTerm] = useState<boolean>(false);
   const [isFullSizeTerm, setIsFullSizeTerm] = useState<boolean>(true);
 
-  const [isDisplayContent, setIsDisplayContent] = useState<boolean>(true);
+  const [isDisplayContent] = useState<boolean>(true);
 
   const [, setIsValidPost] = useRecoilState(isValidPostState);
 
@@ -244,7 +244,7 @@ const WriteLetterTitleInput = styled.input`
 `;
 
 const WriteLetterConteintInput = styled.textarea`
-  height: calc(60vh - 330px);
+  height: calc(60vh - 130px);
   resize: vertical;
 
   &::placeholder {
