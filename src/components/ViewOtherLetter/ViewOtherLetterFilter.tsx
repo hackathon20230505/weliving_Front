@@ -56,6 +56,7 @@ const ViewOtherLetterFilterWrapper = styled.div`
   overflow: auto;
   height: 68px;
   min-height: 68px;
+  overflow: hidden;
 `;
 
 const ViewOtherLetterFilterContainer = styled.div`

@@ -7,7 +7,11 @@ const KakaoSignUpHeader: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const onClickGoBackButtonHandler = () => {
-    navigate("/");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("kakaoAccessToken");
+    localStorage.removeItem("kakaoRefreshToken");
+    window.location.href = "/";
   };
 
   return (

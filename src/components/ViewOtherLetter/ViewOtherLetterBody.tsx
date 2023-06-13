@@ -102,6 +102,7 @@ const CustomContentContainer = styled.div`
   height: 100%;
   overflow: auto;
   border-radius: 4px;
+  overflow: hidden;
 `;
 
 const LetterPostContainer = styled.div`

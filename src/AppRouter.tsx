@@ -10,6 +10,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import FindPW from "./pages/FindPW";
 import KakaoSignUp from "./pages/KakaoSignUp";
+import KakaoSignIn from "./pages/KakaoSignIn.tsx";
 import ChangePW from "./pages/ChangePW";
 import ChangeUserInfo from "./pages/ChangeUserInfo";
 import ViewMyLetter from "./pages/ViewMyLetter";
@@ -68,6 +69,9 @@ const AppRouter: FunctionComponent = () => {
 
         {/* 카카오톡 회원가입 페이지 */}
         <Route path="/kakaosignup" element={<KakaoSignUp />} />
+
+        {/* 카카오톡 회원가입 두번째 페이지 */}
+        <Route path="/kakaosignin" element={<KakaoSignIn />} />
 
         {/* 개인정보 처리방침 동의 페이지 */}
         <Route path="/privacy" element={<PrivacyPolicy />} />

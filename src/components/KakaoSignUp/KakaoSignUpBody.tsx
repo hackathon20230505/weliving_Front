@@ -10,6 +10,9 @@ import {
 import TermsOfServiceModalComponent from "../SignUp/TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "../SignUp/PrivacyPolicyModalComponent";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { onSignup } from "../../apis/users/signup";
+// import { IUserInfoStateTypes, UserInfoState } from "..//atoms/UserInfoAtoms";
+import { onSignIn } from "../../apis/users/signIn";
 
 type KakaoSignUpBodyProps = {};
 
@@ -124,6 +127,12 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
     }
   };
 
+  function onClickNextButtonHandler(
+    event: MouseEvent<HTMLButtonElement, MouseEvent>,
+  ): void {
+    throw new Error("Function not implemented.");
+  }
+
   // TODO: 카카오 로그인 Next 버튼 구현
   // const onClickNextButtonHandler = () => {};
 
@@ -205,7 +214,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
             isChecked.isTermsAndConditionsChecked
           )
         }
-        // onClick={onClickNextButtonHandler}
+        onClick={onClickNextButtonHandler}
       >
         로그인 하기
       </NextButton>
