@@ -45,8 +45,17 @@ const Intro: FunctionComponent<IntroProps> = () => {
     });
     // 쿠키 저장
     const kakaoApiKey = import.meta.env.VITE_KAKAO_CLIENT_ID;
-    const baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
-    const redirectUri = `${baseUrl}/kakaosignup`;
+
+    let baseUrl: string;
+
+    if (window.location.href.includes("localhost")) {
+      baseUrl = "http://localhost:5173";
+    } else {
+      baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
+    }
+
+    const redirectUri = `${baseUrl}/kakaosignin`;
+
     const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoApiKey}&redirect_uri=${redirectUri}&response_type=code&scope=account_email`;
 
     window.location.href = kakaoUrl;
