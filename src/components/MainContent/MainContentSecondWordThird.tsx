@@ -19,6 +19,7 @@ const MainContentSecondWordFirst: React.FC<
 
   // 모달창 클릭시
 
+
   // 스크립트 춢력
 
   const onClickNextButtonHandler = () => {

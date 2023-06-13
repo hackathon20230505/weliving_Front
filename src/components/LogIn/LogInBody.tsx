@@ -8,6 +8,8 @@ import {
   isValidUserPasswordFunc,
 } from "../../utils/isValid/isValidUserData";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { checkMemory } from "../../apis/users/checkMemory";
+import { checkLetter } from "../../apis/users/checkLetter";
 
 type LogInBodyProps = {};
 
@@ -64,7 +66,20 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         localStorage.setItem("refreshToken", result.data.refreshToken);
 
         alert("로그인되었습니다.");
-        window.location.href = "/";
+
+        // 해당 유저가 유서를 작성하지 않았을 시 유서 작성 페이지로 이동
+
+        // 해당 유저가 추억카드를 작성하지 않았을 시 추억카드 작성 페이지로 이동
+        const isMemory = await checkMemory();
+        const isLetter = await checkLetter();
+
+        console.log(isMemory);
+
+        if (!isMemory || !isLetter) {
+          window.location.href = "/maincontentfirst";
+        } else {
+          window.location.href = "/";
+        }
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -91,7 +106,20 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         localStorage.setItem("refreshToken", result.data.refreshToken);
 
         alert("로그인되었습니다.");
-        window.location.href = "/";
+
+        // 해당 유저가 유서를 작성하지 않았을 시 유서 작성 페이지로 이동
+
+        // 해당 유저가 추억카드를 작성하지 않았을 시 추억카드 작성 페이지로 이동
+        const isMemory = await checkMemory();
+        const isLetter = await checkLetter();
+
+        console.log(isMemory);
+
+        if (!isMemory || !isLetter) {
+          window.location.href = "/maincontentfirst";
+        } else {
+          window.location.href = "/";
+        }
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
