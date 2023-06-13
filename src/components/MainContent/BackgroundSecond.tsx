@@ -4,9 +4,9 @@ type BackgroundSecondProps = {};
 
 // 투명도 조절 키프레임
 const starKeyFrame = keyframes`
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% { opacity: 0.6; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.6; }
 `;
 
 // const KeyFrameSection3_0 = keyframes`
@@ -45,6 +45,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
           height: "220px",
           top: "0px",
           left: "0%",
+          opacity: "40%",
         }}
       />
 
@@ -56,6 +57,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
           top: "-126px",
           right: "-50%",
           rotate: "30deg",
+          opacity: "40%",
         }}
       />
 
@@ -67,6 +69,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
           top: "106px",
           right: "-20%",
           rotate: "90deg",
+          opacity: "40%",
         }}
       />
 
@@ -78,14 +81,15 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
           top: "106px",
           left: "-20%",
           rotate: "90deg",
+          opacity: "40%",
         }}
       />
 
       <ImageStar1
         src="https://wliv.kr/img/onbording/will-star-4.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "60px",
           left: "9%",
         }}
@@ -93,8 +97,8 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       <ImageStar2
         src="https://wliv.kr/img/onbording/will-star-1.svg"
         style={{
-          width: "26px",
-          height: "26px",
+          width: "15px",
+          height: "15px",
           top: "40px",
           left: "20%",
         }}
@@ -111,26 +115,26 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       <ImageStar4
         src="https://wliv.kr/img/onbording/will-star-4.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "35px",
           left: "35%",
         }}
       />
       <ImageStar5
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "80px",
           left: "35%",
         }}
       />
       <ImageStar6
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "125px",
           left: "30%",
         }}
@@ -138,8 +142,8 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       {/* <ImageStar7
         src="https://wliv.kr/img/onbording/will-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "110px",
           left: "42%",
         }}
@@ -147,14 +151,14 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       {/* <ImageStar8
         src="https://wliv.kr/img/onbording/will-star-2.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "60px",
           left: "46%",
         }}
       /> */}
       <ImageStar9
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
           width: "9px",
           height: "11px",
@@ -172,28 +176,28 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       /> */}
       <ImageStar11
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "90px",
           left: "54%",
         }}
       />
       <ImageStar12
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-3.svg"
         style={{
-          width: "13px",
-          height: "13px",
+          width: "3px",
+          height: "3px",
           top: "125px",
           left: "60%",
         }}
       />
       <ImageStar13
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://wliv.kr/img/main/new-star-1.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "12px",
+          height: "12px",
           top: "45px",
           left: "70%",
         }}
@@ -201,8 +205,8 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       <ImageStar14
         src="https://wliv.kr/img/onbording/will-star-4.svg"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "6px",
+          height: "6px",
           top: "55px",
           left: "80%",
         }}
@@ -246,8 +250,8 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       <ImageStar19
         src="https://wliv.kr/img/onbording/will-star-4.svg"
         style={{
-          width: "27px",
-          height: "27px",
+          width: "14px",
+          height: "14px",
           top: "125px",
           left: "70%",
         }}
@@ -266,7 +270,7 @@ const firstKeyFrame = keyframes`
 `;
 
 const BackgroundStarContainer = styled.div`
-  animation: ${firstKeyFrame} 4s ease-in;
+  animation: ${firstKeyFrame} 4.5s ease-in;
 `;
 
 const ImageStar1 = styled.img`

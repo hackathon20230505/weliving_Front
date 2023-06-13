@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PageContainer from "../components/Common/PageContainer";
+import CommonContentContainer from "../components/Common/CommonContentContainer";
 
 type SettingsProps = {};
 
@@ -53,6 +55,8 @@ const Settings: FunctionComponent<SettingsProps> = () => {
 
   return (
     <>
+        <PageContainer>
+      <CommonContentContainer xPadding="5%"><br></br>
       <LogInButton onClick={onClickLogInButtonHandler}>
         온보딩 쿠키 초기화
       </LogInButton>
@@ -81,6 +85,8 @@ const Settings: FunctionComponent<SettingsProps> = () => {
       <LogInButton onClick={onClickLogInButton9}>회원가입</LogInButton>
 
       <LogInButton onClick={onClickLogInButton10}>개인정보 변경</LogInButton>
+      </CommonContentContainer>
+    </PageContainer>
     </>
   );
 };
@@ -93,7 +99,7 @@ const LogInButton = styled.button`
 
   margin-bottom: 12px;
 
-  background-color: var(--main-color);
+  background-color: #b20fdb;
   border-radius: 4px;
 
   font-weight: 700;

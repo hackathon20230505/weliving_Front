@@ -19,8 +19,6 @@ const MainContentSecondWordFirst: React.FC<
 
   // 모달창 클릭시
 
-  // const [isModalClick] = useState(false);
-  // const [, setIsModalClickSecond] = useState(0);
 
   // 스크립트 춢력
 
