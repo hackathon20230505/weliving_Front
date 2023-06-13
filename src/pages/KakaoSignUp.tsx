@@ -1,7 +1,7 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect } from "react";
 import PageContainer from "../components/Common/PageContainer";
-import axios from "axios";
-import { kakaoSignIn } from "../apis/users/kakaoSignIn.ts";
+// import axios from "axios";
+// import { kakaoSignIn } from "../apis/users/kakaoSignIn.ts";
 import KakaoSignUpHeader from "../components/KakaoSignUp/KakaoSignUpHeader";
 import KakaoSignUpBody from "../components/KakaoSignUp/KakaoSignUpBody";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
@@ -15,10 +15,10 @@ const KakaoSignUp: FunctionComponent<KakaoSignUpProps> = () => {
   // const [, setKakaoRefreshToken] = useState<string>("");
 
   useEffect(() => {
-    const params = new URL(document.location.toString()).searchParams;
-    const code = params.get("code");
-    const grant_type = "authorization_code";
-    const client_id = import.meta.env.VITE_KAKAO_CLIENT_ID;
+    // const params = new URL(document.location.toString()).searchParams;
+    // const code = params.get("code");
+    // const grant_type = "authorization_code";
+    // const client_id = import.meta.env.VITE_KAKAO_CLIENT_ID;
 
     (async () => {
       // const data = await axios.post(

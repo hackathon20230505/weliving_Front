@@ -1,11 +1,8 @@
 import { FunctionComponent } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
 
 const KakaoSignUpHeader: FunctionComponent = () => {
-  const navigate = useNavigate();
-
   const onClickGoBackButtonHandler = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
