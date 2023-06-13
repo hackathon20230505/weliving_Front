@@ -125,7 +125,7 @@ const SignUpAgreeModalContent: FunctionComponent<
         localStorage.setItem("accessToken", response?.data?.accessToken);
 
         alert("로그인되었습니다.");
-        navigate("/");
+        navigate("/maincontentfirst");
       }
     } catch (error) {}
 

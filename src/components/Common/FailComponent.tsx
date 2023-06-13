@@ -11,7 +11,8 @@ const FailComponent = ({ top = "56px" }: FailComponentProps) => {
       <FailIcon>
         <img src={FailIconSVG} alt="실패 아이콘" />
       </FailIcon>
-      <FailMsg>API 호출에 실패했습니다</FailMsg>
+      <FailMsg>데이터를 불러오지 못했습니다</FailMsg>
+      <FailMsgSub>관리자에게 문의해주세요</FailMsgSub>
     </FailComponentContainer>
   );
 };
@@ -56,6 +57,14 @@ const FailMsg = styled.p`
   font-size: 1.25rem;
   margin-top: 1.5rem;
   text-align: center;
+`;
+
+const FailMsgSub = styled.p`
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  opacity: 0.5;
 `;
 
 export default FailComponent;
