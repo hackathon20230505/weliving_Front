@@ -26,8 +26,6 @@ const ViewMyLetter: FunctionComponent = () => {
 
       if (!isMemory || !isLetter) {
         window.location.href = "/maincontentfirst";
-      } else {
-        window.location.href = "/";
       }
     })();
   }, []);

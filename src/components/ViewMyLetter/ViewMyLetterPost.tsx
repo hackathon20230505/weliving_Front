@@ -79,7 +79,7 @@ const LetterPostTitle = styled.h2`
   font-size: 18px;
   color: var(--white);
 
-  margin: 2px 0 12px;
+  margin: 6px 0 12px;
 `;
 
 const LetterPostContent = styled.p`
