@@ -63,7 +63,7 @@ const YourHelp: FunctionComponent = () => {
   };
 
   const buttonHandler = () => {
-    navigate("/");
+    navigate("/viewmyletter");
   };
 
   return (
