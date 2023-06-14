@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { checkMemory } from "../../apis/users/checkMemory";
 
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   const userInfo = {
-    email: "hackathon@naver.com",
+    email: "hackatho23n@naver.com",
     password: "123456a*",
   };
 
