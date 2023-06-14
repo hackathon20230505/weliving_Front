@@ -10,7 +10,6 @@ import { onSignup } from "../../apis/users/signup";
 import { IUserInfoStateTypes, UserInfoState } from "./atoms/UserInfoAtoms";
 import { useNavigate } from "react-router-dom";
 import { onSignIn } from "../../apis/users/signIn";
-import axios from "axios";
 
 type SignUpAgreeModalContentProps = {
   policyViewHandler?: () => void;
