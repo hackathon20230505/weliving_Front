@@ -80,7 +80,6 @@ const Intro: FunctionComponent<IntroProps> = () => {
           width: "100%",
           height: "100%",
           bottom: "0px",
-          zIndex: "5",
         }}
       />
 
