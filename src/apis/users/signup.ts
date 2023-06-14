@@ -7,10 +7,8 @@ interface ISignUpTypes {
 }
 
 export const onSignup = async ({ email, password, birth }: ISignUpTypes) => {
-  const birthValue =
-    birth.toString().substring(0, 1) == "0"
-      ? "2000"
-      : "19" + birth.substring(0, 2);
+  const birthPrefix = birth.substring(0, 1) === "0" ? "20" : "19";
+  const birthValue = birthPrefix + birth.substring(0, 2);
 
   // 임시방편, back : signup.js 나중에 백에서 수정된 뒤  재작업 필요
 

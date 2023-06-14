@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { createMyMemoryCard } from "../../apis/life/memory/createMyMemoryCard";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -9,8 +10,6 @@ type WriteCardBodyProps = {};
 
 const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
   const navigate = useNavigate();
-
-  // 카드 기능
 
   const [cardInputs, setCardInputs] = useState<string[]>([""]);
 
@@ -26,12 +25,17 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
     }
   };
 
-  // 카드 기능
-
   const onClickLogInButtonHandler = () => {
     const confirmed = window.confirm("추억카드를 모두 작성하셨나요?");
     if (confirmed) {
-      navigate("/MainContentSecond");
+      createMyMemoryCard(cardInputs)
+        .then((letter_id) => {
+          console.log(letter_id);
+          navigate("/MainContentSecond");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 

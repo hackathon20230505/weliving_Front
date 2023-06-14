@@ -10,6 +10,7 @@ import { onSignup } from "../../apis/users/signup";
 import { IUserInfoStateTypes, UserInfoState } from "./atoms/UserInfoAtoms";
 import { useNavigate } from "react-router-dom";
 import { onSignIn } from "../../apis/users/signIn";
+import axios from "axios";
 
 type SignUpAgreeModalContentProps = {
   policyViewHandler?: () => void;
@@ -127,7 +128,9 @@ const SignUpAgreeModalContent: FunctionComponent<
         alert("로그인되었습니다.");
         navigate("/maincontentfirst");
       }
-    } catch (error) {}
+    } catch (error) {
+      alert("중복된 이메일이 존재합니다.");
+    }
 
     // if (!result.ok) {
     //   Promise.reject(new Error("cannot signUp"));
