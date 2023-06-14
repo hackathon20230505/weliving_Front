@@ -183,10 +183,16 @@ const YourHelp: FunctionComponent = () => {
           )}
         </YourHelpTopContainer>
         <ButtonGroupContainer>
-          <ButtonGroupButtonOutline onClick={buttonHandler} isActive={isActive}>
+          <ButtonGroupButtonOutline
+            onClick={isActive ? buttonHandler : undefined}
+            isActive={isActive}
+          >
             안 받기
           </ButtonGroupButtonOutline>
-          <ButtonGroupButtonFiiled onClick={buttonHandler} isActive={isActive}>
+          <ButtonGroupButtonFiiled
+            onClick={isActive ? buttonHandler : undefined}
+            isActive={isActive}
+          >
             연락받기
           </ButtonGroupButtonFiiled>
         </ButtonGroupContainer>
