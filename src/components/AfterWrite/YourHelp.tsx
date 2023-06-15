@@ -6,10 +6,30 @@ import { useNavigate } from "react-router-dom";
 import CheckBox from "../Common/CheckBox";
 import { sendMessage } from "../../apis/users/sendMessage";
 import { verifyMessage } from "../../apis/users/verifyMessage";
+import { useRecoilState } from "recoil";
+import { isPlayingState } from "../../components/MainContent/atoms/MusicStatus";
+import { isPlayingStateSecond } from "../../components/MainContent/atoms/MusicStatusSecond";
 
 // type YourHelpProps = {};
 
 const YourHelp: FunctionComponent = () => {
+  // 노래 재생
+
+  const [, setIsPlaying] = useRecoilState(isPlayingState);
+
+  const [, setIsPlayingSecond] = useRecoilState(isPlayingStateSecond);
+
+  const stopMusic = () => {
+    setIsPlaying(false);
+  };
+
+  const stopMusicSecond = () => {
+    setIsPlayingSecond(false);
+  };
+  //
+
+  //
+
   /** 인증번호 발송 눌렀을 때 */
   const [isSended, setIsSended] = useState<boolean>(false);
 
@@ -25,9 +45,19 @@ const YourHelp: FunctionComponent = () => {
     const number = phoneNumber.trim().replace(/[^0-9]/g, "");
 
     if (number.length < 4) return number;
-    if (number.length < 7) return number.replace(/(\d{3})(\d{1})/, "$1-$2");
-    if (number.length < 11)
-      return number.replace(/(\d{3})(\d{3})(\d{1})/, "$1-$2-$3");
+    if (number.length == 4) return number.replace(/(\d{3})(\d{1})/, "$1-$2");
+    if (number.length == 5) return number.replace(/(\d{3})(\d{2})/, "$1-$2");
+    if (number.length == 6) return number.replace(/(\d{3})(\d{3})/, "$1-$2");
+    if (number.length == 7) return number.replace(/(\d{3})(\d{4})/, "$1-$2");
+    if (number.length == 8)
+      return number.replace(/(\d{3})(\d{4})(\d{1})/, "$1-$2-$3");
+    if (number.length == 9)
+      return number.replace(/(\d{3})(\d{4})(\d{2})/, "$1-$2-$3");
+    if (number.length == 10)
+      return number.replace(/(\d{3})(\d{4})(\d{3})/, "$1-$2-$3");
+    if (number.length === 11)
+      return number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3");
+
     return number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3");
   };
 
@@ -81,7 +111,9 @@ const YourHelp: FunctionComponent = () => {
   };
 
   const buttonHandler = () => {
-    navigate("/viewmyletter");
+    stopMusic();
+    stopMusicSecond();
+    navigate("/");
   };
 
   return (
@@ -186,6 +218,7 @@ const YourHelp: FunctionComponent = () => {
                   max="999999"
                   type="number"
                   placeholder="인증번호 입력"
+                  maxLength={6}
                 />
               </YourHelpInputBox>
               {isActive ? (

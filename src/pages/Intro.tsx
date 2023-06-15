@@ -64,25 +64,27 @@ const Intro: FunctionComponent<IntroProps> = () => {
   return (
     <IntroWrapper>
       <Header />
-      <IntroBackground5
-        src="https://wliv.kr/img/intro/intro-door-light.svg"
-        style={{
-          width: "100%",
-          height: "100%",
-          bottom: "0px",
-          left: "-7px",
-          zIndex: "10",
-        }}
-      />
-      <IntroContent0
-        src="https://wliv.kr/img/intro/intro-door.svg"
-        style={{
-          width: "100%",
-          height: "100%",
-          bottom: "0px",
-        }}
-      />
-
+      <IntroBackgroundMain>
+        <IntroBackground5
+          src="https://wliv.kr/img/intro/intro-door-light.png"
+          style={{
+            width: "100%",
+            height: "100%",
+            bottom: "0px",
+            // left: "-7px",
+            zIndex: "10",
+          }}
+        />
+        <IntroContent0
+          src="https://wliv.kr/img/intro/intro-door.svg"
+          style={{
+            width: "100%",
+            height: "100%",
+            bottom: "0px",
+            zIndex: "1",
+          }}
+        />
+      </IntroBackgroundMain>
       <IntroContainer>
         <IntroContentContainer>
           <LoginBackground></LoginBackground>
@@ -107,6 +109,8 @@ const Intro: FunctionComponent<IntroProps> = () => {
 };
 
 export default Intro;
+
+const IntroBackgroundMain = styled.div``;
 
 const starKeyFrame = keyframes`
   0% { opacity: 0.7; }
@@ -162,7 +166,7 @@ const LogInSignUpContainer = styled.div`
   position: absolute;
   bottom: 34px;
   width: 100%;
-
+  z-index: 20;
   display: flex;
   flex-direction: column;
 `;
