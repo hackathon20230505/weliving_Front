@@ -26,7 +26,7 @@ const ViewMyMemoryCard: FunctionComponent<ViewMyMemoryCardProps> = () => {
 
   return (
     <>
-      <CommonContentContainer xPadding="5%" topSpacing="40px">
+      <CommonContentContainer xPadding="5%" topSpacing="28px">
         {data.map((e, i) => {
           return (
             <MemoryCardContainer key={i}>
@@ -43,10 +43,6 @@ const ViewMyMemoryCard: FunctionComponent<ViewMyMemoryCardProps> = () => {
 };
 
 export default ViewMyMemoryCard;
-
-const HeaderPadding = styled.div`
-  padding-bottom: 28px;
-`;
 
 const MemoryCardContainer = styled.div`
   width: 100%;
