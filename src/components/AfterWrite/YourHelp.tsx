@@ -84,12 +84,30 @@ const YourHelp: FunctionComponent = () => {
     const phone = phoneConverter(e.target.value);
     setPhoneInput(phone);
   };
+  const exceptThisSymbols = ["e", "E", "+", "-", "."];
 
   const onChangeVerifyInputHandler = (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    e.preventDefault();
+
     const { value } = e.target;
-    setVerifyInput(value);
+    const regex = /[^0-9]/g;
+    const trimValue = value.replaceAll(regex, "").replaceAll("-", "");
+
+    console.log(trimValue);
+
+    let numValue: number = Number(trimValue);
+
+    if (numValue > 999999) {
+      numValue = Math.floor(numValue / 10);
+    }
+
+    if (numValue < 0) {
+      numValue = -numValue;
+    }
+
+    setVerifyInput(numValue === 0 ? "" : numValue.toString());
   };
 
   const buttonHandler = () => {
@@ -194,7 +212,11 @@ const YourHelp: FunctionComponent = () => {
                 <YourHelpInput
                   onChange={onChangeVerifyInputHandler}
                   value={verifyInput}
-                  type="text"
+                  onKeyDown={(e) =>
+                    exceptThisSymbols.includes(e.key) && e.preventDefault()
+                  }
+                  max="999999"
+                  type="number"
                   placeholder="인증번호 입력"
                   maxLength={6}
                 />
@@ -218,7 +240,7 @@ const YourHelp: FunctionComponent = () => {
         <ButtonGroupContainer>
           <ButtonGroupButtonOutline
             onClick={isActive ? buttonHandler : undefined}
-            isActive={isActive}
+            isActive={true}
           >
             안 받기
           </ButtonGroupButtonOutline>
@@ -319,6 +341,15 @@ const YourHelpInputBox = styled.div`
 const YourHelpInput = styled.input`
   width: 100%;
   font-weight: 300;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;
 
 const YourHelpInputButton = styled.button`

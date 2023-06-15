@@ -4,36 +4,35 @@ import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 // import CheckBox from "../Common/CheckBox";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import { useGetUserEmail } from "../../apis/users/getUserEmail";
-import LoadingComponent from "../Common/LoadingComponent";
+import { useCheckTwd } from "../../apis/users/checktwd";
+import FailComponent from "../Common/FailComponent";
+import { changepwd } from "../../apis/users/chagepwd";
 
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
-
-  // const userInfo = {
-  //   email: "hackathon@naver.com",
-  //   password: "123456a*",
-  // };
-
   //   사용자 데이터
   const [userPassword, setUserPassword] = useState<string>("");
   const [userNewPassword, setUserNewPassword] = useState<string>("");
   const [userNewPasswordConfirm, setUserNewPasswordConfirm] =
     useState<string>("");
-  // const baseNumber = "010";
-  // const [userPhone, setUserPhone] = useState<string>("");
 
   //   데이터 유효성 검사
-  // const [isValidUserNewPassword, setIsValidUserNewPassword] =
-  //   useState<boolean>(false);
-  // const [isValidUserNewPasswordConfirm, setIsValidUserNewPasswordConfirm] =
-  //   useState<boolean>(false);
-  //   데이터 유효성 검사
-  const [, setIsValidUserNewPassword] = useState<boolean>(false);
-  const [, setIsValidUserNewPasswordConfirm] = useState<boolean>(false);
+  const [isValidUserNewPassword, setIsValidUserNewPassword] =
+    useState<boolean>(true);
+  const [isValidUserNewPasswordConfirm, setIsValidUserNewPasswordConfirm] =
+    useState<boolean>(true);
 
   // 문자 알림 동의
   // const [isAlarmAgreed, setIsAlarmAgreed] = useState<boolean>(false);
+
+  // 사용자 이메일 표시
+  const getUserEmail = useGetUserEmail();
+  // 사용자 비밀번호 확인
+  const checkTwd = useCheckTwd(userPassword);
+
+  // if (getUserEmail.isLoading || checkTwd.isLoading) return <LoadingComponent />;
+  if (getUserEmail.isError || checkTwd.isError) return <FailComponent />;
 
   const onChangeUserPasswordHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -69,6 +68,22 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     }
   };
 
+  const onClickChangePWButtonHandler = () => {
+    if (!checkTwd?.data?.result) {
+      alert("비밀번호가 유효하지 않습니다.");
+      return;
+    }
+    if (!isValidUserNewPassword) {
+      alert("새 비밀번호가 유효하지 않습니다.");
+      return;
+    }
+    if (!isValidUserNewPasswordConfirm) {
+      alert("새 비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      return;
+    }
+
+    changepwd(userNewPassword);
+  };
   // const onChangeUserPhoneHandler = (
   //   event: React.ChangeEvent<HTMLInputElement>,
   // ) => {
@@ -96,54 +111,80 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
 
   // const onClickNextButtonHandler = () => {};
 
-  const { data, isLoading } = useGetUserEmail();
-
-  if (isLoading) return <LoadingComponent />;
-
   return (
-    <CommonContentContainer xPadding="5%">
-      <PaddingTop></PaddingTop>
+    <CommonContentContainer topSpacing="40px" xPadding="5%">
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userEmail">이메일</SignUpLabel>
-        <SignUpInput
-          id="userEmail"
-          type="text"
-          placeholder="예) example@wliv.kr"
-          value={data}
-          readOnly
-        />
+        <SignUpInputContainer isValid={true}>
+          <SignUpInput
+            id="userEmail"
+            type="text"
+            placeholder="예) example@wliv.kr"
+            value={getUserEmail.data?.result.email || ""}
+            readOnly
+          />
+        </SignUpInputContainer>
       </SignUpLabelInputContainer>
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userPassword">현재 비밀번호</SignUpLabel>
-        <SignUpInput
-          id="userPassword"
-          type="password"
-          placeholder="현재 비밀번호 입력"
-          value={userPassword}
-          onChange={onChangeUserPasswordHandler}
-        />
-        <ChangeButton>{userPassword === "" ? "변경" : "저장"}</ChangeButton>
+        <SignUpInputContainer
+          isValid={userPassword.length > 0 ? checkTwd?.data?.result : true}
+        >
+          <SignUpInput
+            id="userPassword"
+            type="password"
+            placeholder="현재 비밀번호 입력"
+            value={userPassword}
+            onChange={onChangeUserPasswordHandler}
+          />
+          <ChangeButton onClick={onClickChangePWButtonHandler}>
+            {userPassword === "" ? "변경" : "저장"}
+          </ChangeButton>
+        </SignUpInputContainer>
+        {userPassword.length > 0 && !checkTwd?.data?.result && (
+          <NotValidText>비밀번호가 옳바르지 않습니다.</NotValidText>
+        )}
       </SignUpLabelInputContainer>
+
       <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userNewPassword">
           새로운 비밀번호 입력
         </SignUpLabel>
-        <SignUpInput
-          id="userNewPassword"
-          type="password"
-          placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
-          value={userNewPassword}
-          onChange={onChangeUserNewPasswordHandler}
-        />
+        <SignUpInputContainer
+          isValid={userNewPassword.length > 0 ? isValidUserNewPassword : true}
+        >
+          <SignUpInput
+            id="userNewPassword"
+            type="password"
+            placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
+            value={userNewPassword}
+            onChange={onChangeUserNewPasswordHandler}
+          />
+        </SignUpInputContainer>
+        {userNewPassword.length > 0 && !isValidUserNewPassword && (
+          <NotValidText>새 비밀번호가 유효하지 않습니다.</NotValidText>
+        )}
       </SignUpLabelInputContainer>
       <SignUpLabelInputContainer>
-        <SignUpInput
-          type="password"
-          placeholder="새로운 비밀번호 재입력"
-          value={userNewPasswordConfirm}
-          onChange={onChangeUserNewPasswordConfirmHandler}
-          className="customMargin"
-        />
+        <SignUpInputContainer
+          isValid={
+            userNewPasswordConfirm.length > 0
+              ? isValidUserNewPasswordConfirm
+              : true
+          }
+        >
+          <SignUpInput
+            type="password"
+            placeholder="새로운 비밀번호 재입력"
+            value={userNewPasswordConfirm}
+            onChange={onChangeUserNewPasswordConfirmHandler}
+          />
+        </SignUpInputContainer>
+        {userNewPasswordConfirm.length > 0 && !isValidUserNewPassword && (
+          <NotValidText>
+            비밀번호와 비밀번호 확인이 일치하지 않습니다.
+          </NotValidText>
+        )}
       </SignUpLabelInputContainer>
       {/* <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userPhone">전화번호</SignUpLabel>
@@ -176,10 +217,6 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
 
 export default ChangeUserInfoBody;
 
-const PaddingTop = styled.div`
-  padding-top: 40px;
-`;
-
 const SignUpLabelInputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -199,10 +236,23 @@ const SignUpLabel = styled.label`
   }
 `;
 
+interface ISignUpInputTypes {
+  isValid: boolean;
+}
+
+const SignUpInputContainer = styled.div<ISignUpInputTypes>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: ${({ isValid }) =>
+    isValid ? "1px solid var(--strong-purple-800)" : "1px solid red"};
+`;
+
 const SignUpInput = styled.input`
   padding: 15px 12px 16px 12px;
 
-  border-bottom: 1px solid var(--strong-purple-800);
+  width: 100%;
   border-radius: 0;
   font-size: 14px;
 
@@ -213,14 +263,21 @@ const SignUpInput = styled.input`
 `;
 
 const ChangeButton = styled.button`
-  position: absolute;
-  right: 0;
-  bottom: 10px;
+  position: relative;
   font-size: 14px;
+  min-width: 49px;
   width: 49px;
   height: 32px;
   border: 1px solid var(--white);
   border-radius: 200px;
+`;
+
+const NotValidText = styled.p`
+  margin-top: 6px;
+
+  font-weight: 400;
+  font-size: 12px;
+  color: #f31919;
 `;
 
 // interface INextButtonTypes {
