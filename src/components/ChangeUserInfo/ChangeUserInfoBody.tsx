@@ -69,6 +69,14 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   };
 
   const onClickChangePWButtonHandler = () => {
+    if (userNewPassword === "") {
+      alert("새로운 비밀번호를 입력해주세요");
+      return;
+    }
+    if (userNewPasswordConfirm === "") {
+      alert("비밀번호 확인을 입력해주세요");
+      return;
+    }
     if (!checkTwd?.data?.result) {
       alert("비밀번호가 유효하지 않습니다.");
       return;
@@ -83,6 +91,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     }
 
     changepwd(userNewPassword);
+    alert("비밀번호가 변경되었습니다.");
   };
   // const onChangeUserPhoneHandler = (
   //   event: React.ChangeEvent<HTMLInputElement>,
