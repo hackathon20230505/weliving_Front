@@ -17,15 +17,11 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       />
       <IntroBackground3
         src="https://wliv.kr/img/intro/intro-background-0-3.svg"
-        style={{ top: "390px", right: "-300px", opacity: "100%" }}
+        style={{ top: "390px", right: "-370px", opacity: "100%" }}
       />
       <IntroBackground4
         src="https://wliv.kr/img/intro/intro-background-0-4.svg"
         style={{ top: "-100px", left: "0px", opacity: "90%" }}
-      />
-      <IntroBackground5
-        src="https://wliv.kr/img/intro/intro-background-0-5.svg"
-        style={{ top: "-75px", left: "10%", zIndex: "3" }}
       />
 
       {/* 별 시작 */}
@@ -72,17 +68,4 @@ const IntroBackground3 = styled.img`
 
 const IntroBackground4 = styled.img`
   position: absolute;
-`;
-
-const starKeyFrame = keyframes`
-  0% { opacity: 0.7; }
-  50% { opacity: 0.4; }
-  100% { opacity: 0.7; }
-`;
-
-const IntroBackground5 = styled.img`
-  position: absolute;
-  animation: ${starKeyFrame} 3s ease-in-out infinite;
-  display: flex;
-  justify-content: space-around;
 `;

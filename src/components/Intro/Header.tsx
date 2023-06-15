@@ -8,7 +8,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
     <CommonHeaderContainer height="56px" xMargin="5%">
       <HeaderImg
         src="https://wliv.kr/img/well-dying-typography.svg"
-        alt="well dying"
+        alt="well living"
       />
     </CommonHeaderContainer>
   );

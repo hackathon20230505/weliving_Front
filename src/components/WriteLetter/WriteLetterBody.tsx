@@ -3,7 +3,6 @@ import styled from "styled-components";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import ResizeableBottomSheet from "../Common/ResizableBottomSheet";
 import ResizableBottomSheetHeader from "../Common/ResizableBottomSheetHeader";
-import BottomSheetTitle from "../Common/BottomSheetTitle";
 import ResizableBottomSheetContent from "../Common/ResizableBottomSheetContent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -23,19 +22,18 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
   const [isShowTerm, setIsShowTerm] = useState<boolean>(false);
   const [isFullSizeTerm, setIsFullSizeTerm] = useState<boolean>(true);
 
-  const [isDisplayContent, setIsDisplayContent] = useState<boolean>(true);
+  const [isDisplayContent] = useState<boolean>(true);
 
   const [, setIsValidPost] = useRecoilState(isValidPostState);
 
   const [myLetterPost, setMyLetterPost] = useRecoilState(myLetterState);
 
   const backgroundClickHandler = () => {
-    // setIsShow(false);
-    setIsDisplayContent((s) => !s);
+    setIsShow(false);
   };
 
   const closeHandler = () => {
-    setIsDisplayContent((s) => !s);
+    setIsShow(false);
   };
 
   const closeHandlerTerm = () => {
@@ -75,6 +73,26 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
 
   return (
     <>
+      {/*  */}
+      <ContentBottomSheetModified>
+        <ResizableBottomSheetHeaderModified
+          onClick={() => {
+            setIsShow(true);
+          }}
+        >
+          <BottomSheetTitleModified>작성 도움말</BottomSheetTitleModified>
+          <img
+            src="https://wliv.kr/img/arrow-bottom-icon.svg"
+            alt="Modified flipped arrow down icon"
+            style={{
+              transform: "rotate(180deg)",
+            }}
+          />
+        </ResizableBottomSheetHeaderModified>
+      </ContentBottomSheetModified>
+
+      {/*  */}
+
       <CommonContentContainer xPadding="5%">
         <WriteLetterTitleInput
           placeholder="제목"
@@ -95,7 +113,11 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
                 setIsShowTerm(true);
               }}
             >
-              이용규칙 전체보기
+              이용규칙 전체보기{" "}
+              <img
+                src="https://wliv.kr/img/letter-right-icon.svg"
+                alt="뒤집힌 화살표 아래 방향 아이콘"
+              />
             </ViewRulesOfUseButton>
           </ViewRulesOfUseGroupContainer>
           <RulesOfUseGroupDescription>
@@ -122,19 +144,31 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
               <img
                 src="https://wliv.kr/img/arrow-bottom-icon.svg"
                 alt="화살표 아래 방향 아이콘"
+                style={{
+                  width: "12px",
+                  height: "6px",
+                }}
               />
             ) : (
               <img
                 src="https://wliv.kr/img/arrow-bottom-icon.svg"
                 alt="뒤집힌 화살표 아래 방향 아이콘"
                 style={{
+                  width: "12px",
+                  height: "6px",
                   transform: "rotate(180deg)",
                 }}
               />
             )
           }
         >
-          <BottomSheetTitle>작성 도움말</BottomSheetTitle>
+          <BottomSheetTitle
+            onClick={() => {
+              setIsShow(false);
+            }}
+          >
+            작성 도움말
+          </BottomSheetTitle>
         </ResizableBottomSheetHeader>
         <ResizableBottomSheetContent>
           <BottomSheetContentWrapper isDisplayContent={isDisplayContent}>
@@ -172,7 +206,13 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
           closable={true}
           closeHandler={closeHandlerTerm}
         >
-          <BottomSheetTitle>이용 규칙</BottomSheetTitle>
+          <BottomSheetTitle
+            onClick={() => {
+              setIsShowTerm(false);
+            }}
+          >
+            이용 규칙
+          </BottomSheetTitle>
         </ResizableBottomSheetHeader>
         <ResizableBottomSheetContent borderRadius="1rem">
           <TextWrapper>
@@ -204,7 +244,8 @@ const WriteLetterTitleInput = styled.input`
 `;
 
 const WriteLetterConteintInput = styled.textarea`
-  height: calc(60vh - 330px);
+  height: calc(60vh - 130px);
+  resize: vertical;
 
   &::placeholder {
     color: #867388;
@@ -219,11 +260,23 @@ const ViewRulesOfUseGroupContainer = styled.div`
 `;
 
 const ViewRulesOfUseButton = styled.button`
-  width: 120px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  img {
+    width: 10px;
+    height: 8px;
+    padding-left: 4px;
+  }
+
+  width: 108px;
   height: 24px;
 
   font-weight: 700;
-  font-size: 12px;
+  font-size: 10px;
   color: #999999;
 
   background-color: #352638;
@@ -233,8 +286,9 @@ const ViewRulesOfUseButton = styled.button`
 `;
 
 const RulesOfUseGroupDescription = styled.p`
-  font-weight: 700;
+  font-weight: 400;
   font-size: 12px;
+  line-height: 150%;
   color: #999999;
 `;
 
@@ -278,4 +332,36 @@ const SwiperWrapper = styled(Swiper)`
 
 const TextWrapper = styled.div`
   background-color: white;
+`;
+
+const ContentBottomSheetModified = styled.div`
+  bottom: 0px;
+  position: absolute;
+  border-radius: 24px 24px 0px 0px;
+  background-color: #352638;
+  padding: 21px 20px 5px;
+  width: 100%;
+`;
+
+const ResizableBottomSheetHeaderModified = styled.div`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 1rem;
+
+  img {
+    width: 12px;
+    height: 6px;
+  }
+`;
+
+const BottomSheetTitleModified = styled.h1`
+  font-size: 12px;
+  padding-right: 5px;
+`;
+
+const BottomSheetTitle = styled.span`
+  font-size: 12px;
+  margin-right: 5px;
 `;

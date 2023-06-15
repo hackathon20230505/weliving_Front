@@ -45,8 +45,17 @@ const Intro: FunctionComponent<IntroProps> = () => {
     });
     // 쿠키 저장
     const kakaoApiKey = import.meta.env.VITE_KAKAO_CLIENT_ID;
-    const baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
-    const redirectUri = `${baseUrl}/kakaosignup`;
+
+    let baseUrl: string;
+
+    if (window.location.href.includes("localhost")) {
+      baseUrl = "http://localhost:5173";
+    } else {
+      baseUrl = import.meta.env.VITE_FRONTEND_BASE_URL;
+    }
+
+    const redirectUri = `${baseUrl}/kakaosignin`;
+
     const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoApiKey}&redirect_uri=${redirectUri}&response_type=code&scope=account_email`;
 
     window.location.href = kakaoUrl;
@@ -55,15 +64,25 @@ const Intro: FunctionComponent<IntroProps> = () => {
   return (
     <IntroWrapper>
       <Header />
+      <IntroBackground5
+        src="https://wliv.kr/img/intro/intro-door-light.svg"
+        style={{
+          width: "100%",
+          height: "100%",
+          bottom: "0px",
+          left: "-7px",
+          zIndex: "10",
+        }}
+      />
       <IntroContent0
         src="https://wliv.kr/img/intro/intro-door.svg"
         style={{
           width: "100%",
           height: "100%",
           bottom: "0px",
-          marginTop: "-56px",
         }}
       />
+
       <IntroContainer>
         <IntroContentContainer>
           <LoginBackground></LoginBackground>
@@ -89,6 +108,20 @@ const Intro: FunctionComponent<IntroProps> = () => {
 
 export default Intro;
 
+const starKeyFrame = keyframes`
+  0% { opacity: 0.7; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.7; }
+`;
+
+const IntroBackground5 = styled.img`
+  position: absolute;
+  animation: ${starKeyFrame} 2s ease-in-out infinite;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+`;
+
 const moonKeyFrame = keyframes`
   0% { opacity: 0; }
   50% { opacity: 0.5; }
@@ -96,7 +129,11 @@ const moonKeyFrame = keyframes`
 `;
 
 const IntroContent0 = styled.img`
-  animation: ${moonKeyFrame} 1s ease-in;
+  position: absolute;
+  animation: ${moonKeyFrame} 2s ease-in;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
 `;
 
 const IntroWrapper = styled.main`
@@ -123,7 +160,7 @@ const IntroMainContent = styled.p``;
 const LogInSignUpContainer = styled.div`
   padding: 0 20px;
   position: absolute;
-  bottom: 10px;
+  bottom: 34px;
   width: 100%;
 
   display: flex;

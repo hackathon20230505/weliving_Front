@@ -127,7 +127,9 @@ const SignUpAgreeModalContent: FunctionComponent<
         alert("로그인되었습니다.");
         navigate("/maincontentfirst");
       }
-    } catch (error) {}
+    } catch (error) {
+      alert("중복된 이메일이 존재합니다.");
+    }
 
     // if (!result.ok) {
     //   Promise.reject(new Error("cannot signUp"));
@@ -148,7 +150,7 @@ const SignUpAgreeModalContent: FunctionComponent<
             <IsCheckedContainer onClick={onClickIsAllCheckedHandler}>
               <CheckBox isChecked={isChecked.isAllChecked} />
             </IsCheckedContainer>
-            <SignUpAgreeCheckText>네, 모두 동의합니다.</SignUpAgreeCheckText>
+            <SignUpAgreeCheckText>모두 동의합니다.</SignUpAgreeCheckText>
           </CheckBoxGroupContainer>
         </SignUpAgreeCheckGroupContainer>
 
@@ -201,14 +203,14 @@ export default SignUpAgreeModalContent;
 const SignUpAgreeModalContentContainer = styled.div``;
 
 const SignUpAgreeModalContentTitle = styled.p`
-  margin: 20px 0;
+  margin: 5px 0px 24px;
 
   font-weight: 700;
   font-size: 18px;
 `;
 
 const SignUpAgreeCheckGroupContainer = styled.div`
-  margin: 24px 0;
+  margin: 10px 0;
 
   display: flex;
   justify-content: space-between;
@@ -220,6 +222,7 @@ const CheckBoxGroupContainer = styled.div`
 
 const SignUpAgreeCheckText = styled.span`
   margin-left: 8px;
+  padding-top: 2px;
 
   font-weight: 400;
   font-size: 14px;
@@ -230,6 +233,7 @@ const SignUpAgreeViewText = styled.span`
   font-weight: 700;
   font-size: 12px;
   color: #999;
+  padding-top: 3px;
 
   &:hover {
     cursor: pointer;
@@ -239,7 +243,7 @@ const SignUpAgreeViewText = styled.span`
 const SignUpAgreeButton = styled.button`
   width: 100%;
   height: 56px;
-
+  margin-top: 20px;
   margin-bottom: 12px;
 
   background-color: var(--main-color);
@@ -251,6 +255,7 @@ const SignUpAgreeButton = styled.button`
 const HorizonDivider = styled.hr`
   color: var(--dark-pink-700);
   border: 1px solid var(--dark-pink-700);
+  margin: 19px 0px 24px;
 `;
 
 const IsCheckedContainer = styled.div``;

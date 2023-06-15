@@ -10,6 +10,8 @@ import {
 import TermsOfServiceModalComponent from "../SignUp/TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "../SignUp/PrivacyPolicyModalComponent";
 import CommonContentContainer from "../Common/CommonContentContainer";
+// import { onSignup } from "../../apis/users/signup";
+// import { onSignIn } from "../../apis/users/signIn";
 
 type KakaoSignUpBodyProps = {};
 
@@ -205,7 +207,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
             isChecked.isTermsAndConditionsChecked
           )
         }
-        // onClick={onClickNextButtonHandler}
+        // onClick={}
       >
         로그인 하기
       </NextButton>

@@ -69,7 +69,7 @@ const HomeLetterViewGroupContainer = styled.div`
 `;
 
 const HomeLetterViewButton = styled.button`
-  width: 169px;
+  width: calc(100% / 2 - 6px);
   height: 169px;
 
   background-color: var(--dark-pink-800);

@@ -63,7 +63,7 @@ const YourHelp: FunctionComponent = () => {
   };
 
   const buttonHandler = () => {
-    navigate("/");
+    navigate("/viewmyletter");
   };
 
   return (
@@ -183,10 +183,16 @@ const YourHelp: FunctionComponent = () => {
           )}
         </YourHelpTopContainer>
         <ButtonGroupContainer>
-          <ButtonGroupButtonOutline onClick={buttonHandler} isActive={isActive}>
+          <ButtonGroupButtonOutline
+            onClick={isActive ? buttonHandler : undefined}
+            isActive={isActive}
+          >
             안 받기
           </ButtonGroupButtonOutline>
-          <ButtonGroupButtonFiiled onClick={buttonHandler} isActive={isActive}>
+          <ButtonGroupButtonFiiled
+            onClick={isActive ? buttonHandler : undefined}
+            isActive={isActive}
+          >
             연락받기
           </ButtonGroupButtonFiiled>
         </ButtonGroupContainer>
@@ -273,6 +279,8 @@ const YourHelpInputBox = styled.div`
   justify-content: space-between;
   border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
+  background-color: #160118;
+  z-index: 5;
 `;
 
 const YourHelpInput = styled.input`
@@ -289,6 +297,7 @@ const YourHelpInputButton = styled.button`
   border-bottom-right-radius: 0.3rem;
   min-width: 30%;
   font-weight: 500;
+  z-index: 5;
 `;
 
 const YourHelpInputButtonFinish = styled.button`

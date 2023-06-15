@@ -65,8 +65,7 @@ const BottomSheetBackCurtain = styled.div<IsShowProps>`
   position: fixed;
   width: 100vw;
   height: 100%;
-  pointer-events: none;
-  // background-color: rgba(17, 17, 17, 80%);
+  background-color: rgba(17, 17, 17, 80%);
   display: ${({ isShow }) => (isShow ? "block" : "none")};
   z-index: 2;
 `;
@@ -86,7 +85,7 @@ const BottomSheetContentWrapper = styled.div<BottomSheetContentWrapperProps>`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: #352638;
-  padding: 20px 20px 4px;
+  padding: 20px;
   max-height: ${({ isFullSize, manualMaxHeight, manualFullSizeHeight }) =>
     isFullSize ? manualFullSizeHeight || "100%" : manualMaxHeight || "100%"};
   display: flex;

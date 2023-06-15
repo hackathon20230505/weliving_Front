@@ -6,6 +6,7 @@ interface ISignInTypes {
 }
 
 export const onSignIn = async ({ username, password }: ISignInTypes) => {
+  // eslint-disable-next-line no-useless-catch
   try {
     const { data } = await axios.post(`/api/users/signin/`, {
       email: username,

@@ -9,6 +9,7 @@ import LoadingComponent from "../Common/LoadingComponent";
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
+
   // const userInfo = {
   //   email: "hackathon@naver.com",
   //   password: "123456a*",
