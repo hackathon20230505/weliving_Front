@@ -1,5 +1,5 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { onSignIn } from "../../apis/users/signIn";
 import axios, { AxiosError } from "axios";
@@ -168,8 +168,8 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         </LogInButton>
       </form>
       <FindPWContainer>
-        <FindPWDescription>비밀번호를 잊으셨나요?</FindPWDescription>
-        <Link to="/findpw/1">비밀번호 찾기 {">"}</Link>
+        {/* <FindPWDescription>비밀번호를 잊으셨나요?</FindPWDescription> */}
+        {/* <Link to="/findpw/1">비밀번호 찾기 {">"}</Link> */}
       </FindPWContainer>
     </CommonContentContainer>
   );
@@ -244,11 +244,11 @@ const FindPWContainer = styled.div`
   }
 `;
 
-const FindPWDescription = styled.span`
-  font-size: 14px;
-  font-weight: 400;
-  color: #999999;
-`;
+// const FindPWDescription = styled.span`
+//   font-size: 14px;
+//   font-weight: 400;
+//   color: #999999;
+// `;
 
 const NotValidText = styled.p`
   margin-top: 6px;

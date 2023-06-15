@@ -1,4 +1,6 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
+import { useRecoilState } from "recoil";
+import { isPlayingStateSecond } from "../components/MainContent/atoms/MusicStatusSecond";
 import styled, { keyframes } from "styled-components";
 import MainContentSecondWordFirst from "../components/MainContent/MainContentSecondWordFirst";
 import MainContentSecondWordSecond from "../components/MainContent/MainContentSecondWordSecond";
@@ -7,39 +9,17 @@ import BackgroundSecond from "../components/MainContent/BackgroundSecond";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
 
-// type MainContentFirstProps = {};
-
 const MainContentFirst: FunctionComponent = () => {
   const [sectionStep, setSectionStep] = useState(0);
+  const [isPlayingSecond, setIsPlaying] = useRecoilState(isPlayingStateSecond);
 
   const incrementSectionStep = () => {
     setSectionStep((prevStep) => prevStep + 1);
   };
 
-  // 배경음악 출력
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [audioElement] = useState(() => {
-    const audio = new Audio("https://wliv.kr/img/music/Meditative.mp3");
-    audio.loop = true; // 오디오를 무한 재생하도록 설정
-    return audio;
-  });
-
-  useEffect(() => {
-    if (isPlaying) {
-      audioElement.play();
-    } else {
-      audioElement.pause();
-    }
-    return () => {
-      audioElement.pause();
-    };
-  }, [audioElement, isPlaying]);
-
   const toggleMusic = () => {
-    setIsPlaying(!isPlaying);
+    setIsPlaying(!isPlayingSecond);
   };
-
   return (
     <PageContainer>
       <CommonContentContainer
@@ -61,10 +41,10 @@ const MainContentFirst: FunctionComponent = () => {
                   opacity: sectionStep === 1 ? 1 : 1,
                   transition: "opacity 800ms, visibility 800ms",
                 }}
-                className={isPlaying ? "" : "BackgroundMusicCancel"}
+                className={isPlayingSecond ? "" : "BackgroundMusicCancel"}
                 onClick={toggleMusic}
               >
-                {isPlaying === false && (
+                {isPlayingSecond === false && (
                   <BackgroundMusicCancel></BackgroundMusicCancel>
                 )}
 
@@ -169,7 +149,14 @@ const BackgroundMusicText = styled.div`
   }
 `;
 
-const BackgroundMusicCancel = styled.div``;
+const BackgroundMusicCancel = styled.div`
+  width: 72px;
+  height: 1px;
+  left: 17px;
+  background-color: #cbcbcb;
+  position: absolute;
+  z-index: 3;
+`;
 
 const moonKeyFrame = keyframes`
   0% { opacity: 0; }

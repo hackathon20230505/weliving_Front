@@ -6,9 +6,33 @@ import { createMyMemoryCard } from "../../apis/life/memory/createMyMemoryCard";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import { useRecoilState } from "recoil";
+import { isPlayingState } from "../../components/MainContent/atoms/MusicStatus";
+import { isPlayingStateSecond } from "../../components/MainContent/atoms/MusicStatusSecond";
+
 type WriteCardBodyProps = {};
 
 const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
+  //
+
+  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
+
+  const toggleMusic = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const [isPlayingSecond, setIsPlayingSecond] =
+    useRecoilState(isPlayingStateSecond);
+
+  const toggleMusicSecond = () => {
+    setIsPlayingSecond(!isPlayingSecond);
+  };
+
+  const stopMusic = () => {
+    setIsPlaying(false);
+  };
+  //
+
   const navigate = useNavigate();
 
   const [cardInputs, setCardInputs] = useState<string[]>([""]);
@@ -28,6 +52,8 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
   const onClickLogInButtonHandler = () => {
     const confirmed = window.confirm("추억카드를 모두 작성하셨나요?");
     if (confirmed) {
+      stopMusic();
+      toggleMusicSecond();
       createMyMemoryCard(cardInputs)
         .then((letter_id) => {
           console.log(letter_id);
@@ -42,6 +68,22 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
   return (
     <>
       <PaddingHeader></PaddingHeader>
+
+      {/*  */}
+      <BackgroundMusic
+        style={{
+          transition: "opacity 800ms, visibility 800ms",
+        }}
+        className={isPlaying ? "" : "BackgroundMusicCancel"}
+        onClick={toggleMusic}
+      >
+        {isPlaying === false && <BackgroundMusicCancel></BackgroundMusicCancel>}
+
+        <BackgroundMusicIcon></BackgroundMusicIcon>
+        <BackgroundMusicText>배경 bgm</BackgroundMusicText>
+      </BackgroundMusic>
+
+      {/*  */}
       <CommonContentContainer
         xPadding="5%"
         h={"calc(100% - 56px)"}
@@ -179,3 +221,49 @@ const MemoriesText = styled.div`
 `;
 
 const CardSubHeaderContainer = styled.main``;
+
+// 노래
+
+const BackgroundMusic = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  width: 105px;
+  height: 32px;
+  background-color: #352638;
+  // display: inline-block;
+  border-radius: 200px;
+  cursor: pointer;
+  z-index: 1;
+`;
+
+const BackgroundMusicIcon = styled.div`
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 12px;
+  background: url(https://wliv.kr/img/onbording/icon-music.svg) no-repeat center
+    center;
+`;
+
+const BackgroundMusicText = styled.div`
+  font-size: 12px;
+  position: absolute;
+  top: 9px;
+  left: 38px;
+  color: #cbcbcb;
+  ::before {
+  }
+`;
+
+const BackgroundMusicCancel = styled.div`
+  width: 72px;
+  height: 1px;
+  left: 17px;
+  background-color: #cbcbcb;
+  position: absolute;
+  z-index: 3;
+`;

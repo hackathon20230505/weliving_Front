@@ -5,6 +5,8 @@ import BackgroundStar from "../components/MainContent/BackgroundFirst";
 import Typewriter from "react-ts-typewriter";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
+import { useRecoilState } from "recoil";
+import { isPlayingState } from "../components/MainContent/atoms/MusicStatus";
 
 type MainContentFirstProps = {};
 
@@ -15,23 +17,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
 
   // 배경음악 출력
 
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [audioElement] = useState(() => {
-    const audio = new Audio("https://wliv.kr/img/music/lofi.mp3");
-    audio.loop = true; // 오디오를 무한 재생하도록 설정
-    return audio;
-  });
-
-  useEffect(() => {
-    if (isPlaying) {
-      audioElement.play();
-    } else {
-      audioElement.pause();
-    }
-    return () => {
-      audioElement.pause();
-    };
-  }, [audioElement, isPlaying]);
+  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
 
   const toggleMusic = () => {
     setIsPlaying(!isPlaying);

@@ -46,7 +46,7 @@ const LetterHeader = ({
 
   const [toastList, setToastList] = useState<{ id: number }[]>([]);
   const copyURL = () => {
-    navigator.clipboard.writeText("https://wliv.kr/signIn").then(() => {
+    navigator.clipboard.writeText("https://wliv.kr/").then(() => {
       const id = Math.floor(Math.random() * 100000);
       setToastList((prev) => [...prev, { id }]);
 

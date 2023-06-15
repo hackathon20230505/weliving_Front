@@ -55,38 +55,49 @@ const Settings: FunctionComponent<SettingsProps> = () => {
 
   return (
     <>
-        <PageContainer>
-      <CommonContentContainer xPadding="5%"><br></br>
-      <LogInButton onClick={onClickLogInButtonHandler}>
-        온보딩 쿠키 초기화
-      </LogInButton>
+      <PageContainer>
+        <CommonContentContainer xPadding="5%">
+          <br></br>
+          <LogInButton onClick={onClickLogInButtonHandler}>
+            온보딩 쿠키 초기화
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton}>온보딩 페이지 이동</LogInButton>
+          <LogInButton onClick={onClickLogInButton}>
+            온보딩 페이지 이동
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton1}>
-        인트로 페이지 이동
-      </LogInButton>
+          <LogInButton onClick={onClickLogInButton1}>
+            인트로 페이지 이동
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton2}>첫 메인컨텐츠</LogInButton>
-      <LogInButton onClick={onClickLogInButton3}>두번째 메인컨텐츠</LogInButton>
+          <LogInButton onClick={onClickLogInButton2}>첫 메인컨텐츠</LogInButton>
+          <LogInButton onClick={onClickLogInButton3}>
+            두번째 메인컨텐츠
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton4}>카드 작성</LogInButton>
+          <LogInButton onClick={onClickLogInButton4}>카드 작성</LogInButton>
 
-      <LogInButton onClick={onClickLogInButton5}>
-        마음챙김 글쓰기 작성
-      </LogInButton>
+          <LogInButton onClick={onClickLogInButton5}>
+            마음챙김 글쓰기 작성
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton6}>글쓰기 결과(GPT)</LogInButton>
+          <LogInButton onClick={onClickLogInButton6}>
+            글쓰기 결과(GPT)
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton7}>글 리스트 보기</LogInButton>
+          <LogInButton onClick={onClickLogInButton7}>
+            글 리스트 보기
+          </LogInButton>
 
-      <LogInButton onClick={onClickLogInButton8}>내글보기</LogInButton>
+          <LogInButton onClick={onClickLogInButton8}>내글보기</LogInButton>
 
-      <LogInButton onClick={onClickLogInButton9}>회원가입</LogInButton>
+          <LogInButton onClick={onClickLogInButton9}>회원가입</LogInButton>
 
-      <LogInButton onClick={onClickLogInButton10}>개인정보 변경</LogInButton>
-      </CommonContentContainer>
-    </PageContainer>
+          <LogInButton onClick={onClickLogInButton10}>
+            개인정보 변경
+          </LogInButton>
+        </CommonContentContainer>
+      </PageContainer>
     </>
   );
 };
