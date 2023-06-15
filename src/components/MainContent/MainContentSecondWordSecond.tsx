@@ -25,7 +25,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
     if (isModalClick) {
       const timeout0 = setTimeout(() => {
         setCurrentStep(1);
-      }, 4000);
+      }, 3000);
 
       setTimeout(() => {
         setIsModalClickSecond(1);
@@ -41,7 +41,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
       const timeout2 = setTimeout(() => {
         setCurrentStep(2);
         setIsModalClickSecond(1);
-      }, 3500);
+      }, 2500);
 
       return () => clearTimeout(timeout2);
     }

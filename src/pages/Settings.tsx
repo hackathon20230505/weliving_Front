@@ -4,10 +4,22 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { isPlayingState } from "../components/MainContent/atoms/MusicStatus";
+import { isPlayingStateSecond } from "../components/MainContent/atoms/MusicStatusSecond";
 
 type SettingsProps = {};
 
 const Settings: FunctionComponent<SettingsProps> = () => {
+  const [, setIsPlaying] = useRecoilState(isPlayingState);
+  const [, setIsPlayingSecond] = useRecoilState(isPlayingStateSecond);
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setIsPlayingSecond(false);
+  }, []);
+
   const navigate = useNavigate();
   const [, setCookie] = useCookies();
   const onClickLogInButtonHandler = () => {

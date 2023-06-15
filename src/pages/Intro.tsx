@@ -4,9 +4,24 @@ import styled, { keyframes } from "styled-components";
 import Header from "../components/Intro/Header";
 import LoginBackground from "../components/Intro/IntroBackground";
 import { useCookies } from "react-cookie";
+import { useRecoilState } from "recoil";
+import { isPlayingState } from "../components/MainContent/atoms/MusicStatus";
+import { isPlayingStateSecond } from "../components/MainContent/atoms/MusicStatusSecond";
 type IntroProps = {};
 
 const Intro: FunctionComponent<IntroProps> = () => {
+  //
+
+  const [, setIsPlaying] = useRecoilState(isPlayingState);
+  const [, setIsPlayingSecond] = useRecoilState(isPlayingStateSecond);
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setIsPlayingSecond(false);
+  }, []);
+
+  //
+
   const navigate = useNavigate();
   const [, setCookie] = useCookies();
   const [cookies, ,] = useCookies(["skip_onboarding"]);

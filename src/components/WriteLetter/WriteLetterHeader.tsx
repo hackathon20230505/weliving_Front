@@ -6,6 +6,7 @@ import { isValidPostState } from "./atoms/isValidPostAtom";
 import CommonHeaderContainer from "../Common/CommonHeaderContainer";
 import { createMyLetter } from "../../apis/life/letter/createMyLetter";
 import { myLetterState } from "./atoms/myLetterAtoms";
+import { isPlayingState } from "../../components/MainContent/atoms/MusicStatus";
 import { isPlayingStateSecond } from "../../components/MainContent/atoms/MusicStatusSecond";
 
 type WriteLetterHeaderProps = {};
@@ -15,9 +16,11 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
 
   const [isPlayingSecond, setIsPlayingSecond] =
     useRecoilState(isPlayingStateSecond);
+  const [, setIsPlaying] = useRecoilState(isPlayingState);
 
   const toggleMusicSecond = () => {
     setIsPlayingSecond(!isPlayingSecond);
+    setIsPlaying(false);
   };
 
   //

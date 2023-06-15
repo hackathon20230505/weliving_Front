@@ -1,5 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import { useRecoilState } from "recoil";
+import { isPlayingState } from "../components/MainContent/atoms/MusicStatus";
 import { isPlayingStateSecond } from "../components/MainContent/atoms/MusicStatusSecond";
 import styled, { keyframes } from "styled-components";
 import MainContentSecondWordFirst from "../components/MainContent/MainContentSecondWordFirst";
@@ -11,15 +12,20 @@ import CommonContentContainer from "../components/Common/CommonContentContainer"
 
 const MainContentFirst: FunctionComponent = () => {
   const [sectionStep, setSectionStep] = useState(0);
-  const [isPlayingSecond, setIsPlaying] = useRecoilState(isPlayingStateSecond);
 
   const incrementSectionStep = () => {
     setSectionStep((prevStep) => prevStep + 1);
   };
+  const [, setIsPlaying] = useRecoilState(isPlayingState);
 
-  const toggleMusic = () => {
-    setIsPlaying(!isPlayingSecond);
+  const [isPlayingSecond, setIsPlayingSecond] =
+    useRecoilState(isPlayingStateSecond);
+
+  const toggleMusicSecond = () => {
+    setIsPlayingSecond(!isPlayingSecond);
+    setIsPlaying(false);
   };
+
   return (
     <PageContainer>
       <CommonContentContainer
@@ -42,7 +48,7 @@ const MainContentFirst: FunctionComponent = () => {
                   transition: "opacity 800ms, visibility 800ms",
                 }}
                 className={isPlayingSecond ? "" : "BackgroundMusicCancel"}
-                onClick={toggleMusic}
+                onClick={toggleMusicSecond}
               >
                 {isPlayingSecond === false && (
                   <BackgroundMusicCancel></BackgroundMusicCancel>

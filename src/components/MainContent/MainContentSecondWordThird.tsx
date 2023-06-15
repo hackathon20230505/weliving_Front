@@ -19,7 +19,6 @@ const MainContentSecondWordFirst: React.FC<
 
   // 모달창 클릭시
 
-
   // 스크립트 춢력
 
   const onClickNextButtonHandler = () => {
@@ -93,7 +92,11 @@ const MainContentSecondWordFirst: React.FC<
               transition: "opacity 800ms, visibility 800ms",
             }}
           >
-            당신의 마음을 챙길 수 있는<br></br> 글을 써보시겠어요?
+            <Typewriter
+              text={`당신의 마음을 챙길 수 있는 \n 글을 써보시겠어요?`}
+              cursor={false}
+              speed={65}
+            />
           </MainContentFirstMainContent>
         )}
         {currentStep >= 2 && (
