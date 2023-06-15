@@ -1,24 +1,27 @@
 import { FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
-import CheckBox from "../Common/CheckBox";
+// import CheckBox from "../Common/CheckBox";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { useGetUserEmail } from "../../apis/users/getUserEmail";
+import LoadingComponent from "../Common/LoadingComponent";
 
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
-  const userInfo = {
-    email: "hackatho23n@naver.com",
-    password: "123456a*",
-  };
+
+  // const userInfo = {
+  //   email: "hackathon@naver.com",
+  //   password: "123456a*",
+  // };
 
   //   사용자 데이터
   const [userPassword, setUserPassword] = useState<string>("");
   const [userNewPassword, setUserNewPassword] = useState<string>("");
   const [userNewPasswordConfirm, setUserNewPasswordConfirm] =
     useState<string>("");
-  const baseNumber = "010";
-  const [userPhone, setUserPhone] = useState<string>("");
+  // const baseNumber = "010";
+  // const [userPhone, setUserPhone] = useState<string>("");
 
   //   데이터 유효성 검사
   // const [isValidUserNewPassword, setIsValidUserNewPassword] =
@@ -30,7 +33,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
   const [, setIsValidUserNewPasswordConfirm] = useState<boolean>(false);
 
   // 문자 알림 동의
-  const [isAlarmAgreed, setIsAlarmAgreed] = useState<boolean>(false);
+  // const [isAlarmAgreed, setIsAlarmAgreed] = useState<boolean>(false);
 
   const onChangeUserPasswordHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -66,22 +69,22 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
     }
   };
 
-  const onChangeUserPhoneHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    const { value } = event.target;
+  // const onChangeUserPhoneHandler = (
+  //   event: React.ChangeEvent<HTMLInputElement>,
+  // ) => {
+  //   const { value } = event.target;
 
-    // 숫자만 입력
-    if (isNaN(Number(value))) return;
-    setUserPhone(value);
-  };
+  //   // 숫자만 입력
+  //   if (isNaN(Number(value))) return;
+  //   setUserPhone(value);
+  // };
 
-  const onClickIsAlarmAgreedHandler = (
-    event: React.MouseEvent<HTMLDivElement>,
-  ) => {
-    event.preventDefault();
-    setIsAlarmAgreed((prev) => !prev);
-  };
+  // const onClickIsAlarmAgreedHandler = (
+  //   event: React.MouseEvent<HTMLDivElement>,
+  // ) => {
+  //   event.preventDefault();
+  //   setIsAlarmAgreed((prev) => !prev);
+  // };
 
   // const logoutHandler = () => {
   //   localStorage.removeItem("accessToken");
@@ -93,6 +96,10 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
 
   // const onClickNextButtonHandler = () => {};
 
+  const { data, isLoading } = useGetUserEmail();
+
+  if (isLoading) return <LoadingComponent />;
+
   return (
     <CommonContentContainer xPadding="5%">
       <PaddingTop></PaddingTop>
@@ -102,7 +109,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
           id="userEmail"
           type="text"
           placeholder="예) example@wliv.kr"
-          value={userInfo.email}
+          value={data}
           readOnly
         />
       </SignUpLabelInputContainer>
@@ -138,7 +145,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
           className="customMargin"
         />
       </SignUpLabelInputContainer>
-      <SignUpLabelInputContainer>
+      {/* <SignUpLabelInputContainer>
         <SignUpLabel htmlFor="userPhone">전화번호</SignUpLabel>
         <SignUpInput
           style={{ paddingLeft: "50px" }}
@@ -150,12 +157,11 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
           maxLength={8}
         />
         <BaseNumber>{baseNumber}</BaseNumber>
-        <ChangeButton>{userPhone === "" ? "변경" : "저장"}</ChangeButton>
-      </SignUpLabelInputContainer>
-      <SignUpCheckBoxContainer onClick={onClickIsAlarmAgreedHandler}>
+      </SignUpLabelInputContainer> */}
+      {/* <SignUpCheckBoxContainer onClick={onClickIsAlarmAgreedHandler}>
         <CheckBox isChecked={isAlarmAgreed} />
         <SignUpCheckBoxText>문자 알림 동의</SignUpCheckBoxText>
-      </SignUpCheckBoxContainer>
+      </SignUpCheckBoxContainer> */}
       {/* <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton> */}
       {/*<NextButton*/}
       {/*  isValid={isValidUserNewPassword && isValidUserNewPasswordConfirm}*/}
@@ -237,24 +243,24 @@ const ChangeButton = styled.button`
 //   bottom: 34px;
 // `;
 
-const BaseNumber = styled.p`
-  position: absolute;
-  font-size: 14px;
-  color: #867388;
-  left: 12px;
-  bottom: 17px;
-`;
+// const BaseNumber = styled.p`
+//   position: absolute;
+//   font-size: 14px;
+//   color: #867388;
+//   left: 12px;
+//   bottom: 17px;
+// `;
 
-const SignUpCheckBoxContainer = styled.div`
-  display: flex;
-  margin-top: 24px;
-`;
+// const SignUpCheckBoxContainer = styled.div`
+//   display: flex;
+//   margin-top: 24px;
+// `;
 
-const SignUpCheckBoxText = styled.p`
-  margin-left: 8px;
-  font-size: 14px;
-  padding-top: 1px;
-`;
+// const SignUpCheckBoxText = styled.p`
+//   margin-left: 8px;
+//   font-size: 14px;
+//   padding-top: 1px;
+// `;
 
 // const LogoutButton = styled.div`
 //   margin-top: 3.5rem;
