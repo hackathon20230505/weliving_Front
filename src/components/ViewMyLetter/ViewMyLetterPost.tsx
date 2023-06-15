@@ -87,6 +87,7 @@ const LetterPostContent = styled.p`
   font-size: 16px;
   line-height: 150%;
   color: var(--white);
+  white-space: pre-line;
 `;
 
 const GoToOtherLetterButton = styled.button`

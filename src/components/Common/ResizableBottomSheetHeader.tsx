@@ -39,7 +39,7 @@ const ResizableBottomSheetHeaderFragment = styled.div<ResizableBottomSheetHeader
   display: flex;
   align-items: center;
   justify-content: ${({ align }) => align};
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 `;
 
 const CloseButton = styled.button`
