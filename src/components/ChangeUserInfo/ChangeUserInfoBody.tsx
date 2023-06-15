@@ -3,14 +3,16 @@ import styled from "styled-components";
 import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 // import CheckBox from "../Common/CheckBox";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { useGetUserEmail } from "../../apis/users/getUserEmail";
+import LoadingComponent from "../Common/LoadingComponent";
 
 type ChangeUserInfoBodyProps = {};
 
 const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
-  const userInfo = {
-    email: "hackathon@naver.com",
-    password: "123456a*",
-  };
+  // const userInfo = {
+  //   email: "hackathon@naver.com",
+  //   password: "123456a*",
+  // };
 
   //   사용자 데이터
   const [userPassword, setUserPassword] = useState<string>("");
@@ -93,6 +95,10 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
 
   // const onClickNextButtonHandler = () => {};
 
+  const { data, isLoading } = useGetUserEmail();
+
+  if (isLoading) return <LoadingComponent />;
+
   return (
     <CommonContentContainer xPadding="5%">
       <PaddingTop></PaddingTop>
@@ -102,7 +108,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
           id="userEmail"
           type="text"
           placeholder="예) example@wliv.kr"
-          value={userInfo.email}
+          value={data}
           readOnly
         />
       </SignUpLabelInputContainer>
