@@ -12,6 +12,7 @@ import AudioButton from "./components/MainContent/AudioButton"; // 임포트
 import { isPlayingStateSecond } from "./components/MainContent/atoms/MusicStatusSecond";
 import AudioButtonSecond from "./components/MainContent/AudioButtonSecond"; // 임포트
 
+
 axios.defaults.baseURL = "https://wliv.kr";
 
 setupInterceptors(axios);
