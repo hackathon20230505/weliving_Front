@@ -102,6 +102,11 @@ const CustomContentContainer = styled.div`
   height: 100%;
   overflow: auto;
   border-radius: 4px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   /* overflow: hidden; */
 `;
 
