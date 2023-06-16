@@ -30,7 +30,7 @@ const CheckboxLabel = styled.label<CheckboxLabel>`
   height: 20px;
 
   background-image: ${({ isChecked }) =>
-    isChecked ? `url("https://wliv.kr/img/check-icon.svg")` : "none"};
+    isChecked ? `url("https://welldie.com/img/check-icon.svg")` : "none"};
   background-repeat: no-repeat;
   background-position: center;
   background-color: ${({ isChecked }) =>

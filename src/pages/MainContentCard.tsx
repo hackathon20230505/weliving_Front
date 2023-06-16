@@ -15,7 +15,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioElement] = useState(() => {
-    const audio = new Audio("https://wliv.kr/img/music/lofi.mp3");
+    const audio = new Audio("https://welldie.com/img/music/lofi.mp3");
     audio.loop = true; // 오디오를 무한 재생하도록 설정
     return audio;
   });
@@ -144,7 +144,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
         {isModalClickSecond === 1 && (
           <>
             <ImageMoon
-              src="https://wliv.kr/img/onbording/moon.svg"
+              src="https://welldie.com/img/onbording/moon.svg"
               style={{ top: "90px", left: "5px" }}
             />
             <BackgroundStar />
@@ -339,8 +339,8 @@ const BackgroundMusicIcon = styled.div`
   width: 20px;
   height: 20px;
   left: 12px;
-  background: url(https://wliv.kr/img/onbording/icon-music.svg) no-repeat center
-    center;
+  background: url(https://welldie.com/img/onbording/icon-music.svg) no-repeat
+    center center;
 `;
 
 const BackgroundMusicText = styled.div`

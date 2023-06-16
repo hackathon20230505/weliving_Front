@@ -42,7 +42,7 @@ const WriteLetterHeader: FunctionComponent<WriteLetterHeaderProps> = () => {
   return (
     <CommonHeaderContainer height="56px" xMargin="5%">
       {/* <GoBackButton onClick={onClickGoBackButtonHandler}>
-        <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
+        <img src="https://welldie.com/img/arrow-left-icon.svg" alt="뒤로 가기" />
       </GoBackButton> */}
       {/*  */}
       <BackgroundMusic
@@ -134,8 +134,8 @@ const BackgroundMusicIcon = styled.div`
   width: 20px;
   height: 20px;
   left: 12px;
-  background: url(https://wliv.kr/img/onbording/icon-music.svg) no-repeat center
-    center;
+  background: url(https://welldie.com/img/onbording/icon-music.svg) no-repeat
+    center center;
 `;
 
 const BackgroundMusicText = styled.div`

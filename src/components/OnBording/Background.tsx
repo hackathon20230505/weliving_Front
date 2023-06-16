@@ -19,20 +19,20 @@ const BackgroundStar: FunctionComponent = () => {
   return (
     <BackgroundStarContainer>
       <ImageCloud1
-        src="https://wliv.kr/img/onbording/section1-1.svg"
+        src="https://welldie.com/img/onbording/section1-1.svg"
         style={{ bottom: "12px", right: "-220px", opacity: "60%" }}
       />
       <ImageCloud2
-        src="https://wliv.kr/img/onbording/section1-2.svg"
+        src="https://welldie.com/img/onbording/section1-2.svg"
         style={{ bottom: "400px", left: "-66px", opacity: "60%" }}
       />
       <ImageCloud2
-        src="https://wliv.kr/img/onbording/section1-3.svg"
+        src="https://welldie.com/img/onbording/section1-3.svg"
         style={{ top: "-00px", right: "-126px", opacity: "100%" }}
       />
       {/* 별 시작 */}
       <ImageStar1
-        src="https://wliv.kr/img/onbording/section1-4.svg"
+        src="https://welldie.com/img/onbording/section1-4.svg"
         style={{
           width: "100%",
           height: "100%",

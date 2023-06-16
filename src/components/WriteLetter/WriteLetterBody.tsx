@@ -82,7 +82,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
         >
           <BottomSheetTitleModified>작성 도움말</BottomSheetTitleModified>
           <img
-            src="https://wliv.kr/img/arrow-bottom-icon.svg"
+            src="https://welldie.com/img/arrow-bottom-icon.svg"
             alt="Modified flipped arrow down icon"
             style={{
               transform: "rotate(180deg)",
@@ -115,7 +115,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
             >
               이용규칙 전체보기{" "}
               <img
-                src="https://wliv.kr/img/letter-right-icon.svg"
+                src="https://welldie.com/img/letter-right-icon.svg"
                 alt="뒤집힌 화살표 아래 방향 아이콘"
               />
             </ViewRulesOfUseButton>
@@ -142,7 +142,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
           closeIconOverwrap={
             isDisplayContent ? (
               <img
-                src="https://wliv.kr/img/arrow-bottom-icon.svg"
+                src="https://welldie.com/img/arrow-bottom-icon.svg"
                 alt="화살표 아래 방향 아이콘"
                 style={{
                   width: "12px",
@@ -151,7 +151,7 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
               />
             ) : (
               <img
-                src="https://wliv.kr/img/arrow-bottom-icon.svg"
+                src="https://welldie.com/img/arrow-bottom-icon.svg"
                 alt="뒤집힌 화살표 아래 방향 아이콘"
                 style={{
                   width: "12px",
@@ -180,16 +180,16 @@ const WriteLetterBody: FunctionComponent<WriteLetterBodyProps> = () => {
             </LetterBottomSheetDescription>
             <SwiperWrapper pagination={true} loop={true} modules={[Pagination]}>
               <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/writinghelp1-img.png" />
+                <SwiperImg src="https://welldie.com/img/writinghelp1-img.png" />
               </SwiperSlide>
               <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/writinghelp2-img.png" />
+                <SwiperImg src="https://welldie.com/img/writinghelp2-img.png" />
               </SwiperSlide>
               <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/writinghelp3-img.png" />
+                <SwiperImg src="https://welldie.com/img/writinghelp3-img.png" />
               </SwiperSlide>
               <SwiperSlide>
-                <SwiperImg src="https://wliv.kr/img/writinghelp4-img.png" />
+                <SwiperImg src="https://welldie.com/img/writinghelp4-img.png" />
               </SwiperSlide>
             </SwiperWrapper>
           </BottomSheetContentWrapper>
