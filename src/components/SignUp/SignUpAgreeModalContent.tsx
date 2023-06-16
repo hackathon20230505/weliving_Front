@@ -142,7 +142,7 @@ const SignUpAgreeModalContent: FunctionComponent<
     <>
       <SignUpAgreeModalContentContainer>
         <SignUpAgreeModalContentTitle>
-          웰리빙을 쓰려면 동의가 필요해요.
+          웰다잉을 쓰려면 동의가 필요해요.
         </SignUpAgreeModalContentTitle>
 
         <SignUpAgreeCheckGroupContainer>
