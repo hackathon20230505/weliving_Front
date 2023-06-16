@@ -12,7 +12,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
       <TPSubTitle>제1조 (목적)</TPSubTitle>
       <TPContent>
         이 약관은 주식회사 고민보다Go(이하 “회사”라고 합니다)이 온라인
-        마켓플레이스(http://wliv.kr , 이하 “웰리빙”라고 합니다)을 통하여
+        마켓플레이스(http://welldie.com , 이하 “웰리빙”라고 합니다)을 통하여
         제공하는 프로젝트 진행 서비스 및 기타 정보 서비스(이하 “서비스”라고
         합니다)와 관련하여 회사와 회원 또는 회사와 비회원 간의 권리와 의무, 책임
         사항 및 회원의 서비스 이용 절차에 관한 사항을 규정함을 목적으로 합니다.
@@ -355,7 +355,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         등을 위탁하는 경우에는 위탁업무의 내용 및 수탁사의 명칭 등에 관한 사항을
         서면·전자우편·모사전송·전화 또는 홈페이지를 통해 미리 회원에게 고지하여
         동의를 받거나 개인정보처리방침에 포함하여 웰리빙 사이트
-        (http://wliv.kr)에 공개합니다.
+        (http://welldie.com)에 공개합니다.
       </TPContent>
       <TPContent>
         차. 회사는 자.항에 명시된 내용 외에도 비방이나 허위사실 유포 등으로
@@ -366,13 +366,13 @@ const TermsOfServiceModalComponent: FunctionComponent<
       <TPContent>
         카. 회사는 회원정보의 보호와 관리에 관한 개인정보처리방침을 회원과
         회사의 서비스를 이용하고자 하는 자가 알 수 있도록 웰리빙
-        사이트(http://wliv.kr)에 공개합니다.
+        사이트(http://welldie.com)에 공개합니다.
       </TPContent>
       <TPSubTitle>제12조(회원정보의 활용과 관리 의무)</TPSubTitle>
       <TPContent>
         가. 회사는 회원정보의 보호와 관리에 관한 개인정보처리방침을 회원과
         회사의 서비스를 이용하고자 하는 자가 알 수 있도록 웰리빙
-        사이트(http://wliv.kr)에 공개합니다.
+        사이트(http://welldie.com)에 공개합니다.
       </TPContent>
       <TPContent>
         나. 회사의 회원에 대한 통지는 회원 정보에 기재된 메일(e-mail) 주소 및
@@ -389,12 +389,12 @@ const TermsOfServiceModalComponent: FunctionComponent<
       </TPContent>
       <TPContent>
         라. 이미 인증된 휴대폰 및 실명 정보의 변경을 원하는 회원은 문의
-        페이지(http://wliv.kr/my-opinion/) 에 수정을 하실 수있으며. 회사에서는
-        이를 화면상에서 회원에게 알려줘야 하며 이를 확인하지 못하여 문제가
-        발생될 경우, 이를 확인하지 못한 회원에게 그 책임이 있습니다. 또한 변경된
-        정보는 다양한 변수에 의해 회원 정보에 즉시 반영되지 않을 수 있으며,
-        회원은 이를 인지하고 이로 인해 발생될 수 있는 모든 불이익에 대해 회사의
-        고의 또는 중과실이 없는 한 회사에 책임을 묻지 않습니다.
+        페이지(http://welldie.com/my-opinion/) 에 수정을 하실 수있으며.
+        회사에서는 이를 화면상에서 회원에게 알려줘야 하며 이를 확인하지 못하여
+        문제가 발생될 경우, 이를 확인하지 못한 회원에게 그 책임이 있습니다. 또한
+        변경된 정보는 다양한 변수에 의해 회원 정보에 즉시 반영되지 않을 수
+        있으며, 회원은 이를 인지하고 이로 인해 발생될 수 있는 모든 불이익에 대해
+        회사의 고의 또는 중과실이 없는 한 회사에 책임을 묻지 않습니다.
       </TPContent>
       <TPSubTitle>제13조 (아이디(ID) 및 닉네임 관리)</TPSubTitle>
       <TPContent>

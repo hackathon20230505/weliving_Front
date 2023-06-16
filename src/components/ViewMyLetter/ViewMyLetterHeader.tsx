@@ -28,14 +28,17 @@ const ViewMyLetterHeader: FunctionComponent<ViewMyLetterHeaderProps> = () => {
   return (
     <CommonHeaderContainer height="56px" xMargin="5%">
       <GoBackButton onClick={onClickGoBackButtonHandler}>
-        <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
+        <img
+          src="https://welldie.com/img/arrow-left-icon.svg"
+          alt="뒤로 가기"
+        />
       </GoBackButton>
       <ButtonGroupContainer>
         <ShareButton onClick={onClickShareButtonHandler}>
-          <img src="https://wliv.kr/img/share-icon.svg" alt="공유하기" />
+          <img src="https://welldie.com/img/share-icon.svg" alt="공유하기" />
         </ShareButton>
         <MoreButton onClick={onClickMoreButtonHandler}>
-          <img src="https://wliv.kr/img/more-icon.svg" alt="더 많은 기능" />
+          <img src="https://welldie.com/img/more-icon.svg" alt="더 많은 기능" />
         </MoreButton>
       </ButtonGroupContainer>
     </CommonHeaderContainer>

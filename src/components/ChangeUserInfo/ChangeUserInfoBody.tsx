@@ -128,7 +128,7 @@ const ChangeUserInfoBody: FunctionComponent<ChangeUserInfoBodyProps> = () => {
           <SignUpInput
             id="userEmail"
             type="text"
-            placeholder="예) example@wliv.kr"
+            placeholder="예) example@welldie.com"
             value={getUserEmail.data?.result.email || ""}
             readOnly
           />

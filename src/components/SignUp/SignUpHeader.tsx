@@ -14,7 +14,10 @@ const SignUpHeader: FunctionComponent<SignUpHeaderProps> = () => {
   return (
     <CommonHeaderContainer height="56px" xMargin="5%">
       <GoBackButton onClick={onClickGoBackButtonHandler}>
-        <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
+        <img
+          src="https://welldie.com/img/arrow-left-icon.svg"
+          alt="뒤로 가기"
+        />
       </GoBackButton>
     </CommonHeaderContainer>
   );

@@ -6,10 +6,7 @@ type HeaderProps = {};
 const Header: FunctionComponent<HeaderProps> = () => {
   return (
     <CommonHeaderContainer height="56px" xMargin="5%">
-      <HeaderImg
-        src="https://wliv.kr/img/well-dying-typography.svg"
-        alt="well living"
-      />
+      Well Dying
     </CommonHeaderContainer>
   );
 };

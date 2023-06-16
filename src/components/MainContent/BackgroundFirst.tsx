@@ -33,7 +33,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
   return (
     <BackgroundStarContainer>
       <ImageCloud1
-        src="https://wliv.kr/img/onbording/star-7.svg"
+        src="https://welldie.com/img/onbording/star-7.svg"
         style={{
           width: "165px",
           height: "43px",
@@ -42,7 +42,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageCloud2
-        src="https://wliv.kr/img/onbording/star-7.svg"
+        src="https://welldie.com/img/onbording/star-7.svg"
         style={{
           width: "264px",
           height: "66px",
@@ -52,7 +52,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageCloud3
-        src="https://wliv.kr/img/onbording/star-7.svg"
+        src="https://welldie.com/img/onbording/star-7.svg"
         style={{
           width: "6px",
           height: "6px",
@@ -63,7 +63,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
       />
       {/* 별 시작 */}
       <ImageStar1
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -72,7 +72,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar2
-        src="https://wliv.kr/img/main/new-star-3.svg"
+        src="https://welldie.com/img/main/new-star-3.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -81,7 +81,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar3
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "4px",
           height: "4px",
@@ -90,7 +90,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar4
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -99,7 +99,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar5
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "12x",
           height: "12px",
@@ -108,7 +108,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar6
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -117,7 +117,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar7
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "6px",
           height: "6px",
@@ -126,7 +126,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar8
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "6px",
           height: "6px",
@@ -135,7 +135,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar9
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "15px",
           height: "15px",
@@ -144,7 +144,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar10
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "7px",
           height: "7px",
@@ -153,7 +153,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar11
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -162,7 +162,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar12
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "8px",
           height: "8px",
@@ -171,7 +171,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar13
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -180,7 +180,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar14
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "6px",
           height: "6px",
@@ -189,7 +189,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar15
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -198,7 +198,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar16
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "1px",
           height: "1px",
@@ -207,7 +207,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar17
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "9px",
           height: "9px",
@@ -216,7 +216,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar18
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -225,7 +225,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-3.svg"
+        src="https://welldie.com/img/main/new-star-3.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -234,7 +234,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -243,7 +243,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -252,7 +252,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-3.svg"
+        src="https://welldie.com/img/main/new-star-3.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -261,7 +261,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "7px",
           height: "7px",
@@ -270,7 +270,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -279,7 +279,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -288,7 +288,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "1px",
           height: "1px",
@@ -297,7 +297,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-2.svg"
+        src="https://welldie.com/img/main/new-star-2.svg"
         style={{
           width: "2px",
           height: "2px",
@@ -306,7 +306,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-3.svg"
+        src="https://welldie.com/img/main/new-star-3.svg"
         style={{
           width: "1px",
           height: "1px",
@@ -315,7 +315,7 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/main/new-star-3.svg"
+        src="https://welldie.com/img/main/new-star-3.svg"
         style={{
           width: "2px",
           height: "2px",

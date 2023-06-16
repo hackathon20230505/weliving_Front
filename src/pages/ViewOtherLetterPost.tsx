@@ -118,7 +118,7 @@ export default function ViewOtherLetterPost() {
         <GoToOtherLetterButtonContainer>
           <GoToOtherLetterButton onClick={onClickGoToOtherLetterClickHandler}>
             <GoToOtherLetterText> 일지 목차 보러가기</GoToOtherLetterText>
-            <GoToIcon src="https://wliv.kr/img/arrow-right-icon.svg" />
+            <GoToIcon src="https://welldie.com/img/arrow-right-icon.svg" />
           </GoToOtherLetterButton>
         </GoToOtherLetterButtonContainer>
       </CommonContentContainer>

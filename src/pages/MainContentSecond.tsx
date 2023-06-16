@@ -38,7 +38,7 @@ const MainContentFirst: FunctionComponent = () => {
           <MainContentFirstContainer>
             <TopContentContainer>
               <ImageMoon
-                src="https://wliv.kr/img/onbording/moon.svg"
+                src="https://welldie.com/img/onbording/moon.svg"
                 style={{ top: "90px", left: "5px" }}
               />
               <BackgroundSecond />
@@ -141,8 +141,8 @@ const BackgroundMusicIcon = styled.div`
   width: 20px;
   height: 20px;
   left: 12px;
-  background: url(https://wliv.kr/img/onbording/icon-music.svg) no-repeat center
-    center;
+  background: url(https://welldie.com/img/onbording/icon-music.svg) no-repeat
+    center center;
 `;
 
 const BackgroundMusicText = styled.div`

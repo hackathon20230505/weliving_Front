@@ -28,7 +28,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
     <BackgroundStarContainer>
       {/* 바닥 */}
       <ImageState
-        src="https://wliv.kr/img/onbording/section2-0.svg"
+        src="https://welldie.com/img/onbording/section2-0.svg"
         style={{
           width: "150%",
           height: "100%",
@@ -39,7 +39,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
 
       {/* 별 시작 */}
       <ImageStar1
-        src="https://wliv.kr/img/onbording/section2-5.svg"
+        src="https://welldie.com/img/onbording/section2-5.svg"
         style={{
           width: "220px",
           height: "220px",
@@ -50,7 +50,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       />
 
       <ImageStar1
-        src="https://wliv.kr/img/onbording/section2-5.svg"
+        src="https://welldie.com/img/onbording/section2-5.svg"
         style={{
           width: "100%",
           height: "100%",
@@ -62,7 +62,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       />
 
       <ImageStar1
-        src="https://wliv.kr/img/onbording/section2-5.svg"
+        src="https://welldie.com/img/onbording/section2-5.svg"
         style={{
           width: "100%",
           height: "100%",
@@ -74,7 +74,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       />
 
       <ImageStar1
-        src="https://wliv.kr/img/onbording/section2-5.svg"
+        src="https://welldie.com/img/onbording/section2-5.svg"
         style={{
           width: "100%",
           height: "100%",
@@ -86,7 +86,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
       />
 
       <ImageStar1
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://welldie.com/img/onbording/will-star-4.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -95,7 +95,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar2
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://welldie.com/img/onbording/will-star-1.svg"
         style={{
           width: "15px",
           height: "15px",
@@ -104,7 +104,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       {/* <ImageStar3
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://welldie.com/img/onbording/will-star-2.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -113,7 +113,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       /> */}
       <ImageStar4
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://welldie.com/img/onbording/will-star-4.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -122,7 +122,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar5
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -131,7 +131,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar6
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -140,7 +140,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       {/* <ImageStar7
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://welldie.com/img/onbording/will-star-2.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -149,7 +149,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       /> */}
       {/* <ImageStar8
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://welldie.com/img/onbording/will-star-2.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -158,7 +158,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       /> */}
       <ImageStar9
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "9px",
           height: "11px",
@@ -167,7 +167,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       {/* <ImageStar10
-        src="https://wliv.kr/img/onbording/will-star-2.svg"
+        src="https://welldie.com/img/onbording/will-star-2.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -176,7 +176,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       /> */}
       <ImageStar11
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -185,7 +185,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar12
-        src="https://wliv.kr/img/main/new-star-3.svg"
+        src="https://welldie.com/img/main/new-star-3.svg"
         style={{
           width: "3px",
           height: "3px",
@@ -194,7 +194,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar13
-        src="https://wliv.kr/img/main/new-star-1.svg"
+        src="https://welldie.com/img/main/new-star-1.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -203,7 +203,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar14
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://welldie.com/img/onbording/will-star-4.svg"
         style={{
           width: "6px",
           height: "6px",
@@ -212,7 +212,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar15
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://welldie.com/img/onbording/will-star-1.svg"
         style={{
           width: "14px",
           height: "14px",
@@ -221,7 +221,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       {/* <ImageStar16
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
+        src="https://welldie.com/img/onbording/will-star-3.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -230,7 +230,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar17
-        src="https://wliv.kr/img/onbording/will-star-3.svg"
+        src="https://welldie.com/img/onbording/will-star-3.svg"
         style={{
           width: "12px",
           height: "12px",
@@ -239,7 +239,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       /> */}
       <ImageStar18
-        src="https://wliv.kr/img/onbording/will-star-1.svg"
+        src="https://welldie.com/img/onbording/will-star-1.svg"
         style={{
           width: "14px",
           height: "14px",
@@ -248,7 +248,7 @@ const BackgroundSecond: FunctionComponent<BackgroundSecondProps> = () => {
         }}
       />
       <ImageStar19
-        src="https://wliv.kr/img/onbording/will-star-4.svg"
+        src="https://welldie.com/img/onbording/will-star-4.svg"
         style={{
           width: "14px",
           height: "14px",

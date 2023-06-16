@@ -48,7 +48,7 @@ const FindPWBody: FunctionComponent<FindPWBodyProps> = () => {
             <FindPWInput
               id="userEmail"
               type="text"
-              placeholder="예) example@wliv.kr"
+              placeholder="예) example@welldie.com"
               isValidUserEmail={isValidUserEmail}
               value={userEmail}
               onChange={onChangeUserEmailHandler}

@@ -12,8 +12,7 @@ import AudioButton from "./components/MainContent/AudioButton"; // 임포트
 import { isPlayingStateSecond } from "./components/MainContent/atoms/MusicStatusSecond";
 import AudioButtonSecond from "./components/MainContent/AudioButtonSecond"; // 임포트
 
-
-axios.defaults.baseURL = "https://wliv.kr";
+axios.defaults.baseURL = "https://welldie.com";
 
 setupInterceptors(axios);
 
@@ -62,7 +61,7 @@ function App() {
 const MusicPlayer = () => {
   const [isPlaying] = useRecoilState(isPlayingState);
   const [audioElement] = useState(() => {
-    const audio = new Audio("https://wliv.kr/img/music/lofi.mp3");
+    const audio = new Audio("https://welldie.com/img/music/lofi.mp3");
     audio.loop = true; // 오디오를 무한 재생하도록 설정
     return audio;
   });
@@ -84,7 +83,7 @@ const MusicPlayer = () => {
 const MusicPlayer2 = () => {
   const [isPlayingSecond] = useRecoilState(isPlayingStateSecond);
   const [audioElement] = useState(() => {
-    const audio = new Audio("https://wliv.kr/img/music/Meditative.mp3");
+    const audio = new Audio("https://welldie.com/img/music/Meditative.mp3");
     audio.loop = true; // 오디오를 무한 재생하도록 설정
     audio.volume = 0.5;
     return audio;
