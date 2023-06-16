@@ -12,7 +12,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
       <TPSubTitle>제1조 (목적)</TPSubTitle>
       <TPContent>
         이 약관은 주식회사 고민보다Go(이하 “회사”라고 합니다)이 온라인
-        마켓플레이스(http://welldie.com , 이하 “웰리빙”라고 합니다)을 통하여
+        마켓플레이스(http://welldie.com , 이하 “웰다잉”라고 합니다)을 통하여
         제공하는 프로젝트 진행 서비스 및 기타 정보 서비스(이하 “서비스”라고
         합니다)와 관련하여 회사와 회원 또는 회사와 비회원 간의 권리와 의무, 책임
         사항 및 회원의 서비스 이용 절차에 관한 사항을 규정함을 목적으로 합니다.
@@ -25,7 +25,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
       <TPContent>
         가. 회사는 본 약관의 내용과 상호, 회사 소재지, 대표자의 성명,
         사업자등록번호, 연락처 등을 서비스를 이용하고자 하는 자와 회원이 알 수
-        있도록 서비스가 제공되는 웰리빙 사이트의 초기화면(이하 연결 화면 포함)에
+        있도록 서비스가 제공되는 웰다잉 사이트의 초기화면(이하 연결 화면 포함)에
         게시합니다.
       </TPContent>
       <TPContent>
@@ -43,7 +43,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         개별약관에 동의하고 특정 서비스를 이용하는 경우에는 개별약관이
         우선적으로 적용되고, 이 약관은 보충적인 효력을 갖습니다. 개별약관의
         게시·변경에 관해서는 위 가.항, 나.항을 준용합니다. 단, 회사는 개별약관을
-        웰리빙 사이트의 판매관리 화면에 게시할 수 있습니다.
+        웰다잉 사이트의 판매관리 화면에 게시할 수 있습니다.
       </TPContent>
       <TPSubTitle>제3조 (관련 법령과의 관계)</TPSubTitle>
       <TPContent>
@@ -64,7 +64,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         가. 이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
       </TPContent>
       <TPContent>
-        1) 서비스: 웰리빙 사이트에서 판매 가능한 상품으로 유형의 제품 혹은
+        1) 서비스: 웰다잉 사이트에서 판매 가능한 상품으로 유형의 제품 혹은
         무형의 서비스를 말합니다.
       </TPContent>
       <TPContent>
@@ -317,7 +317,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         받습니다, 다만, 관련 법령에 달리 정함이 있는 경우에는 예외로 합니다.
       </TPContent>
       <TPContent>
-        마. 회사의 개인정보 보호책임자 및 연락처는 웰리빙 사이트에서 별도로
+        마. 회사의 개인정보 보호책임자 및 연락처는 웰다잉 사이트에서 별도로
         공개하는 개인정보처리방침에서 공지합니다.
       </TPContent>
       <TPContent>
@@ -354,7 +354,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         기간 등을 명시하여 회원의 동의를 받습니다. 개인정보의 수집·처리·관리
         등을 위탁하는 경우에는 위탁업무의 내용 및 수탁사의 명칭 등에 관한 사항을
         서면·전자우편·모사전송·전화 또는 홈페이지를 통해 미리 회원에게 고지하여
-        동의를 받거나 개인정보처리방침에 포함하여 웰리빙 사이트
+        동의를 받거나 개인정보처리방침에 포함하여 웰다잉 사이트
         (http://welldie.com)에 공개합니다.
       </TPContent>
       <TPContent>
@@ -365,13 +365,13 @@ const TermsOfServiceModalComponent: FunctionComponent<
       </TPContent>
       <TPContent>
         카. 회사는 회원정보의 보호와 관리에 관한 개인정보처리방침을 회원과
-        회사의 서비스를 이용하고자 하는 자가 알 수 있도록 웰리빙
+        회사의 서비스를 이용하고자 하는 자가 알 수 있도록 웰다잉
         사이트(http://welldie.com)에 공개합니다.
       </TPContent>
       <TPSubTitle>제12조(회원정보의 활용과 관리 의무)</TPSubTitle>
       <TPContent>
         가. 회사는 회원정보의 보호와 관리에 관한 개인정보처리방침을 회원과
-        회사의 서비스를 이용하고자 하는 자가 알 수 있도록 웰리빙
+        회사의 서비스를 이용하고자 하는 자가 알 수 있도록 웰다잉
         사이트(http://welldie.com)에 공개합니다.
       </TPContent>
       <TPContent>
@@ -539,7 +539,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         비용으로 분쟁을 해결하며 회사를 면책시켜야 합니다.
       </TPContent>
       <TPContent>
-        다. 회사는 회원이 겁사에 게시한 게시물을 웰리빙 사이트 외에 회사와
+        다. 회사는 회원이 겁사에 게시한 게시물을 웰다잉 사이트 외에 회사와
         제휴한 사이트 및 SNS 채널 등에 노출할 수 있습니다. 회사는 필요한 범위
         내에서 게시물의 등록 위치, 크기, 배열 등 일부를 수정·복제·편집할 수
         있습니다. 이 경우, 회사는 저작권법 규정을 준수하며, 회원은 언제든지
@@ -589,7 +589,7 @@ const TermsOfServiceModalComponent: FunctionComponent<
         나. 천재지변 또는 이에 준하는 불가항력, 정보통신설비의 보수 점검, 교체
         또는 고장, 통신의 두절 등으로 인하여 일시적 또는 종국적으로 서비스를
         제공할 수 없는 경우 등 회사의 고의 또는 중과실이 경우에는 회사의 서비스
-        제공에 관한 책임이 면제됩니다. 이 경우 회사는 회사가 제공하는 웰리빙
+        제공에 관한 책임이 면제됩니다. 이 경우 회사는 회사가 제공하는 웰다잉
         사이트 화면에 게시하거나 기타의 방법으로 회원들에게 통지합니다.
       </TPContent>
       <TPContent>
