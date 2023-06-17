@@ -5,7 +5,7 @@ import { isValidUserPasswordFunc } from "../../utils/isValid/isValidUserData";
 import CommonContentContainer from "../Common/CommonContentContainer";
 import { useGetUserEmail } from "../../apis/users/getUserEmail";
 import { useCheckTwd } from "../../apis/users/checktwd";
-import FailComponent from "../Common/FailComponent";
+// import FailComponent from "../Common/FailComponent";
 import { changepwd } from "../../apis/users/chagepwd";
 
 type ChangeUserInfoBodyProps = {};
