@@ -1,5 +1,4 @@
-import { FunctionComponent, useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { FunctionComponent, useState } from "react";
 import styled, { css } from "styled-components";
 import { isValidUserBirthFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
@@ -25,7 +24,6 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
 
   const [, setIsModalOpen] = useState(false);
   const [openModalType, setOpenModalType] = useState(-1);
-  const navigate = useNavigate();
 
   const onChangeUserBirthHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
