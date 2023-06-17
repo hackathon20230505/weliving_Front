@@ -241,6 +241,7 @@ const SignUpLabelInputContainer = styled.div`
   flex-direction: column;
 
   margin-top: 24px;
+  padding-bottom: 15px;
 `;
 
 const SignUpLabel = styled.label`
@@ -285,7 +286,7 @@ const SignUpAgreeModalContentContainer = styled.div`
 `;
 
 const SignUpAgreeCheckGroupContainer = styled.div`
-  margin: 24px 0;
+  margin: 17px 0 0px;
 
   display: flex;
   justify-content: space-between;
@@ -297,6 +298,7 @@ const CheckBoxGroupContainer = styled.div`
 
 const SignUpAgreeCheckText = styled.span`
   margin-left: 8px;
+  margin-top: 2px;
 
   font-weight: 400;
   font-size: 14px;
@@ -314,8 +316,9 @@ const SignUpAgreeViewText = styled.span`
 `;
 
 const HorizonDivider = styled.hr`
-  color: var(--dark-pink-700);
-  border: 1px solid var(--dark-pink-700);
+  color: #4b0b50;
+  border: 1px solid #4b0b50;
+  margin-top: 15px;
 `;
 
 const IsCheckedContainer = styled.div``;
