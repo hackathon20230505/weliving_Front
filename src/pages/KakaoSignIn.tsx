@@ -3,7 +3,8 @@ import PageContainer from "../components/Common/PageContainer.tsx";
 import axios from "axios";
 import { kakaoSignIn } from "../apis/users/kakaoSignIn.ts";
 import LoadingComponent from "../components/Common/LoadingComponent.tsx";
-import { checkMemory } from "../apis/users/checkMemory";
+// import { checkMemory } from "../apis/users/checkMemory";
+import { getMyBirth } from "../apis/users/getUserBirth";
 
 type KakaoSignUpProps = {};
 
@@ -54,9 +55,9 @@ const KakaoSignUp: FunctionComponent<KakaoSignUpProps> = () => {
 
         // 로그인 관련
 
-        const isMemory = await checkMemory();
+        const getMyBirtht = await getMyBirth();
 
-        if (!isMemory) {
+        if (!getMyBirtht) {
           window.location.href = "/KakaoSignUp";
         } else {
           window.location.href = "/";

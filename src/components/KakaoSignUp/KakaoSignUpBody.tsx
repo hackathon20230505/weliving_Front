@@ -1,4 +1,5 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import styled, { css } from "styled-components";
 import { isValidUserBirthFunc } from "../../utils/isValid/isValidUserData";
 import CheckBox from "../Common/CheckBox";
@@ -10,6 +11,9 @@ import {
 import TermsOfServiceModalComponent from "../SignUp/TermsOfServiceModalComponent";
 import PrivacyPolicyModalComponent from "../SignUp/PrivacyPolicyModalComponent";
 import CommonContentContainer from "../Common/CommonContentContainer";
+import { kakaoSignUp } from "../../apis/users/kakaoSignUp";
+import { checkMemory } from "../../apis/users/checkMemory";
+
 // import { onSignup } from "../../apis/users/signup";
 // import { onSignIn } from "../../apis/users/signIn";
 
@@ -21,6 +25,7 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
 
   const [, setIsModalOpen] = useState(false);
   const [openModalType, setOpenModalType] = useState(-1);
+  const navigate = useNavigate();
 
   const onChangeUserBirthHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -207,7 +212,23 @@ const KakaoSignUpBody: FunctionComponent<KakaoSignUpBodyProps> = () => {
             isChecked.isTermsAndConditionsChecked
           )
         }
-        // onClick={}
+        onClick={() => {
+          kakaoSignUp(userBirth)
+            .then((letter_id) => {
+              console.log(letter_id);
+              // navigate("/");
+
+              const isMemory = checkMemory();
+              if (!isMemory) {
+                window.location.href = "/KakaoSignUp";
+              } else {
+                window.location.href = "/";
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }}
       >
         로그인 하기
       </NextButton>
