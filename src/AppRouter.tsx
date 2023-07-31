@@ -25,6 +25,9 @@ import ModifyLetter from "./pages/ModifyLetter";
 import ViewOtherLetterPost from "./pages/ViewOtherLetterPost.tsx";
 import { GetAnswerGPT } from "./pages/GetAnswerGPT.tsx";
 import VerifyPhoneNumber from "./pages/VerifyPhoneNumber.tsx";
+import MeditationList from "./pages/MeditationList";
+import MeditationPlay from "./pages/MeditationPlay.tsx";
+import MeditationStart from "./pages/MeditationStart.tsx";
 import Settings from "./pages/Settings.tsx";
 
 // type AppRouterProps = {};
@@ -108,6 +111,17 @@ const AppRouter: FunctionComponent = () => {
 
         {/* GPT page */}
         <Route path="/getanswergpt" element={<GetAnswerGPT />} />
+
+        {/* ------------------------------- */}
+
+        {/* 명상 리스트 페이지 */}
+        <Route path="/meditationlist" element={<MeditationList />} />
+
+        {/* 명상 체험 페이지 */}
+        <Route path="/meditationPlay/:id" element={<MeditationPlay />} />
+
+        {/* 명상 체험 페이지 */}
+        <Route path="/meditationStart/:id" element={<MeditationStart />} />
 
         <Route path="/yourhelp" element={<VerifyPhoneNumber />} />
       </Routes>
