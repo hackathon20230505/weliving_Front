@@ -112,11 +112,12 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                     <OptionsContainer>
                       <ModalContent>1. 음악이 자동 재생됩니다.</ModalContent>
                       <ModalContent>
-                        2. 집중을 위해 불을 끄고 진행해보세요.
+                        2. 집중을 위해 불을 끄고 진행해보세요. <br />
+                        <br /> 조용한 공간에서는 이어폰을 사용해주세요.
                       </ModalContent>
                     </OptionsContainer>
                     <CloseButton onClick={closeModal}>진행하기</CloseButton>
-                    <ReturnButton onClick={returnHome}>뒤로가기</ReturnButton>
+                    <ReturnButton onClick={returnHome}>홈으로</ReturnButton>
                   </ModalContainer>
                 </ModalBackground>
               )}
@@ -392,10 +393,10 @@ const ModalContainer = styled.div`
 
 const ModalTitle = styled.span`
   color: #000;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   display: block;
-  padding-bottom: 18px;
+  padding-bottom: 16px;
 `;
 
 const OptionsContainer = styled.span`
@@ -410,7 +411,7 @@ const CloseButton = styled.span`
   line-height: 47px;
   display: block;
 
-  margin-top: 35px;
+  margin-top: 10px;
 
   background-color: var(--main-color);
   border-radius: 4px;

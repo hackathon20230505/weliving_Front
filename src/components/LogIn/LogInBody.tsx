@@ -105,7 +105,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         localStorage.setItem("accessToken", result.data.accessToken);
         localStorage.setItem("refreshToken", result.data.refreshToken);
 
-        alert("로그인되었습니다.");
+        // alert("로그인되었습니다.");
 
         // 해당 유저가 유서를 작성하지 않았을 시 유서 작성 페이지로 이동
 
@@ -116,7 +116,8 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
         console.log(isMemory);
 
         if (!isMemory || !isLetter) {
-          window.location.href = "/maincontentfirst";
+          // window.location.href = "/maincontentfirst";
+          window.location.href = "/";
         } else {
           window.location.href = "/";
         }

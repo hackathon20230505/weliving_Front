@@ -20,19 +20,30 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
     navigate("/viewotherletter");
   };
 
+  const onClickMeditationListButtonHandler = () => {
+    navigate("/MeditationList");
+  };
+
   return (
     <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
       <HomeLetterGroupContainer>
         {/* 별 시작 */}
-
+        <HomeLetterTitle>명상</HomeLetterTitle>
+        <HomeLetterViewGroupContainer>
+          <HomeLetterViewButton onClick={onClickMeditationListButtonHandler}>
+            <HomeLetterViewTitle>AI 명상</HomeLetterViewTitle>
+            <HomeLetterViewImg src="https://welldie.com/img/meditation-img.svg" />
+          </HomeLetterViewButton>
+        </HomeLetterViewGroupContainer>
+        <br></br>
         <HomeLetterTitle> 일지</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
-            <HomeLetterViewTitle>내 일지 보기</HomeLetterViewTitle>
+            <HomeLetterViewTitle>마음챙김 글 작성</HomeLetterViewTitle>
             <HomeLetterViewImg src="https://welldie.com/img/my-letter-img.svg" />
           </HomeLetterViewButton>
           <HomeLetterViewButton onClick={onClickViewOtherLetterButtonHandler}>
-            <HomeLetterViewTitle>다른 일지 보기</HomeLetterViewTitle>
+            <HomeLetterViewTitle>글 보기</HomeLetterViewTitle>
             <HomeLetterViewImg src="https://welldie.com/img/other-letter-img.svg" />
           </HomeLetterViewButton>
         </HomeLetterViewGroupContainer>

@@ -2,28 +2,97 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import BackgroundStar from "../components/MainContent/BackgroundFirst";
-import Typewriter from "react-ts-typewriter";
 import PageContainer from "../components/Common/PageContainer";
 import CommonContentContainer from "../components/Common/CommonContentContainer";
-import { useRecoilState } from "recoil";
-import { isPlayingState } from "../components/MainContent/atoms/MusicStatus";
+import { useParams } from "react-router-dom";
 
 type MainContentFirstProps = {};
 
 const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
+  const { id = "1" } = useParams(); // 'defaultID' is the default value.
+
+  const audioUrls = {
+    1: [
+      "https://welldie.com/img/tts-back/back1.mp3",
+      "https://welldie.com/img/tts/tts2.mp3",
+    ],
+    2: [
+      "https://welldie.com/img/tts-back/back1.mp3",
+      "https://welldie.com/img/tts/tts1.mp3",
+    ],
+    3: [
+      "https://welldie.com/img/tts-back/back2.mp3",
+      "https://welldie.com/img/tts/tts3.mp3",
+    ],
+    4: [
+      "https://welldie.com/img/tts-back/back2.mp3",
+      "https://welldie.com/img/tts/tts4.mp3",
+    ],
+    // ... more ids
+  };
+
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(true);
 
-  // 배경음악 출력
+  // Play background music
 
-  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audioElement1] = useState(() => {
+    const audio = new Audio(audioUrls[id][0]);
+    audio.loop = true; // Set the audio to play indefinitely
+    return audio;
+  });
+
+  const [audioElement2] = useState(() => {
+    const audio = new Audio(audioUrls[id][1]);
+    audio.loop = true;
+    return audio;
+  });
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioElement1.play();
+      audioElement2.play();
+    } else {
+      audioElement1.pause();
+      audioElement2.pause();
+    }
+    return () => {
+      audioElement1.pause();
+      audioElement2.pause();
+    };
+  }, [audioElement1, audioElement2, isPlaying]);
+
+  // 시간을 1초마다 업데이트
+
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(audioElement2.currentTime);
+      setDuration(audioElement2.duration);
+    }, 1000); // 1초마다 시간 업데이트
+
+    return () => clearInterval(interval);
+  }, [audioElement2]);
+
+  // 시간을 "분:초" 형식으로 변환하는 함수
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+
+    return `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+  };
+
+  // 시간을 1초마다 업데이트
 
   const toggleMusic = () => {
     setIsPlaying(!isPlaying);
   };
 
-  // 모달창 클릭시
+  // When modal window is clicked
 
   const [isModalClick, setIsModalClick] = useState(false);
   const [isModalClickSecond, setIsModalClickSecond] = useState(0);
@@ -31,8 +100,8 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
   useEffect(() => {
     if (isModalClick) {
       const timeout0 = setTimeout(() => {
-        setCurrentStep(1);
-      }, 8000);
+        setCurrentStep(4);
+      }, 2000);
 
       setTimeout(() => {
         setIsModalClickSecond(1);
@@ -41,7 +110,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
     }
   }, [isModalClick]);
 
-  // 스크립트 춢력
+  // Display script
 
   useEffect(() => {
     if (currentStep === 1) {
@@ -83,20 +152,18 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
     }
   }, [currentStep]);
 
-  // 스크립트 춢력
+  // Display script
 
   const onClickLogInButtonHandler = () => {
-    navigate("/writecard");
+    navigate("/MeditationList");
   };
 
   const closeModal = () => {
-    setIsPlaying(true);
+    setTimeout(() => {
+      setIsPlaying(true);
+    }, 1500); // Play audio after 3 seconds
     setIsModalVisible(false);
     setIsModalClick(true);
-  };
-
-  const returnHome = () => {
-    navigate("/");
   };
 
   return (
@@ -116,7 +183,9 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                       </ModalContent>
                     </OptionsContainer>
                     <CloseButton onClick={closeModal}>진행하기</CloseButton>
-                    <ReturnButton onClick={returnHome}>뒤로가기</ReturnButton>
+                    <ReturnButton onClick={onClickLogInButtonHandler}>
+                      뒤로가기
+                    </ReturnButton>
                   </ModalContainer>
                 </ModalBackground>
               )}
@@ -135,7 +204,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                   )}
 
                   <BackgroundMusicIcon></BackgroundMusicIcon>
-                  <BackgroundMusicText>배경 bgm</BackgroundMusicText>
+                  <BackgroundMusicText>Mute On</BackgroundMusicText>
                 </BackgroundMusic>
               )}
             </TopContentContainer>
@@ -158,10 +227,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                     opacity: currentStep === 1 ? 1 : 0.5,
                     transition: "opacity 800ms, visibility 800ms",
                   }}
-                >
-                  이 곳은 당신의 내면과 <br></br> 소중한 추억들을 찾을 수 있는
-                  공간이에요.
-                </MainContentFirstMainContent>
+                ></MainContentFirstMainContent>
               )}
               {currentStep >= 2 && (
                 <MainContentFirstMainContent
@@ -170,13 +236,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                     opacity: currentStep === 2 ? 1 : 0.5,
                     transition: "opacity 800ms, visibility 800ms",
                   }}
-                >
-                  <Typewriter
-                    text={`당신의 삶을 돌아보고 \n 그 속에서 찾아낸 아름다움을 \n 이 곳에 기록해주세요.`}
-                    cursor={false}
-                    speed={65}
-                  />
-                </MainContentFirstMainContent>
+                ></MainContentFirstMainContent>
               )}
               {currentStep >= 3 && (
                 <MainContentFirstMainContent
@@ -185,13 +245,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                     opacity: currentStep === 3 ? 1 : 0.5,
                     transition: "opacity 800ms, visibility 800ms",
                   }}
-                >
-                  <Typewriter
-                    text={`추억, 사랑, 물건 \n 정이 깃든 모든 것들이 해당돼요.`}
-                    cursor={false}
-                    speed={65}
-                  />
-                </MainContentFirstMainContent>
+                ></MainContentFirstMainContent>
               )}
               {currentStep >= 4 && (
                 <MainContentFirstMainContent
@@ -200,14 +254,19 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                     opacity: currentStep === 4 ? 1 : 1,
                     transition: "opacity 800ms, visibility 800ms",
                   }}
-                >
-                  <Typewriter
-                    text={`당신의 인생 안에서 \n 놓쳤던 소중한 순간들을 \n 발견할 수 있을거에요.`}
-                    cursor={false}
-                    speed={65}
-                  />
-                </MainContentFirstMainContent>
+                ></MainContentFirstMainContent>
               )}
+              {isModalClickSecond === 1 && (
+                <div
+                  style={{
+                    opacity: currentStep === 1 ? 1 : 1,
+                    transition: "opacity 800ms, visibility 800ms",
+                  }}
+                >
+                  <span>{formatTime(currentTime)}</span>
+                  <span> / {formatTime(duration)}</span>
+                </div>
+              )}{" "}
             </MainContentFirstContentContainer>
             {currentStep >= 5 && (
               <LogInSignUpContainer>
@@ -219,7 +278,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
                   }}
                   onClick={onClickLogInButtonHandler}
                 >
-                  다음
+                  명상 종료
                 </LogInButton>
               </LogInSignUpContainer>
             )}
@@ -376,7 +435,7 @@ const ModalBackground = styled.div`
 const ModalContainer = styled.div`
   /* Your modal container styles go here */
   width: 350px;
-  height: 231px;
+  height: 223px;
   background-color: #fff;
   padding: 24px 20px;
   position: fixed;
@@ -392,10 +451,10 @@ const ModalContainer = styled.div`
 
 const ModalTitle = styled.span`
   color: #000;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   display: block;
-  padding-bottom: 18px;
+  padding-bottom: 16px;
 `;
 
 const OptionsContainer = styled.span`
@@ -410,7 +469,7 @@ const CloseButton = styled.span`
   line-height: 47px;
   display: block;
 
-  margin-top: 35px;
+  margin-top: 30px;
 
   background-color: var(--main-color);
   border-radius: 4px;
