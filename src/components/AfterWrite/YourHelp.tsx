@@ -97,7 +97,7 @@ const YourHelp: FunctionComponent = () => {
 
     console.log(trimValue);
 
-    let numValue: number = Number(trimValue);
+    let numValue = Number(trimValue);
 
     if (numValue > 999999) {
       numValue = Math.floor(numValue / 10);
@@ -238,10 +238,7 @@ const YourHelp: FunctionComponent = () => {
           )}
         </YourHelpTopContainer>
         <ButtonGroupContainer>
-          <ButtonGroupButtonOutline
-            onClick={isActive ? buttonHandler : undefined}
-            isActive={true}
-          >
+          <ButtonGroupButtonOutline onClick={buttonHandler} isActive={true}>
             안 받기
           </ButtonGroupButtonOutline>
           <ButtonGroupButtonFiiled

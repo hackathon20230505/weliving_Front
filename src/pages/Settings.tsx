@@ -64,6 +64,9 @@ const Settings: FunctionComponent<SettingsProps> = () => {
   const onClickLogInButton10 = () => {
     navigate("/changeuserinfo");
   };
+  const onClickLogInButton11 = () => {
+    navigate("/MeditationList");
+  };
 
   return (
     <>
@@ -81,6 +84,8 @@ const Settings: FunctionComponent<SettingsProps> = () => {
           <LogInButton onClick={onClickLogInButton1}>
             인트로 페이지 이동
           </LogInButton>
+
+          <LogInButton onClick={onClickLogInButton11}>명상 듣기</LogInButton>
 
           <LogInButton onClick={onClickLogInButton2}>첫 메인컨텐츠</LogInButton>
           <LogInButton onClick={onClickLogInButton3}>
