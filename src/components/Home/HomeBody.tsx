@@ -20,9 +20,9 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
     navigate("/viewotherletter");
   };
 
-  const onClickMeditationListButtonHandler = () => {
-    navigate("/MeditationList");
-  };
+  // const onClickMeditationListButtonHandler = () => {
+  //   navigate("/MeditationList");
+  // };
 
   return (
     <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
