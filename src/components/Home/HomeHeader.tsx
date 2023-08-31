@@ -14,7 +14,7 @@ const HomeHeader: FunctionComponent<HomeHeaderProps> = () => {
 
   return (
     <CommonHeaderContainer height="56px" xMargin="5%">
-      Well Dying
+      Well Living
       <GoLogoutButton onClick={logoutHandler}>
         <img src="https://wliv.kr/img/logout-icon.svg" alt="뒤로 가기" />
       </GoLogoutButton>
