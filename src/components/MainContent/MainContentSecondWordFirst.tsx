@@ -100,7 +100,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
           <div className="main-fire" />
         </FireBottom>
         <ImageFire
-          src="https://welldie.com/img/onbording/section2-3.svg"
+          src="https://wliv.kr/img/onbording/section2-3.svg"
           style={{
             width: "112px",
             height: "121px",
@@ -113,7 +113,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
       </FireContainer>
 
       <ImageTent
-        src="https://welldie.com/img/onbording/section2-1.svg"
+        src="https://wliv.kr/img/onbording/section2-1.svg"
         style={{
           width: "276px",
           height: "164px",
@@ -123,7 +123,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
         }}
       />
       <ImageChair
-        src="https://welldie.com/img/onbording/section2-2.svg"
+        src="https://wliv.kr/img/onbording/section2-2.svg"
         style={{
           width: "110px",
           height: "79px",

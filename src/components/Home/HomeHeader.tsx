@@ -16,7 +16,7 @@ const HomeHeader: FunctionComponent<HomeHeaderProps> = () => {
     <CommonHeaderContainer height="56px" xMargin="5%">
       Well Dying
       <GoLogoutButton onClick={logoutHandler}>
-        <img src="https://welldie.com/img/logout-icon.svg" alt="뒤로 가기" />
+        <img src="https://wliv.kr/img/logout-icon.svg" alt="뒤로 가기" />
       </GoLogoutButton>
     </CommonHeaderContainer>
   );

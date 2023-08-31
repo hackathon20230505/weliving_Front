@@ -44,7 +44,7 @@ const AnswerGPT: FunctionComponent<AnswerGPTProps> = () => {
   return (
     <CommonContentContainer xPadding="5%">
       <ImageCloud1
-        src="https://welldie.com/img/getanswergpt/getanswergpt-background.svg"
+        src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
         style={{
           width: "100%",
           height: "100%",
@@ -54,7 +54,7 @@ const AnswerGPT: FunctionComponent<AnswerGPTProps> = () => {
         }}
       />
       <ImageCloud1
-        src="https://welldie.com/img/getanswergpt/getanswergpt-background.svg"
+        src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
         style={{
           width: "100%",
           height: "100%",

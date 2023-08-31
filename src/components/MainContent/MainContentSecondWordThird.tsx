@@ -35,7 +35,7 @@ const MainContentSecondWordFirst: React.FC<
     <BackgroundStarContainer>
       {/* 배경 출력 */}
       <ImageTent
-        src="https://welldie.com/img/onbording/section3-0.svg"
+        src="https://wliv.kr/img/onbording/section3-0.svg"
         style={{
           width: "190px",
           height: "19px",
@@ -47,7 +47,7 @@ const MainContentSecondWordFirst: React.FC<
       {(currentStep === 1 || currentStep === 2) && (
         <ImageTent
           className={currentStep === 1 || currentStep === 2 ? "active" : ""}
-          src="https://welldie.com/img/onbording/section3-4.svg"
+          src="https://wliv.kr/img/onbording/section3-4.svg"
           style={{
             width: "138px",
             height: "149px",
@@ -60,7 +60,7 @@ const MainContentSecondWordFirst: React.FC<
       {currentStep === 2 && (
         <ImageTent
           className={currentStep === 2 ? "active" : ""}
-          src="https://welldie.com/img/onbording/section3-2.svg"
+          src="https://wliv.kr/img/onbording/section3-2.svg"
           style={{
             width: "80px",
             height: "79px",
@@ -72,7 +72,7 @@ const MainContentSecondWordFirst: React.FC<
       {currentStep >= 3 && (
         <ImageTent
           className={currentStep === 3 ? "active" : ""}
-          src="https://welldie.com/img/onbording/section3-3.svg"
+          src="https://wliv.kr/img/onbording/section3-3.svg"
           style={{
             width: "149px",
             height: "149px",

@@ -59,7 +59,7 @@ const ViewOtherLetterBody: FunctionComponent<ViewOtherLetterBodyProps> = () => {
       <ReturnHeadDiscription>
         <h1>나를 알기 위한 여행을 시작해보세요</h1>
         <p>클릭하면 명상을 시작할 수 있습니다</p>
-        <img src="https://welldie.com/img/arrow-left-icon.svg" alt=""></img>
+        <img src="https://wliv.kr/img/arrow-left-icon.svg" alt=""></img>
       </ReturnHeadDiscription>
 
       <CustomContentContainer>

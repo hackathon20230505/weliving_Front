@@ -8,25 +8,25 @@ const BackgroundStar: FunctionComponent<BackgroundStarProps> = () => {
   return (
     <BackgroundStarContainer>
       <IntroBackground1
-        src="https://welldie.com/img/intro/intro-background-0-1.svg"
+        src="https://wliv.kr/img/intro/intro-background-0-1.svg"
         style={{ top: "-60px", right: "-340px", opacity: "100%" }}
       />
       <IntroBackground2
-        src="https://welldie.com/img/intro/intro-background-0-2.svg"
+        src="https://wliv.kr/img/intro/intro-background-0-2.svg"
         style={{ top: "161px", opacity: "100%", left: "-45px" }}
       />
       <IntroBackground3
-        src="https://welldie.com/img/intro/intro-background-0-3.svg"
+        src="https://wliv.kr/img/intro/intro-background-0-3.svg"
         style={{ top: "390px", right: "-370px", opacity: "100%" }}
       />
       <IntroBackground4
-        src="https://welldie.com/img/intro/intro-background-0-4.svg"
+        src="https://wliv.kr/img/intro/intro-background-0-4.svg"
         style={{ top: "-100px", left: "0px", opacity: "90%" }}
       />
 
       {/* 별 시작 */}
       <ImageStar1
-        src="https://welldie.com/img/intro/intro-background-0-3.svg"
+        src="https://wliv.kr/img/intro/intro-background-0-3.svg"
         style={{
           width: "119px",
           height: "120px",

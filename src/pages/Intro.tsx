@@ -81,7 +81,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
       <Header />
       <IntroBackgroundMain>
         <IntroBackground5
-          src="https://welldie.com/img/intro/intro-door-light.png"
+          src="https://wliv.kr/img/intro/intro-door-light.png"
           style={{
             width: "100%",
             height: "100%",
@@ -91,7 +91,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
           }}
         />
         <IntroContent0
-          src="https://welldie.com/img/intro/intro-door.svg"
+          src="https://wliv.kr/img/intro/intro-door.svg"
           style={{
             width: "100%",
             height: "100%",
@@ -109,7 +109,7 @@ const Intro: FunctionComponent<IntroProps> = () => {
           <LogInButton onClick={onClickLogInButtonHandler}>로그인</LogInButton>
           <KakaoLogInButton onClick={onClickKakaoLogInButtonHandler}>
             <KaKaoIconImg
-              src="https://welldie.com/img/kakao-icon.svg"
+              src="https://wliv.kr/img/kakao-icon.svg"
               alt="카카오 아이콘"
             />
             카카오로 로그인

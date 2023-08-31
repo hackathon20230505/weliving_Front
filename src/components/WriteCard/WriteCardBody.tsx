@@ -113,7 +113,7 @@ const WriteCardBody: FunctionComponent<WriteCardBodyProps> = () => {
             ))}
             {cardInputs.length < 6 && (
               <AddInputButton onClick={handleAddInput}>
-                <img src="https://welldie.com/img/card/plus-icon.svg" />
+                <img src="https://wliv.kr/img/card/plus-icon.svg" />
               </AddInputButton>
             )}
           </SignUpContainer>
@@ -245,7 +245,7 @@ const BackgroundMusicIcon = styled.div`
   width: 20px;
   height: 20px;
   left: 12px;
-  background: url(https://welldie.com/img/onbording/icon-music.svg) no-repeat
+  background: url(https://wliv.kr/img/onbording/icon-music.svg) no-repeat
     center center;
 `;
 

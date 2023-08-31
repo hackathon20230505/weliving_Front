@@ -143,7 +143,7 @@ const MainContentFirst: FunctionComponent<MainContentFirstProps> = () => {
             {isModalClickSecond === 1 && (
               <>
                 <ImageMoon
-                  src="https://welldie.com/img/onbording/moon.svg"
+                  src="https://wliv.kr/img/onbording/moon.svg"
                   style={{ top: "90px", left: "5px" }}
                 />
                 <BackgroundStar />
@@ -340,7 +340,7 @@ const BackgroundMusicIcon = styled.div`
   width: 20px;
   height: 20px;
   left: 12px;
-  background: url(https://welldie.com/img/onbording/icon-music.svg) no-repeat
+  background: url(https://wliv.kr/img/onbording/icon-music.svg) no-repeat
     center center;
 `;
 

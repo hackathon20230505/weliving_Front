@@ -89,7 +89,7 @@ const BottomSheet: FunctionComponent<BottomSheetProps> = ({
           {closable && (
             <CloseIconButton onClick={onClickCloseIconHandler}>
               <CloseIcon
-                src="https://welldie.com/img/x-icon.svg"
+                src="https://wliv.kr/img/x-icon.svg"
                 alt="닫기 버튼"
               />
             </CloseIconButton>

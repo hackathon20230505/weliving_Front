@@ -153,7 +153,7 @@ const SignUpBody: FunctionComponent<SignUpBodyProps> = () => {
           <SignUpInput
             id="userEmail"
             type="text"
-            placeholder="예) example@welldie.com"
+            placeholder="예) example@wliv.kr"
             value={userInfo.userEmail}
             onChange={onChangeUserEmailHandler}
           />

@@ -139,7 +139,7 @@ const LogInBody: FunctionComponent<LogInBodyProps> = () => {
           <LogInInput
             id="userEmail"
             type="text"
-            placeholder="예) example@welldie.com"
+            placeholder="예) example@wliv.kr"
             isValidUserEmail={isValidUserEmail}
             value={userEmail}
             onChange={onChangeUserEmailHandler}

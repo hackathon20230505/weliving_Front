@@ -100,7 +100,7 @@ const MainContentSecondWordFirst: React.FC<MainContentSecondWordFirstProps> = ({
           <div className="main-fire" />
         </FireBottom>
         <ImageFire
-          src="https://welldie.com/img/onbording/section2-3.svg"
+          src="https://wliv.kr/img/onbording/section2-3.svg"
           style={{
             width: "168px",
             height: "180px",

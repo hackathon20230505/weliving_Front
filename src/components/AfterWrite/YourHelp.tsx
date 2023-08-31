@@ -126,7 +126,7 @@ const YourHelp: FunctionComponent = () => {
       <YourHelpContainer>
         <YourHelpTopContainer>
           <ImageCloud1
-            src="https://welldie.com/img/getanswergpt/getanswergpt-background.svg"
+            src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
             style={{
               width: "100%",
               height: "100%",
@@ -136,7 +136,7 @@ const YourHelp: FunctionComponent = () => {
             }}
           />
           <ImageCloud1
-            src="https://welldie.com/img/getanswergpt/getanswergpt-background.svg"
+            src="https://wliv.kr/img/getanswergpt/getanswergpt-background.svg"
             style={{
               width: "100%",
               height: "100%",
@@ -145,7 +145,7 @@ const YourHelp: FunctionComponent = () => {
             }}
           />
           <ImageCloud1
-            src="https://welldie.com/img/onbording/star-7.svg"
+            src="https://wliv.kr/img/onbording/star-7.svg"
             style={{
               width: "165px",
               height: "43px",
@@ -154,7 +154,7 @@ const YourHelp: FunctionComponent = () => {
             }}
           />
           <ImageCloud1
-            src="https://welldie.com/img/onbording/star-7.svg"
+            src="https://wliv.kr/img/onbording/star-7.svg"
             style={{
               width: "165px",
               height: "43px",
@@ -163,7 +163,7 @@ const YourHelp: FunctionComponent = () => {
             }}
           />
           <ImageCloud1
-            src="https://welldie.com/img/onbording/star-7.svg"
+            src="https://wliv.kr/img/onbording/star-7.svg"
             style={{
               width: "134px",
               height: "34px",
@@ -172,7 +172,7 @@ const YourHelp: FunctionComponent = () => {
             }}
           />
           <ImageCloud1
-            src="https://welldie.com/img/onbording/star-7.svg"
+            src="https://wliv.kr/img/onbording/star-7.svg"
             style={{
               width: "265px",
               height: "66px",

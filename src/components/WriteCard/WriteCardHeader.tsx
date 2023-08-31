@@ -33,7 +33,7 @@ const WriteCardHeader: FunctionComponent<WriteCardHeaderProps> = () => {
     <>
       <CommonHeaderContainer height="56px" xMargin="5%">
         {/* <GoBackButton onClick={onClickGoBackButtonHandler}>
-        <img src="https://welldie.com/img/arrow-left-icon.svg" alt="뒤로 가기" />
+        <img src="https://wliv.kr/img/arrow-left-icon.svg" alt="뒤로 가기" />
       </GoBackButton> */}
         <FindPWTitle>추억카드</FindPWTitle>
         <PostButtonGropContainer>
@@ -54,7 +54,7 @@ const WriteCardHeader: FunctionComponent<WriteCardHeaderProps> = () => {
           align="right"
           closable={true}
           closeHandler={closeHandler}
-          closeIconOverwrap={<img src="https://welldie.com/img/x-icon.svg" />}
+          closeIconOverwrap={<img src="https://wliv.kr/img/x-icon.svg" />}
         >
           <BottomSheetTitle></BottomSheetTitle>
         </ResizableBottomSheetHeader>
@@ -65,19 +65,19 @@ const WriteCardHeader: FunctionComponent<WriteCardHeaderProps> = () => {
             </CardBottomSheetTitle>
             <SwiperWrapper pagination={true} loop={true} modules={[Pagination]}>
               <SwiperSlide>
-                <SwiperImg src="https://welldie.com/img/card/card-help-2.png" />
+                <SwiperImg src="https://wliv.kr/img/card/card-help-2.png" />
               </SwiperSlide>
               <SwiperSlide>
-                <SwiperImg src="https://welldie.com/img/card/card-help-5.png" />
+                <SwiperImg src="https://wliv.kr/img/card/card-help-5.png" />
               </SwiperSlide>
               <SwiperSlide>
-                <SwiperImg src="https://welldie.com/img/card/card-help-4.png" />
+                <SwiperImg src="https://wliv.kr/img/card/card-help-4.png" />
               </SwiperSlide>
               <SwiperSlide>
-                <SwiperImg src="https://welldie.com/img/card/card-help-3.png" />
+                <SwiperImg src="https://wliv.kr/img/card/card-help-3.png" />
               </SwiperSlide>{" "}
               <SwiperSlide>
-                <SwiperImg src="https://welldie.com/img/card/card-help-1.png" />
+                <SwiperImg src="https://wliv.kr/img/card/card-help-1.png" />
               </SwiperSlide>
             </SwiperWrapper>
           </BottomSheetContentWrapper>
@@ -107,7 +107,7 @@ const SubmitButton = styled.div`
     display: inline-block;
     width: 12px;
     height: 6px;
-    background: url("https://welldie.com/img/card/arrow-top-icon.svg") no-repeat
+    background: url("https://wliv.kr/img/card/arrow-top-icon.svg") no-repeat
       center center;
     background-size: contain;
     margin-left: 4px;

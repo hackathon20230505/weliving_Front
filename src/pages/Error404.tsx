@@ -16,7 +16,7 @@ const Error404: FunctionComponent<Error404Props> = () => {
     <PageContainer>
       <CommonContentContainer h={"100%"} xPadding="5%">
         <EmptyGrayBoxContainer>
-          <img src="https://welldie.com/img/error-404-img.svg" alt="404 에러" />
+          <img src="https://wliv.kr/img/error-404-img.svg" alt="404 에러" />
         </EmptyGrayBoxContainer>
         <Error404ContentContainer>
           <Error404title>404</Error404title>

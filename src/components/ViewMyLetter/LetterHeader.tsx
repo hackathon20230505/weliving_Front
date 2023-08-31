@@ -46,7 +46,7 @@ const LetterHeader = ({
 
   const [toastList, setToastList] = useState<{ id: number }[]>([]);
   const copyURL = () => {
-    navigator.clipboard.writeText("https://welldie.com/").then(() => {
+    navigator.clipboard.writeText("https://wliv.kr/").then(() => {
       const id = Math.floor(Math.random() * 100000);
       setToastList((prev) => [...prev, { id }]);
 
@@ -61,7 +61,7 @@ const LetterHeader = ({
       <CommonHeaderContainer height="56px" xMargin="5%">
         <GoBackButton onClick={onClickGoBackButtonHandler}>
           <img
-            src="https://welldie.com/img/arrow-left-icon.svg"
+            src="https://wliv.kr/img/arrow-left-icon.svg"
             alt="뒤로 가기"
           />
         </GoBackButton>
@@ -69,14 +69,14 @@ const LetterHeader = ({
           <ButtonGroupContainer>
             <ShareButton onClick={onClickShareButtonHandler}>
               <img
-                src="https://welldie.com/img/share-icon.svg"
+                src="https://wliv.kr/img/share-icon.svg"
                 alt="공유하기"
               />
             </ShareButton>
             {isSelf && (
               <MoreButton onClick={onClickMoreButtonHandler}>
                 <img
-                  src="https://welldie.com/img/more-icon.svg"
+                  src="https://wliv.kr/img/more-icon.svg"
                   alt="더 많은 기능"
                 />
               </MoreButton>
@@ -104,7 +104,7 @@ const LetterHeader = ({
               <CopyURLButtonBox>
                 <CopyURLButton onClick={copyURL}>
                   <img
-                    src={"https://welldie.com/img/kakao-icon2.svg"}
+                    src={"https://wliv.kr/img/kakao-icon2.svg"}
                     alt={"카카오 로고"}
                   />
                 </CopyURLButton>
@@ -113,7 +113,7 @@ const LetterHeader = ({
               <CopyURLButtonBox>
                 <CopyURLButton onClick={copyURL}>
                   <img
-                    src={"https://welldie.com/img/insta-icon.svg"}
+                    src={"https://wliv.kr/img/insta-icon.svg"}
                     alt={"인스타그램 로고"}
                   />
                 </CopyURLButton>
@@ -122,7 +122,7 @@ const LetterHeader = ({
               <CopyURLButtonBox>
                 <CopyURLButton onClick={copyURL}>
                   <img
-                    src={"https://welldie.com/img/link-icon.svg"}
+                    src={"https://wliv.kr/img/link-icon.svg"}
                     alt={"링크연결 아이콘"}
                   />
                 </CopyURLButton>
@@ -151,7 +151,7 @@ const LetterHeader = ({
               >
                 수정하기
                 <img
-                  src="https://welldie.com/img/write-icon.svg"
+                  src="https://wliv.kr/img/write-icon.svg"
                   alt={"펜 아이콘"}
                 />
               </ETCButton>

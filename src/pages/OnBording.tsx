@@ -69,7 +69,7 @@ const WillFirst: FunctionComponent = () => {
       <CommonContentContainer xPadding="5%">
         <WillFirstContainer>
           <ImageMoon
-            src="https://welldie.com/img/onbording/moon.svg"
+            src="https://wliv.kr/img/onbording/moon.svg"
             style={{ top: "90px", left: "0" }}
           />
           <BackgroundStar />
