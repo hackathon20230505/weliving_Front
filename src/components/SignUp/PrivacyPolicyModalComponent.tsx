@@ -11,7 +11,7 @@ const PrivacyPolicyModalComponent: FunctionComponent<
       <TPTitle>1조 (총칙)</TPTitle>
       <TPSubTitle>가. 목적</TPSubTitle>
       <TPContent>
-        1) 웰다잉(이하 ‘회사’라고 함)은 회원의 정보를 소중하게 생각하고 안전하게
+        1) 웰리빙(이하 ‘회사’라고 함)은 회원의 정보를 소중하게 생각하고 안전하게
         보호하기 위하여 최선의 노력을 다하고 있으며, 개인정보보호법을 포함한
         관계 법령과 정부의 가이드라인을 준수합니다.
       </TPContent>
