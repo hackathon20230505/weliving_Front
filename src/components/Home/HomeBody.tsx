@@ -32,7 +32,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickMeditationListButtonHandler}>
             <HomeLetterViewTitle>AI 명상</HomeLetterViewTitle>
-            <HomeLetterViewImg src="https://welldie.com/img/meditation-img.svg" />
+            <HomeLetterViewImg src="https://wliv.kr/img/meditation-img.svg" />
           </HomeLetterViewButton>
         </HomeLetterViewGroupContainer>
         <br></br> */}
@@ -40,11 +40,11 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
             <HomeLetterViewTitle>마음챙김 글 작성</HomeLetterViewTitle>
-            <HomeLetterViewImg src="https://welldie.com/img/my-letter-img.svg" />
+            <HomeLetterViewImg src="https://wliv.kr/img/my-letter-img.svg" />
           </HomeLetterViewButton>
           <HomeLetterViewButton onClick={onClickViewOtherLetterButtonHandler}>
             <HomeLetterViewTitle>글 보기</HomeLetterViewTitle>
-            <HomeLetterViewImg src="https://welldie.com/img/other-letter-img.svg" />
+            <HomeLetterViewImg src="https://wliv.kr/img/other-letter-img.svg" />
           </HomeLetterViewButton>
         </HomeLetterViewGroupContainer>
       </HomeLetterGroupContainer>
@@ -53,7 +53,7 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
         <HomeLetterTitle>설정</HomeLetterTitle>
         <HomeSettingButton onClick={onClickSettingButtonHandler}>
           <HomeSettingButtonTitle>내 정보 변경</HomeSettingButtonTitle>
-          <GoIcon src="https://welldie.com/img/arrow-right-icon.svg" />
+          <GoIcon src="https://wliv.kr/img/arrow-right-icon.svg" />
         </HomeSettingButton>
       </HomeSettingContainer>
     </CommonContentContainer>
