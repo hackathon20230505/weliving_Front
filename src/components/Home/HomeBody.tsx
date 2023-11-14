@@ -20,22 +20,22 @@ const HomeBody: FunctionComponent<HomeBodyProps> = () => {
     navigate("/viewotherletter");
   };
 
-  // const onClickMeditationListButtonHandler = () => {
-  //   navigate("/MeditationList");
-  // };
+   const onClickMeditationListButtonHandler = () => {
+     navigate("/MeditationList");
+   };
 
   return (
     <CommonContentContainer xPadding="5%" topSpacing={"1rem"}>
       <HomeLetterGroupContainer>
         {/* 별 시작 */}
-        {/* <HomeLetterTitle>명상</HomeLetterTitle>
+        <HomeLetterTitle>명상</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickMeditationListButtonHandler}>
             <HomeLetterViewTitle>AI 명상</HomeLetterViewTitle>
             <HomeLetterViewImg src="https://wliv.kr/img/meditation-img.svg" />
           </HomeLetterViewButton>
         </HomeLetterViewGroupContainer>
-        <br></br> */}
+        <br></br>
         <HomeLetterTitle> 일지</HomeLetterTitle>
         <HomeLetterViewGroupContainer>
           <HomeLetterViewButton onClick={onClickViewMyLetterButtonHandler}>
